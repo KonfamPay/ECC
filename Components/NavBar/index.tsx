@@ -88,11 +88,13 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 							aria-controls="mobile-menu"
 							aria-expanded="false"
 						>
-							<img
-								src="./images/hamburgerNew.png"
-								alt=""
-								className=" h-3 w-5"
-							/>
+							<Link href="/menu">
+								<img
+									src="./images/hamburgerNew.png"
+									alt=""
+									className=" h-3 w-5"
+								/>
+							</Link>
 						</button>
 					</li>
 				</ul>
@@ -151,40 +153,6 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 					</ul>
 				</div>
 			</div>
-			{expand && (
-				<ul className="bg-white w-full">
-					<NavItem
-						title="Complaints"
-						href="/Complaints"
-						isTransparent={isTransparent}
-						hasWhiteText={hasWhiteText ? hasWhiteText : false}
-					/>
-					<NavItem
-						title="Scam Statistics"
-						href="/statistics"
-						isTransparent={isTransparent}
-						hasWhiteText={hasWhiteText ? hasWhiteText : false}
-					/>
-					<NavItem
-						title="For Law Practitioners"
-						href="/lawPractitioners"
-						isTransparent={isTransparent}
-						hasWhiteText={hasWhiteText ? hasWhiteText : false}
-					/>
-					<NavItem
-						title="FAQS"
-						href="/faq"
-						isTransparent={isTransparent}
-						hasWhiteText={hasWhiteText ? hasWhiteText : false}
-					/>
-					<NavItem
-						title="Login / SignUp"
-						href="login"
-						isTransparent={isTransparent}
-						hasWhiteText={hasWhiteText ? hasWhiteText : false}
-					/>
-				</ul>
-			)}
 		</nav>
 	);
 };

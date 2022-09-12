@@ -15,7 +15,7 @@ const LatestScams: NextPage = () => {
 	const [areSearchResults, setAreSearchResults] = useState(false);
 	const [resultIndicatorShowing, setResultIndicatorShowing] = useState(false);
 	const [currentSearchPage, setCurrentSearchPage] = useState(1);
-	const pageSize = "small";
+	const pageSize = true;
 
 	const maxResultsPerPage = 20;
 	const maxResultsPerSmallPage = 6;
@@ -125,7 +125,7 @@ mt-[110px] "
 						</div>
 						<div className="lg:block hidden">
 							<PaginationSection
-								pageSize={undefined}
+								pageSize={false}
 								searchResults={searchResults}
 								setSearchResults={setSearchResults}
 								maxResultsPerPage={maxResultsPerPage}
