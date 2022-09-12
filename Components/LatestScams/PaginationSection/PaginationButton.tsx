@@ -3,7 +3,7 @@ interface PaginationButtonProps {
 	isPage?: boolean;
 	isActive?: boolean;
 	onClick?: () => void;
-	pageSize: any;
+	pageSize: boolean;
 }
 const PaginationButton: React.FC<PaginationButtonProps> = ({ text, pageSize, isPage, isActive, onClick }) => {
 	return (
