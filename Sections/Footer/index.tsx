@@ -10,7 +10,7 @@ const Footer: React.FC = (props) => {
       <div className="flex gap-[36px] lg:gap-[150px]">
         <div className="flex-col gap-[50px] hidden lg:flex">
           <img
-            src="./images/logo.svg"
+            src="./images/eccLogo-2.svg"
             className="w-[65px]"
             alt="ECC's Logo"
           />
@@ -48,7 +48,7 @@ const Footer: React.FC = (props) => {
       </div>
       <div className="flex-col gap-[30px] lg:hidden flex">
         <img
-          src="./images/logo.svg"
+          src="./images/eccLogo-2.svg"
           className="w-[35px]"
           alt="ECC's Logo"
         />
