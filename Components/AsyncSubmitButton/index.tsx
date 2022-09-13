@@ -12,7 +12,7 @@ export const AsyncSubmitButton: React.FC<AsyncSubmitButtonProps> = ({ onSubmit, 
 	return (
 		<button
 			onClick={onSubmit}
-			className="w-full text-[20px] text-white h-[66px] xl:h-[74px] rounded-xl bg-eccblue active:scale-95 transition-[200ms] font-semibold"
+			className=" w-full h-[50px] mx-auto lg:w-full lg:text-[20px] text-white lg:h-[66px] xl:h-[74px] rounded-xl bg-eccblue active:scale-95 transition-[200ms] lg:font-semibold"
 		>
 			{loading && <ButtonLoader />}
 			{!loading && (
