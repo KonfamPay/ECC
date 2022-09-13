@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface FooterListProps {
 	title: string;
 	items: string[];
