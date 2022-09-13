@@ -13,16 +13,20 @@ const RecoverPage: NextPage = () => {
 	const [cookies, setCookie, removeCookie] = useCookies(["token"]);
 
 	const [loading, setLoading] = useState(false);
-	const [backendError, setBackendError] = useState("");
+	const [backendError, setBackendError] = useState(false);
 	const [popup, setPopup] = useState(false);
 	const [value, setValue] = useState("");
+	const [resend, setResend] = useState(false);
 
 	const router = useRouter();
 
 	const changeValue = ({ currentTarget: input }: { currentTarget: any }) => {
 		setValue(input.value);
 	};
-	const resendCode = () => {};
+	const resendCode = () => {
+		setPopup(true);
+		setResend(true);
+	};
 
 	const onSubmit = async (e: { preventDefault: () => void }) => {
 		e.preventDefault();
@@ -34,7 +38,7 @@ const RecoverPage: NextPage = () => {
 				/* pass email as the second key in the object */
 			}
 			const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth`, payload);
-			setBackendError("");
+			setBackendError(false);
 			{
 				/* 
                 awaiting response from the server to check if the code passed as payload matches any reset code in the db and if the reset code belongs to the the authorized email  
@@ -48,7 +52,7 @@ const RecoverPage: NextPage = () => {
 			router.push("/password-reset");
 		} catch (err: any) {
 			try {
-				if (err.response.data.message) setBackendError(err.response.data.message);
+				if (err.response.data.message) setBackendError(true);
 				setPopup(true);
 			} catch (err: any) {
 				alert("Something went wrong.");
@@ -82,7 +86,8 @@ const RecoverPage: NextPage = () => {
 				<div className="w-full px-[90px] flex flex-col justify-center">
 					{popup && (
 						<Popup
-							status={backendError}
+							error={backendError}
+							resend={resend}
 							exit={setPopup}
 						/>
 					)}
@@ -130,7 +135,8 @@ const RecoverPage: NextPage = () => {
 				</div>
 				{popup && (
 					<Popup
-						status={backendError}
+						error={backendError}
+						resend={resend}
 						exit={setPopup}
 					/>
 				)}
