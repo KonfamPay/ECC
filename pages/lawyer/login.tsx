@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
-import InputGroup from "../../Components/Login/InputGroup";
+import InputGroup from "../../Components/Login/LoginInputGroup";
 
 const LawyerLoginPage: NextPage = () => {
 	const [email, setEmail] = useState("");
@@ -14,26 +14,17 @@ const LawyerLoginPage: NextPage = () => {
 					src="/Images/whiteEccLogo.svg"
 				/>
 				<div className="ml-[50px] mt-[120px] text-white">
-					<p className="text-[40px] xl:text-[40px] font-bold">
-						Welcome Back!
-					</p>
-					<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">
-						Login to your account to help user get value and solve
-						issues.
-					</p>
+					<p className="text-[40px] xl:text-[40px] font-bold">Welcome Back!</p>
+					<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Login to your account to help user get value and solve issues.</p>
 				</div>
 			</div>
 			<div className="w-full px-[90px] flex flex-col justify-center">
 				<div>
-					<p className="text-[36px] xl:text-[40px] text-center">
-						Login to your account
-					</p>
+					<p className="text-[36px] xl:text-[40px] text-center">Login to your account</p>
 					<p className="text-center mt-[20px] mb-[38px]">
 						Don't have an account?{" "}
 						<Link href="/lawyer/signup">
-							<span className="text-eccblue cursor-pointer">
-								Create an account
-							</span>
+							<span className="text-eccblue cursor-pointer">Create an account</span>
 						</Link>
 					</p>
 					<form>
@@ -53,9 +44,7 @@ const LawyerLoginPage: NextPage = () => {
 								type="password"
 							/>
 						</div>
-						<p className="text-center my-[38px]">
-							Forgot Password?
-						</p>
+						<p className="text-center my-[38px]">Forgot Password?</p>
 						<button
 							onClick={(e) => e.preventDefault()}
 							className="w-full text-[20px] text-white py-[18px] xl:py-[22px] rounded-xl bg-darkblue"

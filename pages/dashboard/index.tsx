@@ -36,12 +36,9 @@ const index: NextPage = (props) => {
 			<div className="">
 				<div className="bg-[#020D1B] w-full h-[255px] rounded-[20px] flex flex-row relative">
 					<div className="text-white pl-[43px] py-[58.5px]">
-						<p className="text-[40px] leading-[60px] font-[600]">
-							Hi, {user.firstName}
-						</p>
+						<p className="text-[40px] leading-[60px] font-[600]">Hi, {user.firstName}</p>
 						<p className="text-[24px] leading-[36px] font-[600] w-[503px]">
-							Vendor don do you strong thing again? <br /> We are
-							ready to listen to your complaints
+							Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
 						</p>
 					</div>
 					<div>

@@ -9,13 +9,7 @@ interface FileAComplaintRadioProps {
 	setValue: Dispatch<SetStateAction<boolean>>;
 }
 
-const index: React.FC<FileAComplaintRadioProps> = ({
-	iconPath,
-	title,
-	description,
-	value,
-	setValue,
-}) => {
+const index: React.FC<FileAComplaintRadioProps> = ({ iconPath, title, description, value, setValue }) => {
 	return (
 		<div
 			onClick={() => setValue(!value)}
@@ -32,12 +26,8 @@ const index: React.FC<FileAComplaintRadioProps> = ({
 					<div className="border-r-[2px] border-r-eccblue h-[17.39px] lg:h-[23px]" />
 				</div>
 				<div className="">
-					<p className="text-eccblue text-[14px] lg:text-[20px] font-bold">
-						{title}
-					</p>
-					<p className="text-[10px] lg:text-[18px] font-[400]">
-						{description}
-					</p>
+					<p className="text-eccblue text-[14px] lg:text-[20px] font-bold">{title}</p>
+					<p className="text-[10px] lg:text-[18px] font-[400]">{description}</p>
 				</div>
 			</div>
 			<div

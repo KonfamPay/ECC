@@ -3,13 +3,13 @@ import ComplaintsNavBar from "../../../Components/DashboardComponents/DashboardP
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 
 const mycomplaints: NextPage = (props) => {
-  return (
-    <NavWrapper>
-      <div className="">
-        <ComplaintsNavBar />
-      </div>
-    </NavWrapper>
-  );
+	return (
+		<NavWrapper>
+			<div className="">
+				<ComplaintsNavBar />
+			</div>
+		</NavWrapper>
+	);
 };
 
 export default mycomplaints;

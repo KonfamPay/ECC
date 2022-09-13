@@ -6,7 +6,7 @@ interface faqComponentProps {
 	id: string;
 }
 
-const index: React.FC<faqComponentProps> = ({ title, text, id }) => {
+ export const SmallFaqComponent: React.FC<faqComponentProps> = ({ title, text, id }) => {
 	return (
 		<div className="relative border-b-[0.5px] border-b-[#cccccc] pt-[16px] first:pt-0 last:border-b-0">
 			<input
@@ -22,15 +22,14 @@ const index: React.FC<faqComponentProps> = ({ title, text, id }) => {
 				{title}
 				<div className="plus absolute ml-[10px] z-[5] text-[1.8rem] leading-[100%] select-none right-[10px] top-[15px]">
 					<div className="w-[15px] h-[15px] flex items-center justify-center bg-white rounded-full">
-						<img src="../icons/chevron-down.svg" alt="" />
+						<img
+							src="../icons/chevron-down.svg"
+							alt=""
+						/>
 					</div>
 				</div>
 			</label>
-			<div className="answers text-white py-[0px] h-0 overflow-hidden z-[-1] opacity-0 leading-[170%]">
-				{text}
-			</div>
+			<div className="answers text-white py-[0px] h-0 overflow-hidden z-[-1] opacity-0 leading-[170%]">{text}</div>
 		</div>
 	);
 };
-
-export default index;

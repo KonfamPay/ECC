@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ButtonLoader = () => {
+export const ButtonLoader = () => {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -14,4 +14,3 @@ const ButtonLoader = () => {
 		</motion.div>
 	);
 };
-export default ButtonLoader;

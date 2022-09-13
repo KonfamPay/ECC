@@ -1,21 +1,21 @@
 import type { NextPage } from "next";
-import FooterComplaints from "../../Components/FooterComplaints";
-import NavBar from "../../Components/NavBar";
+import { Footer } from "../../Components";
+import { NavBar } from "../../Components";
 import JoinLawyersSection from "../../Sections/JoinLawyersSection";
 import MakeThingsRightSection from "../../Sections/MakeThingsRightSection";
 import ResolveComplaintsSection from "../../Sections/ResolveComplaints";
 
 const LawPracitioners: NextPage = () => {
-  return (
-    <>
-      <NavBar />
-      <div className="lg:mt-[200px]">
-        <ResolveComplaintsSection />
-        <MakeThingsRightSection />
-        <JoinLawyersSection />
-        <FooterComplaints />
-      </div>
-    </>
-  );
+	return (
+		<>
+			<NavBar />
+			<div className="lg:mt-[200px]">
+				<ResolveComplaintsSection />
+				<MakeThingsRightSection />
+				<JoinLawyersSection />
+				<Footer />
+			</div>
+		</>
+	);
 };
 export default LawPracitioners;

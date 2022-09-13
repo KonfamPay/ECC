@@ -15,18 +15,7 @@ interface Page3Props {
 	setTermsAndConditions: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page3: React.FC<Page3Props> = ({
-	wantsRefund,
-	wantsApology,
-	wantsCompensation,
-	wantsReplacement,
-	setWantsRefund,
-	setWantsApology,
-	setWantsCompensation,
-	setWantsReplacement,
-	termsAndConditions,
-	setTermsAndConditions,
-}) => {
+const Page3: React.FC<Page3Props> = ({ wantsRefund, wantsApology, wantsCompensation, wantsReplacement, setWantsRefund, setWantsApology, setWantsCompensation, setWantsReplacement, termsAndConditions, setTermsAndConditions }) => {
 	const [successModalShowing, setSuccessModalShowing] = useState(false);
 	const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
@@ -48,9 +37,7 @@ const Page3: React.FC<Page3Props> = ({
 				/>
 			)}
 			<div>
-				<p className="text-[14px] lg:text-[24px] leading-[21px] lg:leading-[37px] font-[400]">
-					Kindly let us know what you want the end of this process.
-				</p>
+				<p className="text-[14px] lg:text-[24px] leading-[21px] lg:leading-[37px] font-[400]">Kindly let us know what you want the end of this process.</p>
 			</div>
 			<form action="">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] gap-y-[16px] lg:gap-y-[58px] mt-[60px]">
@@ -58,9 +45,7 @@ const Page3: React.FC<Page3Props> = ({
 						<FileAComplaintRadio
 							iconPath={"refund"}
 							title={"A Refund"}
-							description={
-								"All expenses incurred will be returned to you"
-							}
+							description={"All expenses incurred will be returned to you"}
 							value={wantsRefund}
 							setValue={setWantsRefund}
 						/>
@@ -69,9 +54,7 @@ const Page3: React.FC<Page3Props> = ({
 						<FileAComplaintRadio
 							iconPath={"compensation"}
 							title={"A Compensation"}
-							description={
-								"You will be compensated by the company"
-							}
+							description={"You will be compensated by the company"}
 							value={wantsCompensation}
 							setValue={setWantsCompensation}
 						/>
@@ -89,9 +72,7 @@ const Page3: React.FC<Page3Props> = ({
 						<FileAComplaintRadio
 							iconPath={"replacement"}
 							title={"A Replacement"}
-							description={
-								"Your item will be replaced with the right one"
-							}
+							description={"Your item will be replaced with the right one"}
 							value={wantsReplacement}
 							setValue={setWantsReplacement}
 						/>
@@ -99,13 +80,9 @@ const Page3: React.FC<Page3Props> = ({
 				</div>
 				<div className="flex gap-x-[26px] mt-[71px] w-full">
 					<div
-						onClick={() =>
-							setTermsAndConditions(!termsAndConditions)
-						}
+						onClick={() => setTermsAndConditions(!termsAndConditions)}
 						style={{
-							borderColor: termsAndConditions
-								? "#005cc8"
-								: "#4f4f4f",
+							borderColor: termsAndConditions ? "#005cc8" : "#4f4f4f",
 						}}
 						className="transition-[80ms] cursor-pointer w-[30px] h-[30px]  border rounded-full bg-transparent flex items-center justify-center"
 					>
@@ -115,11 +92,7 @@ const Page3: React.FC<Page3Props> = ({
 						></div>
 					</div>
 					<p className="text-[20px]">
-						I agree with the{" "}
-						<span className="text-eccblue">
-							{" "}
-							Terms & Conditions
-						</span>
+						I agree with the <span className="text-eccblue"> Terms & Conditions</span>
 					</p>
 				</div>
 				<div className="flex justify-center">

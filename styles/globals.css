@@ -112,43 +112,42 @@ tbody tr:nth-of-type(odd) {
 	}
 }
 
-.pointerShadow{
-  filter: drop-shadow(0px 4px 4px #404040); 
+.pointerShadow {
+	filter: drop-shadow(0px 4px 4px #404040);
 }
 
-.howItWorksContent1 .howItWorksCard:nth-child(1){
-  background-color: #0B63C5;
+.howItWorksContent1 .howItWorksCard:nth-child(1) {
+	background-color: #0b63c5;
 }
 
-.howItWorksContent1 .howItWorksCard:nth-child(2){
-  background-color: #020D1B;
+.howItWorksContent1 .howItWorksCard:nth-child(2) {
+	background-color: #020d1b;
 }
 
-.howItWorksContent1 .howItWorksCard:nth-child(3){
-  background-color: #F1F7FE;
+.howItWorksContent1 .howItWorksCard:nth-child(3) {
+	background-color: #f1f7fe;
 }
 
-.howItWorksContent1 .howItWorksCard:nth-child(3) .howItWorksCardText{
-  color: #0B63C5;
+.howItWorksContent1 .howItWorksCard:nth-child(3) .howItWorksCardText {
+	color: #0b63c5;
 }
 
-.howItWorksContent2 .howItWorksCard:nth-child(1){
-  background-color: #F1F7FE;
+.howItWorksContent2 .howItWorksCard:nth-child(1) {
+	background-color: #f1f7fe;
 }
 
-.howItWorksContent2 .howItWorksCard:nth-child(1) .howItWorksCardText{
-  color: #0B63C5;
+.howItWorksContent2 .howItWorksCard:nth-child(1) .howItWorksCardText {
+	color: #0b63c5;
 }
 
-.howItWorksContent2 .howItWorksCard:nth-child(2){
-  background-color: #0B63C5;
+.howItWorksContent2 .howItWorksCard:nth-child(2) {
+	background-color: #0b63c5;
 }
 
-.howItWorksContent2 .howItWorksCard:nth-child(3){
-  background-color: #020D1B;
+.howItWorksContent2 .howItWorksCard:nth-child(3) {
+	background-color: #020d1b;
 }
 
-.howItWorksCard:last-of-type .pointerShadow{
-  display: none;
+.howItWorksCard:last-of-type .pointerShadow {
+	display: none;
 }
-
