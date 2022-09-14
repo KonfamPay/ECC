@@ -102,13 +102,13 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 					<ul className="flex justify-items-center mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
 						<NavItem
 							title="Complaints"
-							href="/complaints"
+							href="/Complaints"
 							isTransparent={isTransparent}
 							hasWhiteText={hasWhiteText ? hasWhiteText : false}
 						/>
 						<NavItem
 							title="Scam Statistics"
-							href="/scamStatistics"
+							href="/statistics"
 							isTransparent={isTransparent}
 							hasWhiteText={hasWhiteText ? hasWhiteText : false}
 						/>
@@ -120,7 +120,7 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 						/>
 						<NavItem
 							title="FAQS"
-							href="/faqs"
+							href="/faq"
 							isTransparent={isTransparent}
 							hasWhiteText={hasWhiteText ? hasWhiteText : false}
 						/>

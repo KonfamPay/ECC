@@ -24,7 +24,7 @@ const SignupPage = () => {
 		password: "",
 		confirmPassword: "",
 	});
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const passwordsMatch = (password, confirmPassword) => {
 		return password == confirmPassword;
 	};
@@ -83,11 +83,11 @@ const SignupPage = () => {
 			<div className="w-screen h-screen poppinsFont lg:grid grid-cols-[47%_53%] overflow-hidden hidden ">
 				<div className="relative h-screen w-full bg-gradient-to-br from-eccblue to-[#073D79]">
 					<img
-						className="absolute bottom-0 z-10 w-[208.8px] xl:w-[261px]"
+						className="absolute bottom-0 z-10 w-[161px] xl:w-[161px]"
 						src="/Images/triangle.svg"
 					/>
 					<img
-						className="absolute bottom-0 ml-[100px] w-[300px] xl:w-[374px]"
+						className="absolute bottom-0 ml-[100px] w-[200px] xl:w-[200px]"
 						src="/Images/triangle2.svg"
 					/>
 					<img
@@ -97,12 +97,12 @@ const SignupPage = () => {
 					<motion.img
 						initial={{ opacity: 0, scale: 1.1 }}
 						animate={{ opacity: 1, scale: 1 }}
-						className="absolute w-full pt-[55px] bottom-[100px] xl:bottom-[60px] ml-[58px] max-w-[390px] xl:max-w-[500px] "
+						className="absolute w-5/6 pt-[55px] bottom-[20px] xl:bottom-[10px] ml-[58px] max-w-[390px] xl:max-w-[400px] "
 						src="./Images/avatars.png"
 					/>
-					<div className="ml-[50px] mt-[120px] text-white">
-						<p className="text-[40px] xl:text-[40px] font-bold">Join the Fight!</p>
-						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Join others to help us eliminate online fraud by reporting a scam</p>
+					<div className="ml-[50px] mt-[90px] text-white">
+						<p className="text-[30px] xl:text-[30px] font-bold">Join the Fight!</p>
+						<p className="text-[15px] pr-[35px] xl:text-[15px] font-semibold max-w-[460px] mt-[15px]">Join others to help us eliminate online fraud by reporting a scam</p>
 					</div>
 				</div>
 				<div className="w-full px-[90px] flex flex-col overflow-y-auto py-[73px]">
