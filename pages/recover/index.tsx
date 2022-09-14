@@ -57,7 +57,10 @@ const RecoverPage: NextPage = () => {
 				} else setValidEmail(false);
 
 				if (validEmail) {
-					router.push("/verification");
+					router.push({
+						pathname: "/reset",
+						query: { email: email },
+					});
 				}
 			} catch (err: any) {
 				try {
@@ -103,6 +106,7 @@ const RecoverPage: NextPage = () => {
 							</Link>
 						</div>
 					)}
+
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
