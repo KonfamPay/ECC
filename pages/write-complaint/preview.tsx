@@ -30,7 +30,7 @@ const index: NextPage = () => {
 							<div className="px-[30px] pt-[37px] pb-[62px] text-[20px] flex flex-col space-y-[50px]">
 								<p>To whom it may concern</p>
 								<p>On (SAMPLE) date, I purchased (SAMPLE) product or service name from (SAMPLE) the place of purchase.</p>
-								<p>SAMPLE) Explain what the problem is and what you have done so far to resolve it.</p>
+								<p>(SAMPLE) Explain what the problem is and what you have done so far to resolve it.</p>
 								<p>I understand that under the Nigerian Consumer Law, when I buy products and services they come with automatic guarantees that they will work and do what I asked for.</p>
 								<p>(SAMPLE) Explain what evidence you are providing to support your complaint, such as your proof of purchase or photographs of the faulty product (you can include this when you send the letter).</p>
 								<p>(SAMPLE) What would you like the business to do to resolve the issue?</p>
