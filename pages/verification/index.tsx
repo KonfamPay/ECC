@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { Footer, NavBar, VerificationInputGroup } from "../../Components";
+import { Footer, NavBar } from "../../Components";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { states } from "./StatesAndLga";
 import jwt_decode from "jwt-decode";
@@ -10,6 +11,7 @@ import { validateVerifyInputs } from "../../Components/Verification/FormValidati
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
+import VerificationInputGroup from "../../Components/Verification/VerificationInputGroup";
 
 const VerificationPage: NextPage = () => {
 	const [phoneNumber, setPhoneNumber] = useState("");
@@ -19,6 +21,8 @@ const VerificationPage: NextPage = () => {
 	const [address, setAddress] = useState("");
 	const [photoId, setPhotoId] = useState({ url: "", cloudinaryId: "" });
 	const [selectedFile, setSelectedFile] = useState<File | null>(null);
+	const inputContainerRef = useRef<null | HTMLInputElement>(null);
+	const photoIdScrollRef = useRef<null | HTMLDivElement>(null);
 	const [progress, setProgress] = useState(0);
 	const [errors, setErrors] = useState({
 		phoneNumber: "",
@@ -28,7 +32,7 @@ const VerificationPage: NextPage = () => {
 		address: "",
 		photoIdUrl: "",
 	});
-	const filePickerRef = useRef(null);
+	const filePickerRef = useRef<null | HTMLInputElement>(null);
 	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 	const router = useRouter();
 	const addDocument = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -98,6 +102,12 @@ const VerificationPage: NextPage = () => {
 				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
 				photoIdUrl: details.find((item: any) => item.path[0] == "photoIdUrl") ? details.find((item: any) => item.path[0] == "photoIdUrl").message : "",
 			};
+			let firstError = details[0].path[0];
+			console.log(firstError);
+			if (firstError != "photoIdUrl") {
+				console.log(firstError)
+				inputContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+			} 
 			setErrors(errors);
 		}
 		if (!error) {
@@ -394,7 +404,7 @@ const VerificationPage: NextPage = () => {
 				</div>
 				<div
 					onClick={onSubmit}
-					className="mt-[63px] mx-[12.5px] lg:mx-auto rounded-[12px] bg-[#0B63C5] lg:w-[587px] transition-[150ms] active:scale-95 "
+					className="my-[63px] mx-[12.5px] lg:mx-auto rounded-[12px] bg-[#0B63C5] lg:w-[587px] transition-[150ms] active:scale-95 "
 				>
 					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">Continue</p>
 				</div>

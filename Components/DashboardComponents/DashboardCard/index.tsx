@@ -1,7 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import { NextPage } from "next";
-import Link from "next/link";
 
 const LandingPageCard: NextPage = () => {
 	const cardcontents = [

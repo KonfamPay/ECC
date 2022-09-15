@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
-import NavItem from "../../../Components/NavBar/NavItem";
 import NotificationItem from "../../../Components/NotificationItem";
 
 const NotificationsPage: NextPage = ({ notificationData }) => {
@@ -11,7 +10,7 @@ const NotificationsPage: NextPage = ({ notificationData }) => {
 					<p className="text-[24px] font-medium poppinsFont text-white">All Notifications</p>
 				</div>
 				<div className="pt-[39px] bg-white flex flex-col gap-y-[40px]">
-					{notificationData.map((item, index) => (
+					{notificationData.map((item: any, index: number) => (
 						<NotificationItem
 							key={index}
 							title={item.title}
