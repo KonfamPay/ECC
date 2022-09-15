@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Notifications from "./Notifications";
+import {Notifications} from "./Notifications";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

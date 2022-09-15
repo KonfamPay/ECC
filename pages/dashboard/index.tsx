@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DashboardCard from "../../Components/DashboardComponents/DashboardCard";
 import NavWrapper from "../../Components/DashboardNav/NavWrapper";
-import ComplaintsCardSection from "../../Sections/ComplaintsCardSection";
-import jwt_decode from "jwt-decode";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 

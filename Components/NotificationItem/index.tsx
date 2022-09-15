@@ -17,3 +17,4 @@ export const NotificationItem: React.FC<NotificationItemProps> = ({ title, addit
 		</div>
 	);
 };
+export default NotificationItem;

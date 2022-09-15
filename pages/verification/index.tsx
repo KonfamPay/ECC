@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { Footer, NavBar, VerificationInputGroup } from "../../Components";
+import { Footer, NavBar } from "../../Components";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { states } from "./StatesAndLga";
 import jwt_decode from "jwt-decode";
@@ -10,6 +11,7 @@ import { validateVerifyInputs } from "../../Components/Verification/FormValidati
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
+import VerificationInputGroup from "../../Components/Verification/VerificationInputGroup";
 
 const VerificationPage: NextPage = () => {
 	const [phoneNumber, setPhoneNumber] = useState("");

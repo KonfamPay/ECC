@@ -12,7 +12,7 @@ interface InputGroupProps {
 	max?: string;
 }
 
-const InputGroup: React.FC<InputGroupProps> = ({
+const VerificationInputGroup: React.FC<InputGroupProps> = ({
 	label,
 	placeholder,
 	value,
@@ -45,3 +45,4 @@ const InputGroup: React.FC<InputGroupProps> = ({
 		</div>
 	);
 };
+export default VerificationInputGroup;
