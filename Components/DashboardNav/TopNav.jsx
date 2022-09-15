@@ -5,18 +5,35 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import moment from "moment";
 
-export const TopNav = () => {
+const TopNav = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const router = useRouter();
 	const [user, setUser] = useState({});
 	const currentDate = moment().format("ddd. Do MMMM, YYYY");
-	useEffect(() => {
-		if (!cookie.user) router.replace("/login");
-		else {
-			setUser(cookie.user);
-			console.log(user);
+	// useEffect(() => {
+	// 	if (!cookie.user) router.replace("/login");
+	// 	else {
+	// 		setUser(cookie.user);
+	// 		console.log(user);
+	// 	}
+	// }, []);
+	const getPageName = () => {
+		const pathname = router.pathname;
+		switch (pathname) {
+			case "/dashboard":
+				return "Dashboard";
+			case "/dashboard/profile":
+				return "Profile";
+			case "/dashboard/mycomplaints":
+				return "My Complaints";
+			case "/dashboard/talktoalawyer":
+				return "Talk to a lawyer";
+			case "/dashboard/hirealawyer":
+				return "Hire a lawyer";
+			case "/dashboard/help":
+				return "Help";
 		}
-	}, []);
+	};
 	console.log(new Date(user.createdAt).getFullYear());
 	return (
 		<div
@@ -24,11 +41,11 @@ export const TopNav = () => {
 			className="fixed left-[274px] top-0 w-[calc(100%-274px)] h-[110px] bg-white pl-[35px] pt-[0px] pr-[66px] flex justify-between items-center poppinsFont"
 		>
 			<div>
-				<p className="font-medium text-[24px] text-eccblue">Dashboard</p>
+				<p className="font-medium text-[24px] text-eccblue">{getPageName()}</p>
 				<p className="font-medium text-[18px] text-[#7A797D] mt-[2px]">{currentDate}</p>
 			</div>
 			<div className="flex items-center gap-x-[60px]">
-				<Notifications newNotifications />
+				<Notifications newNotifications={false} />
 				<div className="flex gap-x-[21px]">
 					<div className="w-[50px] h-[50px] rounded-full overflow-hidden">
 						<img
@@ -47,3 +64,5 @@ export const TopNav = () => {
 		</div>
 	);
 };
+
+export default TopNav;

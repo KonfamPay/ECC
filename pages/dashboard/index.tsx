@@ -14,8 +14,8 @@ interface User {
 	iat: number;
 }
 
-const index: NextPage = (props) => {
-	const [cookie, setCookie] = useCookies(["token"]);
+const index: NextPage = () => {
+	//const [cookie, setCookie] = useCookies(["token"]);
 	const [user, setUser] = useState<User>({
 		firstName: "",
 		lastName: "",
@@ -23,14 +23,14 @@ const index: NextPage = (props) => {
 		iat: 0,
 	});
 	const router = useRouter();
-	useEffect(() => {
-		if (!cookie.token) router.replace("/login");
-		else {
-			const userObj = jwt_decode(cookie.token) as User;
-			setUser(userObj);
-			console.log(userObj);
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!cookie.token) router.replace("/login");
+	// 	else {
+	// 		const userObj = jwt_decode(cookie.token) as User;
+	// 		setUser(userObj);
+	// 		console.log(userObj);
+	// 	}
+	// }, []);
 	return (
 		<NavWrapper>
 			<div className="">

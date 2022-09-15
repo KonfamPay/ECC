@@ -82,7 +82,7 @@ mt-[110px] "
 				)}
 
 				<div className="w-full flex justify-start">
-					<p className="text-eccblue text-sm lg:hidden">{`showing ${maxResultsPerSmallPage} of ${searchResults.length} results`}</p>
+					<p className="text-eccblue text-left text-sm lg:hidden">{`showing ${maxResultsPerSmallPage} of ${searchResults.length} results`}</p>
 				</div>
 				{searchResults.length !== 0 && (
 					<>

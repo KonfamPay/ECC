@@ -69,8 +69,13 @@ const profile: NextPage = (props) => {
 					</div>
 				</div>
 			</div>
-			<div className="px-[73px] bg-eccblue mx-[73px] rounded-xl mt-[70px]">
-				<p className="text-center text-white font-[600] py-[16.5px]">Edit</p>
+			<div className="px-[73px] bg-eccblue mx-[73px] rounded-xl mt-[70px] flex flex-row justify-center">
+				<img
+					className="mr-4"
+					src="/icons/dashboard-icons/camera-01.svg"
+					alt=""
+				/>
+				<p className="text-center text-white font-[600] py-[16.5px]">Change Photo</p>
 			</div>
 		</div>
 	);
