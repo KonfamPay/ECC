@@ -41,8 +41,7 @@ const index: NextPage = (props) => {
 							Hi, Ronald
 						</p>
 						<p className="text-[24px] leading-[36px] font-[600] w-[503px]">
-							Vendor don do you strong thing again? <br /> We are
-							ready to listen to your complaints
+							Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
 						</p>
 					</div>
 					<div>

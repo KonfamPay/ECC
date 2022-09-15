@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import InputGroup from "../../Components/Verification/InputGroup";
-import NavBar from "../../Components/NavBar";
+import { Footer, NavBar, VerificationInputGroup } from "../../Components";
 import { AnimatePresence, motion } from "framer-motion";
 import { states } from "./StatesAndLga";
 import jwt_decode from "jwt-decode";
@@ -10,6 +9,7 @@ import axios from "axios";
 import { validateVerifyInputs } from "../../Components/Verification/FormValidation";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
 
 const VerificationPage: NextPage = () => {
 	const [phoneNumber, setPhoneNumber] = useState("");
@@ -46,9 +46,7 @@ const VerificationPage: NextPage = () => {
 					"Content-Type": "multipart/form-data",
 				},
 				onUploadProgress: (progressEvent: any) => {
-					const progress = Math.round(
-						(progressEvent.loaded * 100) / progressEvent.total
-					);
+					const progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
 					setProgress(progress);
 				},
 			};
@@ -95,32 +93,12 @@ const VerificationPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				phoneNumber: details.find(
-					(item: any) => item.path[0] == "phoneNumber"
-				)
-					? details.find((item: any) => item.path[0] == "phoneNumber")
-							.message
-					: "",
-				dob: details.find((item: any) => item.path[0] == "dob")
-					? details.find((item: any) => item.path[0] == "dob").message
-					: "",
-				state: details.find((item: any) => item.path[0] == "state")
-					? details.find((item: any) => item.path[0] == "state")
-							.message
-					: "",
-				lga: details.find((item: any) => item.path[0] == "lga")
-					? details.find((item: any) => item.path[0] == "lga").message
-					: "",
-				address: details.find((item: any) => item.path[0] == "address")
-					? details.find((item: any) => item.path[0] == "address")
-							.message
-					: "",
-				photoIdUrl: details.find(
-					(item: any) => item.path[0] == "photoIdUrl"
-				)
-					? details.find((item: any) => item.path[0] == "photoIdUrl")
-							.message
-					: "",
+				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber").message : "",
+				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob").message : "",
+				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state").message : "",
+				lga: details.find((item: any) => item.path[0] == "lga") ? details.find((item: any) => item.path[0] == "lga").message : "",
+				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
+				photoIdUrl: details.find((item: any) => item.path[0] == "photoIdUrl") ? details.find((item: any) => item.path[0] == "photoIdUrl").message : "",
 			};
 			let firstError = details[0].path[0];
 			console.log(firstError);
@@ -166,9 +144,7 @@ const VerificationPage: NextPage = () => {
 				className="mt-[198px]"
 			>
 				<div className="">
-					<p className="text-center text-[18px] lg:text-[40px] font-[500]">
-						You will have to verify yourself before you continue{" "}
-					</p>
+					<p className="text-center text-[18px] lg:text-[40px] font-[500]">You will have to verify yourself before you continue </p>
 					<p className="text-center text-[20px] font-[300] mt-[30px]">
 						Already have an account?{" "}
 						<a
@@ -180,8 +156,8 @@ const VerificationPage: NextPage = () => {
 					</p>
 				</div>
 				<div className="mt-[99px] mx-[12.5px] lg:mx-[109px]">
-					<div ref={inputContainerRef} className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
-						<InputGroup
+					<div className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
+						<VerificationInputGroup
 							label="Phone Number"
 							placeholder="Enter Phone Number"
 							value={phoneNumber}
@@ -190,28 +166,27 @@ const VerificationPage: NextPage = () => {
 							type="number"
 							errorMessage={errors.phoneNumber}
 						/>
-						<InputGroup
+						<VerificationInputGroup
 							label="Date Of Birth"
 							placeholder="DD/MM/YYYY"
 							value={dob}
 							setValue={setDob}
 							type="date"
-							max={`${
-								new Date().getMonth() + 1
-							}-${new Date().getDate()}-${new Date().getFullYear()}`}
+							max={`${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear()}`}
 							errorMessage={errors.dob}
 						/>
 						<div className="flex flex-col">
-							<p className="text-[14px] lg:text-[20px]">
-								Address
-							</p>
+							<p className="text-[14px] lg:text-[20px]">Address</p>
 							<select
 								value={state}
 								onChange={(e) => setState(e.target.value)}
 								style={{ color: state ? "black" : "#9ca3af" }}
 								className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[25px] px-[20px] focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[10px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
 							>
-								<option value="" selected>
+								<option
+									value=""
+									selected
+								>
 									Enter your Residential State
 								</option>
 								{states.map((state) => (
@@ -243,7 +218,10 @@ const VerificationPage: NextPage = () => {
 								}}
 								className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[25px] px-[20px] focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[10px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
 							>
-								<option value="" selected>
+								<option
+									value=""
+									selected
+								>
 									Enter your Local Government Area
 								</option>
 								{states
@@ -268,7 +246,7 @@ const VerificationPage: NextPage = () => {
 							)}
 						</div>
 
-						<InputGroup
+						<VerificationInputGroup
 							label="Adress Line"
 							placeholder="Enter Valid Address"
 							value={address}
@@ -289,9 +267,7 @@ const VerificationPage: NextPage = () => {
 										src="icons/paste.svg"
 										alt=""
 										className="mx-auto cursor-pointer w-[41px] lg:w-[137px] h-[41px] lg:h-[137px]"
-										onClick={() =>
-											filePickerRef.current?.click()
-										}
+										onClick={() => filePickerRef.current?.click()}
 									/>
 									<input
 										type="file"
@@ -306,17 +282,13 @@ const VerificationPage: NextPage = () => {
 											Click to upload your{" "}
 											<span
 												className="text-[#0B63C5] cursor-pointer"
-												onClick={() =>
-													filePickerRef.current?.click()
-												}
+												onClick={() => filePickerRef.current?.click()}
 											>
 												document
 											</span>{" "}
 											here
 										</p>
-										<p ref={photoIdScrollRef} className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">
-											Supported format: JPEG, PNG, PDF
-										</p>
+										<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">Supported format: JPEG, PNG, PDF</p>
 									</div>
 
 									<AnimatePresence>
@@ -343,18 +315,12 @@ const VerificationPage: NextPage = () => {
 																src="icons/file-check.svg"
 																alt=""
 															/>
-															<p className="text-[20px] font-[600] text-white">
-																{
-																	selectedFile.name
-																}
-															</p>
+															<p className="text-[20px] font-[600] text-white">{selectedFile.name}</p>
 														</div>
 														<img
 															src="icons/close-1.svg"
 															className=" absolute right-0 top-[27px] w-[18px] h-[18px] mt-[5px] cursor-pointer"
-															onClick={
-																removeDocument
-															}
+															onClick={removeDocument}
 															alt=""
 														/>
 													</div>
@@ -363,9 +329,7 @@ const VerificationPage: NextPage = () => {
 														<div
 															className="bg-white h-[5px] rounded-full transition-[50000ms]"
 															style={{
-																width: progress
-																	? `${progress}%`
-																	: `0%`,
+																width: progress ? `${progress}%` : `0%`,
 															}}
 														></div>
 													</div>
@@ -388,54 +352,64 @@ const VerificationPage: NextPage = () => {
 					</div>
 				</div>
 				<div className="hidden lg:block mx-[120px] mt-[63px]">
-					<p className="text-[20px] font-[500] leading-[30px]">
-						You can use any of these means of identification
-					</p>
+					<p className="text-[20px] font-[500] leading-[30px]">You can use any of these means of identification</p>
 					<ul className="text-[20px] text-[#0B63C5] font-[600] space-y-[11px] mt-[30px] -ml-[10px]">
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>Voter's Card</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>International Passport</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>National ID card</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>National Identification Slip (NIN)</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>Driver’s Licence</p>
 						</li>
 					</ul>
 				</div>
 				<div className="mx-[12.5px] lg:hidden leading-[24px] mt-[22px] font-[500] text-[12px]">
 					<p>You can use any of these means of identification:</p>
-					<p className="text-[#0B63C5]">
-						Voter’s Card, International passport, National ID card,
-						Driver’s licence and National identification slip (NIN){" "}
-					</p>
+					<p className="text-[#0B63C5]">Voter’s Card, International passport, National ID card, Driver’s licence and National identification slip (NIN) </p>
 				</div>
 				<div
 					onClick={onSubmit}
 					className="my-[63px] mx-[12.5px] lg:mx-auto rounded-[12px] bg-[#0B63C5] lg:w-[587px] transition-[150ms] active:scale-95 "
 				>
-					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">
-						Continue
-					</p>
+					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">Continue</p>
 				</div>
-
-				{/* <Footer /> */}
+				<div className="mt-[118px]">
+					<Testimonials />
+				</div>
+				<Footer />
 			</motion.div>
 		</>
 	);

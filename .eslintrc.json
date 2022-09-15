@@ -1,31 +1,21 @@
-{ 
-  "env": {
-    "browser": true,
-    "node": true,
-    "es2021": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "next/core-web-vitals",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "parserOptions": {
-    "ecmaFeatures": {
-        "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },  
-  "rules": {
-    "react/react-in-jsx-scope": "off",
-    "prettier/prettier": [
-        "error", 
-        { "endOfLine": "auto", "useTabs": true }, 
-        {"usePrettierrc": true}
-    ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn" 
-  }
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"es2021": true
+	},
+	"extends": ["eslint:recommended", "next/core-web-vitals", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"prettier/prettier": ["error", { "endOfLine": "auto", "useTabs": true }, { "usePrettierrc": true }],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn"
+	}
 }

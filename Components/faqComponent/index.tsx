@@ -6,7 +6,7 @@ interface faqComponentProps {
 	text: string;
 }
 
-const index: React.FC<faqComponentProps> = ({ iconPath, title, text }) => {
+export const FaqComponent: React.FC<faqComponentProps> = ({ iconPath, title, text }) => {
 	return (
 		<div>
 			<div className="bg-clearblue w-[70px] h-[70px] flex rounded-full">
@@ -24,4 +24,3 @@ const index: React.FC<faqComponentProps> = ({ iconPath, title, text }) => {
 	);
 };
 
-export default index;

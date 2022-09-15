@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import moment from "moment";
 
-const TopNav = () => {
+export const TopNav = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
     const router = useRouter();
     const [user, setUser] = useState({});

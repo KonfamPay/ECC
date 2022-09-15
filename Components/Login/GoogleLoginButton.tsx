@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { useCookies } from "react-cookie";
 import jwt_decode from "jwt-decode";
 
-const GoogleLoginButton = () => {
+export const GoogleLoginButton = () => {
 	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 	const router = useRouter();
 	const login = useGoogleLogin({
@@ -26,10 +26,7 @@ const GoogleLoginButton = () => {
 						email: userInfo.email,
 						profilePic: userInfo.picture,
 					};
-					const { data } = await axios.post(
-						`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth/google`,
-						payload
-					);
+					const { data } = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth/google`, payload);
 					if (data) {
 						const user: any = jwt_decode(data.token);
 						setCookie("user", user, {
@@ -62,10 +59,7 @@ const GoogleLoginButton = () => {
 			className="cursor-pointer active:scale-[0.95] transition-[200ms] hover:scale-105 rounded-[10px] border-2 py-[17px] pl-[15px] pr-[28px] flex gap-x-[15px] items-center"
 		>
 			<img src="/Icons/googleIcon.svg" />
-			<span className="text-[18px] opacity-[0.63]">
-				Login with Google
-			</span>
+			<span className="text-[18px] opacity-[0.63]">Login with Google</span>
 		</div>
 	);
 };
-export default GoogleLoginButton;

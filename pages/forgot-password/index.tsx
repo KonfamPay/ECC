@@ -1,15 +1,13 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import InputGroup from "../../Components/Login/InputGroup";
 import Joi from "joi-browser";
 import axios from "axios";
 import { motion } from "framer-motion";
-import AsyncSubmitButton from "../../Components/AsyncSubmitButton";
+import { AsyncSubmitButton, EmailModal, LoginInputGroup } from "../../Components/";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
-import EmailModal from "../../Components/EmailModal";
 
 const LoginPage: NextPage = () => {
 	const [cookies, setCookie, removeCookie] = useCookies(["token"]);
@@ -34,10 +32,7 @@ const LoginPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item: any) => item.path[0] == "email")
-					? details.find((item: any) => item.path[0] == "email")
-							.message
-					: "",
+				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email").message : "",
 			};
 
 			setErrors(errors);
@@ -48,18 +43,14 @@ const LoginPage: NextPage = () => {
 			try {
 				setLoading(true);
 				const payload = { email };
-				const res = await axios.post(
-					`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/forgot-password`,
-					payload
-				);
+				const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/forgot-password`, payload);
 				setBackendError("");
 				setEmailModalShowing(true);
 				console.log(res);
 			} catch (err: any) {
 				console.log(err);
 				try {
-					if (err.response.data.message)
-						setBackendError(err.response.data.message);
+					if (err.response.data.message) setBackendError(err.response.data.message);
 					else if (err.stat) {
 					}
 				} catch (err: any) {
@@ -81,9 +72,7 @@ const LoginPage: NextPage = () => {
 	}, []);
 	return (
 		<>
-			{emailModalShowing && (
-				<EmailModal setEmailModalShowing={setEmailModalShowing} />
-			)}
+			{emailModalShowing && <EmailModal setEmailModalShowing={setEmailModalShowing} />}
 			<div className="w-screen h-screen poppinsFont hidden lg:grid grid-cols-[47%_53%]">
 				<div className="relative h-screen w-full bg-gradient-to-br from-[#0B63C5] to-[#073D79]">
 					<img
@@ -99,12 +88,8 @@ const LoginPage: NextPage = () => {
 						src="./Images/whiteEccLogo.svg"
 					/>
 					<div className="ml-[50px] mt-[120px] text-white">
-						<p className="text-[40px] xl:text-[40px] font-bold">
-							Recover Password
-						</p>
-						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">
-							Enter your email address to reset your password
-						</p>
+						<p className="text-[40px] xl:text-[40px] font-bold">Recover Password</p>
+						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Enter your email address to reset your password</p>
 					</div>
 				</div>
 				<div className="w-full px-[90px] flex flex-col justify-center">
@@ -113,12 +98,10 @@ const LoginPage: NextPage = () => {
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: 30 }}
 					>
-						<p className="text-[36px] xl:text-[40px] text-center mb-[80px]">
-							Recover Password
-						</p>
+						<p className="text-[36px] xl:text-[40px] text-center mb-[80px]">Recover Password</p>
 						<form>
 							<div className="flex flex-col gap-y-[35px] mb-[40px]">
-								<InputGroup
+								<LoginInputGroup
 									label="Email Address"
 									placeholder="Enter Email"
 									value={email}
@@ -153,24 +136,18 @@ const LoginPage: NextPage = () => {
 				/>
 				<div className="pl-[17px] w-full">
 					<div className="w-full text-white max-w-[467px] mx-auto">
-						<p className="text-[24px] font-bold mt-[60px] max-w-[500px] mx-auto">
-							Recover Password
-						</p>
-						<p className="text-[14px] pr-[35px] xl:text-[17px] font-medium max-w-[460px] mt-[8px]">
-							Enter your email address to reset your password
-						</p>
+						<p className="text-[24px] font-bold mt-[60px] max-w-[500px] mx-auto">Recover Password</p>
+						<p className="text-[14px] pr-[35px] xl:text-[17px] font-medium max-w-[460px] mt-[8px]">Enter your email address to reset your password</p>
 					</div>
 				</div>
 				<div className="px-[9px] mt-[30px] max-w-[500px] mx-auto w-full">
 					<div className="w-full px-[14px] flex flex-col overflow-y-auto py-[22px] bg-white rounded-[20px]">
 						<div>
-							<p className="text-[18px] text-center font-semibold mb-[30px]">
-								Recover password
-							</p>
+							<p className="text-[18px] text-center font-semibold mb-[30px]">Recover password</p>
 
 							<form>
 								<div className="flex flex-col gap-y-[15px]">
-									<InputGroup
+									<LoginInputGroup
 										label="Email"
 										placeholder="Enter Valid Email Address"
 										value={email}
@@ -190,7 +167,10 @@ const LoginPage: NextPage = () => {
 						</div>
 					</div>
 				</div>
-				<img className="absolute bottom-0" src="/Images/polygons.svg" />
+				<img
+					className="absolute bottom-0"
+					src="/Images/polygons.svg"
+				/>
 			</div>
 		</>
 	);

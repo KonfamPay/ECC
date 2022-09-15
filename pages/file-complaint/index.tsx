@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import FileAComplaintProcess from "../../Components/FileAComplaintComponents/FileAComplaintProcess";
 import FileAComplaintInput from "../../Components/FileAComplaintComponents/FileAComplaintInput";
 import { useState } from "react";
-import NavBar from "../../Components/NavBar";
-import Footer from "../../Components/FooterComplaints";
+import { NavBar } from "../../Components";
+import { Footer } from "../../Components/";
 import Page1 from "../../Components/FileAComplaintComponents/Page1";
 import Page2 from "../../Components/FileAComplaintComponents/Page2";
 import Page3 from "../../Components/FileAComplaintComponents/Page3";
@@ -32,13 +32,8 @@ const Index: NextPage = () => {
 			<ComplaintLetterSection />
 			<div className="px-[13px] lg:px-[100px] mt-[72px] mb-[147px] max-w-[1536px] mx-auto">
 				<div className="mx-auto text-center w-fit">
-					<p className="text-[20px] lg:text-[40px] font-[500]">
-						File a Complaint
-					</p>
-					<p className="text-eccblue text-[12px] lg:w-full lg:text-[20px] mt-[8px] lg:mt-[20px]">
-						Allow ecommerce complaint help you in your fight aginst
-						online fraud{" "}
-					</p>
+					<p className="text-[20px] lg:text-[40px] font-[500]">File a Complaint</p>
+					<p className="text-eccblue text-[12px] lg:w-full lg:text-[20px] mt-[8px] lg:mt-[20px]">Allow ecommerce complaint help you in your fight aginst online fraud </p>
 				</div>
 				<div className="mt-[35px] lg:mt-[90px] mx-auto">
 					<div className="flex flex-wrap space-x-[15.06px] lg:space-y-0 lg:space-x-[100px] items-center justify-center">
@@ -107,7 +102,7 @@ const Index: NextPage = () => {
 					)}
 				</motion.div>
 			</div>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	);
 };

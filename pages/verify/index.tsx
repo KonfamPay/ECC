@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import InputGroup from "../../Components/Verification/InputGroup";
-import NavBar from "../../Components/NavBar";
+import { Footer, NavBar, VerificationInputGroup } from "../../Components";
 import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
-import Footer from "../../Components/FooterComplaints";
 
 const LoginPage: NextPage = () => {
 	const [fullName, setfullName] = useState("");
@@ -18,52 +16,49 @@ const LoginPage: NextPage = () => {
 			<NavBar />
 			<div className="mt-[198px]">
 				<div className="">
-					<p className="text-center text-[18px] lg:text-[40px] font-[500]">
-						You will have to verify yourself before you continue{" "}
-					</p>
+					<p className="text-center text-[18px] lg:text-[40px] font-[500]">You will have to verify yourself before you continue </p>
 					<p className="text-center text-[20px] font-[300] mt-[30px]">
-						Already have an account?{" "}
-						<a className="text-eccblue cursor-pointer">Login</a>
+						Already have an account? <a className="text-eccblue cursor-pointer">Login</a>
 					</p>
 				</div>
 				<div className="mt-[99px] mx-[12.5px] lg:mx-[109px]">
 					<div className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
-						<InputGroup
+						<VerificationInputGroup
 							label="First Name"
 							placeholder="Enter First Legal Name"
 							value={fullName}
 							setValue={fullName}
 							type="text"
 						/>
-						<InputGroup
+						<VerificationInputGroup
 							label="Date Of Birth"
 							placeholder="DD/MM/YYYY"
 							value={fullName}
 							setValue={fullName}
 							type="date"
 						/>
-						<InputGroup
+						<VerificationInputGroup
 							label="Adress Line"
 							placeholder="Enter Valid Email Address"
 							value={fullName}
 							setValue={fullName}
 							type="text"
 						/>
-						<InputGroup
+						<VerificationInputGroup
 							label="Phone Number"
 							placeholder="Enter Phone Number"
 							value={fullName}
 							setValue={fullName}
 							type="tel"
 						/>
-						<InputGroup
+						<VerificationInputGroup
 							label="State"
 							placeholder="Enter Your Residential State"
 							value={fullName}
 							setValue={fullName}
 							type="text"
 						/>
-						<InputGroup
+						<VerificationInputGroup
 							label="L.G.A"
 							placeholder="Enter Your Local Government Area"
 							value={fullName}
@@ -82,9 +77,7 @@ const LoginPage: NextPage = () => {
 										src="icons/paste.svg"
 										alt=""
 										className="mx-auto cursor-pointer w-[41px] lg:w-[137px] h-[41px] lg:h-[137px]"
-										onClick={() =>
-											filePickerRef.current?.click()
-										}
+										onClick={() => filePickerRef.current?.click()}
 									/>
 									<input
 										type="file"
@@ -98,17 +91,13 @@ const LoginPage: NextPage = () => {
 											Click to upload your{" "}
 											<span
 												className="text-eccblue cursor-pointer"
-												onClick={() =>
-													filePickerRef.current?.click()
-												}
+												onClick={() => filePickerRef.current?.click()}
 											>
 												doocuments
 											</span>{" "}
 											here
 										</p>
-										<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">
-											Supported format: JPEG, PNG, PDF
-										</p>
+										<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">Supported format: JPEG, PNG, PDF</p>
 									</div>
 									{selectedFile && (
 										<div className="bg-eccblue h-[101px] w-[708px] mx-auto mt-[43px] rounded-xl">
@@ -119,18 +108,12 @@ const LoginPage: NextPage = () => {
 															src="icons/file-check.svg"
 															alt=""
 														/>
-														<p className="text-[20px] font-[600] text-white">
-															{selectedFile}
-														</p>
+														<p className="text-[20px] font-[600] text-white">{selectedFile}</p>
 													</div>
 													<img
 														src="icons/close-1.svg"
 														className=" absolute right-0 top-[27px] w-[18px] h-[18px] mt-[5px] cursor-pointer"
-														onClick={() =>
-															setSelectedFile(
-																null
-															)
-														}
+														onClick={() => setSelectedFile(null)}
 														alt=""
 													/>
 												</div>
@@ -150,53 +133,61 @@ const LoginPage: NextPage = () => {
 					</div>
 				</div>
 				<div className="hidden lg:block mx-[120px] mt-[63px]">
-					<p className="text-[20px] font-[500] leading-[30px]">
-						You can use any of these means of identification
-					</p>
+					<p className="text-[20px] font-[500] leading-[30px]">You can use any of these means of identification</p>
 					<ul className="text-[20px] text-eccblue font-[600] space-y-[11px] mt-[30px] -ml-[10px]">
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>Voter's Card</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>International Passport</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>National ID card</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>National Identification Slip (NIN)</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
-							<img src="icons/check.svg" alt="" />{" "}
+							<img
+								src="icons/check.svg"
+								alt=""
+							/>{" "}
 							<p>Driver’s Licence</p>
 						</li>
 					</ul>
 				</div>
 				<div className="mx-[12.5px] lg:hidden leading-[24px] mt-[22px] font-[500] text-[12px]">
 					<p>You can use any of these means of identification:</p>
-					<p className="text-eccblue">
-						Voter’s Card, International passport, National ID card,
-						Driver’s licence and National identification slip (NIN){" "}
-					</p>
+					<p className="text-eccblue">Voter’s Card, International passport, National ID card, Driver’s licence and National identification slip (NIN) </p>
 				</div>
 				<div className="mt-[63px] mx-[12.5px] lg:mx-auto rounded-xl bg-eccblue lg:w-[587px]">
-					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">
-						Continue
-					</p>
+					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">Continue</p>
 				</div>
 				<div className="mt-[118px]">
 					<Testimonials />
 				</div>
-				{/* <Footer /> */}
+				<Footer />
 			</div>
 		</>
 	);

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
-import InputGroup from "../../Components/Login/InputGroup";
+import InputGroup from "../../Components/Login/LoginInputGroup";
 
 const LawyerSignupPage: NextPage = () => {
 	const [firstName, setFirstName] = useState("");
@@ -16,25 +16,17 @@ const LawyerSignupPage: NextPage = () => {
 					src="/Images/whiteEccLogo.svg"
 				/>
 				<div className="ml-[50px] mt-[120px] text-white">
-					<p className="text-[40px] xl:text-[40px] font-bold">
-						SIGN UP!
-					</p>
-					<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">
-						Join the lawyer community, help users get value.....
-					</p>
+					<p className="text-[40px] xl:text-[40px] font-bold">SIGN UP!</p>
+					<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Join the lawyer community, help users get value.....</p>
 				</div>
 			</div>
 			<div className="w-full px-[90px] flex flex-col overflow-y-auto py-[73px]">
 				<div>
-					<p className="text-[36px] xl:text-[40px] text-center">
-						Create your account
-					</p>
+					<p className="text-[36px] xl:text-[40px] text-center">Create your account</p>
 					<p className="text-center mt-[20px] mb-[38px]">
 						Already have an account?{" "}
 						<Link href="/lawyer/login">
-							<span className="text-eccblue cursor-pointer">
-								Login
-							</span>
+							<span className="text-eccblue cursor-pointer">Login</span>
 						</Link>
 					</p>
 					<form>

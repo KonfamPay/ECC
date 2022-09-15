@@ -19,24 +19,7 @@ interface Page1Props {
 	setIsOpaque: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page1: React.FC<Page1Props> = ({
-	titleOfComplaint,
-	setTitleOfComplaint,
-	placeOfTransaction,
-	setPlaceOfTransaction,
-	companyName,
-	setCompanyName,
-	amountLost,
-	setAmountLost,
-	brandContact,
-	setBrandContact,
-	complaintDetails,
-	setComplaintDetails,
-	brandHandle,
-	setBrandHandle,
-	setCurrentPage,
-	setIsOpaque,
-}) => {
+const Page1: React.FC<Page1Props> = ({ titleOfComplaint, setTitleOfComplaint, placeOfTransaction, setPlaceOfTransaction, companyName, setCompanyName, amountLost, setAmountLost, brandContact, setBrandContact, complaintDetails, setComplaintDetails, brandHandle, setBrandHandle, setCurrentPage, setIsOpaque }) => {
 	const onSubmit = () => {
 		setIsOpaque(false);
 		setTimeout(() => {
@@ -62,9 +45,7 @@ const Page1: React.FC<Page1Props> = ({
 				/>
 				<FileAComplaintInput
 					label={"Where did this transaction happen?"}
-					placeholder={
-						"e.g Facebook, Instagram, Twiiter, offline . If other please specify"
-					}
+					placeholder={"e.g Facebook, Instagram, Twiiter, offline . If other please specify"}
 					value={placeOfTransaction}
 					setValue={setPlaceOfTransaction}
 					type="text"
@@ -102,9 +83,7 @@ const Page1: React.FC<Page1Props> = ({
 				</div>
 				<div className="row-span-2 col-span-1">
 					<div className="flex flex-row space-x-[13px] pb-[10px]">
-						<p className="text-[14px] lg:text-[20px]">
-							Complaint details
-						</p>
+						<p className="text-[14px] lg:text-[20px]">Complaint details</p>
 						<img
 							src="./icons/fac-help.svg"
 							alt=""

@@ -45,4 +45,3 @@ const InputGroup: React.FC<InputGroupProps> = ({
 		</div>
 	);
 };
-export default InputGroup;

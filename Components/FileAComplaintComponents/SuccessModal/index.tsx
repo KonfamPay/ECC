@@ -7,10 +7,7 @@ interface SuccessModalProps {
 	setSuccessModalShowing: Dispatch<SetStateAction<boolean>>;
 }
 
-const SuccessModal: React.FC<SuccessModalProps> = ({
-	setSuccessModalShowing,
-	grievanceId,
-}) => {
+const SuccessModal: React.FC<SuccessModalProps> = ({ setSuccessModalShowing, grievanceId }) => {
 	const router = useRouter();
 	const [copyNotifierShowing, setCopyNotifierShowing] = useState(false);
 	const onCopy = () => {
@@ -28,7 +25,10 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
 					onAnimationComplete={() => setCopyNotifierShowing(false)}
 					className="fixed flex p-[15px] bottom-[40px] bg-white text-eccblue rounded-[10px] font-semibold text-[17.5px] items-center gap-x-[12px]"
 				>
-					<img className="w-[23px]" src="/Images/copyIcon.svg" />
+					<img
+						className="w-[23px]"
+						src="/Images/copyIcon.svg"
+					/>
 					Copied to clipboard
 				</motion.div>
 			)}
@@ -53,17 +53,10 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
 						src="/Images/completedIcon.png"
 					/>
 				</div>
-				<p className="text-center mx-[10px] mt-[11.04px] lg:mt-[33px] text-[14px] lg:text-[22px] font-semibold text-eccblue">
-					Your Complaint was filed successfully
-				</p>
+				<p className="text-center mx-[10px] mt-[11.04px] lg:mt-[33px] text-[14px] lg:text-[22px] font-semibold text-eccblue">Your Complaint was filed successfully</p>
 				<div className="mt-[15px] text-[10px] lg:text-[16px]">
-					<p className="text-center">
-						Your complaint has been successfully submitted
-					</p>
-					<p className="text-center">
-						Kindly check your dashboard to keep track of your
-						complaints
-					</p>
+					<p className="text-center">Your complaint has been successfully submitted</p>
+					<p className="text-center">Kindly check your dashboard to keep track of your complaints</p>
 				</div>
 				<p className="text-eccblue text-[12px] lg:text-[17.5px] font-semibold text-center mt-[15px] flex gap-x-[11px] items-center justify-center">
 					Grievance ID: {grievanceId}

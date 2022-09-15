@@ -11,7 +11,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 		<AnimatePresence exitBeforeEnter>
 			<GoogleOAuthProvider clientId="805243689186-pe7uljmhc6i38mpvehe4o768ll6nomd4.apps.googleusercontent.com">
 				<CookiesProvider>
-					<Component {...pageProps} key={router.route} />
+					<Component
+						{...pageProps}
+						key={router.route}
+					/>
 				</CookiesProvider>
 			</GoogleOAuthProvider>
 		</AnimatePresence>

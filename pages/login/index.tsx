@@ -1,18 +1,16 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import InputGroup from "../../Components/Login/InputGroup";
 import Joi from "joi-browser";
 import axios from "axios";
 import { motion } from "framer-motion";
-import AsyncSubmitButton from "../../Components/AsyncSubmitButton";
+import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
-import GoogleLoginButton from "../../Components/Login/GoogleLoginButton";
 
 const LoginPage: NextPage = () => {
-	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+	const [cookies, setCookie, removeCookie] = useCookies(["token"]);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
@@ -32,23 +30,12 @@ const LoginPage: NextPage = () => {
 	});
 	const onSubmit = async (e: React.MouseEvent<HTMLElement>) => {
 		e.preventDefault();
-		const { error } = schema.validate(
-			{ email, password },
-			{ abortEarly: false }
-		);
+		const { error } = schema.validate({ email, password }, { abortEarly: false });
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item: any) => item.path[0] == "email")
-					? details.find((item: any) => item.path[0] == "email")
-							.message
-					: "",
-				password: details.find(
-					(item: any) => item.path[0] == "password"
-				)
-					? details.find((item: any) => item.path[0] == "password")
-							.message
-					: "",
+				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email").message : "",
+				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password").message : "",
 			};
 
 			setErrors(errors);
@@ -60,13 +47,9 @@ const LoginPage: NextPage = () => {
 			try {
 				setLoading(true);
 				const payload = { email, password };
-				const res = await axios.post(
-					`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth`,
-					payload
-				);
+				const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth`, payload);
 				setBackendError("");
-				const user: any = jwt_decode(res.data.token);
-				setCookie("user", user, {
+				setCookie("token", res.data.token, {
 					path: "/",
 					expires: new Date(Date.now() + 2 * 86400000),
 				});
@@ -76,11 +59,8 @@ const LoginPage: NextPage = () => {
 				}
 			} catch (err: any) {
 				try {
-					console.log(err);
-					if (err.response.data.message)
-						setBackendError(err.response.data.message);
+					if (err.response.data.message) setBackendError(err.response.data.message);
 				} catch (err: any) {
-					console.log(err);
 					alert("Something went wrong.");
 				}
 			} finally {
@@ -95,7 +75,7 @@ const LoginPage: NextPage = () => {
 	}, []);
 	return (
 		<>
-			<div className="w-screen h-screen overflow-hidden poppinsFont hidden lg:grid grid-cols-[47%_53%]">
+			<div className="w-screen h-screen poppinsFont hidden lg:grid grid-cols-[47%_53%]">
 				<div className="relative h-screen w-full bg-gradient-to-br from-eccblue to-[#073D79]">
 					<img
 						className="absolute bottom-0 z-10 w-[208.8px] xl:w-[261px]"
@@ -110,36 +90,26 @@ const LoginPage: NextPage = () => {
 						src="./Images/whiteEccLogo.svg"
 					/>
 					<div className="ml-[50px] mt-[120px] text-white">
-						<p className="text-[40px] xl:text-[40px] font-bold">
-							Welcome Back!
-						</p>
-						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">
-							Login to you your account to file a complaint or
-							proceed with others submitted
-						</p>
+						<p className="text-[40px] xl:text-[40px] font-bold">Welcome Back!</p>
+						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Login to you your account to file a complaint or proceed with others submitted</p>
 					</div>
 				</div>
-				<div className="w-full px-[90px] flex flex-col overflow-auto ">
+				<div className="w-full px-[90px] flex flex-col justify-center">
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: 30 }}
-						className="my-[70px]"
 					>
-						<p className="text-[36px] xl:text-[40px] text-center">
-							Login to your account
-						</p>
+						<p className="text-[36px] xl:text-[40px] text-center">Login to your account</p>
 						<p className="text-center mt-[20px] mb-[38px]">
 							Don't have an account?{" "}
 							<Link href="/signup">
-								<span className="text-eccblue cursor-pointer">
-									Create an account
-								</span>
+								<span className="text-eccblue cursor-pointer">Login</span>
 							</Link>
 						</p>
 						<form>
 							<div className="flex flex-col gap-y-[35px]">
-								<InputGroup
+								<LoginInputGroup
 									label="Email Address"
 									placeholder="Enter Email"
 									value={email}
@@ -147,7 +117,7 @@ const LoginPage: NextPage = () => {
 									type="text"
 									errorMessage={errors.email}
 								/>
-								<InputGroup
+								<LoginInputGroup
 									label="Password"
 									placeholder="Enter Password"
 									value={password}
@@ -176,20 +146,6 @@ const LoginPage: NextPage = () => {
 								loading={loading}
 								onSubmit={onSubmit}
 							/>
-							<section className="flex items-center mt-[50px] px-[14px] mb-[67px]">
-								<div className="w-full h-[1px] bg-[#9E9E9E]"></div>
-								<p className="mx-[22px] text-[24px]">Or</p>
-								<div className="w-full h-[1px] bg-[#9E9E9E]"></div>
-							</section>
-							<section className="flex justify-center gap-x-[45px]">
-								<GoogleLoginButton />
-								<div className="cursor-pointer active:scale-[0.95] transition-[200ms] hover:scale-105 rounded-[10px] border-2 py-[17px] pl-[15px] pr-[28px] flex gap-x-[15px] items-center">
-									<img src="/Icons/twitterIcon.svg" />
-									<span className="text-[18px] opacity-[0.63]">
-										Login with Twitter
-									</span>
-								</div>
-							</section>
 						</form>
 					</motion.div>
 				</div>
@@ -201,32 +157,23 @@ const LoginPage: NextPage = () => {
 				/>
 				<div className="pl-[17px] w-full">
 					<div className="w-full text-white max-w-[467px] mx-auto">
-						<p className="text-[24px] font-bold mt-[60px] max-w-[500px] mx-auto">
-							Join the Fight!
-						</p>
-						<p className="text-[14px] pr-[35px] xl:text-[17px] font-medium max-w-[460px] mt-[8px]">
-							Join others to help us eliminate online fraud by
-							reporting a scam
-						</p>
+						<p className="text-[24px] font-bold mt-[60px] max-w-[500px] mx-auto">Join the Fight!</p>
+						<p className="text-[14px] pr-[35px] xl:text-[17px] font-medium max-w-[460px] mt-[8px]">Join others to help us eliminate online fraud by reporting a scam</p>
 					</div>
 				</div>
 				<div className="px-[9px] mt-[30px] max-w-[500px] mx-auto w-full">
 					<div className="w-full px-[14px] flex flex-col overflow-y-auto py-[22px] bg-white rounded-[20px]">
 						<div>
-							<p className="text-[18px] text-center font-semibold">
-								Create your account
-							</p>
+							<p className="text-[18px] text-center font-semibold">Create your account</p>
 							<p className="text-center mt-[2px] mb-[30px]">
 								Already have an account?{" "}
 								<Link href="/login">
-									<span className="text-eccblue cursor-pointer">
-										Login
-									</span>
+									<span className="text-eccblue cursor-pointer">Login</span>
 								</Link>
 							</p>
 							<form>
 								<div className="flex flex-col gap-y-[15px]">
-									<InputGroup
+									<LoginInputGroup
 										label="Email"
 										placeholder="Enter Valid Email Address"
 										value={email}
@@ -234,7 +181,7 @@ const LoginPage: NextPage = () => {
 										type="email"
 										errorMessage={errors.email}
 									/>
-									<InputGroup
+									<LoginInputGroup
 										label="Password"
 										placeholder="Enter Password"
 										value={password}
@@ -243,9 +190,9 @@ const LoginPage: NextPage = () => {
 										errorMessage={errors.password}
 									/>
 								</div>
-								<div className="text-eccblue text-right font-medium text-[12px] mt-[11px]">
-									Forgot Password?
-								</div>
+								<Link href="/recover">
+									<div className="text-eccblue text-right font-medium text-[12px] mt-[11px] cursor-pointer">Forgot Password?</div>
+								</Link>
 
 								<button
 									onClick={onSubmit}
@@ -257,7 +204,10 @@ const LoginPage: NextPage = () => {
 						</div>
 					</div>
 				</div>
-				<img className="absolute bottom-0" src="/Images/polygons.svg" />
+				<img
+					className="absolute bottom-0"
+					src="/Images/polygons.svg"
+				/>
 			</div>
 		</>
 	);

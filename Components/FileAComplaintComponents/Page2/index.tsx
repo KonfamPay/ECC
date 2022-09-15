@@ -7,12 +7,7 @@ interface Page2Props {
 	setIsOpaque: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page2: React.FC<Page2Props> = ({
-	setCurrentPage,
-	selectedFiles,
-	setSelectedFiles,
-	setIsOpaque,
-}) => {
+const Page2: React.FC<Page2Props> = ({ setCurrentPage, selectedFiles, setSelectedFiles, setIsOpaque }) => {
 	const filePickerRef = useRef(null);
 	const addDocument = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = [...selectedFiles];
@@ -37,24 +32,14 @@ const Page2: React.FC<Page2Props> = ({
 	return (
 		<div className="mt-[20px] lg:mt-[90px]">
 			<p className="text-[14px] lg:text-[24px] leading-[23px] lg:leading-[37px]">
-				Kindly upload documents or picture that includes evidence of
-				Payment, proof of payment or anythhing that might help us
-				resolve your complaint.
-				<span className="text-eccblue">
-					{"    "} You can upload multiple documents
-				</span>
+				Kindly upload documents or picture that includes evidence of Payment, proof of payment or anythhing that might help us resolve your complaint.
+				<span className="text-eccblue">{"    "} You can upload multiple documents</span>
 			</p>
 			<div className="mt-[66px]">
 				<div>
-					<p className="text-[14px] lg:text-[20px]">
-						Upload Documents
-					</p>
+					<p className="text-[14px] lg:text-[20px]">Upload Documents</p>
 				</div>
-				<div
-					className={`w-full lg:h-[571px] py-[27.5px] lg:pt-[120px] rounded-xl bg-clearblue border-eccblue mt-[25px] border-2 border-dashed mx-auto ${
-						selectedFiles ? "" : "pt-[170px]"
-					}`}
-				>
+				<div className={`w-full lg:h-[571px] py-[27.5px] lg:pt-[120px] rounded-xl bg-clearblue border-eccblue mt-[25px] border-2 border-dashed mx-auto ${selectedFiles ? "" : "pt-[170px]"}`}>
 					<img
 						src="icons/paste.svg"
 						alt=""
@@ -78,9 +63,7 @@ const Page2: React.FC<Page2Props> = ({
 								browse files
 							</span>
 						</p>
-						<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">
-							Supported format: JPEG, PNG, PDF
-						</p>
+						<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">Supported format: JPEG, PNG, PDF</p>
 					</div>
 					<div className="grid grid-cols-2 px-[40px] gap-x-[14px]">
 						{selectedFiles.length > 0 &&
@@ -93,16 +76,12 @@ const Page2: React.FC<Page2Props> = ({
 													src="icons/file-check.svg"
 													alt=""
 												/>
-												<p className="text-[20px] font-[600] text-white">
-													{item.name ? item.name : ""}
-												</p>
+												<p className="text-[20px] font-[600] text-white">{item.name ? item.name : ""}</p>
 											</div>
 											<img
 												src="icons/close-1.svg"
 												className=" absolute right-0 top-[27px] w-[18px] h-[18px] mt-[5px] cursor-pointer"
-												onClick={() =>
-													onFileDelete(item)
-												}
+												onClick={() => onFileDelete(item)}
 												alt=""
 											/>
 										</div>
