@@ -6,13 +6,10 @@ interface InputGroupProps {
 	value: string;
 	setValue: any;
 	type: string;
-<<<<<<< HEAD
 	className?: string;
 	maxlength?: number;
 	errorMessage?: string;
 	max?: string;
-=======
->>>>>>> d32a1cf50d34e66e7e8ac14868156593030633d2
 }
 
 const InputGroup: React.FC<InputGroupProps> = ({
@@ -21,6 +18,8 @@ const InputGroup: React.FC<InputGroupProps> = ({
 	value,
 	setValue,
 	type,
+	className, 
+	maxlength, max, errorMessage
 }) => {
 	return (
 		<div className={className || ""}>

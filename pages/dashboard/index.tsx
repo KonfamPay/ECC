@@ -15,7 +15,7 @@ interface User {
 }
 
 const index: NextPage = (props) => {
-	const [cookie, setCookie] = useCookies(["token"]);
+	const [cookie, setCookie, removeCookie] = useCookies(["user"]);
 	const [user, setUser] = useState<User>({
 		firstName: "",
 		lastName: "",
@@ -23,21 +23,22 @@ const index: NextPage = (props) => {
 		iat: 0,
 	});
 	const router = useRouter();
-	useEffect(() => {
-		if (!cookie.token) router.replace("/login");
-		else {
-			const userObj = jwt_decode(cookie.token) as User;
-			setUser(userObj);
-			console.log(userObj);
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!cookie.user) router.replace("/login");
+	// 	else if (!cookie.user.verified){
+	// 		router.push("/verification");
+	// 	} else {
+	// 		setUser(cookie.user)
+	// 	}
+	// }, []);
 	return (
 		<NavWrapper>
 			<div className="">
 				<div className="bg-[#020D1B] w-full h-[255px] rounded-[20px] flex flex-row relative">
 					<div className="text-white pl-[43px] py-[58.5px]">
 						<p className="text-[40px] leading-[60px] font-[600]">
-							Hi, {user.firstName}
+							{/* Hi, {cookie.user?.firstName} */}
+							Hi, Ronald
 						</p>
 						<p className="text-[24px] leading-[36px] font-[600] w-[503px]">
 							Vendor don do you strong thing again? <br /> We are

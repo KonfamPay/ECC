@@ -132,7 +132,7 @@ const NavBar: React.FC<NavBarProps> = ({
 						<NavItem
 						   
 						   title="Login / SignUp"
-						   href='loginSignup'
+						   href='/login'
 						   isTransparent={isTransparent}
 						   hasWhiteText={hasWhiteText?hasWhiteText:false}
 						/>

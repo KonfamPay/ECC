@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import InputGroup from "../../Components/Verification/InputGroup";
 import NavBar from "../../Components/NavBar";
-import Testimonials from "../../Components/Testimonials";
 import { AnimatePresence, motion } from "framer-motion";
 import { states } from "./StatesAndLga";
 import jwt_decode from "jwt-decode";
@@ -20,6 +19,8 @@ const VerificationPage: NextPage = () => {
 	const [address, setAddress] = useState("");
 	const [photoId, setPhotoId] = useState({ url: "", cloudinaryId: "" });
 	const [selectedFile, setSelectedFile] = useState<File | null>(null);
+	const inputContainerRef = useRef<null | HTMLInputElement>(null);
+	const photoIdScrollRef = useRef<null | HTMLDivElement>(null);
 	const [progress, setProgress] = useState(0);
 	const [errors, setErrors] = useState({
 		phoneNumber: "",
@@ -29,7 +30,7 @@ const VerificationPage: NextPage = () => {
 		address: "",
 		photoIdUrl: "",
 	});
-	const filePickerRef = useRef(null);
+	const filePickerRef = useRef<null | HTMLInputElement>(null);
 	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 	const router = useRouter();
 	const addDocument = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -121,6 +122,12 @@ const VerificationPage: NextPage = () => {
 							.message
 					: "",
 			};
+			let firstError = details[0].path[0];
+			console.log(firstError);
+			if (firstError != "photoIdUrl") {
+				console.log(firstError)
+				inputContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+			} 
 			setErrors(errors);
 		}
 		if (!error) {
@@ -173,7 +180,7 @@ const VerificationPage: NextPage = () => {
 					</p>
 				</div>
 				<div className="mt-[99px] mx-[12.5px] lg:mx-[109px]">
-					<div className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
+					<div ref={inputContainerRef} className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
 						<InputGroup
 							label="Phone Number"
 							placeholder="Enter Phone Number"
@@ -307,7 +314,7 @@ const VerificationPage: NextPage = () => {
 											</span>{" "}
 											here
 										</p>
-										<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">
+										<p ref={photoIdScrollRef} className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">
 											Supported format: JPEG, PNG, PDF
 										</p>
 									</div>
@@ -421,15 +428,13 @@ const VerificationPage: NextPage = () => {
 				</div>
 				<div
 					onClick={onSubmit}
-					className="mt-[63px] mx-[12.5px] lg:mx-auto rounded-[12px] bg-[#0B63C5] lg:w-[587px] transition-[150ms] active:scale-95 "
+					className="my-[63px] mx-[12.5px] lg:mx-auto rounded-[12px] bg-[#0B63C5] lg:w-[587px] transition-[150ms] active:scale-95 "
 				>
 					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">
 						Continue
 					</p>
 				</div>
-				<div className="mt-[118px]">
-					<Testimonials />
-				</div>
+
 				{/* <Footer /> */}
 			</motion.div>
 		</>

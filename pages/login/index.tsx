@@ -70,9 +70,9 @@ const LoginPage: NextPage = () => {
 					path: "/",
 					expires: new Date(Date.now() + 2 * 86400000),
 				});
-				if (user.verified) router.push("/dashboard");
+				if (user.verified) router.replace("/dashboard");
 				else {
-					router.push("/verified");
+					router.replace("/verification");
 				}
 			} catch (err: any) {
 				try {
@@ -90,13 +90,8 @@ const LoginPage: NextPage = () => {
 		}
 	};
 	useEffect(() => {
-		if (cookies.user)
-			try {
-				const user = jwt_decode(cookies.user);
-				router.push("/dashboard");
-			} catch (ex) {
-				removeCookie("user");
-			}
+		if (cookies.user) router.replace("/dashoard")
+			
 	}, []);
 	return (
 		<>
@@ -162,7 +157,7 @@ const LoginPage: NextPage = () => {
 								/>
 							</div>
 							<p
-								onClick={() => router.push("/forgot-password")}
+								onClick={() => router.replace("/forgot-password")}
 								className="text-center my-[30px] cursor-pointer"
 							>
 								Forgot Password?

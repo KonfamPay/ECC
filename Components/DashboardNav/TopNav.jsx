@@ -10,14 +10,13 @@ const TopNav = () => {
     const router = useRouter();
     const [user, setUser] = useState({});
     const currentDate = moment().format("ddd. Do MMMM, YYYY");
-	useEffect(() => {
-		if (!cookie.user) router.replace("/login");
-		else {			
-            setUser(cookie.user);
-            console.log(user);
-		}
-    }, []);
-    console.log(new Date(user.createdAt).getFullYear());
+	// useEffect(() => {
+	// 	if (!cookie.user) router.replace("/login");
+	// 	else {			
+    //         setUser(cookie.user);
+    //         console.log(user);
+	// 	}
+    // }, []);
     return (
         <div style={{zIndex: 20}} className="fixed left-[274px] top-0 w-[calc(100%-274px)] h-[110px] bg-white pl-[35px] pt-[0px] pr-[66px] flex justify-between items-center poppinsFont">
             <div>
@@ -28,11 +27,14 @@ const TopNav = () => {
                     <Notifications newNotifications/>
                 <div className="flex gap-x-[21px]">
                     <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
-                        <img className="w-full" src={user.profilePic || "/Images/profilePic.png"} />
+                        {/* <img className="w-full" src={user.profilePic || "/Images/profilePic.png"} /> */}
+                        <img className="w-full" src={"/Images/profilePic.png"} />
                     </div>
                     <div className="flex flex-col items-start ">
-                        <p className="font-semibold opacity-70 text-[20px]">{`${user.firstName} ${user.lastName}`}</p>
-                        <p className="font-semibold text-[14px] relative "><span className="opacity-70">Member since</span> <span className="text-eccblue">{new Date(user.createdAt).getFullYear()}</span></p>
+                        <p className="font-semibold opacity-70 text-[20px]">{`Ronald Dosunmu`}</p>
+                        {/* <p className="font-semibold opacity-70 text-[20px]">{`${user.firstName} ${user.lastName}`}</p> */}
+                        {/* <p className="font-semibold text-[14px] relative "><span className="opacity-70">Member since</span> <span className="text-eccblue">{new Date(user.createdAt).getFullYear()}</span></p> */}
+                        <p className="font-semibold text-[14px] relative "><span className="opacity-70">Member since</span> <span className="text-eccblue">2022</span></p>
                     </div>
                 </div>
             </div>
