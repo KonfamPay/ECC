@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Notifications } from "./Notifications";
+import Notifications from "./Notifications";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -10,13 +10,31 @@ const TopNav = () => {
 	const router = useRouter();
 	const [user, setUser] = useState({});
 	const currentDate = moment().format("ddd. Do MMMM, YYYY");
-	useEffect(() => {
-		if (!cookie.user) router.replace("/login");
-		else {
-			setUser(cookie.user);
-			console.log(user);
+	//useEffect(() => {
+	// 	if (!cookie.user) router.replace("/login");
+	// 	else {
+	// 		setUser(cookie.user);
+	// 		console.log(user);
+	// 	}
+	// }, []);
+
+	const getCurrentPage = () => {
+		const currentPath = router.pathname;
+		switch (currentPath) {
+			case "/dashboard":
+				return "Dashboard";
+			case "/dashboard/profile":
+				return "My Profile";
+			case "/dashboard/mycomplaints":
+				return "My Complaints";
+			case "/dashboard/talktoalawyer":
+				return "Talk To A Lawyer";
+			case "/dashboard/hirealawyer":
+				return "Hire A Lawyer";
+			case "/dashboard/help":
+				return "Help";
 		}
-	}, []);
+	};
 	console.log(new Date(user.createdAt).getFullYear());
 	return (
 		<div
@@ -24,11 +42,11 @@ const TopNav = () => {
 			className="fixed left-[274px] top-0 w-[calc(100%-274px)] h-[110px] bg-white pl-[35px] pt-[0px] pr-[66px] flex justify-between items-center poppinsFont"
 		>
 			<div>
-				<p className="font-medium text-[24px] text-eccblue">Dashboard</p>
+				<p className="font-medium text-[24px] text-eccblue">{getCurrentPage()}</p>
 				<p className="font-medium text-[18px] text-[#7A797D] mt-[2px]">{currentDate}</p>
 			</div>
 			<div className="flex items-center gap-x-[60px]">
-				<Notifications newNotifications />
+				<Notifications newNotifications={false} />
 				<div className="flex gap-x-[21px]">
 					<div className="w-[50px] h-[50px] rounded-full overflow-hidden">
 						<img
@@ -47,3 +65,4 @@ const TopNav = () => {
 		</div>
 	);
 };
+export default TopNav;
