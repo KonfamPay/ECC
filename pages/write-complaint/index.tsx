@@ -12,7 +12,7 @@ const index: NextPage = () => {
 	return (
 		<>
 			<NavBar />
-			<div className="mt-[86px] lg:mt-[201px] mx-[16px] lg:mx-[100px] ">
+			<div className="max-w-[1440px] mt-[86px] lg:mt-[201px] mx-auto w-[92%] lg:w-[90%] ">
 				<p className="text-[20px] lg:text-[40px] text-center">Complaint Letter Tool</p>
 				<div className="bg-clearblue rounded-xl w-[100%]">
 					<div className="flex space-x-[10px] lg:space-x-[50px] w-full mt-[16px] lg:mt-[53px]">
