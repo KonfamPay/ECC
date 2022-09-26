@@ -8,20 +8,20 @@ interface ComplaintsCardProps {
 
 export const ComplaintsCard: React.FC<ComplaintsCardProps> = ({ icon, iconBg, textColor, text, number }) => {
 	return (
-		<div className="w-full px-[75px] py-[45px] bg-white poppinsFont flex items-center justify-center gap-x-[52px] rounded-[15px] max-w-[438px]">
+		<div className="lg:w-full w-[90%] lg:px-[75px] px-[25px] mx-auto py-[30px] lg:py-[45px] bg-white poppinsFont flex items-center lg:justify-center justify-around gap-x-[52px] rounded-[15px] max-w-[438px]">
 			<div
 				style={{ backgroundColor: iconBg }}
-				className={`w-[80px] h-[80px] rounded-[27.2px] flex items-center justify-center`}
+				className={`lg:w-[80px] lg:h-[80px] w-[75px] h-[75px] lg:rounded-[27.2px] rounded-[16px] flex items-center justify-center`}
 			>
 				<img
-					className="w-[36px] h-[36px]"
+					className="lg:w-[36px] lg:h-[36px] w-[22px] h-[20px]"
 					src={icon}
 				/>
 			</div>
 			<div>
 				<p
 					style={{ color: textColor }}
-					className={`text-[48px] font-medium -mt-2`}
+					className={`lg:text-[48px] text-[32px] text-center font-medium -mt-2`}
 				>
 					{number}
 				</p>
