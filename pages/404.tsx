@@ -6,7 +6,7 @@ import { Footer, NavBar } from "../Components";
 const NotFoundPage: NextPage = () => {
   const router = useRouter()
   const handleClick = () => {
-    router.back();
+    router.push("/");
   }
   return (
     <>
@@ -14,7 +14,7 @@ const NotFoundPage: NextPage = () => {
       <div className="my-[112px] flex flex-col lg:flex-row w-[92%] lg:w-[90%] max-w-[1440px] mx-auto lg:justify-between gap-[70px] lg:gap-[0] items-center">
         <img
           src="Images/NotFound.png"
-          alt="Not-found block w-[80%]"
+          alt="Not-found"
         />
         <div className="flex flex-col w-[100%] lg:w-[524px]">
           <h1 className="text-[24px] leading-[36px] lg:text-[64px] lg:leading-[96px] text-center lg:text-left font-bold">Oh No!</h1>
