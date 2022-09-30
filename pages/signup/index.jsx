@@ -11,15 +11,11 @@ import { useRouter } from "next/router";
 const SignupPage = () => {
 	const [cookies, setCookie] = useCookies(["token"]);
 	const router = useRouter();
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [backendError, setBackendError] = useState("");
 	const [errors, setErrors] = useState({
-		firstName: "",
-		lastName: "",
 		email: "",
 		password: "",
 		confirmPassword: "",
@@ -29,8 +25,6 @@ const SignupPage = () => {
 		return password == confirmPassword;
 	};
 	const schema = Joi.object({
-		firstName: Joi.string().min(3).max(46).required().label("First Name"),
-		lastName: Joi.string().min(3).max(46).required().label("Last Name"),
 		email: Joi.string()
 			.min(3)
 			.max(100)
@@ -41,12 +35,10 @@ const SignupPage = () => {
 	});
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		const { error } = schema.validate({ firstName, lastName, email, password, confirmPassword }, { abortEarly: false });
+		const { error } = schema.validate({ email, password, confirmPassword }, { abortEarly: false });
 		if (error) {
 			const { details } = error;
 			const errors = {
-				firstName: details.find((item) => item.path[0] == "firstName") ? details.find((item) => item.path[0] == "firstName").message : "",
-				lastName: details.find((item) => item.path[0] == "lastName") ? details.find((item) => item.path[0] == "lastName").message : "",
 				email: details.find((item) => item.path[0] == "email") ? details.find((item) => item.path[0] == "email").message : "",
 				password: details.find((item) => item.path[0] == "password") ? details.find((item) => item.path[0] == "password").message : "",
 				confirmPassword: details.find((item) => item.path[0] == "confirmPassword") ? details.find((item) => item.path[0] == "confirmPassword").message : "",
@@ -55,10 +47,10 @@ const SignupPage = () => {
 			console.log(passwordsMatch(password, confirmPassword));
 			setErrors(errors);
 		} else {
-			setErrors({ firstName: "", lastName: "", email: "", password: "", confirmPassword: "" });
+			setErrors({email: "", password: "", confirmPassword: "" });
 			try {
 				setLoading(true);
-				const payload = { firstName, lastName, email, password };
+				const payload = { email, password };
 				const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/users`, payload);
 				setBackendError("");
 				setCookie("token", res.data.token, {
@@ -120,22 +112,6 @@ const SignupPage = () => {
 						</p>
 						<form>
 							<div className="flex flex-col gap-y-[35px]">
-								<LoginInputGroup
-									label="First Name"
-									placeholder="Enter Legal First Name"
-									value={firstName}
-									setValue={setFirstName}
-									type="text"
-									errorMessage={errors.firstName}
-								/>
-								<LoginInputGroup
-									label="Last Name"
-									placeholder="Enter Legal Last Name"
-									value={lastName}
-									setValue={setLastName}
-									type="text"
-									errorMessage={errors.lastName}
-								/>
 								<LoginInputGroup
 									label="Email"
 									placeholder="Enter Valid Email Address"
@@ -205,20 +181,6 @@ const SignupPage = () => {
 							</p>
 							<form>
 								<div className="flex flex-col gap-y-[15px]">
-									<LoginInputGroup
-										label="First Name"
-										placeholder="Enter Legal First Name"
-										value={firstName}
-										setValue={setFirstName}
-										type="text"
-									/>
-									<LoginInputGroup
-										label="Last Name"
-										placeholder="Enter Legal Last Name"
-										value={lastName}
-										setValue={setLastName}
-										type="text"
-									/>
 									<LoginInputGroup
 										label="Email"
 										placeholder="Enter Valid Email Address"
