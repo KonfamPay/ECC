@@ -14,14 +14,14 @@ const profile: NextPage = (props) => {
 					className="rounded-t-[20px] w-full"
 					alt=""
 				/>
-				<div className="mx-auto w-[158px] h-[158px] -mt-[115px] relative">
+				<div className="mx-auto  w-[20%] h-[5%] xl:bottom-[150px] lg:bottom-[80px] relative">
 					<img
 						src="/images/dummy-profile.png"
 						alt=""
 					/>
 					<img
 						src="/icons/dashboard-icons/camera.svg"
-						className="absolute bottom-0 right-0 cursor-pointer"
+						className="relative bottom-[20px] left-[20px] cursor-pointer w-[100%] lg:h-[100%]"
 						alt=""
 					/>
 				</div>
@@ -29,8 +29,8 @@ const profile: NextPage = (props) => {
 					<p className="text-[24px] font-[500]">Voke Onoriode</p>
 					<p className="mt-[10px] text-[18px] font-[500]">Vokeonoriode@gmail.com</p>
 				</div>
-				<div className="mx-[74.5px] mt-[29px] flex flex-col space-y-[96px]">
-					<div className="flex flex-row space-x-[156px]">
+				<div className="mx-[auto] mt-[29px] flex flex-col  space-y-[50px]">
+					<div className="flex flex-row mx-auto xl:space-x-[120px] lg:space-x-[100px]">
 						<div>
 							<div>
 								<div className="border-b-[0.5px] border-b-[#C5C5C5] w-[165px]">
@@ -52,7 +52,7 @@ const profile: NextPage = (props) => {
 							</div>
 						</div>
 					</div>
-					<div className="flex flex-row space-x-[81px]">
+					<div className="flex flex-row mx-auto xl:space-x-[81px] lg:space-x-[60px]">
 						<div>
 							<div>
 								<div className="border-b-[0.5px] border-b-[#C5C5C5] w-[240px]">
@@ -75,7 +75,7 @@ const profile: NextPage = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className="px-[73px] bg-eccblue mx-[73px] rounded-xl mt-[70px] flex flex-row justify-center">
+				<div className="px-[73px] bg-eccblue mx-[73px] rounded-xl lg:mt-[60px] xl:mt-[30px] flex flex-row justify-center">
 					<img
 						className="mr-4"
 						src="/icons/dashboard-icons/camera-01.svg"
@@ -88,7 +88,7 @@ const profile: NextPage = (props) => {
 			<div className="lg:hidden w-full bg-clearblue">
 				<img
 					src="/icons/dashboard-icons/profile-header.svg"
-					className="rounded-t-[20px] w-full"
+					className="w-full"
 					alt=""
 				/>
 				<div className="mx-auto w-[120px] h-[120px] -mt-[70px] relative">
@@ -112,13 +112,13 @@ const profile: NextPage = (props) => {
 							setIsShowing("personal");
 						}}
 						style={{ borderBottomColor: isShowing === "personal" ? "rgb(11,99,197)" : "transparent" }}
-						className=" border-b-[2px] "
+						className=" border-b-[4px] mb-0 "
 					>
 						Personal Information
 					</div>
 					<div
 						style={{ borderBottomColor: isShowing === "complaints" ? "rgb(11,99,197)" : "transparent" }}
-						className="border-b-[2px]"
+						className="border-b-[4px] mb-0"
 						onClick={() => {
 							setIsShowing("complaints");
 						}}
