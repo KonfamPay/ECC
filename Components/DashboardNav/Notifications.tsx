@@ -4,7 +4,7 @@ interface NotificationProps {
 	newNotifications: boolean;
 }
 
-export const Notifications: React.FC<NotificationProps> = ({ newNotifications }) => {
+const Notifications: React.FC<NotificationProps> = ({ newNotifications }) => {
 	return (
 		<Link href="/dashboard/notifications">
 			<div className="relative cursor-pointer">
@@ -20,3 +20,4 @@ export const Notifications: React.FC<NotificationProps> = ({ newNotifications })
 		</Link>
 	);
 };
+export default Notifications;
