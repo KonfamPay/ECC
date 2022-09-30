@@ -31,7 +31,7 @@ const NavButton = ({ isActive, text, onClick }) => {
 		<button
 			onClick={onClick}
 			style={isActive ? { border: "1px solid rgba(11, 99, 197, 1)", color: "#0B63C5" } : { border: "1px solid rgba(11, 99, 197, 0)", color: "#7A797D" }}
-			className="transition-[100ms] inline-flex min-w-[198px] py-[15px] bg-white font-medium poppinsFont text-[16px] rounded-xl  px-[16px] items-center gap-x-[16px]"
+			className="transition-[100ms] inline-flex min-w-[198px] py-[15px]  font-medium poppinsFont text-[16px] rounded-xl  px-[16px] items-center gap-x-[16px]"
 		>
 			{getIcon(text, isActive ? "#0B63C5" : "#7A797D")}
 			{text}
@@ -94,7 +94,7 @@ const SideNav = ({ open, openSide }) => {
 					/>
 					<button
 						onClick={onLogout}
-						className="transition-[100ms] text-[#FA4343] inline-flex min-w-[198px] py-[15px] bg-white font-medium poppinsFont text-[16px] rounded-xl  px-[16px] items-center gap-x-[16px]"
+						className="transition-[100ms] text-[#FA4343] inline-flex min-w-[198px] py-[15px] bg-white font-medium poppinsFont text-[16px] rounded-xl   px-[16px] items-center gap-x-[16px]"
 					>
 						<img src="/Images/logoutIcon.svg" />
 						Logout
@@ -161,6 +161,30 @@ const SideNav = ({ open, openSide }) => {
 								<img src="/Images/logoutIcon.svg" />
 								Logout
 							</button>
+							<div className="w-[80%] h-[210px] mt-8  flex p-4 flex-col rounded-md items-center bg-black text-white">
+								<div>
+									<img
+										src="/Images/konfamPay.svg"
+										alt=""
+									/>
+								</div>
+
+								<div className="flex flex-row mt-4">
+									<div className="flex flex-col text-[14px] font-semibold">
+										<p>Your payments are secure</p>
+										<p className="text-[#67b467] ">No scams again</p>
+									</div>
+									<div>
+										<img
+											className="w-[37px] h-[75px]"
+											src="/Images/kfpImage.png"
+											alt=""
+										/>
+									</div>
+								</div>
+
+								<button className=" mt-4 w-[80%] rounded-md h-auto bg-[#67b467] text-center mx-auto py-2 ">Learn More</button>
+							</div>
 						</div>
 					</div>
 				) : (
