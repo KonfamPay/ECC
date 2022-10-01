@@ -3,7 +3,7 @@ interface ComplaintProps {
 	complaintContent: string;
 	date: string;
 	author: string;
-	status: boolean;
+	status: string;
 }
 export const Complaint: React.FC<ComplaintProps> = ({ title, complaintContent, author, date, status }) => {
 	return (
@@ -13,7 +13,7 @@ export const Complaint: React.FC<ComplaintProps> = ({ title, complaintContent, a
 			<p className="mt-5 text-[12px] font-extralight">
 				{date} by <span className="text-eccblue">{author}</span>
 			</p>
-			<div className={`${status ? "bg-success" : "bg-danger"} w-28 py-3 rounded-xl mt-11 text-white text-center select-none`}>{status ? "OPEN" : "CLOSED"}</div>
+			<div className={`${status === "open" ? "bg-success" : "bg-danger"} w-28 py-3 rounded-xl mt-11 text-white text-center select-none`}>{status === "open" ? "OPEN" : "CLOSED"}</div>
 		</div>
 	);
 };
