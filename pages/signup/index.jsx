@@ -7,9 +7,12 @@ import { AsyncSubmitButton } from "../../Components/";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import client from "../api/Services/AxiosClient"
+import { useQuery } from "react-query";
+import jwtDecode from "jwt-decode";
 
 const SignupPage = () => {
-	const [cookies, setCookie] = useCookies(["token"]);
+	const [cookies, setCookie] = useCookies(["user"]);
 	const router = useRouter();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -24,6 +27,7 @@ const SignupPage = () => {
 	const passwordsMatch = (password, confirmPassword) => {
 		return password == confirmPassword;
 	};
+	const [token, setToken] = useState("");
 	const schema = Joi.object({
 		email: Joi.string()
 			.min(3)
@@ -47,27 +51,25 @@ const SignupPage = () => {
 			console.log(passwordsMatch(password, confirmPassword));
 			setErrors(errors);
 		} else {
-			setErrors({email: "", password: "", confirmPassword: "" });
+			setErrors({ email: "", password: "", confirmPassword: "" });
 			try {
 				setLoading(true);
 				const payload = { email, password };
-				const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/users`, payload);
-				setBackendError("");
-				setCookie("token", res.data.token, {
-					path: "/",
-				});
-				router.push("/dashboard");
-				console.log(res);
-			} catch (err) {
-				console.log(err);
-				try {
-					if (err.response.data.message) setBackendError(err.response.data.message);
-				} catch (err) {
-					alert("Something went wrong.");
+				const response = await client.post("/users", payload);
+				console.log(token)
+				if (response.data.token) {
+					const user = jwtDecode(response.data.token)
+					setCookie("user", user)
+					router.push("/verify_email")
 				}
+				
+			} catch (err) { 
+				if (err.response.status == 500) alert("Something went wrong. Please check your internet connection");
+				else {  setBackendError(err.response.data.message);}
 			} finally {
 				setLoading(false);
 			}
+
 		}
 	};
 	return (
