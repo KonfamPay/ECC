@@ -70,8 +70,7 @@ const LoginPage: NextPage = () => {
 		}
 	};
 	useEffect(() => {
-		if (cookies.user) router.replace("/dashoard")
-			
+		if (cookies.user) router.replace("/dashboard");
 	}, []);
 	return (
 		<>
@@ -104,7 +103,7 @@ const LoginPage: NextPage = () => {
 						<p className="text-center mt-[20px] mb-[38px]">
 							Don't have an account?{" "}
 							<Link href="/signup">
-								<span className="text-eccblue cursor-pointer">Login</span>
+								<span className="text-eccblue cursor-pointer">Sign Up</span>
 							</Link>
 						</p>
 						<form>
