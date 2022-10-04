@@ -47,10 +47,12 @@ const SignupPage = () => {
 				password: details.find((item) => item.path[0] == "password") ? details.find((item) => item.path[0] == "password").message : "",
 				confirmPassword: details.find((item) => item.path[0] == "confirmPassword") ? details.find((item) => item.path[0] == "confirmPassword").message : "",
 			};
-			if (!passwordsMatch(password, confirmPassword) && confirmPassword != "") errors.confirmPassword = "Confirm Password should be the same as Password";
-			console.log(passwordsMatch(password, confirmPassword));
 			setErrors(errors);
-		} else {
+		} else if (!passwordsMatch(password, confirmPassword) && confirmPassword != "") {
+			setErrors({...errors, confirmPassword : "Confirm Password should be the same as Password"})
+			console.log(passwordsMatch(password, confirmPassword));	
+		}		
+		else {
 			setErrors({ email: "", password: "", confirmPassword: "" });
 			try {
 				setLoading(true);
