@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { LoginInputGroup } from "../../Components/";
 import Joi from "joi-browser";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { AsyncSubmitButton } from "../../Components/";
 import axios from "axios";
 import { useCookies } from "react-cookie";
@@ -141,15 +141,18 @@ const SignupPage = () => {
 									errorMessage={errors.confirmPassword}
 								/>
 							</div>
+							<AnimatePresence>
 							{backendError && (
 								<motion.p
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
+									exit={{opacity: 0}}
 									className="text-center my-[20px] text-[#ed4956]"
 								>
 									{backendError}
 								</motion.p>
 							)}
+							</AnimatePresence>
 							<div className="mt-[43px]">
 								<AsyncSubmitButton
 									onSubmit={onSubmit}
