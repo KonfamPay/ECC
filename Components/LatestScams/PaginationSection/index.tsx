@@ -3,7 +3,7 @@ import PaginationButton from "./PaginationButton";
 
 interface PaginationSectionProps {
 	searchResults: any[];
-	setSearchResults: Dispatch<SetStateAction<any[]>>;
+	// setSearchResults: Dispatch<SetStateAction<any[]>>;
 	maxResultsPerPage: number;
 	currentSearchPage: number;
 	setCurrentSearchPage: Dispatch<SetStateAction<number>>;
@@ -11,7 +11,7 @@ interface PaginationSectionProps {
 	pageSize: any;
 }
 
-const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, setSearchResults, maxResultsPerPage, numberOfPages, currentSearchPage, setCurrentSearchPage, pageSize }) => {
+const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, maxResultsPerPage, numberOfPages, currentSearchPage, setCurrentSearchPage, pageSize }) => {
 	return (
 		<div className="mt-[60px] flex justify-center gap-x-[31px]">
 			{searchResults.length > maxResultsPerPage && currentSearchPage > 1 && (
