@@ -26,9 +26,12 @@ const Index: NextPage = () => {
 	const [wantsReplacement, setWantsReplacement] = useState(false);
 	const [termsAndConditions, setTermsAndConditions] = useState(false);
 	const [isOpaque, setIsOpaque] = useState(true);
+	const [accountName, setAccountName] = useState("");
+	const [accountNumber, setAccountNumber] = useState("");
+	const [bankName, setBankName] = useState("");
 	return (
 		<>
-			{/* <NavBar /> */}
+			<NavBar />
 			<ComplaintLetterSection />
 			<div className="px-[13px] lg:px-[100px] mt-[72px] mb-[147px] max-w-[1536px] mx-auto">
 				<div className="mx-auto text-center w-fit">
@@ -60,6 +63,12 @@ const Index: NextPage = () => {
 				>
 					{currentPage == 1 && (
 						<Page1
+							accountName={accountName}
+							setAccountName={setAccountName}
+							accountNumber={accountNumber}
+							setAccountNumber={setAccountNumber}
+							bankName={bankName}
+							setBankName={setBankName}
 							setCurrentPage={setCurrentPage}
 							titleOfComplaint={titleOfComplaint}
 							setTitleOfComplaint={setTitleOfComplaint}

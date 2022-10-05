@@ -4,9 +4,10 @@ import { useState } from "react";
 interface navBarProps {
 	setPage: any;
 	page: string;
+	setPageNumber: any;
 }
 
-const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page }) => {
+const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page, setPageNumber }) => {
 	const complaintsnavbarcontents = [
 		{
 			text: "All",
@@ -44,6 +45,7 @@ const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page }) => {
 							<div
 								onClick={() => {
 									setPage(content.text);
+									setPageNumber(1);
 								}}
 								className={`border-2 border-white ${content.text === page && "bg-[#fff]"} w-fit h-[35px] rounded-[40px] flex items-center justify-center hoverAnimation hover:text-black`}
 							>
@@ -63,7 +65,7 @@ const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page }) => {
 							}}
 							className={` border  border-transparent ${item.text === page && "text-black  border-solid bg-white border-white"} w-auto py-2  rounded-lg text-center hoverAnimation hover:text-black  `}
 						>
-							<p className={` px-2 text-[12px] text-white ${item.text === page && "text-[black]"}`}>{item.text}</p>
+							<p className={` px-2 text-[12px] hover:text-black text-white ${item.text === page && "text-[black]"}`}>{item.text}</p>
 						</div>
 					))}{" "}
 				</div>
