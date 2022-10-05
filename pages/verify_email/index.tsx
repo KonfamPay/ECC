@@ -71,7 +71,7 @@ const RecoverPage: NextPage = () => {
 							path: "/",
 							expires: new Date(Date.now() + 2 * 86400000),
 						});
-						router.push("/verification");
+						router.replace("/verification");
 					}
 				}
 				setBackendError("");
@@ -204,13 +204,22 @@ const RecoverPage: NextPage = () => {
 						<p className="text-[14px] pr-[35px] xl:text-[17px] font-medium max-w-[460px] mt-[8px]">A code has been sent to your email address. Kindly input the code to proceed </p>
 					</div>
 				</div>
-				{popup && (
-					<Popup
-						error={backendError}
-						resend={resendText}
-						exit={setPopup}
-					/>
-				)}
+				<AnimatePresence>
+					{backendError && (
+						<ErrorPopUp
+							error={backendError}
+							setBackendError={setBackendError}
+						/>
+					)}
+				</AnimatePresence>
+				<AnimatePresence>
+					{resendText && (
+						<ResendCodeSuccessfulPopUp
+							resendText={resendText}
+							setResendText={setResendText}
+						/>
+					)}
+				</AnimatePresence>
 				<div className="px-[9px] mt-[30px] max-w-[500px] mx-auto w-full">
 					<div className="w-full px-[14px] flex flex-col overflow-y-auto pt-[40px] pb-[45px] bg-white rounded-[20px]">
 						<div>
