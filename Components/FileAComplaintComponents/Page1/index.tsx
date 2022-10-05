@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import FileAComplaintInput from "../FileAComplaintInput";
 interface Page1Props {
+	place: string;
 	accountNumber: string;
 	accountName: string;
 	bankName: string;
@@ -25,7 +26,31 @@ interface Page1Props {
 	setIsOpaque: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page1: React.FC<Page1Props> = ({ accountNumber, accountName, bankName, setAccountName, setAccountNumber, setBankName, titleOfComplaint, setTitleOfComplaint, placeOfTransaction, setPlaceOfTransaction, companyName, setCompanyName, amountLost, setAmountLost, brandContact, setBrandContact, complaintDetails, setComplaintDetails, brandHandle, setBrandHandle, setCurrentPage, setIsOpaque }) => {
+const Page1: React.FC<Page1Props> = ({
+	place,
+	accountNumber,
+	accountName,
+	bankName,
+	setAccountName,
+	setAccountNumber,
+	setBankName,
+	titleOfComplaint,
+	setTitleOfComplaint,
+	placeOfTransaction,
+	setPlaceOfTransaction,
+	companyName,
+	setCompanyName,
+	amountLost,
+	setAmountLost,
+	brandContact,
+	setBrandContact,
+	complaintDetails,
+	setComplaintDetails,
+	brandHandle,
+	setBrandHandle,
+	setCurrentPage,
+	setIsOpaque,
+}) => {
 	const onSubmit = () => {
 		setIsOpaque(false);
 		setTimeout(() => {
@@ -40,7 +65,7 @@ const Page1: React.FC<Page1Props> = ({ accountNumber, accountName, bankName, set
 	};
 	const [showing, setShowing] = useState(false);
 	return (
-		<div className="mt-[20px] lg:mt-[90px]">
+		<div className={`mt-[20px] lg:mt-[90px] ${place === "dashboard" && "bg-white mt-0 lg:mt-0 px-4 py-6"}`}>
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[66px] gap-y-[30px]">
 				<FileAComplaintInput
 					label={"Title of your complaint"}

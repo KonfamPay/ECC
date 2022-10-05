@@ -32,7 +32,7 @@ const Index: NextPage = () => {
 	return (
 		<>
 			<NavBar />
-			<ComplaintLetterSection />
+			<ComplaintLetterSection place="main" />
 			<div className="px-[13px] lg:px-[100px] mt-[72px] mb-[147px] max-w-[1536px] mx-auto">
 				<div className="mx-auto text-center w-fit">
 					<p className="text-[20px] lg:text-[40px] font-[500]">File a Complaint</p>
@@ -63,6 +63,7 @@ const Index: NextPage = () => {
 				>
 					{currentPage == 1 && (
 						<Page1
+							place="main"
 							accountName={accountName}
 							setAccountName={setAccountName}
 							accountNumber={accountNumber}
@@ -89,6 +90,7 @@ const Index: NextPage = () => {
 					)}
 					{currentPage == 2 && (
 						<Page2
+							place="main"
 							setCurrentPage={setCurrentPage}
 							selectedFiles={selectedFiles}
 							setSelectedFiles={setSelectedFiles}
@@ -97,6 +99,7 @@ const Index: NextPage = () => {
 					)}
 					{currentPage == 3 && (
 						<Page3
+							place="main"
 							wantsRefund={wantsRefund}
 							setWantsRefund={setWantsRefund}
 							wantsCompensation={wantsCompensation}
