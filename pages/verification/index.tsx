@@ -105,9 +105,9 @@ const VerificationPage: NextPage = () => {
 			let firstError = details[0].path[0];
 			console.log(firstError);
 			if (firstError != "photoIdUrl") {
-				console.log(firstError)
-				inputContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
-			} 
+				console.log(firstError);
+				inputContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+			}
 			setErrors(errors);
 		}
 		if (!error) {
