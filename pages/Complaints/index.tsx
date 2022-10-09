@@ -61,7 +61,7 @@ const index: NextPage = (props) => {
 					</div>
 				</div>
 			</div>
-			<div className="xl:w-[1440px] mx-auto">
+			<div className="xl:w-screen mx-auto">
 				<div className="mt-20 ml-16 w-fit">
 					{resultIndicatorShowing && (
 						<SearchResultIndicator
@@ -71,7 +71,7 @@ const index: NextPage = (props) => {
 					)}
 				</div>
 				{searchResults.length !== 0 && (
-					<div className="mt-36 ml-16 mr-40">
+					<div className="mt-36 ml-16 mr-16">
 						<div className="space-y-10 mb-8">
 							{searchResults.slice(maxResultsPerPage * (currentSearchPage - 1), maxResultsPerPage * currentSearchPage).map((item, index) => (
 								<Complaint
@@ -100,15 +100,26 @@ const index: NextPage = (props) => {
                 />
                 <button className="bg-white border-[1px] border-grey-200 px-5 py-3 rounded-[5px] inline">Next {">>"}</button>
               </div> */}
-							<PaginationSection
-								searchResults={searchResults}
-								setSearchResults={setSearchResults}
-								maxResultsPerPage={maxResultsPerPage}
-								currentSearchPage={currentSearchPage}
-								setCurrentSearchPage={setCurrentSearchPage}
-								numberOfPages={Math.ceil(searchResults.length / maxResultsPerPage)}
-								pageSize={undefined}
-							/>
+							<div className="lg:hidden">
+								<PaginationSection
+									searchResults={searchResults}
+									maxResultsPerPage={maxResultsPerPage}
+									currentSearchPage={currentSearchPage}
+									setCurrentSearchPage={setCurrentSearchPage}
+									numberOfPages={Math.ceil(searchResults.length / maxResultsPerPage)}
+									pageSize={true}
+								/>
+							</div>
+							<div className="lg:block hidden">
+								<PaginationSection
+									searchResults={searchResults}
+									maxResultsPerPage={maxResultsPerPage}
+									currentSearchPage={currentSearchPage}
+									setCurrentSearchPage={setCurrentSearchPage}
+									numberOfPages={Math.ceil(searchResults.length / maxResultsPerPage)}
+									pageSize={false}
+								/>
+							</div>
 						</>
 					</div>
 				)}
