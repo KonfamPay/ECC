@@ -12,7 +12,15 @@ interface InputGroupProps {
 	max?: string;
 }
 
-export const VerificationInputGroup: React.FC<InputGroupProps> = ({ label, placeholder, value, setValue, type, className, maxlength, errorMessage, max }) => {
+const VerificationInputGroup: React.FC<InputGroupProps> = ({
+	label,
+	placeholder,
+	value,
+	setValue,
+	type,
+	className, 
+	maxlength, max, errorMessage
+}) => {
 	return (
 		<div className={className || ""}>
 			<p className="text-[14px] lg:text-[20px]">{label}</p>
@@ -37,3 +45,4 @@ export const VerificationInputGroup: React.FC<InputGroupProps> = ({ label, place
 		</div>
 	);
 };
+export default VerificationInputGroup;

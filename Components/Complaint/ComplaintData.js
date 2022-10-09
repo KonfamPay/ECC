@@ -4,7 +4,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -17,7 +17,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -30,7 +30,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -43,7 +43,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -56,7 +56,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -69,7 +69,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -82,7 +82,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -95,7 +95,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -108,7 +108,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -121,7 +121,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Open",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -134,7 +134,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -147,7 +147,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -160,7 +160,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -173,7 +173,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -186,7 +186,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -199,7 +199,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -212,7 +212,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -225,7 +225,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -238,7 +238,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -251,7 +251,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Closed",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -264,7 +264,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -277,7 +277,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -290,7 +290,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -303,7 +303,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -316,7 +316,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -329,7 +329,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -342,7 +342,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -355,7 +355,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -368,7 +368,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -381,7 +381,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -394,7 +394,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Resolved",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -407,7 +407,7 @@ const ComplaintData = [
 		description: "as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of them...",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Pending",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,
@@ -420,7 +420,7 @@ const ComplaintData = [
 		description: "tester nom",
 		date: "Today — April 22, 2022",
 		socialMediaHandle: "Twitter: @indaboski",
-		status: false,
+		status: "Pending",
 		resolutionWanted: {
 			refund: true,
 			compensation: true,

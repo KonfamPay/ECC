@@ -53,7 +53,10 @@ const LoginPage: NextPage = () => {
 					path: "/",
 					expires: new Date(Date.now() + 2 * 86400000),
 				});
-				router.push("/dashboard");
+				if (user.verified) router.replace("/dashboard");
+				else {
+					router.replace("/verification");
+				}
 			} catch (err: any) {
 				try {
 					if (err.response.data.message) setBackendError(err.response.data.message);
@@ -67,13 +70,8 @@ const LoginPage: NextPage = () => {
 		}
 	};
 	useEffect(() => {
-		if (cookies.token)
-			try {
-				const user = jwt_decode(cookies.token);
-				router.push("/dashboard");
-			} catch (ex) {
-				removeCookie("token");
-			}
+		if (cookies.user) router.replace("/dashoard")
+			
 	}, []);
 	return (
 		<>
@@ -128,9 +126,12 @@ const LoginPage: NextPage = () => {
 									errorMessage={errors.password}
 								/>
 							</div>
-							<Link href="/recover">
-								<p className="text-center my-[30px] text-eccblue">Forgot Password?</p>
-							</Link>
+							<p
+								onClick={() => router.replace("/forgot-password")}
+								className="text-center my-[30px] cursor-pointer"
+							>
+								Forgot Password?
+							</p>
 							{backendError && (
 								<motion.p
 									initial={{ opacity: 0 }}
