@@ -1,28 +1,37 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { Key, useState } from "react";
 import { Complaint, Footer, NavBar, PaginationButton } from "../../Components";
 import PaginationSection from "../../Components/LatestScams/PaginationSection";
-import ComplaintData from "../../Components/Complaint/ComplaintData";
+// import ComplaintData from "../../Components/Complaint/ComplaintData";
 import PostaComplaint from "../../Sections/HomeSections/PostaComplaint";
 import SearchResultIndicator from "../../Components/LatestScams/SearchResultIndicator";
+import { useQuery } from "react-query";
 
-const index: NextPage = (props) => {
-	const [scamData, setScamData] = useState(ComplaintData);
-	const [searchResults, setSearchResults] = useState(ComplaintData);
+const Index: NextPage = (props) => {
+	const [page, setPage] = useState(1);
+	const { data: complaints, status } = useQuery(["complaints", page], ({ queryKey }) => fetchComplaints(queryKey, page));
+	const [complaintData, setComplaintData] = useState([]);
+	const [searchResults, setSearchResults] = useState([]);
+	const fetchComplaints = async (queryKey: (string | number)[], page: number) => {
+		const res = await fetch(`http://127.0.0.1:4000/api/complaints`).then((response) => response.json());
+		setComplaintData(res);
+		setSearchResults(res);
+		return res;
+	};
 	const [searchText, setSearchText] = useState("");
 	const [areSearchResults, setAreSearchResults] = useState(false);
 	const [resultIndicatorShowing, setResultIndicatorShowing] = useState(false);
 	const [currentSearchPage, setCurrentSearchPage] = useState(1);
 	const maxResultsPerPage = 10;
 	const handleSearch = () => {
-		scamData.forEach((item) => {
+		complaintData.forEach((item: { socialMediaHandle: string | string[]; title: string | string[]; description: string | string[] }) => {
 			setResultIndicatorShowing(true);
 			if (item.socialMediaHandle.includes(searchText) || item.title.includes(searchText) || item.description.includes(searchText) || item.socialMediaHandle.includes(searchText)) {
 				setAreSearchResults(true);
 			} else {
 				setAreSearchResults(false);
 				setSearchResults(
-					scamData.filter((item) => {
+					complaintData.filter((item: { socialMediaHandle: string | string[]; title: string | string[]; description: string | string[] }) => {
 						return item.socialMediaHandle.includes(searchText) || item.title.includes(searchText) || item.description.includes(searchText) || item.socialMediaHandle.includes(searchText);
 					})
 				);
@@ -32,7 +41,7 @@ const index: NextPage = (props) => {
 	return (
 		<div className="">
 			<NavBar hasWhiteText={true} />
-			<div className="relative w-full mt-[73px] bg-eccblue text-white text-center">
+			<div className="relative w-full pt-[73px] bg-eccblue text-white text-center">
 				<div className="mx-9 pt-24 pb-44">
 					<p className="text-2xl sm:text-5xl max-w-[513px] mx-auto font-semibold">
 						Complaints from the <br /> people
@@ -70,47 +79,34 @@ const index: NextPage = (props) => {
 						/>
 					)}
 				</div>
-				{searchResults.length !== 0 && (
-					<div className="mt-36 ml-16 mr-40">
-						<div className="space-y-10 mb-8">
-							{searchResults.slice(maxResultsPerPage * (currentSearchPage - 1), maxResultsPerPage * currentSearchPage).map((item, index) => (
-								<Complaint
-									title={item.title}
-									complaintContent={item.description}
-									date={item.date}
-									author={item.socialMediaHandle}
-									status={item.status}
-									key={index}
-								/>
-							))}
+				{status === "loading" && <div>Loading data...</div>}
+				{status === "error" && <div>Error fetching data</div>}
+				{status === "success" && searchResults.length !== 0 && (
+					<>
+						<div className="mt-36 ml-16 mr-40">
+							<div className="space-y-10 mb-8">
+								{searchResults.slice(maxResultsPerPage * (currentSearchPage - 1), maxResultsPerPage * currentSearchPage).map((item: { title: string; description: string; date: string; socialMediaHandle: string; status: string }, index: Key | null | undefined) => (
+									<Complaint
+										title={item.title}
+										complaintContent={item.description}
+										date={item.date}
+										author={item.socialMediaHandle}
+										status={item.status}
+										key={index}
+									/>
+								))}
+							</div>
 						</div>
-						<>
-							{/* <div className="flex space-x-2 mt-10 items-center justify-right">
-                <PaginationButton
-                  page={1}
-                  active={false}
-                />
-                <PaginationButton
-                  page={2}
-                  active={false}
-                />
-                <PaginationButton
-                  page={3}
-                  active={false}
-                />
-                <button className="bg-white border-[1px] border-grey-200 px-5 py-3 rounded-[5px] inline">Next {">>"}</button>
-              </div> */}
-							<PaginationSection
-								searchResults={searchResults}
-								setSearchResults={setSearchResults}
-								maxResultsPerPage={maxResultsPerPage}
-								currentSearchPage={currentSearchPage}
-								setCurrentSearchPage={setCurrentSearchPage}
-								numberOfPages={Math.ceil(searchResults.length / maxResultsPerPage)}
-								pageSize={undefined}
-							/>
-						</>
-					</div>
+						<PaginationSection
+							searchResults={searchResults}
+							setSearchResults={setSearchResults}
+							maxResultsPerPage={maxResultsPerPage}
+							currentSearchPage={currentSearchPage}
+							setCurrentSearchPage={setCurrentSearchPage}
+							numberOfPages={Math.ceil(searchResults.length / maxResultsPerPage)}
+							pageSize={undefined}
+						/>
+					</>
 				)}
 			</div>
 			<PostaComplaint />
@@ -119,4 +115,4 @@ const index: NextPage = (props) => {
 	);
 };
 
-export default index;
+export default Index;

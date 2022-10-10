@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Dispatch, SetStateAction } from "react";
 import PaginationButton from "./PaginationButton";
 
 interface PaginationSectionProps {
 	searchResults: any[];
-	setSearchResults: Dispatch<SetStateAction<any[]>>;
+	setSearchResults: Dispatch<SetStateAction<any[]>> | any;
 	maxResultsPerPage: number;
 	currentSearchPage: number;
 	setCurrentSearchPage: Dispatch<SetStateAction<number>>;
@@ -18,7 +19,10 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, se
 				<PaginationButton
 					pageSize={pageSize}
 					text="Prev"
-					onClick={() => setCurrentSearchPage(currentSearchPage - 1)}
+					onClick={() => {
+						setCurrentSearchPage(currentSearchPage - 1);
+						window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+					}}
 				/>
 			)}
 			{Array.from(Array(numberOfPages).keys()).length <= 4
@@ -28,7 +32,10 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, se
 							isPage
 							pageSize={pageSize}
 							isActive={currentSearchPage == number + 1}
-							onClick={() => setCurrentSearchPage(number + 1)}
+							onClick={() => {
+								setCurrentSearchPage(number + 1);
+								window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+							}}
 							key={index}
 						/>
 				  ))
@@ -40,7 +47,10 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, se
 								isPage
 								pageSize={pageSize}
 								isActive={currentSearchPage == number + 1}
-								onClick={() => setCurrentSearchPage(number + 1)}
+								onClick={() => {
+									setCurrentSearchPage(number + 1);
+									window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+								}}
 								key={index}
 							/>
 						))}
@@ -57,7 +67,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, se
 					isPage
 					pageSize={pageSize}
 					isActive={false}
-					onClick={undefined}
+					onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
 					key={6}
 				/>
 			) : (
@@ -66,7 +76,10 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ searchResults, se
 			{searchResults.length > maxResultsPerPage && currentSearchPage != numberOfPages && (
 				<PaginationButton
 					pageSize={pageSize}
-					onClick={() => setCurrentSearchPage(currentSearchPage + 1)}
+					onClick={() => {
+						setCurrentSearchPage(currentSearchPage + 1);
+						window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+					}}
 					text="Next"
 				/>
 			)}
