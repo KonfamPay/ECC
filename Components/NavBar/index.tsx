@@ -67,7 +67,7 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 							style={{
 								backgroundColor: hasWhiteText && isTransparent ? "white" : "#0B63C5",
 							}}
-							className="bg-eccblue lg:hidden   rounded-[4.93px] font-semibold text-white w-29 h-9 px-2  text-center"
+							className="bg-eccblue lg:hidden sm:block hidden   rounded-[4.93px] font-semibold text-white w-29 h-9 px-2  text-center"
 						>
 							<span
 								className=" text-sm font-[600] text-center "
@@ -98,8 +98,8 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 						</button>
 					</li>
 				</ul>
-				<div className="hidden w-full  lg:block  md:w-auto pt-5">
-					<ul className="flex justify-items-center mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
+				<div className="hidden w-full  lg:block  md:w-auto ">
+					<ul className="flex justify-items-center items-center   md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
 						<NavItem
 							title="Complaints"
 							href="/Complaints"
@@ -126,29 +126,28 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 						/>
 
 						<div className="flex flex-row ml-12">
-							<NavItem
+							{/* <NavItem
 								title="Login / SignUp"
 								href="/login"
 								isTransparent={isTransparent}
 								hasWhiteText={hasWhiteText ? hasWhiteText : false}
-							/>
-
-							<li className="ml-4">
-								<button
-									style={{
-										backgroundColor: hasWhiteText && isTransparent ? "white" : "#0B63C5",
-									}}
-									className="bg-eccblue -mt-4 py-4 px-9 rounded-md font-semibold text-white"
-								>
-									<span
-										style={{
-											color: hasWhiteText && isTransparent ? "#0B63C5" : "white",
-										}}
-									>
-										File a complaint
-									</span>
-								</button>
-							</li>
+							/> */}
+							<div className="flex flex-row items-start ml-4 p-1 gap-4">
+								<div>
+									<button className="bg-clearblue px-4 py-2 border border-solid border-eccblue   rounded-md font-semibold text-eccblue">
+										<Link href={"/login"}>
+											<p>Login</p>
+										</Link>
+									</button>
+								</div>
+								<div>
+									<button className="bg-eccblue px-4 py-2 rounded-md font-semibold text-white">
+										<Link href={"/signup"}>
+											<p>Signup</p>
+										</Link>
+									</button>
+								</div>
+							</div>
 						</div>
 					</ul>
 				</div>
