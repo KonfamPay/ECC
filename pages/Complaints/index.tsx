@@ -14,6 +14,7 @@ const Index: NextPage = (props) => {
 	const [searchResults, setSearchResults] = useState([]);
 	const fetchComplaints = async (queryKey: (string | number)[], page: number) => {
 		const res = await fetch(`http://127.0.0.1:4000/api/complaints`).then((response) => response.json());
+
 		setComplaintData(res);
 		setSearchResults(res);
 		return res;
@@ -80,7 +81,6 @@ const Index: NextPage = (props) => {
 					)}
 				</div>
 
-				
 				{status === "loading" && <div>Loading data...</div>}
 				{status === "error" && <div>Error fetching data</div>}
 				{status === "success" && searchResults.length !== 0 && (
@@ -109,7 +109,6 @@ const Index: NextPage = (props) => {
 							pageSize={undefined}
 						/>
 					</>
-
 				)}
 			</div>
 			<PostaComplaint />
