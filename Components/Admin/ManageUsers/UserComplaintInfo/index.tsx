@@ -56,10 +56,7 @@ const ComplaintInfo: React.FC<ComplaintProps> = ({ user }) => {
 				<table className=" table-auto w-full">
 					<tbody>
 						{listOfComplaints.map((complaint: any) => (
-							<tr
-								onClick={}
-								key={complaint.grievanceId}
-							>
+							<tr key={complaint.grievanceId}>
 								<td>
 									<p className="py-2 pl-2 pr-4">{listOfComplaints.indexOf(complaint) + 1}</p>
 								</td>
