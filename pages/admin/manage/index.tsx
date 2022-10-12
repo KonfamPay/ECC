@@ -56,6 +56,7 @@ const Manage = () => {
 			registrationDate: format(Date.now(), "MMMM dd,yyyy"),
 			userPhone: userObject.phone,
 			status: userObject.verify,
+			complaints: [],
 		};
 
 		userData1.unshift(UserObject);
@@ -143,6 +144,7 @@ const Manage = () => {
 									{maxNumber <= 5 ? (
 										<div className="mb-6">
 											<PaginationSection
+												setSearchResults={undefined}
 												pageSize={true}
 												searchResults={userData}
 												maxResultsPerPage={maxNumber}
@@ -154,6 +156,7 @@ const Manage = () => {
 									) : (
 										<div className="mb-6">
 											<PaginationSection
+												setSearchResults={undefined}
 												pageSize={false}
 												searchResults={userData}
 												maxResultsPerPage={maxNumber}

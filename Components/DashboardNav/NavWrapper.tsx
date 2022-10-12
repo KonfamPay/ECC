@@ -7,18 +7,18 @@ interface NavWrapperProps {
 }
 
 const NavWrapper: React.FC<NavWrapperProps> = ({ children }) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [Open, setIsOpen] = useState(false);
 
 	const openSide = () => {
-		setIsOpen(!isOpen);
-		console.log(isOpen);
+		setIsOpen(Open);
+		console.log(Open);
 	};
 
 	return (
 		<div className="flex flex-row">
 			<SideNav
 				openSide={openSide}
-				open={isOpen}
+				open={Open}
 			/>
 			<div className="flex flex-col w-full">
 				<TopNav openSide={openSide} />

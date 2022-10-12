@@ -11,6 +11,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: [],
 	},
 	{
 		userId: "12huio21eodeuehu",
@@ -24,6 +25,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: [],
 	},
 	{
 		userId: "12huio21eoijewughew",
@@ -37,6 +39,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12iveynv89yf9n9vnwin21nn", "12ioinvrv9nhnwv821nn"],
 	},
 	{
 		userId: "12huio21eowejhjeg",
@@ -50,6 +53,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12ioiirwenj98vr9wnw81nn"],
 	},
 	{
 		userId: "12huio21eoied8u328",
@@ -63,6 +67,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12ioiirwen9wr8u9rnv1nn", "12ioiruewny8nrwe8y8n8wr1nn"],
 	},
 	{
 		userId: "12huio21eo237t823d8y",
@@ -76,6 +81,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12io9re8un98vr9n8ryw21nn", "12ioire8nu9wrnrn9821nn"],
 	},
 	{
 		userId: "12huio21ewq8y79ywq79",
@@ -89,6 +95,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12ioi1r98un9u8wn9hrn91nn", "12i9rmu8nwr99rvn21nn"],
 	},
 	{
 		userId: "12huio21eo78wqy7yxw",
@@ -102,6 +109,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12ioi1rue8reonvnr98n", "12ioi12iywrhy7rwuywurnn"],
 	},
 	{
 		userId: "12huio21eqw8u9wxhy9h",
@@ -115,6 +123,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12ioi98wrun8fu98wwvrrev1nn", "12i98ewnry89yf9rn8n21nn"],
 	},
 	{
 		userId: "12huio21eq8u9ux8h",
@@ -128,6 +137,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12iofwrn98fnrh9ynh9n21nn", "12ioure89nu9frnh9wn91nn"],
 	},
 	{
 		userId: "12huio21eo7wgtqtwx",
@@ -141,6 +151,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12iowifrnhuifwhifwhfn8rhw21nn", "12ioi1iuwhrfnyw8wy21nn"],
 	},
 	{
 		userId: "12huio21eox98wyy9x8w",
@@ -154,6 +165,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12ioi1frhwnhwnfn21nn", "12iowerwofonyeru2in21nn"],
 	},
 	{
 		userId: "12huio21e98xy89yzqw",
@@ -167,6 +179,7 @@ const UserData = [
 		state: "Lagos",
 		lga: "Ikeja",
 		nin: "53460098765",
+		complaints: ["12iofqfwy98wfin21nn", "12iof3ih3498f9h9n21nn"],
 	},
 ];
 

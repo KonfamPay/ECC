@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Wrapper from "../../../../Components/Admin/Navs/navWrapper";
 import { useState } from "react";
 import UserPersonalInfo from "../../../../Components/Admin/ManageUsers/userPersonalInfo";
+import ComplaintInfo from "./../../../../Components/Admin/ManageUsers/UserComplaintInfo/index";
 
 const userDetails = () => {
 	const router = useRouter();
@@ -47,7 +48,25 @@ const userDetails = () => {
 							Complaint History
 						</div>
 					</div>
-					{user && <div className="w-full">{section == "Personal Information" ? <UserPersonalInfo userData={user} /> : <div></div>}</div>}
+					{user && (
+						<div className="w-full">
+							{section == "Personal Information" ? (
+								<UserPersonalInfo userData={user} />
+							) : (
+								<div className="w-full">
+									{user.complaints.length > 0 ? (
+										<div className="w-full">
+											<ComplaintInfo user={user} />
+										</div>
+									) : (
+										<div>
+											<h1>User does not have any registered complaints</h1>
+										</div>
+									)}
+								</div>
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 		</Wrapper>
