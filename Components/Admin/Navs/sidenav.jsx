@@ -69,7 +69,7 @@ const SideNav = () => {
 							text="Complaints"
 							isActive={router.pathname === "/admin/complaints" ? true : false}
 							onClick={() => {
-								router.push("/admin");
+								router.push("/admin/complaints");
 							}}
 						/>
 						<NavButton

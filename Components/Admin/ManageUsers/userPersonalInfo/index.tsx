@@ -61,6 +61,16 @@ const UserPersonalInfo: React.FC<UserInfoProps> = ({ userData }) => {
 						<p>{userData.nin}</p>
 					</div>
 				</div>
+
+				<div>
+					<button>
+						<img
+							src=""
+							alt=""
+						/>{" "}
+						Edit Information
+					</button>
+				</div>
 			</div>
 		</div>
 	);

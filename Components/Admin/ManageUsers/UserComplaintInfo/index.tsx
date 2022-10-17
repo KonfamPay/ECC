@@ -1,4 +1,5 @@
 import ComplaintData from "./../../../Complaint/ComplaintData";
+import { useRouter } from "next/router";
 
 import ComplaintCard from "./userComplaintCard/index";
 
@@ -7,6 +8,7 @@ interface ComplaintProps {
 }
 
 const ComplaintInfo: React.FC<ComplaintProps> = ({ user }) => {
+	const router = useRouter();
 	const complaints = user.complaints;
 	const listOfComplaints: any = [];
 	complaints.forEach((grievanceId: string) => {
@@ -56,7 +58,12 @@ const ComplaintInfo: React.FC<ComplaintProps> = ({ user }) => {
 				<table className=" table-auto w-full">
 					<tbody>
 						{listOfComplaints.map((complaint: any) => (
-							<tr key={complaint.grievanceId}>
+							<tr
+								onClick={() => {
+									router.push({ pathname: "/admin/complaints/details", query: { id: complaint.grievanceId } });
+								}}
+								key={complaint.grievanceId}
+							>
 								<td>
 									<p className="py-2 pl-2 pr-4">{listOfComplaints.indexOf(complaint) + 1}</p>
 								</td>

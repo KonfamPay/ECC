@@ -59,8 +59,8 @@ const userDetails = () => {
 											<ComplaintInfo user={user} />
 										</div>
 									) : (
-										<div>
-											<h1>User does not have any registered complaints</h1>
+										<div className="h-[300px] w-full flex justify-center items-center ">
+											<h1 className="text-center text-[24px]">User does not have any registered complaints</h1>
 										</div>
 									)}
 								</div>
