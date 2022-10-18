@@ -5,10 +5,10 @@ export const Footer: React.FC = (props) => {
 	return (
 		<footer
 			data-aos="fade-up"
-			className="flex flex-col gap-[36px] lg:gap-[70px] mt-[72px] mx-auto max-w-[1440px] w-[92%] lg:w-[90%]"
+			className="flex flex-col gap-[36px] lg:gap-[70px] mt-[72px] mx-auto max-w-screen w-screen lg:w-[95%]"
 		>
-			<div className="flex gap-[36px] lg:gap-[150px]">
-				<div className="flex-col gap-[50px] hidden lg:flex">
+			<div className="flex flex-row justify-between ">
+				<div className="flex-col w-[40%]  gap-[50px] hidden lg:flex">
 					<img
 						src="./images/eccLogo-2.svg"
 						className="w-[65px]"
@@ -16,22 +16,21 @@ export const Footer: React.FC = (props) => {
 					/>
 					<p className=" text-[16px] text-grey-200 leading-[37px] w-[528px]">ecc is complaints a distributor of pine tm from vizag andhra pradesh as of oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost </p>
 				</div>
-				<div className="w-[100%] flex flex-col gap-[25px] lg:gap-[60px]">
-					<div className="flex w-[100%] justify-between">
+				<div className=" w-[40%] flex flex-col gap-[50px] lg:mx-0 mx-auto lg:gap-[30px]">
+					<div className="flex flex-row w-[100%]   justify-around">
 						<FooterList
 							title="NAVIGATE THROUGH"
 							items={["Home", "Complaints", "Latest Scams", "Statistics", "Complaint letter"]}
 						/>
-						<div className="flex flex-col lg:flex-row gap-[18px] lg:gap-[25px]">
-							<FooterList
-								title="SUPPORT"
-								items={["Contact Us", "FAQs"]}
-							/>
-							<FooterList
-								title="COMPANY"
-								items={["Terms of Service", "Privacy Policy"]}
-							/>
-						</div>
+
+						<FooterList
+							title="SUPPORT"
+							items={["Contact Us", "FAQs"]}
+						/>
+						<FooterList
+							title="COMPANY"
+							items={["Terms of Service", "Privacy Policy"]}
+						/>
 					</div>
 					<FooterList
 						title=""

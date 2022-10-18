@@ -1,13 +1,14 @@
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 
 interface Page2Props {
+	place: string;
 	setCurrentPage: Dispatch<SetStateAction<number>>;
 	setSelectedFiles: any;
 	selectedFiles: any[];
 	setIsOpaque: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page2: React.FC<Page2Props> = ({ setCurrentPage, selectedFiles, setSelectedFiles, setIsOpaque }) => {
+const Page2: React.FC<Page2Props> = ({ place, setCurrentPage, selectedFiles, setSelectedFiles, setIsOpaque }) => {
 	const filePickerRef = useRef(null);
 	const addDocument = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = [...selectedFiles];
@@ -30,7 +31,7 @@ const Page2: React.FC<Page2Props> = ({ setCurrentPage, selectedFiles, setSelecte
 		});
 	};
 	return (
-		<div className="mt-[20px] lg:mt-[90px]">
+		<div className={`mt-[20px] lg:mt-[90px] ${place === "dashboard" && "bg-white mt-0 lg:mt-0 px-4 py-6"}`}>
 			<p className="text-[14px] lg:text-[24px] leading-[23px] lg:leading-[37px]">
 				Kindly upload documents or picture that includes evidence of Payment, proof of payment or anythhing that might help us resolve your complaint.
 				<span className="text-eccblue">{"    "} You can upload multiple documents</span>

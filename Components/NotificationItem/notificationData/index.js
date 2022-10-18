@@ -1,4 +1,4 @@
-export const getServerSideProps = t() => {
+export const getServerSideProps = () => {
 	return {
 		props: {
 			notificationData: [

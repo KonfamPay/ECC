@@ -1,6 +1,13 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import FileAComplaintInput from "../FileAComplaintInput";
 interface Page1Props {
+	place: string;
+	accountNumber: string;
+	accountName: string;
+	bankName: string;
+	setBankName: Dispatch<SetStateAction<string>>;
+	setAccountNumber: Dispatch<SetStateAction<string>>;
+	setAccountName: Dispatch<SetStateAction<string>>;
 	titleOfComplaint: string;
 	setTitleOfComplaint: Dispatch<SetStateAction<string>>;
 	placeOfTransaction: string;
@@ -19,7 +26,31 @@ interface Page1Props {
 	setIsOpaque: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page1: React.FC<Page1Props> = ({ titleOfComplaint, setTitleOfComplaint, placeOfTransaction, setPlaceOfTransaction, companyName, setCompanyName, amountLost, setAmountLost, brandContact, setBrandContact, complaintDetails, setComplaintDetails, brandHandle, setBrandHandle, setCurrentPage, setIsOpaque }) => {
+const Page1: React.FC<Page1Props> = ({
+	place,
+	accountNumber,
+	accountName,
+	bankName,
+	setAccountName,
+	setAccountNumber,
+	setBankName,
+	titleOfComplaint,
+	setTitleOfComplaint,
+	placeOfTransaction,
+	setPlaceOfTransaction,
+	companyName,
+	setCompanyName,
+	amountLost,
+	setAmountLost,
+	brandContact,
+	setBrandContact,
+	complaintDetails,
+	setComplaintDetails,
+	brandHandle,
+	setBrandHandle,
+	setCurrentPage,
+	setIsOpaque,
+}) => {
 	const onSubmit = () => {
 		setIsOpaque(false);
 		setTimeout(() => {
@@ -32,8 +63,9 @@ const Page1: React.FC<Page1Props> = ({ titleOfComplaint, setTitleOfComplaint, pl
 			behavior: "smooth",
 		});
 	};
+	const [showing, setShowing] = useState(false);
 	return (
-		<div className="mt-[20px] lg:mt-[90px]">
+		<div className={`mt-[20px] lg:mt-[90px] ${place === "dashboard" && "bg-white mt-0 lg:mt-0 px-4 py-6"}`}>
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[66px] gap-y-[30px]">
 				<FileAComplaintInput
 					label={"Title of your complaint"}
@@ -108,6 +140,66 @@ const Page1: React.FC<Page1Props> = ({ titleOfComplaint, setTitleOfComplaint, pl
 						nairaSymbol={false}
 					/>
 				</div>
+			</div>
+			<div className="mt-6 flex flex-col">
+				<div className="flex flex-row">
+					<div className="flex flex-row">
+						<p className="text-eccblue ">NOTE:</p>
+						<p className="ml-2">if you believe that you have been scammed,click</p>
+					</div>
+					<div
+						onClick={() => {
+							setShowing(!showing);
+						}}
+						className="flex flex-row"
+					>
+						<p className="text-eccblue ml-2">here</p>
+						{showing ? (
+							<img
+								className="transition-[1000ms] w-[15px]"
+								src="../icons/chevron-down.svg"
+								alt=""
+							/>
+						) : (
+							<img
+								className=" transition-[1000ms] ml-[3px] w-[12px]"
+								src="../icons/chevron-up.svg"
+								alt=""
+							/>
+						)}
+					</div>
+				</div>
+				{showing && (
+					<div>
+						<h1 className="font-semibold my-8">Kindly fill in these additional fields</h1>
+						<div className=" flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-[66px] gap-y-[30px] ">
+							<FileAComplaintInput
+								label={"Company's/Brand's Account Number"}
+								placeholder={"eg 2354556334"}
+								value={accountNumber}
+								setValue={setAccountNumber}
+								type="text"
+								nairaSymbol={false}
+							/>
+							<FileAComplaintInput
+								label={"Company's/Brand's Account Name"}
+								placeholder={"e.g John Doe"}
+								value={accountName}
+								setValue={setAccountName}
+								type="text"
+								nairaSymbol={false}
+							/>
+							<FileAComplaintInput
+								label={"Company's/Brand's Bank Name"}
+								placeholder={"e.g First Bank,Zenith Bank"}
+								value={bankName}
+								setValue={setBankName}
+								type="text"
+								nairaSymbol={false}
+							/>
+						</div>
+					</div>
+				)}
 			</div>
 			<div className="flex justify-center mt-[45px] lg:mt-[110px]">
 				<button

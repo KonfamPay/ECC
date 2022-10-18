@@ -14,7 +14,7 @@ const profile: NextPage = (props) => {
 					className="rounded-t-[20px] w-full"
 					alt=""
 				/>
-				<div className="mx-auto  w-[20%] h-[5%] xl:bottom-[150px] lg:bottom-[80px] relative">
+				<div className="mx-auto  w-[20%] h-[5%] xl:bottom-[150px] lg:bottom-[60px] relative">
 					<img
 						src="/images/dummy-profile.png"
 						alt=""
