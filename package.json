@@ -28,7 +28,8 @@
 		"react-cookie": "^4.1.1",
 		"react-datepicker": "^4.8.0",
 		"react-dom": "18.1.0",
-		"react-query": "^3.39.2"
+		"react-query": "^3.39.2",
+		"victory": "^36.6.8"
 	},
 	"devDependencies": {
 		"@types/node": "17.0.30",

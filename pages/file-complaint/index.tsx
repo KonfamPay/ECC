@@ -31,7 +31,9 @@ const Index: NextPage = () => {
 	const [bankName, setBankName] = useState("");
 	return (
 		<>
-			<NavBar />
+			<div className="w-full lg:pb-0 pb-[73px]">
+				<NavBar />
+			</div>
 			<ComplaintLetterSection place="main" />
 			<div className="px-[13px] lg:px-[100px] mt-[72px] mb-[147px] max-w-[1536px] mx-auto">
 				<div className="mx-auto text-center w-fit">

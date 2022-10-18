@@ -1,7 +1,9 @@
 import { FooterList } from "../";
 import Image from "next/image";
-
+import { useRouter } from "next/router";
+import { title } from "process";
 export const Footer: React.FC = (props) => {
+	const router = useRouter();
 	return (
 		<footer
 			data-aos="fade-up"
@@ -10,26 +12,38 @@ export const Footer: React.FC = (props) => {
 			<div className="flex flex-row justify-between ">
 				<div className="flex-col w-[40%]  gap-[50px] hidden lg:flex">
 					<img
+						onClick={() => {
+							router.push("/");
+						}}
 						src="./images/eccLogo-2.svg"
 						className="w-[65px]"
 						alt="ECC's Logo"
 					/>
 					<p className=" text-[16px] text-grey-200 leading-[37px] w-[528px]">ecc is complaints a distributor of pine tm from vizag andhra pradesh as of oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost </p>
 				</div>
-				<div className=" w-[40%] flex flex-col gap-[50px] lg:mx-0 mx-auto lg:gap-[30px]">
+				<div className=" lg:w-[40%] w-full flex flex-col gap-[50px] lg:mx-0 mx-auto lg:gap-[30px]">
 					<div className="flex flex-row w-[100%]   justify-around">
 						<FooterList
 							title="NAVIGATE THROUGH"
-							items={["Home", "Complaints", "Latest Scams", "Statistics", "Complaint letter"]}
+							items={[
+								{ title: "Home", path: "/" },
+								{ title: "Complaints", path: "/Complaints" },
+								{ title: "Latest Scams", path: "/latest" },
+								{ title: "Statistics", path: "/statistics" },
+								{ title: "Complaint letter", path: "/write-complaint" },
+							]}
 						/>
 
 						<FooterList
 							title="SUPPORT"
-							items={["Contact Us", "FAQs"]}
+							items={[{ title: "Contact Us", path: "/" }, "FAQs"]}
 						/>
 						<FooterList
 							title="COMPANY"
-							items={["Terms of Service", "Privacy Policy"]}
+							items={[
+								{ title: "Terms of Service", path: "/" },
+								{ title: "Privacy Policy", path: "/" },
+							]}
 						/>
 					</div>
 					<FooterList
@@ -47,6 +61,9 @@ export const Footer: React.FC = (props) => {
 			</div>
 			<div className="flex-col gap-[30px] lg:hidden flex">
 				<img
+					onClick={() => {
+						router.push("/");
+					}}
 					src="./images/eccLogo-2.svg"
 					className="w-[35px]"
 					alt="ECC's Logo"

@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
 interface Props {
 	place: string;
 }
 
 const ComplaintLetterSection: React.FC<Props> = ({ place }) => {
+	const router = useRouter();
 	return (
 		<div className={`md:h-[150px] xl:h-fit  lg:h-fit w-full bg-darkblue ${place !== "dashboard" && "mt-[14px] lg:mt-[72px]"} lg:pb-[40px]`}>
 			<div className="relative px-[10px] xl:px-[40px] lg:px-[60px] leading-[10.1px] lg:leading-[37px] text-[20px] font-medium lg:w-full max-w-[1600px] mx-auto">
@@ -10,7 +12,14 @@ const ComplaintLetterSection: React.FC<Props> = ({ place }) => {
 					Always try to resolve a problem with a business before seeking help from <br /> ecommerce complaint . You can do this by writing a complaint letter.
 				</p>
 				<p className="text-[#FCB714] w-[253px] lg:w-full mt-[6px] lg:mt-[10px] text-[12px] lg:text-[20px] leading-[15.1px] lg:leading-[37px]">Don’t worry you just have to fill in little details. We will finish it up for you!!</p>
-				<button className="bg-white py-[7px] lg:py-[17px] px-[11.5px] lg:px-[21px] text-[8px] lg:text-[18px] font-semibold rounded-[4px] lg:rounded-xl mt-[10px] lg:mt-7 absolute right-[33px] bottom-0 lg:static">Write a complaint letter</button>
+				<button
+					onClick={() => {
+						router.push("/write-complaint");
+					}}
+					className="bg-white py-[7px] lg:py-[17px] px-[11.5px] lg:px-[21px] text-[8px] lg:text-[18px] font-semibold rounded-[4px] lg:rounded-xl mt-[10px] lg:mt-7 absolute right-[33px] bottom-0 lg:static"
+				>
+					Write a complaint letter
+				</button>
 				<img
 					className="absolute h-[92px] w-[164px] lg:w-[375px] lg:h-[170px] right-0 lg:right-[46.24px] top-0 -z-[]"
 					src="/Images/handShake.png"

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { NavItem } from "../";
 
+import { useRouter } from "next/router";
+
 interface NavBarProps {
 	hasWhiteText?: boolean;
 	searchIconIsPresent?: boolean;
 }
 
 export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresent }) => {
+	const router = useRouter();
 	const [expand, setExpand] = useState(false);
 	const [isTransparent, setIsTransparent] = useState(true);
 
@@ -30,9 +33,14 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 	return (
 		<nav
 			style={{ backgroundColor: isTransparent ? "transparent" : "white" }}
-			className="border-gray-200 px-2 sm:px-4 py-2.5 z-20 fixed top-0 w-full navBar"
+			className="border-gray-200 h-fit py-6  px-2 sm:px-4 lg:py-4 z-[60] fixed top-0 w-full navBar"
 		>
-			<div className="container flex flex-wrap justify-between items-center mx-auto ">
+			<div
+				onClick={() => {
+					router.push("/");
+				}}
+				className="container flex flex-wrap justify-between items-center mx-auto "
+			>
 				{!hasWhiteText && (
 					<div className="flex items-center">
 						<img
@@ -61,7 +69,7 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 					</div>
 				)}
 				{/* Created a list a seperate list for the mobile components of the nabar: the hamburger icon and the File a complaint button */}
-				<ul className="flex flex-row  -my-10 items-center">
+				<ul className="flex flex-row justify-center  -my-10 items-center">
 					<li>
 						<button
 							style={{
@@ -90,9 +98,9 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 						>
 							<Link href="/menu">
 								<img
-									src="./images/hamburgerNew.png"
+									src="./images/hamburger2.svg"
 									alt=""
-									className=" h-3 w-5"
+									className=""
 								/>
 							</Link>
 						</button>
@@ -102,7 +110,7 @@ export const NavBar: React.FC<NavBarProps> = ({ hasWhiteText, searchIconIsPresen
 					<ul className="flex justify-items-center items-center   md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
 						<NavItem
 							title="Complaints"
-							href="/complaints"
+							href="/Complaints"
 							isTransparent={isTransparent}
 							hasWhiteText={hasWhiteText ? hasWhiteText : false}
 						/>
