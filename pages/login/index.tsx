@@ -8,6 +8,7 @@ import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
+import client from "../api/Services/AxiosClient";
 
 const LoginPage: NextPage = () => {
 	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
@@ -44,33 +45,32 @@ const LoginPage: NextPage = () => {
 				email: "",
 				password: "",
 			});
-			// try {
-			// 	setLoading(true);
-			// 	const payload = { email, password };
-			// 	const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth`, payload);
-			// 	setBackendError("");
-			// 	setCookie("token", res.data.token, {
-			// 		path: "/",
-			// 		expires: new Date(Date.now() + 2 * 86400000),
-			// 	});
-			// 	if (user.verified) router.replace("/dashboard");
-			// 	else {
-			// 		router.replace("/verification");
-			// 	}
-			// } catch (err: any) {
-			// 	try {
-			// 		if (err.response.data.message) setBackendError(err.response.data.message);
-			// 	} catch (err: any) {
-			// 		alert("Something went wrong.");
-			// 	}
-			// } finally {
-			// 	setLoading(false);
-			// }
-			// alert("Form submitted")
+			try {
+				setLoading(true);
+				const payload = { email, password };
+				const res = await client.post("/auth", payload);
+				setBackendError("");
+				const token = res.data.token;
+				const user = jwt_decode(token);
+				setCookie("user", user);
+				if (cookies.user && !cookies.user.emailVerified) {
+					router.push("/verify_email");
+				} else if (cookies.user && !cookies.user.accountVerified) {
+					router.push("/verification");
+				} else {
+					router.push("/dashboard");
+				}
+			} catch (err: any) {
+				if (err.response.status == 404 && err.response.data.message) setBackendError(err.response.data.message);
+				else if (err.response.status == 400 && err.response.data.message) setBackendError(err.response.data.message);
+				else alert("Something went wrong🥲 Kindly check your internet connection🥲");
+			} finally {
+				setLoading(false);
+			}
 		}
 	};
 	useEffect(() => {
-		if (cookies.user) router.replace("/dashboard");
+		if (cookies.user && cookies.user.emailVerified && cookies.user.accountVerified) router.replace("/dashboard");
 	}, []);
 	return (
 		<>
