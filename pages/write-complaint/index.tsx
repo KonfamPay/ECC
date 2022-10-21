@@ -22,12 +22,14 @@ const index: NextPage = () => {
 			<section className="flex flex-col justify-center mt-[80px] lg:mt-52 mx-[20px] sm:mx-[50px] lg:mx-[70px]">
 				<p className="opacity-80 text-[20px] sm:text-[30px] lg:text-[40px] text-center">Complaint Letter Tool</p>
 				<div className="bg-eccblue rounded-xl mt-[16px] lg:mt-[53px]">
-					<div className="flex lg:space-x-[50px] items-center">
-						<img
-							src="./icons/pencil.svg"
-							className="mx-[7px] lg:ml-[50px] max-w-[40px] sm: max-w-[70px] lg:max-h-[100px] grow-1"
-							alt=""
-						/>
+					<div className="flex items-center justify-center">
+						<div className="max-w-[30px] sm:max-w-[50px] lg:max-w-[100px] lg:w-full mx-[8px] lg:mx-[50px]">
+							<img
+								src="./icons/pencil.svg"
+								className="w-full"
+								alt=""
+							/>
+						</div>
 						<div className="text-[12px] sm:text-[15px] lg:text-[20px] py-[10px] lg:py-[37px] pr-[8px] lg:pr-[42px] text-white">
 							<p className="leading-[18px] lg:leading-[50px] mb-[5px]">Use this tool to create an email you can send to the business you bought the product or received the service from. If you prefer, you can print the letter and send via the post. </p>
 							<p className="leading-[18px] lg:leading-[50px]">Remember to attach or include any relevant documentation, such as a receipt or photo of the faulty product, when you send the letter.</p>
@@ -259,7 +261,7 @@ const index: NextPage = () => {
 					</Link>
 				</div>
 			</section>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };
