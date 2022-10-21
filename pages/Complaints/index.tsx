@@ -106,7 +106,7 @@ const Index: NextPage = (props) => {
 							currentSearchPage={currentSearchPage}
 							setCurrentSearchPage={setCurrentSearchPage}
 							numberOfPages={Math.ceil(searchResults.length / maxResultsPerPage)}
-							pageSize={undefined}
+							pageSize={true}
 						/>
 					</>
 				)}
