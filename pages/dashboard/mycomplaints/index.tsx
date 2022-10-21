@@ -6,14 +6,20 @@ import ComplaintList from "../../../Components/DashboardComponents/DashboardProf
 
 const mycomplaints: NextPage = (props) => {
 	const [page, setPage] = useState("All");
+	const [pageNumber, setPageNumber] = useState(1);
 	return (
 		<NavWrapper>
 			<div className="bg-white h-full mb-10">
 				<ComplaintsNavBar
 					page={page}
 					setPage={setPage}
+					setPageNumber={setPageNumber}
 				/>
-				<ComplaintList page={page} />
+				<ComplaintList
+					page={page}
+					pageNumber={pageNumber}
+					setPageNumber={setPageNumber}
+				/>
 			</div>
 		</NavWrapper>
 	);

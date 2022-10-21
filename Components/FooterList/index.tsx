@@ -10,7 +10,7 @@ export const FooterList: React.FC<FooterListProps> = ({ title, items, areButtons
 	return (
 		<div>
 			{!areButtons && <p className="text-eccblue text-[12px] poppinsFont mb-[23px] lg:mb-[40px]">{title}</p>}
-			<div className="flex flex-col gap-[18px] lg:gap-[24px] items-start w-[140px] lg:w-[177px]">
+			<div className="flex flex-col gap-[18px] lg:gap-[24px] items-start w-[100px] lg:w-[150px]">
 				{!areButtons &&
 					items.map((item) => (
 						<p

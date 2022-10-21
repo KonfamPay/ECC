@@ -3,6 +3,7 @@ import FileAComplaintRadio from "../FileAComplaintRadio";
 import SuccessModal from "../SuccessModal";
 
 interface Page3Props {
+	place: string;
 	wantsRefund: boolean;
 	wantsApology: boolean;
 	wantsCompensation: boolean;
@@ -15,7 +16,7 @@ interface Page3Props {
 	setTermsAndConditions: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page3: React.FC<Page3Props> = ({ wantsRefund, wantsApology, wantsCompensation, wantsReplacement, setWantsRefund, setWantsApology, setWantsCompensation, setWantsReplacement, termsAndConditions, setTermsAndConditions }) => {
+const Page3: React.FC<Page3Props> = ({ place, wantsRefund, wantsApology, wantsCompensation, wantsReplacement, setWantsRefund, setWantsApology, setWantsCompensation, setWantsReplacement, termsAndConditions, setTermsAndConditions }) => {
 	const [successModalShowing, setSuccessModalShowing] = useState(false);
 	const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
@@ -29,7 +30,7 @@ const Page3: React.FC<Page3Props> = ({ wantsRefund, wantsApology, wantsCompensat
 		}
 	}, [successModalShowing]);
 	return (
-		<div className="mt-[90px]">
+		<div className={`mt-[90px] ${place === "dashboard" && "bg-white mt-0 lg:mt-0 px-4 py-6"}`}>
 			{successModalShowing && (
 				<SuccessModal
 					setSuccessModalShowing={setSuccessModalShowing}

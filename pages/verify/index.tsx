@@ -1,196 +1,245 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { Footer, NavBar, VerificationInputGroup } from "../../Components";
-import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 
-const LoginPage: NextPage = () => {
-	const [fullName, setfullName] = useState("");
-	const [selectedFile, setSelectedFile] = useState(null);
-	const filePickerRef = useRef(null);
-	const addDocument = (e) => {
-		setSelectedFile(e.target.files[0].name);
+import { AnimatePresence, motion } from "framer-motion";
+import { states } from "./StatesAndLga";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
+import { validateVerifyInputs } from "../../Components/Verification/FormValidation";
+import { useCookies } from "react-cookie";
+import { useRouter } from "next/router";
+
+import VerificationInputGroup from "../../Components/Verification/VerificationInputGroup";
+
+const VerificationPage: NextPage = () => {
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [dob, setDob] = useState("");
+	const [state, setState] = useState("");
+	const [NIN, setNIN] = useState("");
+	const [address, setAddress] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [middleName, setMiddleName] = useState("");
+
+	const inputContainerRef = useRef<null | HTMLInputElement>(null);
+
+	const [errors, setErrors] = useState({
+		phoneNumber: "",
+		dob: "",
+		state: "",
+		NIN: "",
+		address: "",
+		firstName: "",
+		lastName: "",
+		middleName: "",
+	});
+
+	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+	const router = useRouter();
+
+	const onSubmit = async () => {
+		const { error } = validateVerifyInputs({
+			phoneNumber,
+			dob,
+			state,
+			NIN,
+			address,
+			firstName,
+			lastName,
+			middleName,
+		});
+
+		if (error) {
+			const { details } = error;
+			const errors = {
+				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber").message : "",
+				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob").message : "",
+				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state").message : "",
+				NIN: details.find((item: any) => item.path[0] == "NIN") ? details.find((item: any) => item.path[0] == "NIN").message : "",
+				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
+				photoIdUrl: details.find((item: any) => item.path[0] == "photoIdUrl") ? details.find((item: any) => item.path[0] == "photoIdUrl").message : "",
+				firstName: details.find((item: any) => item.path[0] == "firstName") ? details.find((item: any) => item.path[0] == "firstName").message : "",
+				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName").message : "",
+				middleName: details.find((item: any) => item.path[0] == "middleName") ? details.find((item: any) => item.path[0] == "middleName").message : "",
+			};
+			let firstError = details[0].path[0];
+			console.log(firstError);
+			if (firstError != "photoIdUrl") {
+				console.log(firstError);
+				inputContainerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+			}
+			setErrors(errors);
+		}
+		if (!error) {
+			setErrors({
+				phoneNumber: "",
+				dob: "",
+				state: "",
+				NIN: "",
+				address: "",
+				firstName: "",
+				lastName: "",
+				middleName: "",
+			});
+			const payload = { dob, phoneNumber, address, NIN, state, firstName, lastName, middleName };
+			const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/users/verify/${cookies.user._id}`;
+			try {
+				const result = await axios.post(url, payload);
+				const { token } = result.data;
+				const user = jwt_decode(token);
+				console.log(token, user);
+				setCookie("user", user);
+				router.push("/dashboard");
+			} catch (err: any) {
+				if (err.response.data.message) {
+					alert(err.response.data.message);
+				} else {
+					alert("Something went wrong on the server");
+				}
+			}
+		}
 	};
 	return (
-		<>
-			<NavBar />
-			<div className="mt-[198px]">
-				<div className="">
-					<p className="text-center text-[18px] lg:text-[40px] font-[500]">You will have to verify yourself before you continue </p>
-					<p className="text-center text-[20px] font-[300] mt-[30px]">
-						Already have an account? <a className="text-eccblue cursor-pointer">Login</a>
-					</p>
+		<div>
+			<motion.div
+				initial={{ opacity: 0, y: 100 }}
+				animate={{ opacity: 1, y: 0 }}
+				className="flex flex-row"
+			>
+				<div className="lg:w-[45%] lg:flex flex-col fixed hidden pt-[20px] pl-[20px] bg-gradient-to-b from-[#0B63C5] to-[#073D79]  h-screen ">
+					<div>
+						<img
+							className="w-[98px] h-[40px]"
+							src="./Images/whiteEccLogo.svg"
+							alt=""
+						/>
+					</div>
+
+					<div className="text-white w-[80%] mt-[50px]">
+						<p className="font-bold text-[38px] ">Verify yourself</p>
+						<p className="text-[18px] ">Verify yourself using the kyc dgjrggjfg iufejfhgrgfrhgf gehjgfjrfjerfnfj</p>
+					</div>
+					<div className="flex">
+						<img
+							className="w-[300px] h-[300px]  absolute -bottom-[40px] -left-[20px] xl:w-[500px] xl:h-[500px]"
+							src="./Images/polygons.svg"
+							alt=""
+						/>
+					</div>
 				</div>
-				<div className="mt-[99px] mx-[12.5px] lg:mx-[109px]">
-					<div className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
+				<div className="lg:w-full w-full pl-[calc(100%-55%)] px-[30px] mt-[40px] mx-[12.5px] lg:mx-[20px]">
+					<p className="text-[28px] font-medium text-center mb-4">Verify yourself</p>
+					<div className="flex w-full flex-col gap-y-4">
 						<VerificationInputGroup
 							label="First Name"
-							placeholder="Enter First Legal Name"
-							value={fullName}
-							setValue={fullName}
+							placeholder="Enter First Name"
+							value={firstName}
+							setValue={setFirstName}
 							type="text"
+							errorMessage={errors.firstName}
 						/>
 						<VerificationInputGroup
-							label="Date Of Birth"
-							placeholder="DD/MM/YYYY"
-							value={fullName}
-							setValue={fullName}
-							type="date"
+							label="Last Name"
+							placeholder="Enter Last Name"
+							value={lastName}
+							setValue={setLastName}
+							type="text"
+							errorMessage={errors.lastName}
 						/>
 						<VerificationInputGroup
-							label="Adress Line"
-							placeholder="Enter Valid Email Address"
-							value={fullName}
-							setValue={fullName}
+							label="Middle Name (Optional)"
+							placeholder="Enter Middle Name"
+							value={middleName}
+							setValue={setMiddleName}
 							type="text"
+							errorMessage={errors.middleName}
 						/>
 						<VerificationInputGroup
 							label="Phone Number"
 							placeholder="Enter Phone Number"
-							value={fullName}
-							setValue={fullName}
-							type="tel"
+							value={phoneNumber}
+							setValue={setPhoneNumber}
+							maxlength={11}
+							type="number"
+							errorMessage={errors.phoneNumber}
 						/>
-						<VerificationInputGroup
-							label="State"
-							placeholder="Enter Your Residential State"
-							value={fullName}
-							setValue={fullName}
-							type="text"
-						/>
-						<VerificationInputGroup
-							label="L.G.A"
-							placeholder="Enter Your Local Government Area"
-							value={fullName}
-							setValue={fullName}
-							type="text"
-						/>
-					</div>
-					<div className="mt-[30px] lg:mt-[66px]">
-						<div>
-							<p className="text-[20px]">Upload Documents</p>
-						</div>
-						<div className="bg-clearblue">
-							<div className="w-full py-[27.5px] lg:py-[122px] rounded-xl border-eccblue mt-[25px] border lg:border-2 border-dashed flex flex-col items-center justify-center">
-								<div className={`w-full mx-auto`}>
-									<img
-										src="icons/paste.svg"
-										alt=""
-										className="mx-auto cursor-pointer w-[41px] lg:w-[137px] h-[41px] lg:h-[137px]"
-										onClick={() => filePickerRef.current?.click()}
-									/>
-									<input
-										type="file"
-										ref={filePickerRef}
-										hidden
-										onChange={addDocument}
-										id="inputfile"
-									/>
-									<div className="text-center mt-[16px]">
-										<p className="text-[14px] lg:text-[20px] font-[400]">
-											Click to upload your{" "}
-											<span
-												className="text-eccblue cursor-pointer"
-												onClick={() => filePickerRef.current?.click()}
-											>
-												doocuments
-											</span>{" "}
-											here
-										</p>
-										<p className="text-[12px] lg:text-[18px] mt-[6px] lg:mt-[22px]">Supported format: JPEG, PNG, PDF</p>
-									</div>
-									{selectedFile && (
-										<div className="bg-eccblue h-[101px] w-[708px] mx-auto mt-[43px] rounded-xl">
-											<div className="ml-[33px] mr-[50px]">
-												<div className="pt-[27px] relative">
-													<div className="flex flex-row space-x-[37px]">
-														<img
-															src="icons/file-check.svg"
-															alt=""
-														/>
-														<p className="text-[20px] font-[600] text-white">{selectedFile}</p>
-													</div>
-													<img
-														src="icons/close-1.svg"
-														className=" absolute right-0 top-[27px] w-[18px] h-[18px] mt-[5px] cursor-pointer"
-														onClick={() => setSelectedFile(null)}
-														alt=""
-													/>
-												</div>
-												{/* <hr className="mt-[12.12px] border-[3.5px] rounded-full"/> */}
-												<div className="w-full mt-[12.12px] bg-[#C5C5C5] h-[5px] rounded-full">
-													<div
-														className="bg-white h-[5px] rounded-full"
-														style={{ width: "70%" }}
-													></div>
-												</div>
-											</div>
-										</div>
-									)}
-								</div>
+						<div className="flex lg:flex-row flex-col gap-x-4 w-full">
+							<div className="w-1/2 ">
+								<VerificationInputGroup
+									label="Date Of Birth"
+									placeholder="DD/MM/YYYY"
+									value={dob}
+									setValue={setDob}
+									type="date"
+									max={`${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear()}`}
+									errorMessage={errors.dob}
+								/>
+							</div>
+							<div className="flex flex-col w-1/2">
+								<p className="text-[14px] lg:text-[20px]">State</p>
+								<select
+									value={state}
+									onChange={(e) => setState(e.target.value)}
+									style={{ color: state ? "black" : "#9ca3af" }}
+									className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[23px] px-[20px] focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[15px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
+								>
+									<option
+										value=""
+										selected
+									>
+										Enter your Residential State
+									</option>
+									{states.map((state) => (
+										<option
+											className="text-black"
+											value={state.name}
+										>
+											{state.name}
+										</option>
+									))}
+								</select>
+								{errors.state && (
+									<motion.p
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										className="text-[13px] md:text-[15px] lg:text-[18px] mt-[5px] text-red-500 font-medium"
+									>
+										{errors.state}
+									</motion.p>
+								)}
 							</div>
 						</div>
+
+						<VerificationInputGroup
+							label="Adress"
+							placeholder="Enter Valid Address"
+							value={address}
+							setValue={setAddress}
+							type="text"
+							className="col-span-2"
+							errorMessage={errors.address}
+						/>
+						<VerificationInputGroup
+							label="National Identification Number (NIN)"
+							placeholder="Enter NIN"
+							value={NIN}
+							setValue={setNIN}
+							maxlength={11}
+							type="text"
+							errorMessage={errors.NIN}
+						/>
+					</div>
+					<div
+						onClick={onSubmit}
+						className="my-[63px] mx-[12.5px] lg:mx-auto rounded-[12px] bg-[#0B63C5] lg:w-[587px] transition-[150ms] active:scale-95 "
+					>
+						<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">Continue</p>
 					</div>
 				</div>
-				<div className="hidden lg:block mx-[120px] mt-[63px]">
-					<p className="text-[20px] font-[500] leading-[30px]">You can use any of these means of identification</p>
-					<ul className="text-[20px] text-eccblue font-[600] space-y-[11px] mt-[30px] -ml-[10px]">
-						<li className="flex flex-row space-x-[37px]">
-							{" "}
-							<img
-								src="icons/check.svg"
-								alt=""
-							/>{" "}
-							<p>Voter's Card</p>
-						</li>
-						<li className="flex flex-row space-x-[37px]">
-							{" "}
-							<img
-								src="icons/check.svg"
-								alt=""
-							/>{" "}
-							<p>International Passport</p>
-						</li>
-						<li className="flex flex-row space-x-[37px]">
-							{" "}
-							<img
-								src="icons/check.svg"
-								alt=""
-							/>{" "}
-							<p>National ID card</p>
-						</li>
-						<li className="flex flex-row space-x-[37px]">
-							{" "}
-							<img
-								src="icons/check.svg"
-								alt=""
-							/>{" "}
-							<p>National Identification Slip (NIN)</p>
-						</li>
-						<li className="flex flex-row space-x-[37px]">
-							{" "}
-							<img
-								src="icons/check.svg"
-								alt=""
-							/>{" "}
-							<p>Driver’s Licence</p>
-						</li>
-					</ul>
-				</div>
-				<div className="mx-[12.5px] lg:hidden leading-[24px] mt-[22px] font-[500] text-[12px]">
-					<p>You can use any of these means of identification:</p>
-					<p className="text-eccblue">Voter’s Card, International passport, National ID card, Driver’s licence and National identification slip (NIN) </p>
-				</div>
-				<div className="mt-[63px] mx-[12.5px] lg:mx-auto rounded-xl bg-eccblue lg:w-[587px]">
-					<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">Continue</p>
-				</div>
-				<div className="mt-[118px]">
-					<Testimonials />
-				</div>
-				<Footer />
-			</div>
-		</>
+			</motion.div>
+		</div>
 	);
 };
 
-export default LoginPage;
+export default VerificationPage;

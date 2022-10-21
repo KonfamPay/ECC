@@ -3,36 +3,51 @@ import type { NextPage } from "next";
 import { Footer, KonfamPayCallout } from "../../Components";
 import { NavBar } from "../../Components";
 import Head from "next/head";
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryPie, VictoryTheme } from "victory";
+import scamStat from './ChartData/ScamData'
+import genderStat from './ChartData/genderData'
+import ageStat  from './ChartData/ageData'
+
+
+
 
 const index: NextPage = (props) => {
 	const [showScam, setShowScam] = useState(false);
 	const [year, setYear] = useState(10);
+
+
+
+	
 	const getYears = [
 		{
 			year: 2010,
 		},
 		{
-			year: 2010,
+			year: 2020,
 		},
 		{
-			year: 2010,
+			year: 2018,
 		},
 		{
-			year: 2010,
+			year: 2015,
 		},
 		{
-			year: 2010,
+			year: 2013,
 		},
 		{
-			year: 2010,
+			year: 2012,
 		},
 		{
-			year: 2010,
+			year: 2011,
 		},
 		{
-			year: 2010,
+			year: 2017,
 		},
 	];
+
+
+	
+
 	return (
 		<>
 			<Head>
@@ -187,18 +202,68 @@ const index: NextPage = (props) => {
 								</div>
 							</div>
 						</div>
-						<div className="w-full h-[628px] bg-white mr-36 mt-7 rounded-xl hidden lg:block">
-							<div>
-								<p>Chart goes here</p>
-							</div>
+						<div className="w-full h-[628px] bg-white mr-36 mt-7 rounded-xl hidden lg:block ">
+								{/* <p >Chart goes here</p> */}
+										<VictoryChart width={700} height={600} domainPadding={{x:100}} >
+											<VictoryBar data={scamStat} 
+												x="scamType"
+												y="amt"
+												horizontal 
+												style={{ data: { fill: "#042448" } }}
+												cornerRadius={{ top: 10}}
+												barWidth={20}
+												width={100}
+												height={20}
+												
+											/>
+										</VictoryChart>
 						</div>
 						<div className="w-full">
 							<div className="flex flex-col lg:flex-row lg:space-x-7">
-								<div className="w-full h-[429px] lg:h-[752px] bg-white rounded-xl mt-7">
-									<p>Chart goes here</p>
+								<div className="w-full h-[423px] lg:h-[552px] bg-white rounded-xl mt-7 pb-20 pt-3">
+									<p className="text-center text-2xl">Gender stats</p>
+									<div className="legend">
+											<div className="pie">
+												<div className="pieM"></div>
+												<p> -38%</p>
+											</div>
+											<div className="pie">
+												<div className="pieF"></div>
+												<p>-62%</p>
+											</div>
+										</div>
+										<VictoryPie 
+											data={genderStat}
+											y="population"
+											x="gender"
+											colorScale={[ '#031830', '#0B63C5']}
+											padAngle={({ datum }) => datum.y}
+											innerRadius={100}
+											
+										/>
 								</div>
-								<div className="w-full h-[323px] lg:h-[752px] bg-white rounded-xl mt-7">
-									<p>Chart goes here</p>
+								<div className="w-full h-[423px] lg:h-[552px] bg-white rounded-xl mt-7 pb-20 pt-3">
+									<p className="text-center text-2xl">Age Group</p>
+									<VictoryChart width={800} height={800} domainPadding={{x:10, y:10}}  >
+											<VictoryBar data={ageStat} 
+												x="ageGroup"
+												y="population"
+												horizontal 
+												style={{ data: { fill: "#D0E4FB" },  }}
+												barWidth={60}
+												width={100}
+												height={20}
+												
+											/>
+											<VictoryAxis
+												 style={{
+													axis: {stroke: "#D0E4FB"},
+													axisLabel: {fontSize: 20, padding: 30, },
+													
+												  }}
+												  
+											 />
+										</VictoryChart>
 								</div>
 							</div>
 						</div>

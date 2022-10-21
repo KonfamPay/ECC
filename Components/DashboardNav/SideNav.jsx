@@ -61,7 +61,12 @@ const SideNav = ({ open, openSide }) => {
 					/>
 				</div>
 				<div>
-					<button className="min-w-[200px] py-[14px] bg-eccblue font-semibold poppinsFont text-[16px] text-white rounded-xl focus:outline-none mb-[20px]">File a Complaint</button>
+					<button
+						disabled={router.pathname == "/dashboard/file-complaint"}
+						className="min-w-[200px] py-[14px] bg-eccblue font-semibold poppinsFont text-[16px] text-white rounded-xl focus:outline-none mb-[20px]"
+					>
+						File a Complaint
+					</button>
 					<NavButton
 						isActive={router.pathname == "/dashboard"}
 						text="Dashboard"

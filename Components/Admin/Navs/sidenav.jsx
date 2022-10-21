@@ -38,70 +38,68 @@ const NavButton = ({ isActive, text, onClick }) => {
 const SideNav = () => {
 	const router = useRouter();
 	return (
-		<div className="h-full">
-			<div className="w-[273px] h-full bg-eccblue lg:block hidden">
-				<div className="flex flex-col w-full items-center">
-					<div className="w-full flex items-center mt-[40px] flex-col">
-						<div className="flex flex-row text-white items-center">
-							<img
-								className="w-[82px] h-[23px]"
-								src="../../Images/whiteEccLogo.svg"
-								alt=""
-							/>
-							<p className="text-[12px] align-text-bottom">ADMIN</p>
-						</div>
+		<div className="fixed h-screen w-[295px] pl-[32px] pt-[35px] bg-eccblue lg:block hidden">
+			<div className="flex flex-col w-full items-center">
+				<div className="w-full flex items-center mt-[40px] flex-col">
+					<div className="flex flex-row text-white items-center">
+						<img
+							className="w-[82px] h-[23px]"
+							src="../../Images/whiteEccLogo.svg"
+							alt=""
+						/>
+						<p className="text-[12px] align-text-bottom">ADMIN</p>
+					</div>
 
-						<div className="space-y-[30px] mt-[60px] w-full flex flex-col items-center">
-							<NavButton
-								text="Dashboard"
-								isActive={router.pathname === "/admin" ? true : false}
-								onClick={() => {
-									router.push("/admin");
-								}}
+					<div className="space-y-[30px] mt-[60px] w-full flex flex-col items-center">
+						<NavButton
+							text="Dashboard"
+							isActive={router.pathname === "/admin" ? true : false}
+							onClick={() => {
+								router.push("/admin");
+							}}
+						/>
+						<NavButton
+							text="Manage Users"
+							isActive={router.pathname === "/admin/manage" ? true : false}
+							onClick={() => {
+								router.push("/admin/manage");
+							}}
+						/>
+						<NavButton
+							text="Complaints"
+							isActive={router.pathname === "/admin/complaints" ? true : false}
+							onClick={() => {
+								router.push("/admin/complaints");
+							}}
+						/>
+						<NavButton
+							text="Latest Scams"
+							isActive={router.pathname === "/admin/latest" ? true : false}
+							onClick={() => {
+								router.push("/admin/latest");
+							}}
+						/>
+						<NavButton
+							text="Analytics"
+							isActive={router.pathname === "/admin/analytics" ? true : false}
+							onClick={() => {
+								router.push("/admin/analytics");
+							}}
+						/>
+						<NavButton
+							text="Messages"
+							isActive={router.pathname === "/admin/messages" ? true : false}
+							onClick={() => {
+								router.push("/admin/messages");
+							}}
+						/>
+						<button className="flex flex-row text-white w-[80%] items-center justify-center ">
+							<img
+								src="/icons/admin-icons/logoutWhite.svg"
+								className="mr-4"
 							/>
-							<NavButton
-								text="Manage Users"
-								isActive={router.pathname === "/admin/manage" ? true : false}
-								onClick={() => {
-									router.push("/admin/manage");
-								}}
-							/>
-							<NavButton
-								text="Complaints"
-								isActive={router.pathname === "/admin/complaints" ? true : false}
-								onClick={() => {
-									router.push("/admin");
-								}}
-							/>
-							<NavButton
-								text="Latest Scams"
-								isActive={router.pathname === "/admin/latest" ? true : false}
-								onClick={() => {
-									router.push("/admin/latest");
-								}}
-							/>
-							<NavButton
-								text="Analytics"
-								isActive={router.pathname === "/admin/analytics" ? true : false}
-								onClick={() => {
-									router.push("/admin/analytics");
-								}}
-							/>
-							<NavButton
-								text="Messages"
-								isActive={router.pathname === "/admin/messages" ? true : false}
-								onClick={() => {
-									router.push("/admin/messages");
-								}}
-							/>
-							<button className="flex flex-row text-white w-[80%] items-center justify-center ">
-								<img
-									src="/icons/admin-icons/logoutWhite.svg"
-									className="mr-4"
-								/>
-								Logout
-							</button>
-						</div>
+							Logout
+						</button>
 					</div>
 				</div>
 			</div>

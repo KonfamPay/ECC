@@ -104,7 +104,7 @@ const LoginPage: NextPage = () => {
 						<p className="text-center mt-[20px] mb-[38px]">
 							Don't have an account?{" "}
 							<Link href="/signup">
-								<span className="text-eccblue cursor-pointer">Login</span>
+								<span className="text-eccblue cursor-pointer">Sign up</span>
 							</Link>
 						</p>
 						<form>
