@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import { LoginInputGroup } from "../../Components/";
+import { GoogleLoginButton, LoginInputGroup } from "../../Components/";
 import Joi from "joi-browser";
 import { AnimatePresence, motion } from "framer-motion";
 import { AsyncSubmitButton } from "../../Components/";
@@ -159,6 +159,15 @@ const SignupPage = () => {
 									text="Continue"
 									loading={loading}
 								/>
+								<div className="flex items-center gap-x-[22px] mt-[40px] mb-[50px]">
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+								<p className="text-[24px]">Or</p>
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+							</div>
+															<div className="grid grid-cols-2 gap-x-[45px]">
+								<GoogleLoginButton />
+								<GoogleLoginButton />
+							</div>
 							</div>
 						</form>
 					</motion.div>

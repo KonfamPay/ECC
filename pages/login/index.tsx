@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Joi from "joi";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
+import { AsyncSubmitButton, GoogleLoginButton, LoginInputGroup } from "../../Components/";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
@@ -93,7 +93,7 @@ const LoginPage: NextPage = () => {
 						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Login to you your account to file a complaint or proceed with others submitted</p>
 					</div>
 				</div>
-				<div className="w-full px-[90px] flex flex-col justify-center">
+				<div className="w-full px-[90px] flex flex-col overflow-y-auto py-[73px]">
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -145,6 +145,15 @@ const LoginPage: NextPage = () => {
 								loading={loading}
 								onSubmit={onSubmit}
 							/>
+							<div className="flex items-center gap-x-[22px] mt-[40px] mb-[50px]">
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+								<p className="text-[24px]">Or</p>
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+							</div>
+							<div className="grid grid-cols-2 gap-x-[45px]">
+								<GoogleLoginButton />
+								<GoogleLoginButton />
+							</div>
 						</form>
 					</motion.div>
 				</div>
