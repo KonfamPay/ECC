@@ -10,8 +10,7 @@ const NavWrapper: React.FC<NavWrapperProps> = ({ children }) => {
 	const [Open, setIsOpen] = useState(false);
 
 	const openSide = () => {
-		setIsOpen(Open);
-		console.log(Open);
+		setIsOpen(!Open);
 	};
 
 	return (
