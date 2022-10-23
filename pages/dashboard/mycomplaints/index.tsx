@@ -3,6 +3,7 @@ import ComplaintsNavBar from "../../../Components/DashboardComponents/DashboardP
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import { useState } from "react";
 import ComplaintList from "../../../Components/DashboardComponents/DashboardProfile/ComplaintList";
+import Link from "next/link";
 
 const mycomplaints: NextPage = (props) => {
 	const [page, setPage] = useState("All");
