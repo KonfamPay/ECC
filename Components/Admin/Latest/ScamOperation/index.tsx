@@ -27,6 +27,18 @@ const ScamOperation: React.FC<ScamOperationProps> = () => {
 							Complaint History
 						</div>
 					</div>
+					{
+						section=='Personal Information'&&
+						<div>
+
+						</div>
+					}
+					{
+						section=='Complaint History'&&
+						<div>
+							
+						</div>
+					}
 				</div>
 			</div>
 		</div>
