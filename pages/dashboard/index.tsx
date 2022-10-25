@@ -33,21 +33,21 @@ const index: NextPage = (props) => {
 		<NavWrapper>
 			<div className="pt-4 bg-clearblue">
 				<div className="hidden lg:block">
-					<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative">
-						<div className="text-white pl-[43px] py-[58.5px]">
-							<p className="text-[40px] leading-[60px] font-[600]">
+					<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative items-center justify-between space-x-2">
+						<div className="text-white pl-[35px] xl:pl-[43px] py-[30px] xl:py-[58.5px]">
+							<p className="text-[35px] xl:text-[40px] leading-[60px] font-[600]">
 								{/* Hi, {cookie.user?.firstName} */}
 								Hi, Ronald
 							</p>
-							<p className="text-[24px] leading-[36px] font-[600] w-[503px]">
+							<p className="text-[20px] xl:text-[24px] leading-[36px] font-[600]">
 								Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
 							</p>
 						</div>
-						<div>
+						<div className="relative right-[21.28px] -top-[15px] w-[377.72px] h-[285.54px] shrink-0">
 							<img
-								src="./images/man-freaked-out.png"
-								className="absolute right-[21.28px] -top-[30.54px] md:h-[285.54px] h-[150px] w-[200px] md:w-[377.72px]"
-								alt=""
+								src="./images/man-freaked-out-2.png"
+								className="w-full h-full"
+								alt="a man freaked out"
 							/>
 						</div>
 					</div>
@@ -64,9 +64,9 @@ const index: NextPage = (props) => {
 								<p className="text-[12px]">We are ready to listen to your</p>
 								<p className="text-[12px]">complaints</p>
 							</div>
-							<div>
+							<div className="w-[150px] h-[95px] relative top-[12px] shrink-0">
 								<img
-									className=":w-[150px] h-[95px] "
+									className="w-full h-full"
 									src="./images/man-freaked-out.png"
 									alt=""
 								/>
