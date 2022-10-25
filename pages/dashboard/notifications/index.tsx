@@ -27,6 +27,7 @@ const NotificationsPage: NextPage = () => {
 								title={item.title}
 								additionalInfo={item.additionalInfo}
 								time={item.time}
+								
 							/>
 						</div>
 					))}
