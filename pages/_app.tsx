@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 
+const queryClient = new QueryClient();
 function MyApp({ Component, pageProps, router }: AppProps) {
 	const queryClient = new QueryClient();
 	return (

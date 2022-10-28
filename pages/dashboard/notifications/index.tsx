@@ -4,17 +4,21 @@ import NotificationItem from "../../../Components/NotificationItem";
 import { getServerSideProps } from "./../../../Components/NotificationItem/notificationData/index";
 import { useRouter } from "next/router";
 
-const NotificationsPage: NextPage = () => {
+interface NotificationsPageProps {
+	notificationData: { id: string;  title: string; additionalInfo: string; time: string }[];
+}
+
+const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 	const { props } = getServerSideProps();
 	const { notificationData } = props;
 	const router = useRouter();
 	return (
 		<NavWrapper>
-			<div className="w-full h-screen rounded-[15px] lg:pt-[0px]  lg:overflow-hidden">
-				<div className="py-[20px]  bg-eccblue">
-					<p className="text-[24px] text-center font-medium poppinsFont text-white">All Notifications</p>
+			<div className="w-full h-[calc(100vh-170px)] rounded-[15px] overflow-hidden">
+				<div className="py-[16px] pl-[54px] bg-eccblue">
+					<p className="text-[24px] font-medium poppinsFont text-white">All Notifications</p>
 				</div>
-				<div className="pt-[39px] h-full bg-white flex flex-col gap-y-[40px]">
+				<div className="pt-[39px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-250px)]">
 					{notificationData.map((item: any, index: number) => (
 						<div
 							onClick={() => {

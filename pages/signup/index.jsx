@@ -1,25 +1,24 @@
 import Link from "next/link";
 import { useState } from "react";
-import { LoginInputGroup } from "../../Components/";
+import { GoogleLoginButton, LoginInputGroup } from "../../Components/";
 import Joi from "joi-browser";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { AsyncSubmitButton } from "../../Components/";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import client from "../api/Services/AxiosClient"
+import { useQuery } from "react-query";
+import jwtDecode from "jwt-decode";
 
 const SignupPage = () => {
-	const [cookies, setCookie] = useCookies(["token"]);
+	const [cookies, setCookie] = useCookies(["user"]);
 	const router = useRouter();
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [backendError, setBackendError] = useState("");
 	const [errors, setErrors] = useState({
-		firstName: "",
-		lastName: "",
 		email: "",
 		password: "",
 		confirmPassword: "",
@@ -28,9 +27,8 @@ const SignupPage = () => {
 	const passwordsMatch = (password, confirmPassword) => {
 		return password == confirmPassword;
 	};
+	const [token, setToken] = useState("");
 	const schema = Joi.object({
-		firstName: Joi.string().min(3).max(46).required().label("First Name"),
-		lastName: Joi.string().min(3).max(46).required().label("Last Name"),
 		email: Joi.string()
 			.min(3)
 			.max(100)
@@ -41,41 +39,42 @@ const SignupPage = () => {
 	});
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		const { error } = schema.validate({ firstName, lastName, email, password, confirmPassword }, { abortEarly: false });
+		const { error } = schema.validate({ email, password, confirmPassword }, { abortEarly: false });
 		if (error) {
 			const { details } = error;
 			const errors = {
-				firstName: details.find((item) => item.path[0] == "firstName") ? details.find((item) => item.path[0] == "firstName").message : "",
-				lastName: details.find((item) => item.path[0] == "lastName") ? details.find((item) => item.path[0] == "lastName").message : "",
 				email: details.find((item) => item.path[0] == "email") ? details.find((item) => item.path[0] == "email").message : "",
 				password: details.find((item) => item.path[0] == "password") ? details.find((item) => item.path[0] == "password").message : "",
 				confirmPassword: details.find((item) => item.path[0] == "confirmPassword") ? details.find((item) => item.path[0] == "confirmPassword").message : "",
 			};
-			if (!passwordsMatch(password, confirmPassword) && confirmPassword != "") errors.confirmPassword = "Confirm Password should be the same as Password";
-			console.log(passwordsMatch(password, confirmPassword));
 			setErrors(errors);
-		} else {
-			setErrors({ firstName: "", lastName: "", email: "", password: "", confirmPassword: "" });
+		} else if (!passwordsMatch(password, confirmPassword) && confirmPassword != "") {
+			setErrors({...errors, confirmPassword : "Confirm Password should be the same as Password"})
+			console.log(passwordsMatch(password, confirmPassword));	
+		}		
+		else {
+			setErrors({ email: "", password: "", confirmPassword: "" });
 			try {
 				setLoading(true);
-				const payload = { firstName, lastName, email, password };
-				const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/users`, payload);
-				setBackendError("");
-				setCookie("token", res.data.token, {
-					path: "/",
-				});
-				router.push("/dashboard");
-				console.log(res);
-			} catch (err) {
-				console.log(err);
-				try {
-					if (err.response.data.message) setBackendError(err.response.data.message);
-				} catch (err) {
-					alert("Something went wrong.");
+				const payload = { email, password };
+				const response = await client.post("/users", payload);
+				console.log(token)
+				if (response.data.token) {
+					const user = jwtDecode(response.data.token)
+					setCookie("user", user)
+					router.push("/verify_email")
+				}
+				
+			} catch (err) { 
+				if (err.response.status == 500) alert("Something went wrong. Please check your internet connection");
+				else {
+					if (!err.response.data) alert("Something went wrong. Please check your internet connection");
+					else setBackendError(err.response.data.message);
 				}
 			} finally {
 				setLoading(false);
 			}
+
 		}
 	};
 	return (
@@ -121,22 +120,6 @@ const SignupPage = () => {
 						<form>
 							<div className="flex flex-col gap-y-[35px]">
 								<LoginInputGroup
-									label="First Name"
-									placeholder="Enter Legal First Name"
-									value={firstName}
-									setValue={setFirstName}
-									type="text"
-									errorMessage={errors.firstName}
-								/>
-								<LoginInputGroup
-									label="Last Name"
-									placeholder="Enter Legal Last Name"
-									value={lastName}
-									setValue={setLastName}
-									type="text"
-									errorMessage={errors.lastName}
-								/>
-								<LoginInputGroup
 									label="Email"
 									placeholder="Enter Valid Email Address"
 									value={email}
@@ -161,21 +144,33 @@ const SignupPage = () => {
 									errorMessage={errors.confirmPassword}
 								/>
 							</div>
+							<AnimatePresence>
 							{backendError && (
 								<motion.p
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
+									exit={{opacity: 0}}
 									className="text-center my-[20px] text-[#ed4956]"
 								>
 									{backendError}
 								</motion.p>
 							)}
+							</AnimatePresence>
 							<div className="mt-[43px]">
 								<AsyncSubmitButton
 									onSubmit={onSubmit}
 									text="Continue"
 									loading={loading}
 								/>
+								<div className="flex items-center gap-x-[22px] mt-[40px] mb-[50px]">
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+								<p className="text-[24px]">Or</p>
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+							</div>
+															<div className="grid grid-cols-2 gap-x-[45px]">
+								<GoogleLoginButton />
+								<GoogleLoginButton />
+							</div>
 							</div>
 						</form>
 					</motion.div>
@@ -205,20 +200,6 @@ const SignupPage = () => {
 							</p>
 							<form>
 								<div className="flex flex-col gap-y-[15px]">
-									<LoginInputGroup
-										label="First Name"
-										placeholder="Enter Legal First Name"
-										value={firstName}
-										setValue={setFirstName}
-										type="text"
-									/>
-									<LoginInputGroup
-										label="Last Name"
-										placeholder="Enter Legal Last Name"
-										value={lastName}
-										setValue={setLastName}
-										type="text"
-									/>
 									<LoginInputGroup
 										label="Email"
 										placeholder="Enter Valid Email Address"
