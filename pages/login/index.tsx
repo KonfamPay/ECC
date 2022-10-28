@@ -53,9 +53,11 @@ const LoginPage: NextPage = () => {
 				const token = res.data.token;
 				const user = jwt_decode(token);
 				setCookie("user", user);
+				console.log(user);
 				if (cookies.user && !cookies.user.emailVerified) {
 					router.push("/verify_email");
 				} else if (cookies.user && !cookies.user.accountVerified) {
+					console.log(cookies.user.accountVerified);
 					router.push("/verification");
 				} else {
 					router.push("/dashboard");
