@@ -67,7 +67,10 @@ const SignupPage = () => {
 				
 			} catch (err) { 
 				if (err.response.status == 500) alert("Something went wrong. Please check your internet connection");
-				else {  setBackendError(err.response.data.message);}
+				else {
+					if (!err.response.data) alert("Something went wrong. Please check your internet connection");
+					else setBackendError(err.response.data.message);
+				}
 			} finally {
 				setLoading(false);
 			}
