@@ -151,3 +151,30 @@ tbody tr:nth-of-type(odd) {
 .howItWorksCard:last-of-type .pointerShadow {
 	display: none;
 }
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+=======
+.pieM{
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	background-color:#020d1b;
+	margin: 2px;
+}
+.pieF{
+	border-radius: 50%;
+	margin: 2px;
+	height: 30px;
+	width: 30px;
+	background-color: #0b63c5;
+}
+.pie{
+	display: flex;
+	align-items: center;
+}
+legend{
+	padding: 10px;
+	margin: 10px;
+}

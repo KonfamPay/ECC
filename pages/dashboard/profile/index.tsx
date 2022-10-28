@@ -7,11 +7,15 @@ const profile: NextPage = (props) => {
 	return (
 		<div>
 			<NavWrapper>
-				<div className="pt-6">
+				<div className="">
 					<div className="lg:block hidden">
-						<div className=" grid grid-cols-[auto_438px] gap-x-[50px] w-full">
-							<ProfileCard />
-							<ComplaintsCardSection />
+						<div className="flex flex-row w-full justify-evenly">
+							<div className="w-[60%]">
+								<ProfileCard />
+							</div>
+							<div className="w-[30%]">
+								<ComplaintsCardSection />
+							</div>
 						</div>
 					</div>
 

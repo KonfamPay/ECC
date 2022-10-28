@@ -15,6 +15,6 @@
 		"jsx": "preserve",
 		"incremental": true
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "Components/DashboardNav/SideNav.jsx", "pages/signup/index.jsx", "pages/login/index.tsx", "Components/Verification/FormValidation.js"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "Components/DashboardNav/SideNav.jsx", "pages/signup/index.jsx", "pages/login/index.tsx", "Components/Verification/FormValidation.js", "Components/Admin/Navs/sidenav.jsx", "Components/FileAComplaintComponents/PageSectionNav/index.jsx", "Components/FileAComplaintComponents/PageSectionNav/index.jsx"],
 	"exclude": ["node_modules"]
 }

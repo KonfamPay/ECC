@@ -5,10 +5,11 @@ import { CookiesProvider } from "react-cookie";
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 
 const queryClient = new QueryClient();
 function MyApp({ Component, pageProps, router }: AppProps) {
+	const queryClient = new QueryClient();
 	return (
 		<QueryClientProvider client={queryClient}>
 			<AnimatePresence exitBeforeEnter>

@@ -18,7 +18,7 @@ const Index: NextPage = () => {
 				/>
 			)}
 			<NavBar />
-			<ComplaintLetterSection />
+			<ComplaintLetterSection place="main" />
 			<div className="mx-[100px] mt-[72px] mb-[147px]">
 				<div className="mx-auto text-center">
 					<p className="text-[40px] font-[500]">File a Complaint</p>

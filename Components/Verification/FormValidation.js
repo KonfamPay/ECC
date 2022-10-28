@@ -14,6 +14,10 @@ export const validateVerifyInputs = (payload) => {
 		lga: Joi.string().max(50).min(3).required().label("Local Government Area"),
 		address: Joi.string().max(255).min(10).required().label("Address"),
 		photoIdUrl: Joi.string().required().label("Photo Id"),
+		NIN: Joi.string().required().max(11).min(11).label("NIN"),
+		firstName: Joi.string().required().label("First Name"),
+		lastName: Joi.string().required().label("Last Name"),
+		middleName: Joi.string().label("Middle Name"),
 	});
 	return schema.validate(payload, { abortEarly: false });
 };

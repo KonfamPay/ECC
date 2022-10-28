@@ -127,7 +127,6 @@ mt-[110px] "
 							<PaginationSection
 								pageSize={false}
 								searchResults={searchResults}
-								setSearchResults={setSearchResults}
 								maxResultsPerPage={maxResultsPerPage}
 								currentSearchPage={currentSearchPage}
 								setCurrentSearchPage={setCurrentSearchPage}
@@ -138,7 +137,6 @@ mt-[110px] "
 							<PaginationSection
 								pageSize={pageSize}
 								searchResults={searchResults}
-								setSearchResults={setSearchResults}
 								maxResultsPerPage={maxResultsPerSmallPage}
 								currentSearchPage={currentSearchPage}
 								setCurrentSearchPage={setCurrentSearchPage}
