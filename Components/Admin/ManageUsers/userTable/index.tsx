@@ -35,9 +35,6 @@ const UserTable: React.FC<TableProps> = ({ isOperation, userData, maxNumber, pag
 							<tr
 								key={user.id}
 								className="  border-y border-y-[#e4e4ef] bg-white"
-								onClick={() => {
-									router.push({ pathname: "/admin/manage/details", query: { id: user.userId } });
-								}}
 							>
 								<td>
 									<button
@@ -52,7 +49,12 @@ const UserTable: React.FC<TableProps> = ({ isOperation, userData, maxNumber, pag
 										/>
 									</button>
 								</td>
-								<td className="flex flex-row">
+								<td
+									onClick={() => {
+										router.push({ pathname: "/admin/manage/details", query: { id: user.userId } });
+									}}
+									className="flex cursor-pointer flex-row"
+								>
 									<img
 										className="ml-4"
 										src={user.profilePic}

@@ -3,48 +3,45 @@ interface TableProps {
 	ScamData: any;
 	maxNumber: number;
 	pageNumber: number;
-	select: any;
-	selected: any;
-	setOperation: any;
-	setOperationType: any;
-	setScamId: any;
-	isOperation: boolean;
+	//select: any;
+	// selected: any;
+	// setOperation: any;
+	// setOperationType: any;
+	// setScamId: any;
+	// isOperation: boolean;
 }
 
-const UserTable: React.FC<TableProps> = ({ isOperation, ScamData, maxNumber, pageNumber, select, setScamId, selected, setOperation, setOperationType }) => {
+const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber }) => {
 	const router = useRouter();
 	return (
 		<>
-			{userData.length > -1 && (
+			{ScamData.length > -1 && (
 				<table className="w-full table-auto  ">
 					<thead className="border-y border-y-[#e4e4ef]  border-solid">
 						<tr>
 							<th>
 								<button className="w-[24px] ml-4 my-4 h-[24px] border border-solid border-[#e4e4e7]"></button>
 							</th>
-							<th>User</th>
-							<th>Date Registered</th>
+							<th>Scammer</th>
+							<th>Bank Account Details</th>
 							<th>Phone Number</th>
-							<th>Status</th>
+
 							<th></th>
 							<th></th>
 						</tr>
 					</thead>
 					<tbody>
-						{userData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((user) => (
+						{ScamData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((scam: any) => (
 							<tr
-								key={user.id}
+								key={scam.id}
 								className="  border-y border-y-[#e4e4ef] bg-white"
-								onClick={() => {
-									router.push({ pathname: "/admin/manage/details", query: { id: user.userId } });
-								}}
 							>
 								<td>
 									<button
 										onClick={() => {
-											select(user.userId);
+											//select(scam.scamId);
 										}}
-										className={`w-[24px] ml-4 h-[24px] ${selected.indexOf(user.userId) > 1 && "bg-eccblue"} border border-solid border-[#e4e4e7]`}
+										className={`w-[24px] ml-4 h-[24px]  border border-solid border-[#e4e4e7]`}
 									>
 										<img
 											src=".././icons/check-white.svg"
@@ -52,49 +49,39 @@ const UserTable: React.FC<TableProps> = ({ isOperation, ScamData, maxNumber, pag
 										/>
 									</button>
 								</td>
-								<td className="flex flex-row">
-									<img
-										className="ml-4"
-										src={user.profilePic}
-										alt=""
-									/>
-									<span className=" ml-4 flex flex-col">
-										<p className="font-semibold">{user.userName}</p>
-										<p>{user.userEmail}</p>
-									</span>
+								<td
+									onClick={() => {
+										router.push({ pathname: "/admin/latest/scam-details", query: { id: scam.scamId } });
+									}}
+									className="cursor-pointer flex flex-col"
+								>
+									<p className="font-semibold">{scam.scammer}</p>
+									<p>{scam.website}</p>
 								</td>
 
-								<td>{user.registrationDate}</td>
-								<td>{user.userPhone}</td>
-								<td>
-									<div className={` mr-4 w-auto p-1 flex items-center justify-center rounded-lg ${user.status == "Verified" ? " text-success bg-[#ebf6eb]" : "text-[#f93232] bg-[#fff0f0]"} `}>{user.status}</div>
-								</td>
+								<td>{scam.bankAccountDetails}</td>
+								<td>{scam.phoneNumber}</td>
 
 								<td>
 									<button
-										disabled={isOperation}
-										className=""
+										className="bg-eccblue p-1 rounded-md text-white "
 										onClick={() => {
-											setOperation(true);
-											setOperationType("edit");
-											setUserId(user.userId);
+											// setOperation(true);
+											// setOperationType("edit");
+											// setUserId(scam.scamId);
 										}}
 									>
-										<img
-											className="mr-4"
-											src="../icons/admin-icons/highlight.svg"
-											alt=""
-										/>
+										View details
 									</button>
 								</td>
 								<td>
 									<button
-										disabled={isOperation}
+										// disabled={isOperation}
 										className=""
 										onClick={() => {
-											setOperation(true);
-											setOperationType("delete");
-											setUserId(user.userId);
+											// setOperation(true);
+											// setOperationType("delete");
+											// setUserId(user.userId);
 										}}
 									>
 										<img
@@ -112,4 +99,4 @@ const UserTable: React.FC<TableProps> = ({ isOperation, ScamData, maxNumber, pag
 	);
 };
 
-export default UserTable;
+export default ScamTable;

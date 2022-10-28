@@ -40,21 +40,21 @@ const LandingPageCard: NextPage = () => {
 	return (
 		<>
 			<div className="lg:block hidden">
-				<div className="grid grid-cols-2 gap-x-[68px] gap-y-[37px] ">
+				<div className="grid grid-cols-2 gap-x-[30px] xl:gap-x-[68px] gap-y-[20px] xl:gap-y-[37px] ">
 					{cardcontents.map((card) => (
 						<div
-							className="flex flex-row pl-[32px] py-[55.5px] text-white rounded-[20px]"
+							className="flex flex-row pl-[22px] xl:pl-[32px] py-[32.5px] xl:py-[55.5px] pr-4 text-white rounded-[20px]"
 							style={{ backgroundColor: card.bgcolor }}
 						>
 							<img
 								src={card.iconpath}
-								className="w-[48px] h-[48px]"
+								className="max-w-[48px] xl:max-w-[80px] shrink"
 								alt={card.alt}
 							/>
 
-							<div className="pl-[32px] w-3/4">
+							<div className="pl-[32px] w-3/4 flex-1 break-words">
 								<p className="text-[24px] font-[600]">{card.title}</p>
-								<p className="w-full">{card.description}</p>
+								<p className="w-full text-lg leading-[27px]">{card.description}</p>
 							</div>
 						</div>
 					))}
