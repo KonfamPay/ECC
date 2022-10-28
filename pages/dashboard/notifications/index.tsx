@@ -3,7 +3,7 @@ import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import NotificationItem from "../../../Components/NotificationItem";
 
 interface NotificationsPageProps {
-	notificationData: { title: string; additionalInfo: string; time: string };
+	notificationData: { title: string; additionalInfo: string; time: string }[];
 }
 
 const NotificationsPage: NextPage<NotificationsPageProps> = ({ notificationData }) => {
