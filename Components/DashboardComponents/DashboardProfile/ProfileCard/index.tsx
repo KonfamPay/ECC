@@ -1,14 +1,29 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Details from "../PersonalDetails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { format, parse } from "fecha";
 
 import ComplaintsCardSection from "./../../../../Sections/ComplaintsCardSection/index";
+import { useCookies } from "react-cookie";
 const profile: NextPage = (props) => {
+	const [cookie, setCookie] = useCookies(["user"]);
+	const [user, setUser] = useState({
+		firstName: "",
+		lastName: "",
+		email: "",
+		phoneNumber: "",
+		createdAt: "",
+		address: "",
+		state: "",
+	});
+	useEffect(() => {
+		setUser(cookie.user);
+	}, []);
 	const [isShowing, setIsShowing] = useState("personal");
 	return (
 		<div>
-			<div className=" lg:block hidden w-full bg-white rounded-[20px] h-[797px]">
+			<div className=" lg:block hidden w-full bg-white rounded-[20px] pb-[30px]">
 				<img
 					src="/icons/dashboard-icons/profile-header.svg"
 					className="rounded-t-[20px] w-full"
@@ -26,8 +41,8 @@ const profile: NextPage = (props) => {
 					/>
 				</div>
 				<div className="text-center mt-[19px] ">
-					<p className="text-[24px] font-[500]">Voke Onoriode</p>
-					<p className="mt-[10px] text-[18px] font-[500]">Vokeonoriode@gmail.com</p>
+					<p className="text-[24px] font-[500]">{`${user.firstName} ${user.lastName}`}</p>
+					<p className="mt-[10px] text-[18px] font-[500]">{`${user.email}`}</p>
 				</div>
 				<div className="mx-[74.5px] mt-[29px] flex flex-col space-y-[96px]">
 					<div className="flex flex-row space-x-[156px]">
@@ -37,7 +52,7 @@ const profile: NextPage = (props) => {
 									<p className="text-eccblue text-[16px]">Phone Number</p>
 								</div>
 								<div className="mt-[10px]">
-									<p className="text-[18px]">09065748390</p>
+									<p className="text-[18px]">{`${user.phoneNumber}`}</p>
 								</div>
 							</div>
 						</div>
@@ -46,9 +61,7 @@ const profile: NextPage = (props) => {
 								<div className="border-b-[0.5px] border-b-[#C5C5C5] w-[122px]">
 									<p className="text-eccblue text-[16px]">Date of Birth</p>
 								</div>
-								<div className="mt-[10px]">
-									<p className="text-[18px]">12-01-2001</p>
-								</div>
+								<div className="mt-[10px]">{user.createdAt && <p className="text-[18px]">{`${format(parse(user.createdAt, "isoDateTime")!, "isoDate")}`}</p>}</div>
 							</div>
 						</div>
 					</div>
@@ -59,7 +72,7 @@ const profile: NextPage = (props) => {
 									<p className="text-eccblue text-[16px]">Address</p>
 								</div>
 								<div className="mt-[10px]">
-									<p className="text-[18px] w-[219px]">4. jubril Adejumobi Street Lagos, Nigeria</p>
+									<p className="text-[18px] w-[219px]">{`${user.address}`}</p>
 								</div>
 							</div>
 						</div>
@@ -69,7 +82,7 @@ const profile: NextPage = (props) => {
 									<p className="text-eccblue text-[16px]">State</p>
 								</div>
 								<div className="mt-[10px]">
-									<p className="text-[18px]">Lagos</p>
+									<p className="text-[18px]">{`${user.state}`}</p>
 								</div>
 							</div>
 						</div>
