@@ -1,8 +1,16 @@
 import type { NextPage } from "next";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import ComplaintData from "../../../Components/Complaint/ComplaintData";
+
 
 const mycomplaints: NextPage = (props) => {
 	const [showModal, setShowModal] = useState(false);
+	const [data, setData] = useState("")
+	const router = useRouter()
+	const complaintId = router.query.id
+	const complaint = ComplaintData.filter((complaint) => complaint.grievanceId == complaintId)[0];
+
 	return (
 		<div className="mx-[35px] mt-[60px] w-[1079px] h-[827px] rounded-[20px]">
 			<div className="bg-eccblue rounded-t-[20px] h-[78px]">
@@ -12,13 +20,13 @@ const mycomplaints: NextPage = (props) => {
 						className="w-[36px] h-[36px]"
 						alt=""
 					/>
-					<p className="text-[24px] text-white">Complaint Details</p>
+					<p className="text-[24px] text-white">{}</p>
 				</div>
 			</div>
 			<div className="ml-[27px] mr-[40px] mt-[52px]">
 				<div className="flex flex-row space-x-[304.95px]">
 					<div className="flex space-x-[10.89px]">
-						<p className="text-[20px] text-eccblue font-[600]">Greviance ID: 423576275442ecc</p>
+						<p className="text-[20px] text-eccblue font-[600]">Greviance ID:{complaintId}</p>
 						<img
 							src="../icons/dashboard-icons/copy.svg"
 							className="w-[26.15px] h-[26.15px]"
@@ -37,16 +45,15 @@ const mycomplaints: NextPage = (props) => {
 				<div className="mt-[14.13px]">
 					<div>
 						<p className="text-[22px] font-[500]">
-							Purchase of fake product from <span className="text-eccblue">Jumia</span>
+							{complaint.title} 
 						</p>
 						<p className="text-[20px] mt-[15px] font-[500]">
-							You filed this case against <span className="text-eccblue">Jumia</span> on 02/06/2022
+							You filed this case against <span className="text-eccblue">{complaint.companyName}</span> on {complaint.date}
 						</p>
 					</div>
 					<div className="mt-[30px]">
 						<p className="text-[20px] leading-[37px] font-[400]">
-							As of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as nearly ****/- lost because of them now there is no website of themas of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce from them as
-							nearly ****/- lost because of them now there is no website of them...as of now iam a distributor of pine tm from vizag andhra pradesh as of **** oct all our costumer bills got reversed and my money lost no responce
+							{complaint.description}
 						</p>
 					</div>
 				</div>
