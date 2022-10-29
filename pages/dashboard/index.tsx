@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DashboardCard from "../../Components/DashboardComponents/DashboardCard";
 import NavWrapper from "../../Components/DashboardNav/NavWrapper";
 import { useCookies } from "react-cookie";
@@ -13,7 +13,7 @@ interface User {
 }
 
 const index: NextPage = (props) => {
-	const [cookie, setCookie] = useCookies(["token"]);
+	const [cookie, setCookie] = useCookies(["user"]);
 	const [user, setUser] = useState<User>({
 		firstName: "",
 		lastName: "",
@@ -21,50 +21,49 @@ const index: NextPage = (props) => {
 		iat: 0,
 	});
 	const router = useRouter();
-	// useEffect(() => {
-	// 	if (!cookie.token) router.replace("/login");
-	// 	else {
-	// 		const userObj = jwt_decode(cookie.token) as User;
-	// 		setUser(userObj);
-	// 		console.log(userObj);
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (!cookie.user) router.replace("/login");
+		else {
+			setUser(cookie.user);
+		}
+	}, []);
+
 	return (
-		<NavWrapper>
-			<div className="pt-4 bg-clearblue">
-				<div className="hidden lg:block">
-					<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative items-center justify-between space-x-2">
-						<div className="text-white pl-[35px] xl:pl-[43px] py-[30px] xl:py-[58.5px]">
-							<p className="text-[35px] xl:text-[40px] leading-[60px] font-[600]">
-								{/* Hi, {cookie.user?.firstName} */}
-								Hi, Ronald
-							</p>
-							<p className="text-[20px] xl:text-[24px] leading-[36px] font-[600]">
-								Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
-							</p>
-						</div>
-						<div className="relative right-[21.28px] -top-[15px] w-[377.72px] h-[285.54px] shrink-0">
-							<img
-								src="./images/man-freaked-out-2.png"
-								className="w-full h-full"
-								alt="a man freaked out"
-							/>
-						</div>
-					</div>
-					<div className="mt-[59px]">
-						<DashboardCard />
-					</div>
-				</div>
-				<div className="lg:hidden ">
-					<div className="flex flex-col items-center">
-						<div className="bg-black w-[90%] mt-12 rounded-[10px] py-4 h-[120px] flex flex-row justify-between items-center">
-							<div className="flex flex-col text-white pl-4">
-								<p className="text-[16px]">Hi, Ronald</p>
-								<p className="text-[12px]">Vendor don do you strong thing again?</p>
-								<p className="text-[12px]">We are ready to listen to your</p>
-								<p className="text-[12px]">complaints</p>
+		<div>
+			<NavWrapper>
+				<div className="pt-0">
+					<div className="hidden lg:block">
+						<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative">
+							<div className="text-white pl-[43px] py-[58.5px]">
+								<p className="text-[40px] leading-[60px] font-[600]">
+									Hi, {user.firstName}
+								</p>
+								<p className="text-[24px] leading-[36px] font-[600] w-[503px]">
+									Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
+								</p>
 							</div>
-							<div className="w-[150px] h-[95px] relative top-[12px] shrink-0">
+							<div>
+								<img
+									src="./images/man-freaked-out.png"
+									className="absolute right-[21.28px] -top-[30.54px] h-[285.54px] w-[377.72px]"
+									alt=""
+								/>
+							</div>
+						</div>
+						<div className="mt-[59px]">
+							<DashboardCard />
+						</div>
+					</div>
+					<div className="lg:hidden mt-6">
+						<div className="flex flex-col items-center">
+							<div className="bg-black w-[90%] mt-12 rounded-[10px] py-8 h-[120px] flex flex-row justify-bewtween items-center">
+								<div className="flex flex-col text-white pl-4">
+									<p className="text-[16px]">Hi, {user.firstName}</p>
+									<p className="text-[12px]">Vendor don do you strong thing again?</p>
+									<p className="text-[12px]">We are ready to listen to your</p>
+									<p className="text-[12px]">complaints</p>
+								</div>
+
 								<img
 									className="w-full h-full"
 									src="./images/man-freaked-out.png"
