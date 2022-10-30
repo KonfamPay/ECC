@@ -10,13 +10,13 @@ const TopNav = (props) => {
 	const router = useRouter();
 	const [user, setUser] = useState({});
 	const currentDate = moment().format("ddd. Do MMMM, YYYY");
-	//useEffect(() => {
-	// 	if (!cookie.user) router.replace("/login");
-	// 	else {
-	// 		setUser(cookie.user);
-	// 		console.log(user);
-	// 	}
-	// }, []);
+	useEffect(() => {
+		if (!cookie.user) router.replace("/login");
+		else {
+			setUser(cookie.user);
+			console.log(user);
+		}
+	}, []);
 
 	const getCurrentPage = () => {
 		const currentPath = router.pathname;
