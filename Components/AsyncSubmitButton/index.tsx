@@ -19,6 +19,7 @@ export const AsyncSubmitButton: React.FC<AsyncSubmitButtonProps> = ({ onSubmit, 
 				<motion.span
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
+					className="font-semibold"
 				>
 					{text}
 				</motion.span>

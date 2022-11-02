@@ -14,6 +14,8 @@ import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
 import VerificationInputGroup from "../../Components/Verification/VerificationInputGroup";
 
 const VerificationPage: NextPage = () => {
+	const [lastName, setLastName] = useState("");
+	const [firstName, setFirstName] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [dob, setDob] = useState("");
 	const [state, setState] = useState("");
@@ -25,6 +27,8 @@ const VerificationPage: NextPage = () => {
 	const photoIdScrollRef = useRef<null | HTMLDivElement>(null);
 	const [progress, setProgress] = useState(0);
 	const [errors, setErrors] = useState({
+		firstName: "",
+		lastName: "",
 		phoneNumber: "",
 		dob: "",
 		state: "",
@@ -42,7 +46,7 @@ const VerificationPage: NextPage = () => {
 			console.log(e.target.files[0].size);
 			let formData = new FormData();
 			formData.append("image", e.target.files[0]);
-			const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/image`;
+			const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}image`;
 			const options = {
 				headers: {
 					"Content-Type": "multipart/form-data",
@@ -72,7 +76,7 @@ const VerificationPage: NextPage = () => {
 	const removeDocument = async () => {
 		setSelectedFile(null);
 		setProgress(0);
-		const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/image/delete`;
+		const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}image/delete`;
 		const payload = { public_id: photoId.cloudinaryId };
 		try {
 			const result = await axios.post(url, payload);
@@ -84,6 +88,8 @@ const VerificationPage: NextPage = () => {
 	};
 	const onSubmit = async () => {
 		const { error } = validateVerifyInputs({
+			firstName,
+			lastName,
 			phoneNumber,
 			dob,
 			state,
@@ -95,12 +101,14 @@ const VerificationPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
+				firstName: details.find((item: any) => item.path[0] == "firstName") ? details.find((item: any) => item.path[0] == "firstName").message : "",
+				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName").message : "",
 				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber").message : "",
 				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob").message : "",
 				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state").message : "",
 				lga: details.find((item: any) => item.path[0] == "lga") ? details.find((item: any) => item.path[0] == "lga").message : "",
 				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
-				photoIdUrl: details.find((item: any) => item.path[0] == "photoIdUrl") ? details.find((item: any) => item.path[0] == "photoIdUrl").message : "",
+				photoIdUrl: "",
 			};
 			let firstError = details[0].path[0];
 			console.log(firstError);
@@ -112,6 +120,8 @@ const VerificationPage: NextPage = () => {
 		}
 		if (!error) {
 			setErrors({
+				firstName: "",
+				lastName: "",
 				phoneNumber: "",
 				dob: "",
 				state: "",
@@ -160,6 +170,24 @@ const VerificationPage: NextPage = () => {
 				<div className="mt-[99px] mx-[12.5px] lg:mx-[109px]">
 					<div className="flex lg:grid flex-col lg:grid-cols-2 gap-x-[65px] space-y-[30px] lg:space-y-0 lg:gap-y-[52px]">
 						<VerificationInputGroup
+							label="First Name"
+							placeholder="Last Name"
+							value={firstName}
+							setValue={setFirstName}
+							maxlength={11}
+							type="text"
+							errorMessage={errors.firstName}
+						/>
+						<VerificationInputGroup
+							label="Last Name"
+							placeholder="Last Name"
+							value={lastName}
+							setValue={setLastName}
+							type="text"
+							max={`${new Date().getMonth() + 1}-${new Date().getDate()}-${new Date().getFullYear()}`}
+							errorMessage={errors.lastName}
+						/>
+						<VerificationInputGroup
 							label="Phone Number"
 							placeholder="Enter Phone Number"
 							value={phoneNumber}
@@ -178,7 +206,7 @@ const VerificationPage: NextPage = () => {
 							errorMessage={errors.dob}
 						/>
 						<div className="flex flex-col">
-							<p className="text-[14px] lg:text-[20px]">Address</p>
+							<p className="text-[14px] lg:text-[20px]">State</p>
 							<select
 								value={state}
 								onChange={(e) => setState(e.target.value)}

@@ -4,11 +4,14 @@ import ScamData from "../../../Components/LatestScams/ScamData";
 import { useState, useEffect } from "react";
 import PaginationSection from "../../../Components/LatestScams/PaginationSection";
 import SearchBar from "../../../Components/Admin/searchbar";
+import ScamOperation from "../../../Components/Admin/Latest/ScamOperation";
 
 const Latest = () => {
 	const [scamData, setScamData] = useState(ScamData);
 	const [maxNumber, setMaxNumber] = useState(8);
 	const [pageNumber, setPageNumber] = useState(1);
+	const [isShowing, setShowing] = useState(false);
+	const [action, setAction] = useState("add");
 	const [value, setValue] = useState("");
 	useEffect(() => {
 		function filterBySearch() {
@@ -27,6 +30,14 @@ const Latest = () => {
 	return (
 		<Wrapper>
 			<div>
+				{isShowing && (
+					<div className="w-full h-full">
+						<ScamOperation
+							setShowing={setShowing}
+							action={action}
+						/>
+					</div>
+				)}
 				{scamData.length > 0 && (
 					<>
 						<div className="bg-white rounded-[15px]">
@@ -39,11 +50,10 @@ const Latest = () => {
 								</div>
 								<button
 									//disabled={isOperation}
-									// onClick={() => {
-									// 	setOperation(true);
-									// 	setOperationType("add");
-									// 	setUserId("");
-									// }}
+									onClick={() => {
+										setShowing(true);
+										setAction("add");
+									}}
 									className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
 								>
 									<img
