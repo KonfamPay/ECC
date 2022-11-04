@@ -1,21 +1,22 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Joi from "joi-browser";
+import Joi from "joi";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
+import { AsyncSubmitButton, GoogleLoginButton, LoginInputGroup } from "../../Components/";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import jwt_decode from "jwt-decode";
+import client from "../api/Services/AxiosClient";
 
 const LoginPage: NextPage = () => {
-	const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [backendError, setBackendError] = useState("");
-	const [errors, setErrors] = useState({
+	const [errors, setErrors] = useState<{ email: string | undefined; password: string | undefined }>({
 		email: "",
 		password: "",
 	});
@@ -34,8 +35,8 @@ const LoginPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email").message : "",
-				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password").message : "",
+				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email")?.message : "",
+				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password")?.message : "",
 			};
 
 			setErrors(errors);
@@ -47,31 +48,31 @@ const LoginPage: NextPage = () => {
 			try {
 				setLoading(true);
 				const payload = { email, password };
-				const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/auth`, payload);
+				const res = await client.post("/auth", payload);
 				setBackendError("");
-				setCookie("token", res.data.token, {
-					path: "/",
-					expires: new Date(Date.now() + 2 * 86400000),
-				});
-				if (user.verified) router.replace("/dashboard");
-				else {
-					router.replace("/verification");
+				const token = res.data.token;
+				const user = jwt_decode(token);
+				setCookie("user", user);
+				console.log(user);
+				if (cookies.user && !cookies.user.emailVerified) {
+					router.push("/verify_email");
+				} else if (cookies.user && !cookies.user.accountVerified) {
+					console.log(cookies.user.accountVerified);
+					router.push("/verification");
+				} else {
+					router.push("/dashboard");
 				}
 			} catch (err: any) {
-				try {
-					if (err.response.data.message) setBackendError(err.response.data.message);
-				} catch (err: any) {
-					alert("Something went wrong.");
-				}
+				if (err.response.status == 404 && err.response.data.message) setBackendError(err.response.data.message);
+				else if (err.response.status == 400 && err.response.data.message) setBackendError(err.response.data.message);
+				else alert("Something went wrong🥲 Kindly check your internet connection🥲");
 			} finally {
 				setLoading(false);
 			}
-			// alert("Form submitted")
 		}
 	};
 	useEffect(() => {
-		if (cookies.user) router.replace("/dashoard")
-			
+		if (cookies.user && cookies.user.emailVerified && cookies.user.accountVerified) router.replace("/dashboard");
 	}, []);
 	return (
 		<>
@@ -94,7 +95,7 @@ const LoginPage: NextPage = () => {
 						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Login to you your account to file a complaint or proceed with others submitted</p>
 					</div>
 				</div>
-				<div className="w-full px-[90px] flex flex-col justify-center">
+				<div className="w-full px-[90px] flex flex-col overflow-y-auto py-[73px]">
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -104,7 +105,7 @@ const LoginPage: NextPage = () => {
 						<p className="text-center mt-[20px] mb-[38px]">
 							Don't have an account?{" "}
 							<Link href="/signup">
-								<span className="text-eccblue cursor-pointer">Sign up</span>
+								<span className="text-eccblue cursor-pointer">Sign Up</span>
 							</Link>
 						</p>
 						<form>
@@ -146,6 +147,15 @@ const LoginPage: NextPage = () => {
 								loading={loading}
 								onSubmit={onSubmit}
 							/>
+							<div className="flex items-center gap-x-[22px] mt-[40px] mb-[50px]">
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+								<p className="text-[24px]">Or</p>
+								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+							</div>
+							<div className="grid grid-cols-2 gap-x-[45px]">
+								<GoogleLoginButton />
+								<GoogleLoginButton />
+							</div>
 						</form>
 					</motion.div>
 				</div>

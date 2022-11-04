@@ -2,6 +2,8 @@ import Joi from "joi-browser";
 
 export const validateVerifyInputs = (payload) => {
 	const schema = Joi.object({
+		firstName: Joi.string().required().label("First Name").min(3).max(50),
+		lastName: Joi.string().required().label("Last Name").min(3).max(50),
 		phoneNumber: Joi.string()
 			.regex(/^[0-9]{11}$/)
 			.length(11)
