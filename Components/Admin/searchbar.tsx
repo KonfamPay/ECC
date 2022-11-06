@@ -10,7 +10,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, setValue }) => {
 			<div className="w-[465px] rounded-md bg-[#f0f0f0] h-[50px] flex flex-row items-center">
 				<img
 					className="w-[24px] h-[24px] mx-6"
-					src="./icons/search.svg"
+					src="../../icons/search.svg"
 					alt=""
 				/>
 				<input

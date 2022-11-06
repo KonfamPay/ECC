@@ -2,7 +2,7 @@ import UserData from "../../../../Components/Admin/userData";
 import ComplaintData from "../../../../Components/Complaint/ComplaintData";
 import { useRouter } from "next/router";
 import Wrapper from "../../../../Components/Admin/Navs/navWrapper";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import UserPersonalInfo from "../../../../Components/Admin/ManageUsers/userPersonalInfo";
 import ComplaintInfo from "./../../../../Components/Admin/ManageUsers/UserComplaintInfo/index";
 import ComplaintDetails from "./../../../../Components/Admin/Complaints/ComplaintDetails/complaintDetails";
@@ -10,9 +10,21 @@ import ComplaintDetails from "./../../../../Components/Admin/Complaints/Complain
 const userDetails = () => {
 	const router = useRouter();
 	const grievanceId = router.query.id;
+	const [complaint, setComplaint] = useState({});
+	const [user, setUser] = useState({});
 
-	const complaint = ComplaintData.filter((currentComplaint: any) => currentComplaint.grievanceId == grievanceId)[0];
-	const user = UserData.filter((currentUser: any) => currentUser.complaints.find((id: string) => id == grievanceId))[0];
+	useEffect(() => {
+		if (grievanceId) {
+			const complaint = ComplaintData.filter((currentComplaint: any) => currentComplaint.grievanceId == grievanceId)[0];
+			const user = UserData.filter((currentUser: any) => currentUser.complaints.find((id: string) => id == grievanceId))[0];
+			if (complaint) {
+				setComplaint(complaint);
+			}
+			if (user) {
+				setUser(user);
+			}
+		}
+	}, [grievanceId]);
 
 	return (
 		<Wrapper>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import UserData from "../../../Components/Admin/userData";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import ComplaintPill from "../../../Components/Admin/Complaints/ComplaintPill";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 import { format } from "date-fns";
 
@@ -22,17 +24,15 @@ const Complaints = () => {
 					setPageNumber={setPageNumber}
 				/>
 				<div className="w-full flex flex-row justify-end">
-					<input
-						type="date"
-						value={date}
-						onChange={(e) => {
-							setDate(e.currentTarget.value);
-						}}
-						id=""
-					/>
+					<div>
+						<DatePicker
+							selected={new Date(date)}
+							onChange={(date: string) => setDate(format(new Date(date), "yyyy-MM-dd"))}
+						/>
+					</div>
 				</div>
 				<div>
-					<h1 className="my-6 text-[28px] font-semibold text-eccblue">{date == format(new Date(Date.now()), "yyyy-MM-dd") ? "Today" : date}</h1>
+					<h1 className="my-6 ml-4 text-[28px] font-semibold text-eccblue">{date == format(new Date(Date.now()), "yyyy-MM-dd") ? "Today" : date}</h1>
 					{ComplaintList.length > 0 &&
 						UserData.length > 0 &&
 						ComplaintList.map((complaint: any) => (

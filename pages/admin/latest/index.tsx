@@ -13,6 +13,18 @@ const Latest = () => {
 	const [isShowing, setShowing] = useState(false);
 	const [action, setAction] = useState("add");
 	const [value, setValue] = useState("");
+	const [selected, setSelected] = useState([]);
+	const onSelect = (id: string) => {
+		let selectedItems: any = [];
+		//check if the item is already in the selected list if it is remove it from the list if not add it to the list
+		if (selected.includes(id)) {
+			const removedItems = selected.filter((item) => item !== id);
+			selectedItems = removedItems;
+		} else {
+			selectedItems = [...selected, id];
+		}
+		setSelected(selectedItems);
+	};
 	useEffect(() => {
 		function filterBySearch() {
 			const filteredData = scamData.filter((scam) => scam.website.toLowerCase().includes(value.toLowerCase()) || scam.scammer.toLowerCase().includes(value.toLowerCase()) || scam.phoneNumber.toLowerCase().includes(value.toLowerCase()));
@@ -64,6 +76,8 @@ const Latest = () => {
 								</button>
 							</div>
 							<ScamTable
+								selected={selected}
+								setSelect={onSelect}
 								ScamData={scamData}
 								maxNumber={maxNumber}
 								pageNumber={pageNumber}
