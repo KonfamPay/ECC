@@ -1,21 +1,28 @@
 interface ButtonProps {
 	onClickReply: any;
 	onClickDelete: any;
+	clearButtonIcon: string;
+	clearButtonText: string;
+	filledButtonText: string;
+	filledButtonTextIcon: string;
+	clearButtonBgColour: string;
+	clearButtonTextColour: string;
+	clearBorderColour: string;
 }
 
-const DeleteReplyButton: React.FC<ButtonProps> = ({ onClickDelete, onClickReply }) => {
+const DeleteReplyButton: React.FC<ButtonProps> = ({ clearBorderColour, clearButtonTextColour, onClickDelete, clearButtonBgColour, onClickReply, clearButtonIcon, clearButtonText, filledButtonText, filledButtonTextIcon }) => {
 	return (
 		<div className="flex flex-row gap-x-6">
 			<div>
 				<button
 					onClick={onClickDelete}
-					className="flex flex-row items-center justify-center gap-x-4 w-[183px] h-[54px] rounded-md bg-[#FFBDBD] "
+					className={`flex border ${clearBorderColour} flex-row items-center justify-center gap-x-4 w-[183px] h-[54px] rounded-md ${clearButtonBgColour} ${clearButtonTextColour}  `}
 				>
 					<img
-						src="../../../icons/admin-icons/trash.svg"
+						src={clearButtonIcon}
 						alt=""
 					/>
-					<p className=" font-semibold text-[13px] text-[#ef2e2e]">Delete Complaint</p>
+					<p className=" font-semibold text-[13px] ">{clearButtonText}</p>
 				</button>
 				<button></button>
 			</div>
@@ -25,10 +32,10 @@ const DeleteReplyButton: React.FC<ButtonProps> = ({ onClickDelete, onClickReply 
 					className="flex flex-row items-center justify-center gap-x-4 w-[183px] h-[54px] rounded-md bg-eccblue "
 				>
 					<img
-						src="../../../icons/admin-icons/undo.svg"
+						src={filledButtonTextIcon}
 						alt=""
 					/>
-					<p className=" font-semibold text-[13px] text-white">Reply Complaint</p>
+					<p className=" font-semibold text-[13px] text-white">{filledButtonText}</p>
 				</button>
 				<button></button>
 			</div>
