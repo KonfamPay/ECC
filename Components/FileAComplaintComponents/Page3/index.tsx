@@ -4,6 +4,7 @@ import SuccessModal from "../SuccessModal";
 
 interface Page3Props {
 	place: string;
+	setCurrentPage: Dispatch<SetStateAction<number>>;
 	wantsRefund: boolean;
 	wantsApology: boolean;
 	wantsCompensation: boolean;
@@ -16,7 +17,7 @@ interface Page3Props {
 	setTermsAndConditions: Dispatch<SetStateAction<boolean>>;
 }
 
-const Page3: React.FC<Page3Props> = ({ place, wantsRefund, wantsApology, wantsCompensation, wantsReplacement, setWantsRefund, setWantsApology, setWantsCompensation, setWantsReplacement, termsAndConditions, setTermsAndConditions }) => {
+const Page3: React.FC<Page3Props> = ({ place, setCurrentPage, wantsRefund, wantsApology, wantsCompensation, wantsReplacement, setWantsRefund, setWantsApology, setWantsCompensation, setWantsReplacement, termsAndConditions, setTermsAndConditions }) => {
 	const [successModalShowing, setSuccessModalShowing] = useState(false);
 	const onSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
@@ -96,13 +97,20 @@ const Page3: React.FC<Page3Props> = ({ place, wantsRefund, wantsApology, wantsCo
 						I agree with the <span className="text-eccblue"> Terms & Conditions</span>
 					</p>
 				</div>
-				<div className="flex justify-center">
+				<div className="flex justify-end space-x-[30px] lg:space-x-[37px]">
+					<button
+						onClick={() => setCurrentPage(2)}
+						className="text-[14px] lg:text-[20px] bg-eccblue mt-[40px] lg:mt-[80px] rounded-xl font-[600] text-white py-[14.5px] lg:py-[22px] w-full max-w-[140px] lg:max-w-[216px]"
+						type="submit"
+					>
+						Back
+					</button>
 					<button
 						style={{ opacity: termsAndConditions ? 1 : 0.6 }}
 						disabled={!termsAndConditions}
-						className="bg-eccblue transition-[150ms] mt-[45px] lg:mt-[110px] w-[572.15px] rounded-xl text-[20px] font-[600] text-white py-[22px]"
-						type="submit"
 						onClick={onSubmit}
+						className="text-[14px] transition-[150ms] lg:text-[20px] bg-eccblue mt-[40px] lg:mt-[80px] rounded-xl font-[600] text-white py-[14.5px] lg:py-[22px] w-full max-w-[140px] lg:max-w-[216px]"
+						type="submit"
 					>
 						Continue
 					</button>
