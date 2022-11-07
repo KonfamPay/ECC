@@ -11,6 +11,7 @@ const mycomplaints: NextPage = (props) => {
 	const complaintId = router.query.id
 	const complaint = ComplaintData.filter((complaint) => complaint.grievanceId == complaintId)[0];
 
+
 	return (
 		<div className="mx-[35px] mt-[60px] w-[1079px] h-[827px] rounded-[20px]">
 			<div className="bg-eccblue rounded-t-[20px] h-[78px]">
@@ -19,6 +20,7 @@ const mycomplaints: NextPage = (props) => {
 						src="/icons/dashboard-icons/arrow.svg"
 						className="w-[36px] h-[36px]"
 						alt=""
+						onClick={() => router.back()}
 					/>
 					<p className="text-[24px] text-white">{}</p>
 				</div>
@@ -60,48 +62,56 @@ const mycomplaints: NextPage = (props) => {
 				<div className="mt-[52px]">
 					<p className="text-eccblue text-[19.64px]">Resolution wanted:</p>
 					<div className="flex space-x-[28.25px]">
-						<div>
-							<div className="mt-[21.27px]">
-								<div className="border border-eccblue w-[312.8px] rounded-[6.92px]">
-									<div className="pt-[16.73px] pb-[15.68px]">
-										<div className="flex space-x-[17.31px]">
-											<div className="flex space-x-[5.77px] ml-[14.42px]">
-												<img
-													src="../icons/dashboard-icons/refund.svg"
-													alt=""
-												/>
-												<div className="border-r-[1px] border-r-eccblue h-[16.62px] mt-[10px]" />
-											</div>
-											<div>
-												<p className="text-eccblue text-[11.54px] font-bold">A Refund</p>
-												<p className="text-[10.39px] font-[400]">All expenses incurred will be returned to you</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div>
-							<div className="mt-[21.27px]">
-								<div className="border border-eccblue w-[312.8px] rounded-[6.92px]">
-									<div className="pt-[16.73px] pb-[15.68px]">
-										<div className="flex space-x-[17.31px]">
-											<div className="flex space-x-[5.77px] ml-[14.42px]">
-												<img
-													src="../icons/dashboard-icons/compensation.svg"
-													alt=""
-												/>
-												<div className="border-r-[1px] border-r-eccblue h-[16.62px] mt-[10px]" />
-											</div>
-											<div>
-												<p className="text-eccblue text-[11.54px] font-bold">A Compensation</p>
-												<p className="text-[10.39px] font-[400]">You will be compensated by the company</p>
+						{
+							 complaint.resolutionWanted.refund === true ?(
+								<div>
+								<div className="mt-[21.27px]">
+									<div className="border border-eccblue w-[312.8px] rounded-[6.92px]">
+										<div className="pt-[16.73px] pb-[15.68px]">
+											<div className="flex space-x-[17.31px]">
+												<div className="flex space-x-[5.77px] ml-[14.42px]">
+													<img
+														src="../icons/dashboard-icons/refund.svg"
+														alt=""
+													/>
+													<div className="border-r-[1px] border-r-eccblue h-[16.62px] mt-[10px]" />
+												</div>
+												<div>
+													<p className="text-eccblue text-[11.54px] font-bold">A Refund</p>
+													<p className="text-[10.39px] font-[400]">All expenses incurred will be returned to you</p>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+							 ):(null)
+							}
+							{
+								complaint.resolutionWanted.compensation === true ? (
+									<div>
+									<div className="mt-[21.27px]">
+										<div className="border border-eccblue w-[312.8px] rounded-[6.92px]">
+											<div className="pt-[16.73px] pb-[15.68px]">
+												<div className="flex space-x-[17.31px]">
+													<div className="flex space-x-[5.77px] ml-[14.42px]">
+														<img
+															src="../icons/dashboard-icons/compensation.svg"
+															alt=""
+														/>
+														<div className="border-r-[1px] border-r-eccblue h-[16.62px] mt-[10px]" />
+													</div>
+													<div>
+														<p className="text-eccblue text-[11.54px] font-bold">A Compensation</p>
+														<p className="text-[10.39px] font-[400]">You will be compensated by the company</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								):(null)
+							}
 					</div>
 				</div>
 			</div>
