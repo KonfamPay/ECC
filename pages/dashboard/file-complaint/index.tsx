@@ -85,6 +85,7 @@ const fileComplaint: NextPage = () => {
 					{currentPage == 3 && (
 						<Page3
 							setCurrentPage={setCurrentPage}
+							setIsOpaque={setIsOpaque}
 							place="dashboard"
 							wantsRefund={wantsRefund}
 							setWantsRefund={setWantsRefund}
