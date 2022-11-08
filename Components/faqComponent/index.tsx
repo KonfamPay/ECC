@@ -16,11 +16,10 @@ export const FaqComponent: React.FC<faqComponentProps> = ({ iconPath, title, tex
 					alt=""
 				/>
 			</div>
-			<div className="mt-[36px] text-white ">
+			<div className="mt-[36px] text-white  ">
 				<p className="text-[22px] font-bold">{title}</p>
 				<p className="mt-[11px] w-[364px] text-[20px]">{text}</p>
 			</div>
 		</div>
 	);
 };
-
