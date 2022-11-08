@@ -58,7 +58,9 @@ const index: NextPage = (props) => {
 						<div className="flex flex-col items-center">
 							<div className="bg-black w-[90%] mt-12 rounded-[10px] py-8 h-[120px] flex flex-row justify-bewtween items-center">
 								<div className="flex flex-col text-white pl-4">
-									<p className="text-[16px]">Hi, {user.firstName}</p>
+									<p className="text-[16px]">
+										Hi, {user.firstName}
+									</p>
 									<p className="text-[12px]">Vendor don do you strong thing again?</p>
 									<p className="text-[12px]">We are ready to listen to your</p>
 									<p className="text-[12px]">complaints</p>
@@ -76,8 +78,8 @@ const index: NextPage = (props) => {
 						</div>
 					</div>
 				</div>
-			</div>
-		</NavWrapper>
+			</NavWrapper>
+		</div>
 	);
 };
 
