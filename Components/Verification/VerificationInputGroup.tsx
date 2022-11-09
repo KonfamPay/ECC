@@ -15,7 +15,7 @@ interface InputGroupProps {
 const VerificationInputGroup: React.FC<InputGroupProps> = ({ label, placeholder, value, setValue, type, className, maxlength, max, errorMessage }) => {
 	return (
 		<div className={className || ""}>
-			<p className="text-[14px] lg:text-[20px]">{label}</p>
+			<p className="text-[14px] lg:text-[20px] mb-[5px]">{label}</p>
 			<input
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
