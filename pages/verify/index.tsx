@@ -38,6 +38,11 @@ const VerificationPage: NextPage = () => {
 	const [cookies, setCookie, removeCookie] = useCookies(["user"]);
 	const router = useRouter();
 
+	const onPhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const valid_characters = "1234567890";
+		if (valid_characters.includes(e.target.value[e.target.value.length - 1]) || e.target.value == "") setPhoneNumber(e.target.value);
+	};
+
 	const onSubmit = async () => {
 		const { error } = validateVerifyInputs({
 			phoneNumber,
@@ -72,7 +77,6 @@ const VerificationPage: NextPage = () => {
 			setErrors(errors);
 		}
 		if (!error) {
-			console.log("There is no error!");
 			setErrors({
 				phoneNumber: "",
 				dob: "",
@@ -84,7 +88,7 @@ const VerificationPage: NextPage = () => {
 				middleName: "",
 			});
 			const payload = { dob, phoneNumber, address, NIN, state, firstName, lastName, middleName };
-			const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}/api/users/verify/${cookies.user._id}`;
+			const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}users/verify/${cookies.user._id}`;
 			try {
 				const result = await axios.post(url, payload);
 				console.log(result);
@@ -94,6 +98,7 @@ const VerificationPage: NextPage = () => {
 				setCookie("user", user);
 				router.push("/dashboard");
 			} catch (err: any) {
+				console.log(err);
 				if (err.response.data.message) {
 					alert(err.response.data.message);
 				} else {
@@ -103,12 +108,8 @@ const VerificationPage: NextPage = () => {
 		}
 	};
 	return (
-		<div>
-			<motion.div
-				initial={{ opacity: 0, y: 100 }}
-				animate={{ opacity: 1, y: 0 }}
-				className="w-screen h-screen poppinsFont hidden lg:grid grid-cols-[47%_53%]"
-			>
+		<div className="overflow-hidden">
+			<div className="w-screen h-screen poppinsFont hidden lg:grid grid-cols-[47%_53%]">
 				<div className="relative h-screen w-full bg-gradient-to-br from-eccblue to-[#073D79]">
 					<img
 						className="absolute bottom-0 z-10 w-[208.8px] xl:w-[261px]"
@@ -127,7 +128,11 @@ const VerificationPage: NextPage = () => {
 						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">Verify yourself using the kyc so that we can verify your identity</p>
 					</div>
 				</div>
-				<div className="w-full px-[90px] flex flex-col overflow-y-auto py-[73px]">
+				<motion.div
+					initial={{ opacity: 0, y: 100 }}
+					animate={{ opacity: 1, y: 0 }}
+					className="w-full px-[90px] flex flex-col overflow-y-auto py-[73px]"
+				>
 					<p className="text-[40px] font-medium text-center mb-4">Verify yourself</p>
 					<div className="flex w-full flex-col gap-y-4">
 						<VerificationInputGroup
@@ -160,7 +165,8 @@ const VerificationPage: NextPage = () => {
 							value={phoneNumber}
 							setValue={setPhoneNumber}
 							maxlength={11}
-							type="number"
+							type="text"
+							onChange={onPhoneNumberChange}
 							errorMessage={errors.phoneNumber}
 						/>
 						<div className="flex lg:flex-row flex-col gap-x-4 w-full">
@@ -181,7 +187,7 @@ const VerificationPage: NextPage = () => {
 									value={state}
 									onChange={(e) => setState(e.target.value)}
 									style={{ color: state ? "black" : "#9ca3af" }}
-									className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[23px] px-[20px] focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[15px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
+									className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[23px] px-[20px] h-full focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[15px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
 								>
 									<option
 										value=""
@@ -235,8 +241,8 @@ const VerificationPage: NextPage = () => {
 					>
 						<p className="text-center text-white text-[20px] font-[600] flex items-center justify-center py-[14.5px] cursor-pointer">Continue</p>
 					</div>
-				</div>
-			</motion.div>
+				</motion.div>
+			</div>
 		</div>
 	);
 };
