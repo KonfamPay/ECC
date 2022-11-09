@@ -4,13 +4,12 @@ import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import { useState } from "react";
 import ComplaintList from "../../../Components/DashboardComponents/DashboardProfile/ComplaintList";
 
-
 const mycomplaints: NextPage = (props) => {
 	const [page, setPage] = useState("All");
 	const [pageNumber, setPageNumber] = useState(1);
 	return (
 		<NavWrapper>
-			<div className="bg-white h-full mb-10">
+			<div className="bg-white h-full pb-10">
 				<ComplaintsNavBar
 					page={page}
 					setPage={setPage}

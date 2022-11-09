@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 
 const fileComplaint: NextPage = () => {
 	const [currentPage, setCurrentPage] = useState(1);
+	const [productCategory, setProductCategory] = useState("");
 	const [titleOfComplaint, setTitleOfComplaint] = useState("");
 	const [companyName, setCompanyName] = useState("");
 	const [placeOfTransaction, setPlaceOfTransaction] = useState("");
@@ -38,7 +39,7 @@ const fileComplaint: NextPage = () => {
 					setPage={setCurrentPage}
 					currentPage={currentPage}
 				/>
-				<ComplaintLetterSection place="dashboard" />
+				{/* <ComplaintLetterSection place="dashboard" /> */}
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: isOpaque ? 1 : 0 }}
@@ -53,6 +54,8 @@ const fileComplaint: NextPage = () => {
 							bankName={bankName}
 							setBankName={setBankName}
 							setCurrentPage={setCurrentPage}
+							productCategory={productCategory}
+							setProductCategory={setProductCategory}
 							titleOfComplaint={titleOfComplaint}
 							setTitleOfComplaint={setTitleOfComplaint}
 							companyName={companyName}
@@ -81,6 +84,8 @@ const fileComplaint: NextPage = () => {
 					)}
 					{currentPage == 3 && (
 						<Page3
+							setCurrentPage={setCurrentPage}
+							setIsOpaque={setIsOpaque}
 							place="dashboard"
 							wantsRefund={wantsRefund}
 							setWantsRefund={setWantsRefund}
