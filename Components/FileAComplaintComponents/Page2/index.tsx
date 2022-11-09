@@ -30,6 +30,18 @@ const Page2: React.FC<Page2Props> = ({ place, setCurrentPage, selectedFiles, set
 			behavior: "smooth",
 		});
 	};
+	const onPrevious = () => {
+		setIsOpaque(false);
+		setTimeout(() => {
+			setIsOpaque(true);
+			setCurrentPage(1);
+		}, 300);
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth",
+		});
+	};
 	return (
 		<div className={`mt-[20px] lg:mt-[90px] ${place === "dashboard" && "bg-white mt-0 lg:mt-0 px-[15px] py-[20px] lg:py-[45px] "}`}>
 			<p className="text-[14px] lg:text-[24px] leading-[30px] lg:leading-[46px]">Kindly upload a document or picture that shows proof of payment or receipt of transaction.</p>
@@ -97,9 +109,9 @@ const Page2: React.FC<Page2Props> = ({ place, setCurrentPage, selectedFiles, set
 						))}
 				</div>
 			</div>
-			<div className="flex justify-end space-x-[30px] lg:space-x-[37px]">
+			<div className="flex justify-center lg:justify-end space-x-[30px] lg:space-x-[37px]">
 				<button
-					onClick={() => setCurrentPage(1)}
+					onClick={onPrevious}
 					className="text-[14px] lg:text-[20px] bg-eccblue mt-[40px] lg:mt-[80px] rounded-xl font-[600] text-white py-[14.5px] lg:py-[22px] w-full max-w-[140px] lg:max-w-[216px]"
 					type="submit"
 				>

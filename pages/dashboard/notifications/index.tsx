@@ -5,7 +5,7 @@ import { getServerSideProps } from "./../../../Components/NotificationItem/notif
 import { useRouter } from "next/router";
 
 interface NotificationsPageProps {
-	notificationData: { id: string;  title: string; additionalInfo: string; time: string }[];
+	notificationData: { id: string; title: string; additionalInfo: string; time: string }[];
 }
 
 const NotificationsPage: NextPage<NotificationsPageProps> = () => {
@@ -14,11 +14,11 @@ const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 	const router = useRouter();
 	return (
 		<NavWrapper>
-			<div className="w-full h-[calc(100vh-170px)] rounded-[15px] overflow-hidden">
+			<div className="w-full h-full rounded-[15px] overflow-hidden">
 				<div className="py-[16px] pl-[54px] bg-eccblue">
 					<p className="text-[24px] font-medium poppinsFont text-white">All Notifications</p>
 				</div>
-				<div className="pt-[39px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-250px)]">
+				<div className="pt-[39px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-full">
 					{notificationData.map((item: any, index: number) => (
 						<div
 							onClick={() => {
@@ -31,7 +31,6 @@ const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 								title={item.title}
 								additionalInfo={item.additionalInfo}
 								time={item.time}
-								
 							/>
 						</div>
 					))}
