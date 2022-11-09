@@ -33,18 +33,19 @@ const profile: NextPage = (props) => {
 					<img
 						src="/images/dummy-profile.png"
 						alt=""
+						className="absolute"
 					/>
 					<img
 						src="/icons/dashboard-icons/camera.svg"
-						className="relative bottom-[20px] left-[20px] cursor-pointer w-[100%] lg:h-[100%]"
+						className="relative -bottom-[100px] -right-[132px] cursor-pointer  "
 						alt=""
 					/>
 				</div>
-				<div className="text-center mt-[19px] ">
+				<div className="text-center">
 					<p className="text-[24px] font-[500]">{`${user.firstName} ${user.lastName}`}</p>
 					<p className="mt-[10px] text-[18px] font-[500]">{`${user.email}`}</p>
 				</div>
-				<div className="mx-[auto] mt-[29px] flex flex-col  space-y-[50px]">
+				<div className="mx-[auto] mt-[39px] flex flex-col  space-y-[60px]">
 					<div className="flex flex-row mx-auto xl:space-x-[120px] lg:space-x-[100px]">
 						<div>
 							<div>
@@ -88,7 +89,7 @@ const profile: NextPage = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className="px-[73px] bg-eccblue mx-[73px] rounded-xl lg:mt-[60px] xl:mt-[30px] flex flex-row justify-center">
+				<div className="px-[73px] bg-eccblue mx-[73px] rounded-xl lg:mt-[60px] xl:mt-[60px] mb-[20px] flex flex-row justify-center">
 					<img
 						className="mr-4"
 						src="/icons/dashboard-icons/camera-01.svg"
