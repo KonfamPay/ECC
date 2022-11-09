@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ChangeEvent } from "react";
 
 interface InputGroupProps {
 	label: string;
@@ -10,15 +11,16 @@ interface InputGroupProps {
 	maxlength?: number;
 	errorMessage?: string;
 	max?: string;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const VerificationInputGroup: React.FC<InputGroupProps> = ({ label, placeholder, value, setValue, type, className, maxlength, max, errorMessage }) => {
+const VerificationInputGroup: React.FC<InputGroupProps> = ({ label, placeholder, value, setValue, type, className, maxlength, max, errorMessage, onChange }) => {
 	return (
 		<div className={className || ""}>
 			<p className="text-[14px] lg:text-[20px] mb-[5px]">{label}</p>
 			<input
 				value={value}
-				onChange={(e) => setValue(e.target.value)}
+				onChange={onChange ? onChange : (e) => setValue(e.target.value)}
 				className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[20px] px-[20px] focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[15px] w-full focus:border-eccblue text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
 				placeholder={placeholder ? placeholder : undefined}
 				type={type}
