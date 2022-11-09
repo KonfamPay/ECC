@@ -23,26 +23,15 @@ const Index: NextPage = (props) => {
 	const router = useRouter();
 	useEffect(() => {
 		if (!cookie.user) {
-<<<<<<< Updated upstream
-			router.replace("/login");
+			// router.replace("/login");
 		} else {
-=======
-			console.log();
-		} //router.replace("/login");
-		else {
->>>>>>> Stashed changes
 			setUser(cookie.user);
 		}
 	}, []);
 
 	return (
-<<<<<<< Updated upstream
 		<NavWrapper>
 			<div className="h-full">
-=======
-		<NavWrapper children={undefined}>
-			<div>
->>>>>>> Stashed changes
 				<div className="pt-0">
 					<div className="hidden lg:block">
 						<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative">

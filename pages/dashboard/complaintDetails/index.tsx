@@ -9,20 +9,37 @@ import { motion } from "framer-motion";
 import mm from "../../../Components/Complaint/ComplaintData";
 import client from "../../../pages/api/Services/AxiosClient";
 import { useCookies } from "react-cookie";
+import { ComplainDetailType } from "../../../types/complaintTypes.d";
 
 const Mycomplaints: NextPage = (props) => {
 	const [showModal, setShowModal] = useState(false);
 	const [cookie, setCookie] = useCookies(["user"]);
 	const router = useRouter();
+	console.log(1);
 	const complaintId = router.query.id;
 	const [complaintData, setComplaintData] = useState<any[]>([]);
 	const { data, status } = useQuery(["complaints"], () => fetchComplaint());
 	const fetchComplaint = async () => {
 		const res = await fetch(`http://127.0.0.1:4000/api/complaints/lll`).then((response) => response.json());
-		// setComplaintData(res);
+		setComplaintData(res);
 		return res;
 	};
-	const complaint = mm.filter((complaint) => complaint.grievanceId == complaintId)[0];
+	let complaint: Array<ComplainDetailType>;
+	let complaintInfo: ComplainDetailType;
+	if (complaintData.length > 0) {
+		router.push("/");
+	}
+	if (complaintData.length == 0) {
+		complaint = mm.filter((complaint) => complaint.grievanceId == complaintId);
+		complaintInfo = complaint[0];
+	} else {
+		complaint = mm.filter((complaint) => complaint.grievanceId == complaintId);
+		if (complaint.length >= 0) {
+			complaintInfo = complaint[0];
+		} else {
+			alert("efe");
+		}
+	}
 	useEffect(() => {
 		fetchComplaint();
 	}, [data]);
@@ -78,19 +95,19 @@ const Mycomplaints: NextPage = (props) => {
 
 						<div className="mt-[14.13px]">
 							<div>
-								<p className="text-[22px] font-[500]">{complaint.title}</p>
+								<p className="text-[22px] font-[500]">{complaintInfo.title}</p>
 								<p className="text-[20px] mt-[15px] font-[500]">
-									You filed this case against <span className="text-eccblue">{complaint.companyName}</span> on {complaint.date}
+									You filed this case against <span className="text-eccblue">{complaintInfo.companyName}</span> on {complaintInfo.date}
 								</p>
 							</div>
 							<div className="mt-[30px]">
-								<p className="text-[20px] leading-[37px] font-[400]">{complaint.description}</p>
+								<p className="text-[20px] leading-[37px] font-[400]">{complaintInfo.description}</p>
 							</div>
 						</div>
 						<div className="mt-[52px]">
 							<p className="text-eccblue text-[19.64px]">Resolution wanted:</p>
 							<div className="flex space-x-[28.25px]">
-								{complaint.resolutionWanted.refund === true ? (
+								{complaintInfo.resolutionWanted.refund === true ? (
 									<div>
 										<div className="mt-[21.27px]">
 											<div className="border border-eccblue w-[312.8px] rounded-[6.92px]">
@@ -113,7 +130,7 @@ const Mycomplaints: NextPage = (props) => {
 										</div>
 									</div>
 								) : null}
-								{complaint.resolutionWanted.compensation === true ? (
+								{complaintInfo.resolutionWanted.compensation === true ? (
 									<div>
 										<div className="mt-[21.27px]">
 											<div className="border border-eccblue w-[312.8px] rounded-[6.92px]">
