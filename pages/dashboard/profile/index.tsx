@@ -9,13 +9,9 @@ const profile: NextPage = (props) => {
 			<NavWrapper>
 				<div className="">
 					<div className="lg:block hidden">
-						<div className="flex flex-row w-full justify-evenly">
-							<div className="w-[60%]">
-								<ProfileCard />
-							</div>
-							<div className="w-[30%]">
-								<ComplaintsCardSection />
-							</div>
+						<div className="grid grid-cols-[auto_438px] gap-x-[50px] w-full">
+							<ProfileCard />
+							<ComplaintsCardSection />
 						</div>
 					</div>
 
