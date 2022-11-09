@@ -16,6 +16,7 @@ const ComplaintsCardSection = () => {
 		try {
 			setLoading(true);
 			const { data } = await client.get(`/complaints/numbers/${cookie.user._id}`);
+			console.log(data);
 			setComplaintNumbers(data);
 		} catch (err) {
 		} finally {

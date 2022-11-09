@@ -3,7 +3,7 @@ import TopNav from "./TopNav";
 import { useState } from "react";
 
 interface NavWrapperProps {
-	children: JSX.Element;
+	children: JSX.Element | undefined;
 }
 
 const NavWrapper: React.FC<NavWrapperProps> = ({ children }) => {

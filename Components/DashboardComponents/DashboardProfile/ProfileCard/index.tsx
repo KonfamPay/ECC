@@ -6,7 +6,7 @@ import { format, parse } from "fecha";
 
 import ComplaintsCardSection from "./../../../../Sections/ComplaintsCardSection/index";
 import { useCookies } from "react-cookie";
-const profile: NextPage = (props) => {
+const Profile: NextPage = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const [user, setUser] = useState({
 		firstName: "",
@@ -19,6 +19,7 @@ const profile: NextPage = (props) => {
 	});
 	useEffect(() => {
 		setUser(cookie.user);
+		console.log(user);
 	}, []);
 	const [isShowing, setIsShowing] = useState("personal");
 	return (
@@ -173,4 +174,4 @@ const profile: NextPage = (props) => {
 	);
 };
 
-export default profile;
+export default Profile;
