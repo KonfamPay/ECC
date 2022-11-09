@@ -62,8 +62,9 @@ const index: NextPage = (props) => {
 									<p className="text-[12px]">We are ready to listen to your</p>
 									<p className="text-[12px]">complaints</p>
 								</div>
+
 								<img
-									className=":w-[150px] h-[95px] "
+									className="w-full h-full"
 									src="./images/man-freaked-out.png"
 									alt=""
 								/>

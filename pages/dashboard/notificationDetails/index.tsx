@@ -8,7 +8,7 @@ const notificationDetails = () => {
 	const { props } = getServerSideProps();
 	const { notificationData } = props;
 	const notification = notificationData.filter((notification) => notification.id == notifiactionId)[0];
-
+	
 	return (
 		<NavWrapper>
 			<div

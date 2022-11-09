@@ -63,7 +63,7 @@ const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page, setPageNumber 
 							onClick={() => {
 								setPage(item.text);
 							}}
-							className={` border  border-transparent ${item.text === page && "text-black  border-solid bg-white border-white"} w-auto py-2  rounded-lg text-center hoverAnimation hover:text-black  `}
+							className={` border  border-transparent ${item.text === page && "text-black  border-solid bg-white border-white"} w-[60px] py-2  rounded-2xl text-center hoverAnimation hover:text-black  `}
 						>
 							<p className={` px-2 text-[12px] hover:text-black text-white ${item.text === page && "text-[black]"}`}>{item.text}</p>
 						</div>
