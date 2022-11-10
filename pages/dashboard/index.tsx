@@ -23,7 +23,7 @@ const index: NextPage = (props) => {
 	const router = useRouter();
 	useEffect(() => {
 		if (!cookie.user) {
-			router.replace("/login");
+			//router.replace("/login");
 		} else {
 			setUser(cookie.user);
 		}
@@ -75,7 +75,7 @@ const index: NextPage = (props) => {
 						</div>
 					</div>
 				</div>
-		</div>
+			</div>
 		</NavWrapper>
 	);
 };
