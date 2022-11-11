@@ -18,7 +18,7 @@ const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 				<div className="py-[16px] pl-[54px] bg-eccblue">
 					<p className="text-[24px] font-medium poppinsFont text-white">All Notifications</p>
 				</div>
-				<div className="pt-[39px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-250px)]">
+				<div className="pt-[39px] pb-[49px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-220px)] custom-scrollbar">
 					{notificationData.map((item: any, index: number) => (
 						<div
 							onClick={() => {
@@ -36,9 +36,6 @@ const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 						</div>
 					))}
 				</div>
-				{/* <div className="pt-[42px] pb-[15px] bg-white pr-[75px] flex justify-end">
-					<button className="text-[18px] text-white bg-eccblue w-[192px] h-[60px] focus:outline-none rounded-xl">Next</button>
-				</div> */}
 			</div>
 		</NavWrapper>
 	);
