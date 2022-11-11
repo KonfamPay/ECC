@@ -154,9 +154,8 @@ tbody tr:nth-of-type(odd) {
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
 	display: none;
-
 }
-.pieM{
+.pieM {
 	-webkit-appearance: none;
 }
 .pieM {
@@ -180,4 +179,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 legend {
 	padding: 10px;
 	margin: 10px;
+}
+/* Styles for the custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+	width: 18px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	border-radius: 15px;
+	border: 6.5px solid white;
+	background: #d9d9d9;
+	transition: all 0.2s;
+
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #c7c6c6;
 }
