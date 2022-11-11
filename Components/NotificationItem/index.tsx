@@ -16,7 +16,7 @@ export const NotificationItem: React.FC<NotificationItemProps> = ({ title, addit
 
 	return (
 		<div>
-			<div className=" pl-4 flex justify-around items-center h-[20%]  bg-white">
+			<div className=" pl-[54px] pr-[45px] flex justify-between items-center h-[20%]  bg-white">
 				<div className="flex items-center gap-x-[25px]">
 					<img
 						src={getType(type)}
