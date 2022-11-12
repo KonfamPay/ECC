@@ -4,21 +4,30 @@ import MultiScamInput from "../ScamInputGroup/MultiInput";
 import ScamInput from "./../ScamInputGroup/index";
 
 interface ComponentProps {
+	Email: string;
+	Name: string;
 	setData: any;
+	BankDetailsInput: string[];
+	BankDetailsValues: any;
+	WebsiteInputs: string[];
+	WebsiteInputValues: any;
+	PhoneNumberInputs: string[];
+	PhoneNumberInputValues: any;
+	SocialMediaInputs: string[];
+	SocialMediaInputValues: any;
 }
+const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData, Email, BankDetailsInput, BankDetailsValues, WebsiteInputValues, WebsiteInputs, PhoneNumberInputValues, PhoneNumberInputs, SocialMediaInputValues, SocialMediaInputs, Name }) => {
+	const [bankDetailsInputs, setBankDetailsInputs] = useState(BankDetailsInput.length > 0 ? BankDetailsInput : ["input1"]);
+	const [bankDetailsValues, setBankDetailsValues] = useState(BankDetailsValues ? BankDetailsValues : { input1: "" });
+	const [websiteInputs, setWebSitesInputs] = useState(WebsiteInputs.length > 0 ? WebsiteInputs : ["input1"]);
+	const [websiteInputValues, setWebsiteInputValues] = useState(WebsiteInputValues ? WebsiteInputValues : { input1: "" });
+	const [phoneNumberInputs, setPhoneNumberInputs] = useState(PhoneNumberInputs.length > 0 ? PhoneNumberInputs : ["input1"]);
+	const [phoneNumberInputValues, setPhoneNUmberInputVales] = useState(PhoneNumberInputValues ? PhoneNumberInputValues : { input1: "" });
+	const [socialMediaInputs, setSocialMediaInputs] = useState(SocialMediaInputs.length > 0 ? SocialMediaInputs : ["input1"]);
+	const [socialMediaInputValues, setSocialMediaInputValues] = useState(SocialMediaInputValues ? SocialMediaInputValues : { input1: "" });
+	const [name, setName] = useState(Name ? Name : "");
 
-const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData }) => {
-	const [bankDetailsInputs, setBankDetailsInputs] = useState(["input1"]);
-	const [bankDetailsValues, setBankDetailsValues] = useState({ input1: "" });
-	const [websiteInputs, setWebSitesInputs] = useState(["input1"]);
-	const [websiteInputValues, setWebsiteInputValues] = useState({ input1: "" });
-	const [phoneNumberInputs, setPhoneNumberInputs] = useState(["input1"]);
-	const [phoneNumberInputValues, setPhoneNUmberInputVales] = useState({ input1: "" });
-	const [socialMediaInputs, setSocialMediaInputs] = useState(["input1"]);
-	const [socialMediaInputValues, setSocialMediaInputValues] = useState({ input1: "" });
-	const [name, setName] = useState("");
-
-	const [email, setEmail] = useState("");
+	const [email, setEmail] = useState(Email ? Email : "");
 
 	const payload = {
 		bankDetails: bankDetailsValues,
@@ -81,7 +90,7 @@ const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData }) => {
 	};
 
 	return (
-		<div className=" grid grid-cols-2 h-[45vh] overflow-y-scroll   justify-items-center ">
+		<div className="  grid grid-cols-2 h-[45vh] overflow-y-scroll   justify-items-center ">
 			<ScamInput
 				label="Name"
 				value={name}
