@@ -13,33 +13,33 @@ const Resolution: React.FC<ResolutionProps> = ({ type }) => {
 		switch (type) {
 			case "refund":
 				return {
-					icon: "../icons/refund.svg",
+					icon: "../../icons/refund.svg",
 					title: "A Refund",
 					description: "All expenses incured will be returned to you",
 				};
 
 			case "apology":
 				return {
-					icon: "../icons/apology.svg",
+					icon: "../../icons/apology.svg",
 					title: "An Apology",
 					description: "You will receive a formal apology",
 				};
 			case "compensation":
 				return {
-					icon: "../icons/compensation.svg",
+					icon: "../../icons/compensation.svg",
 					description: "You will be compensated by the company",
 					title: "A Compensation",
 				};
 			case "replacement":
 				return {
-					icon: "../icons/replacement.svg",
+					icon: "../../icons/replacement.svg",
 					title: "A Replacement",
 					description: "Your item will be replaced with the right one",
 				};
 
 			default:
 				return {
-					icon: "../icons/compensation.svg",
+					icon: "../../icons/compensation.svg",
 					title: "An Apology",
 					description: "You will receive a formal apology",
 				};

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import DeleteReplyButton from "./DeleteReplyButton/index";
-
+import Resolution from "../../../ResolutionWanted";
 import ReplyComponent from "./Reply/index";
 interface ComplaintProps {
 	user: any;
@@ -146,6 +146,15 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 						<p>Complaint Description</p>
 					</div>
 					<div className="">{complaint.description}</div>
+				</div>
+			</div>
+
+			<div className="w-full flex flex-row  mb-[40px] items-center justify-between px-4 ">
+				<div className="flex flex-col w-full   ">
+					<div className="border-b w-[370px] border-b-[#c5c5c5] text-[20px] text-eccblue">
+						<p>Resolution Wanted</p>
+					</div>
+					<div className="lg:grid w-full grid-cols-2 flex flex-col items-center justify-center">{complaint && Object.keys(complaint).length > 0 && Object.keys(complaint.resolutionWanted).map((resolution: string) => complaint.resolutionWanted[resolution] && <Resolution type={resolution} />)}</div>
 				</div>
 			</div>
 

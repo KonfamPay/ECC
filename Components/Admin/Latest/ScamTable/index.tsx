@@ -54,11 +54,11 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 									className="cursor-pointer flex flex-col"
 								>
 									<p className="font-semibold">{scam.scammer}</p>
-									<p>{scam.website}</p>
+									<p>{scam.website.input1}</p>
 								</td>
 
-								<td>{scam.bankAccountDetails}</td>
-								<td>{scam.phoneNumber}</td>
+								<td>{scam.bankAccountDetails.input1}</td>
+								<td>{scam.phoneNumber.input1}</td>
 
 								<td>
 									<button

@@ -47,7 +47,19 @@ const ScamOperation: React.FC<ScamOperationProps> = ({ setShowing, action }) => 
 					</div>
 
 					<div className={`w-full h-[60%] mt-4 ${section == "Personal Information" ? "block" : "hidden"}`}>
-						<PersonalInfoInputs setData={setData} />
+						<PersonalInfoInputs
+							SocialMediaInputValues={""}
+							SocialMediaInputs={[]}
+							BankDetailsValues={null}
+							BankDetailsInput={[]}
+							PhoneNumberInputValues={""}
+							Name=""
+							Email=""
+							PhoneNumberInputs={[]}
+							WebsiteInputValues={""}
+							WebsiteInputs={[]}
+							setData={setData}
+						/>
 					</div>
 
 					<div className={`h-full w-full flex flex-col items-center ${section == "Complaint History" ? "block" : "hidden"}`}>

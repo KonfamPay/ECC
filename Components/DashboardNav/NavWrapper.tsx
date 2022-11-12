@@ -26,7 +26,7 @@ const NavWrapper: React.FC<NavWrapperProps> = ({ children }) => {
 						<div className={`px-[35px] pt-[35px] bg-clearblue  w-full min-h-[calc(100vh-126px)]  pb-[43px]`}>{children}</div>
 					</div>
 				</div>
-				<div className=" lg:hidden mt-[57.3px] w-full h-full bg-clearblue">{children}</div>
+				<div className=" lg:hidden mt-[57.3px] min-h-screen w-full h-full bg-clearblue">{children}</div>
 			</div>
 		</div>
 	);
