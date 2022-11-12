@@ -6,7 +6,7 @@ import Resolution from "../../../Components/ResolutionWanted";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import TransactionDetails from "../../../Components/Complaint/TransactionDetails";
 
-const mycomplaints: NextPage = (props) => {
+const Mycomplaints: NextPage = (props) => {
 	const [showModal, setShowModal] = useState(false);
 	const [data, setData] = useState("");
 	const router = useRouter();
@@ -138,4 +138,4 @@ const mycomplaints: NextPage = (props) => {
 	);
 };
 
-export default mycomplaints;
+export default Mycomplaints;
