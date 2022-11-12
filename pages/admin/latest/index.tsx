@@ -27,7 +27,7 @@ const Latest = () => {
 	};
 	useEffect(() => {
 		function filterBySearch() {
-			const filteredData = scamData.filter((scam) => scam.website.toLowerCase().includes(value.toLowerCase()) || scam.scammer.toLowerCase().includes(value.toLowerCase()) || scam.phoneNumber.toLowerCase().includes(value.toLowerCase()));
+			const filteredData = scamData.filter((scam) => scam.website.input1.toLowerCase().includes(value.toLowerCase()) || scam.scammer.toLowerCase().includes(value.toLowerCase()) || scam.phoneNumber.input1.toLowerCase().includes(value.toLowerCase()));
 			if (filteredData.length > 0) {
 				setScamData(filteredData);
 			} else setScamData(ScamData);

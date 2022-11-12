@@ -36,8 +36,8 @@ const index: NextPage = (props) => {
 					<div className="hidden lg:block">
 						<div className="bg-[#020D1B] mx-auto w-full h-[255px] mt-10 rounded-[20px] max-w-[2000px] flex flex-row relative">
 							<div className="text-white w-[50%] pl-[43px] py-[58.5px]">
-								<p className="text-[40px] leading-[60px] font-[600]">Hi, {user.firstName}</p>
-								<p className="text-[24px] leading-[36px] font-[600] max-w-full w-[503px]">
+								<p className="text-[40px] leading-[60px] font-[600] ">Hi, {user.firstName}</p>
+								<p className="text-[24px] leading-[36px] font-[600] pb-4 max-w-full w-[503px]">
 									Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
 								</p>
 							</div>

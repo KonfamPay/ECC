@@ -43,7 +43,7 @@ const LandingPageCard: NextPage = () => {
 				<div className="grid max-w-[2000px] mx-auto grid-cols-2 gap-x-[30px] xl:gap-x-[68px] gap-y-[20px] xl:gap-y-[37px] justify-items-center  ">
 					{cardcontents.map((card) => (
 						<div
-							className="flex   flex-row pl-[22px] xl:pl-[32px] py-[32.5px] xl:py-[55.5px] pr-4 text-white w-[510px] rounded-[20px]"
+							className="flex   flex-row pl-[22px] xl:pl-[32px] py-[32.5px] xl:py-[55.5px] pr-4 text-white max-w-[510px] rounded-[20px]"
 							style={{ backgroundColor: card.bgcolor }}
 						>
 							<img
