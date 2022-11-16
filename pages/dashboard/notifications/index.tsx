@@ -3,18 +3,23 @@ import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import NotificationItem from "../../../Components/NotificationItem";
 import { getServerSideProps } from "./../../../Components/NotificationItem/notificationData/index";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NotificationContext } from "../../../Components/Contexts/NotificationContext";
 import { Notification } from "../../../Components/Types";
+import { useCookies } from "react-cookie";
+import client from "../../../pages/api/Services/AxiosClient";
 
 interface NotificationsPageProps {
 	notificationData: Notification[];
 }
 
 const NotificationsPage: NextPage<NotificationsPageProps> = () => {
-	const { props } = getServerSideProps();
-	const { notificationData } = useContext(NotificationContext);
+	const { notificationData, markAllNotificationsAsRead } = useContext(NotificationContext);
 	const router = useRouter();
+
+	useEffect(() => {
+		markAllNotificationsAsRead();
+	}, []);
 
 	return (
 		<NavWrapper>
