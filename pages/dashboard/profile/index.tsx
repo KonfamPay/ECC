@@ -3,7 +3,7 @@ import ProfileCard from "../../../Components/DashboardComponents/DashboardProfil
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import ComplaintsCardSection from "../../../Sections/ComplaintsCardSection";
 
-const profile: NextPage = (props) => {
+const profile: NextPage = () => {
 	return (
 		<div>
 			<NavWrapper>
