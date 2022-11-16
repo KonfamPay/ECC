@@ -58,7 +58,7 @@ const LoginPage: NextPage = () => {
 					router.push("/verify_email");
 				} else if (cookies.user && !cookies.user.accountVerified) {
 					console.log(cookies.user.accountVerified);
-					router.push("/verification");
+					router.push("/verify");
 				} else {
 					router.push("/dashboard");
 				}

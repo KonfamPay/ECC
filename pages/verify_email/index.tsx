@@ -71,7 +71,7 @@ const RecoverPage: NextPage = () => {
 							path: "/",
 							expires: new Date(Date.now() + 2 * 86400000),
 						});
-						router.replace("/verification");
+						router.replace("/verify");
 					}
 				}
 				setBackendError("");
@@ -87,7 +87,7 @@ const RecoverPage: NextPage = () => {
 		if (!cookies.user) router.push("/login");
 		else if (cookies.user && !cookies.user.emailVerified) setEmail(cookies.user.email);
 		else {
-			router.push("/verification");
+			router.push("/verify");
 		}
 	}, []);
 	return (
@@ -111,7 +111,7 @@ const RecoverPage: NextPage = () => {
 						animate={{ opacity: 1 }}
 						className="ml-[50px] mt-[120px] text-white"
 					>
-						<p className="text-[40px] xl:text-[40px] font-bold">Verifiy your email</p>
+						<p className="text-[40px] xl:text-[40px] font-bold">Verify your email</p>
 						<p className="text-[17px] pr-[35px] xl:text-[17px] font-semibold max-w-[460px] mt-[15px]">A code has been sent to your email address. Kindly input the code to proceed</p>
 					</motion.div>
 				</div>
@@ -149,7 +149,10 @@ const RecoverPage: NextPage = () => {
 					>
 						{email}
 					</motion.p>
-					<motion.form layout>
+					<motion.form
+						onSubmit={(e) => e.preventDefault()}
+						layout
+					>
 						<div className="flex flex-col gap-y-[5px] mb-15">
 							<p className="text-[14px] md:text-[16px] lg:text-[20px]">Verification Code</p>
 
@@ -174,14 +177,13 @@ const RecoverPage: NextPage = () => {
 								)}
 							</AnimatePresence>
 
-							<button
-								onClick={resendCode}
-								disabled={resendButtonDisabled}
+							<div
+								onClick={resendButtonDisabled ? () => {} : resendCode}
 								style={{ opacity: resendButtonDisabled ? 0.6 : 1 }}
 								className="text-eccblue mt-[30px] mb-[40px] cursor-pointer focus:outline-0 max-w-[150px] text-left transition-all"
 							>
 								Resend Code
-							</button>
+							</div>
 						</div>
 
 						<AsyncSubmitButton

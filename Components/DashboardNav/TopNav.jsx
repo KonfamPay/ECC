@@ -2,38 +2,51 @@ import Link from "next/link";
 import Notifications from "./Notifications";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import moment from "moment";
+import { UserContext } from "../Contexts/UserContext";
+import { motion } from "framer-motion";
+
+const NavTitle = ({ text }) => {
+	return <motion.p initial={{ opacity: 0, scale: 0.92 }} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, ease: "easeIn"}}}  className="font-medium text-[24px] text-eccblue relative">{text}</motion.p>;
+}
 
 const TopNav = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const router = useRouter();
-	const [user, setUser] = useState({});
-	const currentDate = moment().format("ddd. Do MMMM, YYYY");
-	useEffect(() => {
-		if (!cookie.user) {
-		} //router.replace("/login");
-		else {
-			setUser(cookie.user);
-			console.log(user);
-		}
-	}, []);
 
-	const getCurrentPage = () => {
-		const currentPath = router.pathname;
+	const { user, setUser } = useContext(UserContext);
+	const currentDate = moment().format("ddd. Do MMMM, YYYY");
+	const [currentPath, setCurrentPath] = useState(router.pathname);
+	useEffect(() => {
+		if (!cookie.user) router.replace("/login");
+		// console.log(user);
+		// setUser(cookie.user)
+	}, []);
+	useEffect(() => {
+		setCurrentPath(router.pathname)
+	}, [router.pathname])
+
+	const getCurrentPage = (currentPath) => {
+		// const currentPath = router.pathname;
+		if (currentPath && currentPath.startsWith("/dashboard/notification")) return <NavTitle text="My Notifications" />
 		switch (currentPath) {
 			case "/dashboard":
-				return "Dashboard";
+				return <NavTitle text="Dashboard" />;
+			case "/dashboard/notifications": 
+				return <NavTitle text="My Notifications" />;
+			case "/dashboard/notificationDetails": 
+				return <NavTitle text="My Notifications" />;
 			case "/dashboard/profile":
-				return "My Profile";
+				return <NavTitle text="My Profile" />;
 			case "/dashboard/mycomplaints":
-				return "My Complaints";
+				return <NavTitle text="My Complaints" />;
 			case "/dashboard/talktoalawyer":
-				return "Talk To A Lawyer";
+				return <NavTitle text="Dashboard" />;
 			case "/dashboard/hirealawyer":
-				return "Hire A Lawyer";
+				return <NavTitle text="Hire A Lawyer" />;
 			case "/dashboard/help":
-				return "Help";
+				return <NavTitle text="Help" />;
 		}
 	};
 	return (
@@ -44,11 +57,11 @@ const TopNav = (props) => {
 					className="fixed left-[274px] top-0 w-[calc(100%-274px)] h-[110px] bg-white pl-[35px] pt-[0px] pr-[66px] flex justify-between items-center poppinsFont  "
 				>
 					<div>
-						<p className="font-medium text-[24px] text-eccblue">{getCurrentPage()}</p>
+						{getCurrentPage(currentPath)}
 						<p className="font-medium text-[18px] text-[#7A797D] mt-[2px]">{currentDate}</p>
 					</div>
 					<div className="flex items-center gap-x-[60px]">
-						<Notifications newNotifications={false} />
+						<Notifications />
 						<div className="flex gap-x-[21px]">
 							<div className="w-[50px] h-[50px] rounded-full overflow-hidden">
 								<img
