@@ -35,18 +35,18 @@ const Manage = () => {
 	}, [value]);
 
 	const onSelect = (id: string) => {
-		const selectedItems = [...selected];
+		let selectedItems: any = [];
 		//check if the item is already in the selected list if it is remove it from the list if not add it to the list
-		if (selectedItems[selectedItems.indexOf(id)] == id) {
-			const removedItems = selectedItems.filter((item) => item.userId !== id);
-			setSelected(removedItems);
+		if (selected.includes(id)) {
+			const removedItems = selected.filter((item) => item !== id);
+			selectedItems = removedItems;
 		} else {
-			selectedItems.push(id);
-			setSelected(selectedItems);
+			selectedItems = [...selected, id];
 		}
+		setSelected(selectedItems);
 	};
 	const addUser = (userObject: any) => {
-		const date = new Date();
+		const date: object = new Date();
 		const userData1 = [...userData];
 		const UserObject = {
 			userId: (userData1.length + 1).toString(),

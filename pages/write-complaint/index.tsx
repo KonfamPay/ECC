@@ -48,7 +48,13 @@ const index: NextPage = () => {
 								ref={dateRef}
 								className=" w-full outline-none"
 							/>
-							<img onClick={HandleDateClick} className="w-[18px] lg:w-[24px]" src="./icons/calendar.svg" alt="" srcset="" />
+							<img
+								onClick={HandleDateClick}
+								className="w-[18px] lg:w-[24px]"
+								src="./icons/calendar.svg"
+								alt=""
+								srcset=""
+							/>
 						</div>
 						<p className="">, I purchased</p>
 						<input
@@ -85,7 +91,9 @@ const index: NextPage = () => {
 						</div>
 						{shouldInclude && (
 							<div className="mt-[20px] bg-clearblue rounded-xl relative text-[12px] sm:text-[15px] lg:text-[20px]">
-								<p className="py-[18px] lg:pt-7 lg:pb-[50px] pl-[12px] lg:pl-[26px] pr-[35px] lg:pr-[76px] text-eccblue leading-[18px] lg:leading-[50px] break-words">Use this tool to create an email you can send to the business you bought the product or received the service from. If you prefer, you can print the letter and send via the post thfhhffffhfhfhfhfhfhfhffhfhfhfhfhfhfhhfhfhfhjgkjgfokgffv</p>
+								<p className="py-[18px] lg:pt-7 lg:pb-[50px] pl-[12px] lg:pl-[26px] pr-[35px] lg:pr-[76px] text-eccblue leading-[18px] lg:leading-[50px] break-words">
+									Use this tool to create an email you can send to the business you bought the product or received the service from. If you prefer, you can print the letter and send via the post thfhhffffhfhfhfhfhfhfhffhfhfhfhfhfhfhhfhfhfhjgkjgfokgffv
+								</p>
 								<img
 									src="../icons/close.svg"
 									className="w-[16px] lg:w-[27px] absolute top-[21px] right-[27.85px] cursor-pointer"
@@ -116,7 +124,9 @@ const index: NextPage = () => {
 						</div>
 						{shouldPurchase && (
 							<div className="mt-[20px] bg-clearblue rounded-xl relative text-[12px] sm:text-[15px] lg:text-[20px]">
-								<p className="py-[18px] lg:pt-7 lg:pb-[50px] pl-[12px] lg:pl-[26px] pr-[35px] lg:pr-[76px] text-eccblue leading-[18px] lg:leading-[50px] break-words">Use this tool to create an email you can send to the business you bought the product or received the service from. If you prefer, you can print the letter and send via the post thfhhffffhfhfhfhfhfhfhffhfhfhfhfhfhfhhfhfhfhjgkjgfokgffv</p>
+								<p className="py-[18px] lg:pt-7 lg:pb-[50px] pl-[12px] lg:pl-[26px] pr-[35px] lg:pr-[76px] text-eccblue leading-[18px] lg:leading-[50px] break-words">
+									Use this tool to create an email you can send to the business you bought the product or received the service from. If you prefer, you can print the letter and send via the post thfhhffffhfhfhfhfhfhfhffhfhfhfhfhfhfhhfhfhfhjgkjgfokgffv
+								</p>
 								<img
 									src="../icons/close.svg"
 									className="w-[16px] lg:w-[27px] absolute top-[21px] right-[27.85px] cursor-pointer"
@@ -217,7 +227,10 @@ const index: NextPage = () => {
 									</div>
 								)}
 							</div>
-							<p className="inline"> I will lodge a formal complaint with e-commerce complaints <i className="not-italic text-eccblue">(ecc).</i> </p>
+							<p className="inline">
+								{" "}
+								I will lodge a formal complaint with e-commerce complaints <i className="not-italic text-eccblue">(ecc).</i>{" "}
+							</p>
 							<p className="mr-[6px] inline">You can contact me about this complaint via email</p>
 							<input
 								type="email"

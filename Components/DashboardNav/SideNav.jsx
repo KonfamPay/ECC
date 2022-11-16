@@ -62,6 +62,7 @@ const SideNav = ({ open, openSide }) => {
 				</div>
 				<div>
 					<button
+						onClick={() => router.push("/dashboard/file-complaint")}
 						disabled={router.pathname == "/dashboard/file-complaint"}
 						className="min-w-[200px] py-[14px] bg-eccblue font-semibold poppinsFont text-[16px] text-white rounded-xl focus:outline-none mb-[20px]"
 					>
@@ -124,11 +125,19 @@ const SideNav = ({ open, openSide }) => {
 								className="text-eccblue mr-4 text-lg "
 								onClick={openSide}
 							>
-								X
+								<img
+									src="../icons/dashboard-icons/arrow-left-blue.svg"
+									alt=""
+								/>
 							</button>
 						</div>
 						<div>
-							<button className="min-w-[200px] py-[14px] bg-eccblue font-semibold poppinsFont text-[16px] text-white rounded-xl focus:outline-none mb-[20px]">File a Complaint</button>
+							<button
+								onClick={() => router.push("/dashboard/file-complaint")}
+								className="min-w-[200px] py-[14px] bg-eccblue font-semibold poppinsFont text-[16px] text-white rounded-xl focus:outline-none mb-[20px]"
+							>
+								File a Complaint
+							</button>
 							<NavButton
 								isActive={router.pathname == "/dashboard"}
 								text="Dashboard"

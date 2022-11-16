@@ -83,43 +83,40 @@ const Home: NextPage = () => {
 						id={"6"}
 					/>
 				</div>
-				<div className="pt-[100px] pb-[180px] bg-gradient-to-br from-eccblue to-[#073D79] hidden lg:block">
-					<div className="mt-[201px] mx-[100.5px]">
-						<div className="flex flex-col space-y-[80px]">
-							<div className="flex flex-row space-x-[51px]">
-								<FaqComponent
-									iconPath={"faq-1"}
-									title={"How do i access saved  complains? "}
-									text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
-								/>
-								<FaqComponent
-									iconPath={"faq-2"}
-									title={"How do i gain access to my profile?"}
-									text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
-								/>
-								<FaqComponent
-									iconPath={"faq-3"}
-									title={"How do i access saved  complains? "}
-									text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
-								/>
-							</div>
-							<div className="flex flex-row space-x-[51px]">
-								<FaqComponent
-									iconPath={"faq-2"}
-									title={"How do i access saved  complains?"}
-									text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
-								/>
-								<FaqComponent
-									iconPath={"faq-4"}
-									title={"How do i gain access to my profile?"}
-									text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
-								/>
-								<FaqComponent
-									iconPath={"faq-5"}
-									title={"How do i access saved  complains?"}
-									text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
-								/>
-							</div>
+				<div className="pt-[100px] pb-[180px] lg:pb-[100px] bg-gradient-to-br from-eccblue to-[#073D79] hidden lg:block">
+					<div className="mt-[201px] mx-[100.5px] lg:mx-4">
+						<div className="grid grid-cols-3 gap-y-[50px] justify-items-center">
+							<FaqComponent
+								iconPath={"faq-1"}
+								title={"How do i access saved  complains? "}
+								text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
+							/>
+							<FaqComponent
+								iconPath={"faq-2"}
+								title={"How do i gain access to my profile?"}
+								text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
+							/>
+							<FaqComponent
+								iconPath={"faq-3"}
+								title={"How do i access saved  complains? "}
+								text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
+							/>
+
+							<FaqComponent
+								iconPath={"faq-2"}
+								title={"How do i access saved  complains?"}
+								text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
+							/>
+							<FaqComponent
+								iconPath={"faq-4"}
+								title={"How do i gain access to my profile?"}
+								text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
+							/>
+							<FaqComponent
+								iconPath={"faq-5"}
+								title={"How do i access saved  complains?"}
+								text={"In publishing and graphic design, Lorem ipsum is a placeholder text commonly the visual form of a document or a typeface without relying on meaningful."}
+							/>
 						</div>
 					</div>
 				</div>

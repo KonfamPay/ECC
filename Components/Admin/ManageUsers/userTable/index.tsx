@@ -41,7 +41,7 @@ const UserTable: React.FC<TableProps> = ({ isOperation, userData, maxNumber, pag
 										onClick={() => {
 											select(user.userId);
 										}}
-										className={`w-[24px] ml-4 h-[24px] ${selected.indexOf(user.userId) > 1 && "bg-eccblue"} border border-solid border-[#e4e4e7]`}
+										className={`w-[24px] ml-4 h-[24px] ${selected.includes(user.userId) && "bg-eccblue"} flex justify-center items-center border border-solid border-[#e4e4e7]`}
 									>
 										<img
 											src=".././icons/check-white.svg"

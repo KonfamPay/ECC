@@ -4,15 +4,30 @@ import ScamData from "../../../Components/LatestScams/ScamData";
 import { useState, useEffect } from "react";
 import PaginationSection from "../../../Components/LatestScams/PaginationSection";
 import SearchBar from "../../../Components/Admin/searchbar";
+import ScamOperation from "../../../Components/Admin/Latest/ScamOperation";
 
 const Latest = () => {
 	const [scamData, setScamData] = useState(ScamData);
 	const [maxNumber, setMaxNumber] = useState(8);
 	const [pageNumber, setPageNumber] = useState(1);
+	const [isShowing, setShowing] = useState(false);
+	const [action, setAction] = useState("add");
 	const [value, setValue] = useState("");
+	const [selected, setSelected] = useState([]);
+	const onSelect = (id: string) => {
+		let selectedItems: any = [];
+		//check if the item is already in the selected list if it is remove it from the list if not add it to the list
+		if (selected.includes(id)) {
+			const removedItems = selected.filter((item) => item !== id);
+			selectedItems = removedItems;
+		} else {
+			selectedItems = [...selected, id];
+		}
+		setSelected(selectedItems);
+	};
 	useEffect(() => {
 		function filterBySearch() {
-			const filteredData = scamData.filter((scam) => scam.website.toLowerCase().includes(value.toLowerCase()) || scam.scammer.toLowerCase().includes(value.toLowerCase()) || scam.phoneNumber.toLowerCase().includes(value.toLowerCase()));
+			const filteredData = scamData.filter((scam) => scam.website.input1.toLowerCase().includes(value.toLowerCase()) || scam.scammer.toLowerCase().includes(value.toLowerCase()) || scam.phoneNumber.input1.toLowerCase().includes(value.toLowerCase()));
 			if (filteredData.length > 0) {
 				setScamData(filteredData);
 			} else setScamData(ScamData);
@@ -27,6 +42,14 @@ const Latest = () => {
 	return (
 		<Wrapper>
 			<div>
+				{isShowing && (
+					<div className="w-full h-full">
+						<ScamOperation
+							setShowing={setShowing}
+							action={action}
+						/>
+					</div>
+				)}
 				{scamData.length > 0 && (
 					<>
 						<div className="bg-white rounded-[15px]">
@@ -39,11 +62,10 @@ const Latest = () => {
 								</div>
 								<button
 									//disabled={isOperation}
-									// onClick={() => {
-									// 	setOperation(true);
-									// 	setOperationType("add");
-									// 	setUserId("");
-									// }}
+									onClick={() => {
+										setShowing(true);
+										setAction("add");
+									}}
 									className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
 								>
 									<img
@@ -54,6 +76,8 @@ const Latest = () => {
 								</button>
 							</div>
 							<ScamTable
+								selected={selected}
+								setSelect={onSelect}
 								ScamData={scamData}
 								maxNumber={maxNumber}
 								pageNumber={pageNumber}

@@ -1,5 +1,6 @@
 import Lottie from "react-lottie";
 
+
 interface LottieAnimationProps {
     animationData: any;
     height: number;

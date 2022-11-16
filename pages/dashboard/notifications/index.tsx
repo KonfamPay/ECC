@@ -23,12 +23,13 @@ const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 
 	return (
 		<NavWrapper>
-			<div className="w-full h-[calc(100vh-170px)] rounded-[15px] overflow-hidden">
+			<div className="w-full h-full rounded-[15px] overflow-hidden">
 				<div className="py-[16px] pl-[54px] bg-eccblue">
 					<p className="text-[24px] font-medium poppinsFont text-white">All Notifications</p>
 				</div>
 				<div className="pt-[39px] pb-[49px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-220px)] custom-scrollbar">
 					{notificationData?.map((item: any, index: number) => (
+
 						<div
 							onClick={() => {
 								router.push({ pathname: "/dashboard/notificationDetails", query: { id: item._id } });
