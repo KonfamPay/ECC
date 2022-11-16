@@ -1,28 +1,22 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Details from "../PersonalDetails";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { format, parse } from "fecha";
-
+import { motion } from "framer-motion";
 import ComplaintsCardSection from "./../../../../Sections/ComplaintsCardSection/index";
 import { useCookies } from "react-cookie";
+import { UserContext } from "../../../Contexts/UserContext";
 const profile: NextPage = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
-	const [user, setUser] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		phoneNumber: "",
-		createdAt: "",
-		address: "",
-		state: "",
-	});
+	const { user, setUser } = useContext(UserContext);
 	useEffect(() => {
-		setUser(cookie.user);
-	}, []);
+		if (cookie.user) setUser(cookie.user);
+	});
+
 	const [isShowing, setIsShowing] = useState("personal");
 	return (
-		<div>
+		<motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.3}}}>
 			<div className=" lg:block hidden w-full bg-white rounded-[20px] pb-[30px]">
 				<img
 					src="/icons/dashboard-icons/profile-header.svg"
@@ -42,8 +36,8 @@ const profile: NextPage = (props) => {
 					/>
 				</div>
 				<div className="text-center">
-					<p className="text-[24px] font-[500]">{`${user.firstName} ${user.lastName}`}</p>
-					<p className="mt-[10px] text-[18px] font-[500]">{`${user.email}`}</p>
+					<p className="text-[24px] font-[500]">{`${user?.firstName} ${user?.lastName}`}</p>
+					<p className="mt-[10px] text-[18px] font-[500]">{`${user?.email}`}</p>
 				</div>
 				<div className="mx-[auto] mt-[39px] flex flex-col  space-y-[60px]">
 					<div className="flex flex-row mx-auto xl:space-x-[120px] lg:space-x-[100px]">
@@ -53,7 +47,7 @@ const profile: NextPage = (props) => {
 									<p className="text-eccblue text-[16px]">Phone Number</p>
 								</div>
 								<div className="mt-[10px]">
-									<p className="text-[18px]">{`${user.phoneNumber}`}</p>
+									<p className="text-[18px]">{`${user?.phoneNumber}`}</p>
 								</div>
 							</div>
 						</div>
@@ -62,7 +56,7 @@ const profile: NextPage = (props) => {
 								<div className="border-b-[0.5px] border-b-[#C5C5C5] w-[122px]">
 									<p className="text-eccblue text-[16px]">Date of Birth</p>
 								</div>
-								<div className="mt-[10px]">{user.createdAt && <p className="text-[18px]">{`${format(parse(user.createdAt, "isoDateTime")!, "isoDate")}`}</p>}</div>
+								<div className="mt-[10px]">{user?.createdAt && <p className="text-[18px]">{`${format(parse(user?.createdAt, "isoDateTime")!, "isoDate")}`}</p>}</div>
 							</div>
 						</div>
 					</div>
@@ -73,7 +67,7 @@ const profile: NextPage = (props) => {
 									<p className="text-eccblue text-[16px]">Address</p>
 								</div>
 								<div className="mt-[10px]">
-									<p className="text-[18px] w-[219px]">{`${user.address}`}</p>
+									<p className="text-[18px] w-[219px]">{`${user?.address}`}</p>
 								</div>
 							</div>
 						</div>
@@ -83,7 +77,7 @@ const profile: NextPage = (props) => {
 									<p className="text-eccblue text-[16px]">State</p>
 								</div>
 								<div className="mt-[10px]">
-									<p className="text-[18px]">{`${user.state}`}</p>
+									<p className="text-[18px]">{`${user?.state}`}</p>
 								</div>
 							</div>
 						</div>
@@ -170,7 +164,7 @@ const profile: NextPage = (props) => {
 					</div>
 				)}
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
