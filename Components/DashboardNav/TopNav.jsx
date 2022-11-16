@@ -2,7 +2,7 @@ import Link from "next/link";
 import Notifications from "./Notifications";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import moment from "moment";
 import { UserContext } from "../Contexts/UserContext";
 import { motion } from "framer-motion";
@@ -14,15 +14,22 @@ const NavTitle = ({ text }) => {
 const TopNav = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const router = useRouter();
+
 	const { user, setUser } = useContext(UserContext);
 	const currentDate = moment().format("ddd. Do MMMM, YYYY");
+	const [currentPath, setCurrentPath] = useState(router.pathname);
 	useEffect(() => {
 		if (!cookie.user) router.replace("/login");
+		// console.log(user);
+		// setUser(cookie.user)
 	}, []);
+	useEffect(() => {
+		setCurrentPath(router.pathname)
+	}, [router.pathname])
 
-	const getCurrentPage = () => {
-		const currentPath = router.pathname;
-		// if (currentPath.startsWith("/dashboard/notification")) return "My Notifications"
+	const getCurrentPage = (currentPath) => {
+		// const currentPath = router.pathname;
+		if (currentPath && currentPath.startsWith("/dashboard/notification")) return <NavTitle text="My Notifications" />
 		switch (currentPath) {
 			case "/dashboard":
 				return <NavTitle text="Dashboard" />;
@@ -50,7 +57,7 @@ const TopNav = (props) => {
 					className="fixed left-[274px] top-0 w-[calc(100%-274px)] h-[110px] bg-white pl-[35px] pt-[0px] pr-[66px] flex justify-between items-center poppinsFont  "
 				>
 					<div>
-						{getCurrentPage()}
+						{getCurrentPage(currentPath)}
 						<p className="font-medium text-[18px] text-[#7A797D] mt-[2px]">{currentDate}</p>
 					</div>
 					<div className="flex items-center gap-x-[60px]">
