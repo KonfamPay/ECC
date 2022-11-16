@@ -8,19 +8,26 @@ export const NotificationContext = createContext();
 const NotificationContextProvider = ({children}) => {
     const [notificationData, setNotificationData] = useState([]);
     const [cookies, setCookies] = useCookies(["user"]);
+    const [newNotifications, setNewNotifications] = useState(false);
     
     const fetchNotificationData = async () => {
         const {data} = await client.get(`/notifications/${cookies.user._id}`);
-        console.log(data)
         setNotificationData(data.notifications)
     }
+    
+    const markAllNotificationsAsRead = async () => {
+        const { data } = await client.post(`/notifications/${cookies.user._id}/markAllAsRead`);
+        console.log(data)
+        setNotificationData(data.notifications)
+		
+	}
 
-    useEffect(() => {
-        fetchNotificationData();
-    }, [])
+	useEffect(() => {
+		setNewNotifications(notificationData.filter((notification) => notification.status == "unread").length > 0);
+	}, [notificationData]);
 
     return (
-        <NotificationContext.Provider value={{notificationData}}>
+        <NotificationContext.Provider value={{notificationData, fetchNotificationData, newNotifications, markAllNotificationsAsRead}}>
             {children}
         </NotificationContext.Provider>
     );
