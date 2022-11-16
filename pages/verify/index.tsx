@@ -187,7 +187,7 @@ const VerificationPage: NextPage = () => {
 									value={state}
 									onChange={(e) => setState(e.target.value)}
 									style={{ color: state ? "black" : "#9ca3af" }}
-									className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[23px] px-[20px] h-full focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[15px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
+									className="transition-[150ms] py-[12.5px] lg:py-[20px] xl:py-[23px] px-[20px] h-full max-h-[73px] focus:outline-none rounded-[10px] border-2 border-[#C5C5C5] mt-[18.5px] w-full focus:border-[#0B63C5] text-[14px] lg:text-[16px] placeholder:text-[14px] lg:placeholder:text-[16px]"
 								>
 									<option
 										value=""
