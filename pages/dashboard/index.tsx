@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import DashboardCard from "../../Components/DashboardComponents/DashboardCard";
 import NavWrapper from "../../Components/DashboardNav/NavWrapper";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import { NotificationContext } from "../../Components/Contexts/NotificationContext";
 
 interface User {
 	firstName: string;
@@ -14,6 +15,8 @@ interface User {
 
 const index: NextPage = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
+	const { fetchNotificationData } = useContext(NotificationContext);
+
 	const [user, setUser] = useState<User>({
 		firstName: "",
 		lastName: "",
@@ -26,6 +29,7 @@ const index: NextPage = (props) => {
 		else {
 			setUser(cookie.user);
 			console.log(cookie.user);
+			fetchNotificationData();
 		}
 	}, []);
 
