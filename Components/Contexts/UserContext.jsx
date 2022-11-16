@@ -6,8 +6,11 @@ const UserContextProvider = ({children}) => {
     const [user, setUser] = useState({
 		firstName: "",
 		lastName: "",
-		_id: "",
-		iat: 0,
+		email: "",
+		phoneNumber: "",
+		createdAt: "",
+		address: "",
+		state: "",
     });
     
     return (
