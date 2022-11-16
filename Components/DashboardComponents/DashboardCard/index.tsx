@@ -41,8 +41,8 @@ const LandingPageCard: NextPage = () => {
 		<>
 			<div className="lg:block hidden">
 				<div className="grid grid-cols-2 gap-x-[30px] xl:gap-x-[68px] gap-y-[20px] xl:gap-y-[37px] ">
-					{cardcontents.map((card) => (
-						<div
+					{cardcontents.map((card, index) => (
+						<div key={index}
 							className="flex flex-row pl-[22px] xl:pl-[32px] py-[32.5px] xl:py-[55.5px] pr-4 text-white rounded-[20px]"
 							style={{ backgroundColor: card.bgcolor }}
 						>
