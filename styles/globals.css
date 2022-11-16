@@ -156,9 +156,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 	display: none;
 }
 .pieM {
-	-webkit-appearance: none;
-}
-.pieM {
 	border-radius: 50%;
 	height: 30px;
 	width: 30px;

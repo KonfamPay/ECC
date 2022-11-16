@@ -3,15 +3,15 @@ interface TableProps {
 	ScamData: any;
 	maxNumber: number;
 	pageNumber: number;
-	//select: any;
-	// selected: any;
+	setSelect: any;
+	selected: any;
 	// setOperation: any;
 	// setOperationType: any;
 	// setScamId: any;
 	// isOperation: boolean;
 }
 
-const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber }) => {
+const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, selected, setSelect }) => {
 	const router = useRouter();
 	return (
 		<>
@@ -39,9 +39,9 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber }) =>
 								<td>
 									<button
 										onClick={() => {
-											//select(scam.scamId);
+											setSelect(scam.scamId);
 										}}
-										className={`w-[24px] ml-4 h-[24px]  border border-solid border-[#e4e4e7]`}
+										className={`w-[24px] ${selected.includes(scam.scamId) && `bg-eccblue`} flex justify-center items-center ml-4 h-[24px]  border border-solid border-[#e4e4e7]`}
 									>
 										<img
 											src=".././icons/check-white.svg"
@@ -50,17 +50,15 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber }) =>
 									</button>
 								</td>
 								<td
-									onClick={() => {
-										router.push({ pathname: "/admin/latest/scam-details", query: { id: scam.scamId } });
-									}}
+									onClick={() => {}}
 									className="cursor-pointer flex flex-col"
 								>
 									<p className="font-semibold">{scam.scammer}</p>
-									<p>{scam.website}</p>
+									<p>{scam.website.input1}</p>
 								</td>
 
-								<td>{scam.bankAccountDetails}</td>
-								<td>{scam.phoneNumber}</td>
+								<td>{scam.bankAccountDetails.input1}</td>
+								<td>{scam.phoneNumber.input1}</td>
 
 								<td>
 									<button
@@ -69,6 +67,7 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber }) =>
 											// setOperation(true);
 											// setOperationType("edit");
 											// setUserId(scam.scamId);
+											router.push({ pathname: "/admin/latest/scam-details", query: { id: scam.scamId } });
 										}}
 									>
 										View details
