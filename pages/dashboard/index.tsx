@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import { NotificationContext } from "../../Components/Contexts/NotificationContext";
 import { UserContext } from "../../Components/Contexts/UserContext";
+import { motion } from "framer-motion";
 
 interface User {
 	firstName: string;
@@ -14,7 +15,7 @@ interface User {
 	iat: number;
 }
 
-const index: NextPage = (props) => {
+const index: NextPage = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const { fetchNotificationData } = useContext(NotificationContext);
 	const { user, setUser } = useContext(UserContext);
@@ -26,13 +27,14 @@ const index: NextPage = (props) => {
 		} else {
 			setUser(cookie.user);
 			console.log(cookie.user);
-			fetchNotificationData();
+			setInterval(() => fetchNotificationData(), 30000)
+			
 		}
 	}, []);
 
 	return (
 		<NavWrapper>
-			<div className="h-full">
+			<motion.div initial={{opacity: 0, scale: 0.95}} animate={{opacity: 1, scale: 1, transition: {duration: 0.3}}} className="h-full">
 				<div className="pt-0">
 					<div className="hidden lg:block">
 						<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative">
@@ -78,8 +80,8 @@ const index: NextPage = (props) => {
 						</div>
 					</div>
 				</div>
-			</NavWrapper>
-		</div>
+			</motion.div>
+		</NavWrapper>
 	);
 };
 

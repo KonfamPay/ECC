@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import ComplaintsCardSection from "./../../../../Sections/ComplaintsCardSection/index";
 import { useCookies } from "react-cookie";
 import { UserContext } from "../../../Contexts/UserContext";
-const profile: NextPage = (props) => {
+const profile: NextPage = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const { user, setUser } = useContext(UserContext);
 	useEffect(() => {
@@ -16,7 +16,7 @@ const profile: NextPage = (props) => {
 
 	const [isShowing, setIsShowing] = useState("personal");
 	return (
-		<motion.div initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.3}}}>
+		<motion.div initial={{opacity: 0, scale: 0.95}} animate={{opacity: 1, scale: 1, transition: {duration: 0.3}}}>
 			<div className=" lg:block hidden w-full bg-white rounded-[20px] pb-[30px]">
 				<img
 					src="/icons/dashboard-icons/profile-header.svg"
