@@ -5,6 +5,7 @@ import NavWrapper from "../../Components/DashboardNav/NavWrapper";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
 import { NotificationContext } from "../../Components/Contexts/NotificationContext";
+import { UserContext } from "../../Components/Contexts/UserContext";
 
 interface User {
 	firstName: string;
@@ -16,13 +17,8 @@ interface User {
 const index: NextPage = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const { fetchNotificationData } = useContext(NotificationContext);
+	const { user, setUser } = useContext(UserContext);
 
-	const [user, setUser] = useState<User>({
-		firstName: "",
-		lastName: "",
-		_id: "",
-		iat: 0,
-	});
 	const router = useRouter();
 	useEffect(() => {
 		if (!cookie.user) router.replace("/login");
