@@ -47,7 +47,7 @@ const TopNav = (props) => {
 						<p className="font-medium text-[18px] text-[#7A797D] mt-[2px]">{currentDate}</p>
 					</div>
 					<div className="flex items-center gap-x-[60px]">
-						<Notifications newNotifications={false} />
+						<Notifications />
 						<div className="flex gap-x-[21px]">
 							<div className="w-[50px] h-[50px] rounded-full overflow-hidden">
 								<img

@@ -1,10 +1,17 @@
 import Link from "next/link";
+import { useContext, useState, useEffect } from "react";
+import { NotificationContext } from "../Contexts/NotificationContext";
+import { Notification } from "../Types";
 
-interface NotificationProps {
-	newNotifications: boolean;
-}
 
-const Notifications: React.FC<NotificationProps> = ({ newNotifications }) => {
+const Notifications: React.FC = () => {
+	const { notificationData } = useContext(NotificationContext);
+	const [newNotifications, setNewNotifications] = useState(false);
+
+	useEffect(() => {
+		setNewNotifications(notificationData.filter((notification: Notification) => notification.status == "unread").length > 0);
+	}, [notificationData]);
+	
 	return (
 		<Link href="/dashboard/notifications">
 			<div className="relative cursor-pointer">
