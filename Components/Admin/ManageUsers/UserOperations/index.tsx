@@ -1,18 +1,26 @@
 import * as React from "react";
 import { useState } from "react";
 import OperationsInput from "./OperationsInputGroup/index";
-
+import { Dispatch, SetStateAction } from "react";
 import UserData from "./../../userData";
+import { User } from "./../../../../types/complaintTypes.d";
+
+type UserObject = {
+	fullName: string;
+	email: string;
+	phone: string;
+	verify: string;
+};
 
 interface OperationProps {
 	operationType: string;
 	userId: string;
-	setOperation: any;
-	userData: any;
-	setUserData: any;
-	addUser: any;
-	editUser: any;
-	deleteUser: any;
+	setOperation: Dispatch<SetStateAction<boolean>>;
+	userData: Array<User>;
+
+	addUser: (userObject: UserObject) => {};
+	editUser: (userObject: UserObject, userId: string) => {};
+	deleteUser: (userId: string) => {};
 }
 
 const UserOperation: React.FC<OperationProps> = ({ deleteUser, editUser, addUser, userData, userId, operationType, setOperation }) => {
@@ -22,7 +30,7 @@ const UserOperation: React.FC<OperationProps> = ({ deleteUser, editUser, addUser
 	const [email, setEmail] = useState(user ? user.userEmail : "");
 	const [phone, setPhone] = useState(user ? user.userPhone : "");
 	const [verify, setVerify] = useState(user ? user.status : "Unverified");
-	const userObject = { fullName, email, phone, verify };
+	const userObject: UserObject = { fullName, email, phone, verify };
 
 	return (
 		<div className="w-[40%] h-fit z-10 rounded-[15px] shadow-2xl py-4   bg-white fixed border border-solid  ">

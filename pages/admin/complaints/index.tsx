@@ -8,12 +8,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import { format } from "date-fns";
+import { ComplainDetailType } from "./../../../types/complaintTypes.d";
 
 const Complaints = () => {
 	const [pageNumber, setPageNumber] = useState(1);
 	const [page, setPage] = useState("All");
 	const [date, setDate] = useState(format(new Date(Date.now()), "yyyy-MM-dd"));
-	const ComplaintList = page == "All" ? ComplaintData.filter((complaint: any) => complaint.date == date) : ComplaintData.filter((complaint) => complaint.status == page && complaint.date == date);
+
+	const ComplaintList = page == "All" ? ComplaintData.filter((complaint: ComplainDetailType) => complaint.date == date) : ComplaintData.filter((complaint) => complaint.status == page && complaint.date == date);
 
 	return (
 		<Wrapper>
@@ -35,7 +37,7 @@ const Complaints = () => {
 					<h1 className="my-6 ml-4 text-[28px] font-semibold text-eccblue">{date == format(new Date(Date.now()), "yyyy-MM-dd") ? "Today" : date}</h1>
 					{ComplaintList.length > 0 &&
 						UserData.length > 0 &&
-						ComplaintList.map((complaint: any) => (
+						ComplaintList.map((complaint: ComplainDetailType) => (
 							<ComplaintPill
 								complaint={complaint}
 								users={UserData}

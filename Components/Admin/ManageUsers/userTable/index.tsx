@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
+import { User } from "./../../../../types/complaintTypes.d";
+
+import { Dispatch, SetStateAction } from "react";
 interface TableProps {
-	userData: any;
+	userData: User[];
 	maxNumber: number;
 	pageNumber: number;
-	select: any;
-	selected: any;
-	setOperation: any;
-	setOperationType: any;
-	setUserId: any;
+	select: (id: string) => {};
+	selected: Array<string>;
+	setOperation: Dispatch<SetStateAction<boolean>>;
+	setOperationType: Dispatch<SetStateAction<string>>;
+	setUserId: Dispatch<SetStateAction<string>>;
 	isOperation: boolean;
 }
 
@@ -33,7 +36,7 @@ const UserTable: React.FC<TableProps> = ({ isOperation, userData, maxNumber, pag
 					<tbody>
 						{userData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((user) => (
 							<tr
-								key={user.id}
+								key={user.userId}
 								className="  border-y border-y-[#e4e4ef] bg-white"
 							>
 								<td>

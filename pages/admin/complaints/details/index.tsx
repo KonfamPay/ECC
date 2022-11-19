@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import UserPersonalInfo from "../../../../Components/Admin/ManageUsers/userPersonalInfo";
 import ComplaintInfo from "./../../../../Components/Admin/ManageUsers/UserComplaintInfo/index";
 import ComplaintDetails from "./../../../../Components/Admin/Complaints/ComplaintDetails/complaintDetails";
+import { ComplainDetailType, User } from "./../../../../types/complaintTypes.d";
 
 const userDetails = () => {
 	const router = useRouter();
@@ -15,8 +16,8 @@ const userDetails = () => {
 
 	useEffect(() => {
 		if (grievanceId) {
-			const complaint = ComplaintData.filter((currentComplaint: any) => currentComplaint.grievanceId == grievanceId)[0];
-			const user = UserData.filter((currentUser: any) => currentUser.complaints.find((id: string) => id == grievanceId))[0];
+			const complaint = ComplaintData.filter((currentComplaint: ComplainDetailType) => currentComplaint.grievanceId == grievanceId)[0];
+			const user = UserData.filter((currentUser: User) => currentUser.complaints.find((id: string) => id == grievanceId))[0];
 			if (complaint) {
 				setComplaint(complaint);
 			}

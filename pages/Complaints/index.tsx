@@ -101,7 +101,6 @@ const Index: NextPage = (props) => {
 						</div>
 						<PaginationSection
 							searchResults={searchResults}
-							setSearchResults={setSearchResults}
 							maxResultsPerPage={maxResultsPerPage}
 							currentSearchPage={currentSearchPage}
 							setCurrentSearchPage={setCurrentSearchPage}

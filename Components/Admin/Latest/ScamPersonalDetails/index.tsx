@@ -1,8 +1,9 @@
 import PersonalInfoInputs from "./../ScamOperation/PersonalInfoInputs/index";
 import { useState, useEffect } from "react";
+import { Scammer } from "./../../../../types/complaintTypes.d";
 
 interface PersonalDetailsProps {
-	scamData: any;
+	scamData: Scammer;
 }
 
 const ScamPersonalDetails: React.FC<PersonalDetailsProps> = ({ scamData }) => {
@@ -29,24 +30,24 @@ const ScamPersonalDetails: React.FC<PersonalDetailsProps> = ({ scamData }) => {
 					<div className="  flex mb-[10px] flex-col ">
 						<p className="font-regular text-eccblue text-[18px] border-b border-b-[#c5c5c5] w-[322px] ">Bank Details</p>
 						<div>
-							{Object.keys(scamData.bankAccountDetails).map((input: string) => (
-								<p>{scamData.bankAccountDetails[input]}</p>
+							{Object.values(scamData.bankAccountDetails).map((value) => (
+								<p>{value}</p>
 							))}
 						</div>
 					</div>
 					<div className="  flex mb-[10px] flex-col ">
 						<p className="font-regular border-b border-b-[#c5c5c5] w-[322px] text-eccblue text-[18px] ">Website URL</p>
 						<div>
-							{Object.keys(scamData.website).map((input: string) => (
-								<p>{scamData.website[input]}</p>
+							{Object.values(scamData.website).map((input: string) => (
+								<p>{input}</p>
 							))}
 						</div>
 					</div>
 					<div className="  flex mb-[10px] flex-col ">
 						<p className="font-regular text-eccblue border-b border-b-[#c5c5c5] w-[322px] text-[18px] ">Phone Number</p>
 						<div>
-							{Object.keys(scamData.phoneNumber).map((input: string) => (
-								<p>{scamData.phoneNumber[input]}</p>
+							{Object.values(scamData.phoneNumber).map((input: string) => (
+								<p>{input}</p>
 							))}
 						</div>
 					</div>
@@ -54,8 +55,8 @@ const ScamPersonalDetails: React.FC<PersonalDetailsProps> = ({ scamData }) => {
 					<div className=" flex mb-[10px] flex-col ">
 						<p className="font-regular border-b border-b-[#c5c5c5] w-[322px] text-eccblue text-[18px] ">Social Media Hanlde</p>
 						<div>
-							{Object.keys(scamData.socialMediaHandle).map((input: string) => (
-								<p>{scamData.socialMediaHandle[input]}</p>
+							{Object.values(scamData.socialMediaHandle).map((input: string) => (
+								<p>{input}</p>
 							))}
 						</div>
 					</div>

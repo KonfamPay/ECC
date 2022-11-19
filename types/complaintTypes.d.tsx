@@ -11,3 +11,44 @@ export interface ComplainDetailType {
 	amountLost: string;
 	transactionLocation: string;
 }
+
+export type Stats = {
+	stat: string;
+	amount: string;
+	percentage: {
+		amount: string;
+		trend: string;
+	};
+	relativity: string;
+};
+
+export type User = {
+	userId: string;
+	profilePic: string;
+	userName: string;
+	userEmail: string;
+	registrationDate: string;
+	userPhone: string;
+	status: string;
+	userAddress: string;
+	state: string;
+	lga: string;
+	nin: string;
+	complaints: Array<string>;
+};
+
+export type Scammer = {
+	scamId: string;
+	scammer: string;
+	socialMediaHandle: { input1: string };
+	bankAccountDetails: { input1: string };
+	website: { input1: string };
+	phoneNumber: { input1: string };
+};
+
+export type NotificationData = {
+	id: string;
+	title: string;
+	additionalInfo: string;
+	time: string;
+};

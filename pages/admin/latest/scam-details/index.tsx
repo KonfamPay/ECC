@@ -6,6 +6,7 @@ import ComplaintData from "../../../../Components/Complaint/ComplaintData";
 import ScamPersonalDetails from "../../../../Components/Admin/Latest/ScamPersonalDetails";
 import ScamComplaintDetails from "../../../../Components/Admin/Latest/ScamDetails";
 import ScamOperation from "../../../../Components/Admin/Latest/ScamOperation";
+import { ComplainDetailType, Scammer } from "./../../../../types/complaintTypes.d";
 
 const scamDetails = () => {
 	const router = useRouter();
@@ -14,13 +15,13 @@ const scamDetails = () => {
 	const [isShowing, setShowing] = useState(false);
 	const [action, setAction] = useState("add");
 
-	const scammer = ScamData.find((scammer: any) => scammer.scamId == scamId);
+	const scammer = ScamData.find((scammer: Scammer) => scammer.scamId == scamId);
 	const [scamData, setScamData] = useState({});
-	const [complaints, setComplaints] = useState([]);
+	const [complaints, setComplaints] = useState<ComplainDetailType[]>([]);
 	useEffect(() => {
 		if (scammer) {
 			setScamData(scammer);
-			const complaints = ComplaintData.filter((complaint: any) => complaint.companyName == scammer.scammer);
+			const complaints = ComplaintData.filter((complaint: ComplainDetailType) => complaint.companyName == scammer.scammer);
 			setComplaints(complaints);
 		} else {
 			setScamData({});

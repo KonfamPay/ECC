@@ -2,25 +2,26 @@ import ComplaintData from "./../../../Complaint/ComplaintData";
 import { useRouter } from "next/router";
 
 import ComplaintCard from "./userComplaintCard/index";
+import { ComplainDetailType, User } from "./../../../../types/complaintTypes.d";
 
 interface ComplaintProps {
-	user: any;
+	user: User;
 }
 
 const ComplaintInfo: React.FC<ComplaintProps> = ({ user }) => {
 	const router = useRouter();
 	const complaints = user.complaints;
-	const listOfComplaints: any = [];
+	const listOfComplaints: ComplainDetailType[] = [];
 	complaints.forEach((grievanceId: string) => {
 		const complaint = ComplaintData.find((complaint) => complaint.grievanceId == grievanceId);
 		if (complaint) {
 			listOfComplaints.push(complaint);
 		}
 	});
-	const pendingComplaints = listOfComplaints.filter((complaint: any) => complaint.status == "Pending");
-	const openComplaints = listOfComplaints.filter((complaints: any) => complaints.status == "Open");
-	const closedComplaints = listOfComplaints.filter((complaints: any) => complaints.status == "Closed");
-	const resolvedComplaints = listOfComplaints.filter((complaints: any) => complaints.status == "Resolved");
+	const pendingComplaints = listOfComplaints.filter((complaint: ComplainDetailType) => complaint.status == "Pending");
+	const openComplaints = listOfComplaints.filter((complaints: ComplainDetailType) => complaints.status == "Open");
+	const closedComplaints = listOfComplaints.filter((complaints: ComplainDetailType) => complaints.status == "Closed");
+	const resolvedComplaints = listOfComplaints.filter((complaints: ComplainDetailType) => complaints.status == "Resolved");
 	return (
 		<div className="w-full ffflex flex-col items-center">
 			<div className=" w-full pt-[30px] pb-[30px]  justify-around flex flex-row">
@@ -57,7 +58,7 @@ const ComplaintInfo: React.FC<ComplaintProps> = ({ user }) => {
 			<div className="w-full">
 				<table className=" table-auto w-full">
 					<tbody>
-						{listOfComplaints.map((complaint: any) => (
+						{listOfComplaints.map((complaint: ComplainDetailType) => (
 							<tr
 								onClick={() => {
 									router.push({ pathname: "/admin/complaints/details", query: { id: complaint.grievanceId } });

@@ -49,3 +49,5 @@ export const LoginInputGroup: React.FC<InputGroupProps> = ({ label, placeholder,
 		</div>
 	);
 };
+
+export default LoginInputGroup;

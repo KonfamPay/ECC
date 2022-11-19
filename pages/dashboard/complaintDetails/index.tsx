@@ -70,7 +70,7 @@ const Mycomplaints: NextPage = (props) => {
 							</div>
 							<div className="mt-[52px]">
 								<p className="text-eccblue text-[19.64px]">Resolution wanted:</p>
-								<div className="lg:grid w-full grid-cols-2 flex flex-col items-center justify-center">{Object.keys(complaint.resolutionWanted).map((resolution: string) => complaint.resolutionWanted[resolution] && <Resolution type={resolution} />)}</div>
+								<div className="lg:grid w-full grid-cols-2 flex flex-col items-center justify-center">{Object.values(complaint.resolutionWanted).map((value, index) => value && <Resolution type={Object.keys(complaint.resolutionWanted)[index]} />)}</div>
 							</div>
 							<div className="my-5">
 								<h5 className="text-eccblue m-auto">Uploaded Documents</h5>
