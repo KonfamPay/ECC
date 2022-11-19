@@ -1,5 +1,6 @@
+import { User } from "./../../../../types/complaintTypes.d";
 interface UserInfoProps {
-	userData: any;
+	userData: User;
 }
 
 const UserPersonalInfo: React.FC<UserInfoProps> = ({ userData }) => {

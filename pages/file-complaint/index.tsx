@@ -11,6 +11,7 @@ import ComplaintLetterSection from "../../Components/FileAComplaintComponents/Co
 import { motion } from "framer-motion";
 
 const Index: NextPage = () => {
+	const [productCategory, setProductCategory] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [titleOfComplaint, setTitleOfComplaint] = useState("");
 	const [companyName, setCompanyName] = useState("");
@@ -63,6 +64,8 @@ const Index: NextPage = () => {
 				>
 					{currentPage == 1 && (
 						<Page1
+							productCategory={productCategory}
+							setProductCategory={setProductCategory}
 							place="main"
 							accountName={accountName}
 							setAccountName={setAccountName}
@@ -99,6 +102,8 @@ const Index: NextPage = () => {
 					)}
 					{currentPage == 3 && (
 						<Page3
+							setCurrentPage={setCurrentPage}
+							setIsOpaque={setIsOpaque}
 							place="main"
 							wantsRefund={wantsRefund}
 							setWantsRefund={setWantsRefund}

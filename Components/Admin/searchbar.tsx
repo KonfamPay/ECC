@@ -1,7 +1,9 @@
 import * as React from "react";
+import { Dispatch, SetStateAction } from "react";
+
 interface SearchBarProps {
 	value: string;
-	setValue: any;
+	setValue: Dispatch<SetStateAction<string>>;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, setValue }) => {

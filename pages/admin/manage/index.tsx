@@ -8,13 +8,14 @@ import UserData from "./../../../Components/Admin/userData";
 import SearchBar from "../../../Components/Admin/searchbar";
 import PaginationSection from "../../../Components/LatestScams/PaginationSection";
 import { format } from "date-fns";
+import { ComplainDetailType, User } from "./../../../types/complaintTypes.d";
 
 const Manage = () => {
 	const [userData, setData] = useState(UserData);
 	const [maxNumber, setMaxNumber] = useState(8);
 	const [pageNumber, setPageNumber] = useState(1);
 	const [value, setValue] = useState("");
-	const [selected, setSelected] = useState([]);
+	const [selected, setSelected] = useState<string[]>([]);
 	const [isOperation, setOperation] = useState(false);
 	const [operationType, setOperationType] = useState("");
 	const [currentUserId, setUserId] = useState("");
@@ -35,7 +36,7 @@ const Manage = () => {
 	}, [value]);
 
 	const onSelect = (id: string) => {
-		let selectedItems: any = [];
+		let selectedItems: Array<string> = [];
 		//check if the item is already in the selected list if it is remove it from the list if not add it to the list
 		if (selected.includes(id)) {
 			const removedItems = selected.filter((item) => item !== id);
@@ -144,7 +145,6 @@ const Manage = () => {
 									{maxNumber <= 5 ? (
 										<div className="mb-6">
 											<PaginationSection
-												setSearchResults={undefined}
 												pageSize={true}
 												searchResults={userData}
 												maxResultsPerPage={maxNumber}
@@ -156,7 +156,6 @@ const Manage = () => {
 									) : (
 										<div className="mb-6">
 											<PaginationSection
-												setSearchResults={undefined}
 												pageSize={false}
 												searchResults={userData}
 												maxResultsPerPage={maxNumber}

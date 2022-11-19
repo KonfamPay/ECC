@@ -13,9 +13,9 @@ const Latest = () => {
 	const [isShowing, setShowing] = useState(false);
 	const [action, setAction] = useState("add");
 	const [value, setValue] = useState("");
-	const [selected, setSelected] = useState([]);
+	const [selected, setSelected] = useState<string[]>([]);
 	const onSelect = (id: string) => {
-		let selectedItems: any = [];
+		let selectedItems: Array<string> = [];
 		//check if the item is already in the selected list if it is remove it from the list if not add it to the list
 		if (selected.includes(id)) {
 			const removedItems = selected.filter((item) => item !== id);
@@ -86,7 +86,6 @@ const Latest = () => {
 								{maxNumber <= 5 ? (
 									<div className="mb-6">
 										<PaginationSection
-											setSearchResults={undefined}
 											pageSize={true}
 											searchResults={scamData}
 											maxResultsPerPage={maxNumber}
@@ -98,7 +97,6 @@ const Latest = () => {
 								) : (
 									<div className="mb-6">
 										<PaginationSection
-											setSearchResults={undefined}
 											pageSize={false}
 											searchResults={scamData}
 											maxResultsPerPage={maxNumber}
