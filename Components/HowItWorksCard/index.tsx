@@ -20,7 +20,7 @@ export const HowItWorksCard: React.FC<HowItWorksCardProps> = ({ title, descripti
 					/>
 				</div>
 				<div className="w-[81px] md:w-[110px] lg:w-[120px] h-[80px] md:h-[113px] lg:h-[120px] absolute -top-[14.5%] bg-white rounded-full z-[1]" />
-				<div className="hidden lg:block w-[68px] h-[68px] pointerShadow bg-white rounded-full absolute right-[-33px] z-[50]">
+				<div className="hidden lg:block w-[68px] h-[68px] pointerShadow bg-white rounded-full absolute right-[-33px] z-[10]">
 					<div className="flex items-center justify-center w-full h-full">
 						<img
 							src="../icons/how-it-works-icons/pointer.svg"

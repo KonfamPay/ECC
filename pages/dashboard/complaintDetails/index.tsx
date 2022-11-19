@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import  { useRouter }  from "next/router";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import Resolution from "../../../Components/ResolutionWanted";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import TransactionDetails from "../../../Components/Complaint/TransactionDetails";
 
-const Mycomplaints: NextPage = (props) => {
+const Mycomplaints: NextPage = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [data, setData] = useState("");
 	const router = useRouter();

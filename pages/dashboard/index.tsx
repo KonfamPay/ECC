@@ -1,9 +1,12 @@
 import type { NextPage } from "next";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import DashboardCard from "../../Components/DashboardComponents/DashboardCard";
 import NavWrapper from "../../Components/DashboardNav/NavWrapper";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
+import { NotificationContext } from "../../Components/Contexts/NotificationContext";
+import { UserContext } from "../../Components/Contexts/UserContext";
+import { motion } from "framer-motion";
 
 interface User {
 	firstName: string;
@@ -12,32 +15,32 @@ interface User {
 	iat: number;
 }
 
-const index: NextPage = (props) => {
+const index: NextPage = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
-	const [user, setUser] = useState<User>({
-		firstName: "",
-		lastName: "",
-		_id: "",
-		iat: 0,
-	});
+	const { fetchNotificationData } = useContext(NotificationContext);
+	const { user, setUser } = useContext(UserContext);
+
 	const router = useRouter();
 	useEffect(() => {
 		if (!cookie.user) {
 			//router.replace("/login");
 		} else {
 			setUser(cookie.user);
+			console.log(cookie.user);
+			setInterval(() => fetchNotificationData(), 30000)
+			
 		}
 	}, []);
 
 	return (
 		<NavWrapper>
-			<div className="h-full">
+			<motion.div initial={{opacity: 0, scale: 0.95}} animate={{opacity: 1, scale: 1, transition: {duration: 0.3}}} className="h-full">
 				<div className="pt-0">
 					<div className="hidden lg:block">
-						<div className="bg-[#020D1B] mx-auto w-full h-[255px] mt-10 rounded-[20px] max-w-[2000px] flex flex-row relative">
-							<div className="text-white w-[50%] pl-[43px] py-[58.5px]">
-								<p className="text-[40px] leading-[60px] font-[600] ">Hi, {user.firstName}</p>
-								<p className="text-[24px] leading-[36px] font-[600] pb-4 max-w-full w-[503px]">
+						<div className="bg-[#020D1B] w-full h-[255px] mt-10 rounded-[20px] flex flex-row relative">
+							<div className="text-white pl-[43px] py-[58.5px]">
+								<p className="text-[40px] leading-[60px] font-[600]">Hi, {user.firstName}</p>
+								<p className="text-[24px] leading-[36px] font-[600] w-[503px]">
 									Vendor don do you strong thing again? <br /> We are ready to listen to your complaints
 								</p>
 							</div>
@@ -77,7 +80,7 @@ const index: NextPage = (props) => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</NavWrapper>
 	);
 };
