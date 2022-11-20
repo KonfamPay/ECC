@@ -3,42 +3,54 @@ import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import NotificationItem from "../../../Components/NotificationItem";
 import { getServerSideProps } from "./../../../Components/NotificationItem/notificationData/index";
 import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
+import { NotificationContext } from "../../../Components/Contexts/NotificationContext";
+import { Notification } from "../../../Components/Types";
+import { useCookies } from "react-cookie";
+import client from "../../../pages/api/Services/AxiosClient";
+import { motion } from "framer-motion";
 
 interface NotificationsPageProps {
-	notificationData: { id: string; title: string; additionalInfo: string; time: string }[];
+	notificationData: Notification[];
 }
 
 const NotificationsPage: NextPage<NotificationsPageProps> = () => {
-	const { props } = getServerSideProps();
-	const { notificationData } = props;
+	const { notificationData, markAllNotificationsAsRead } = useContext(NotificationContext);
 	const router = useRouter();
+
+	useEffect(() => {
+		markAllNotificationsAsRead();
+	}, []);
+
 	return (
 		<NavWrapper>
-			<div className="w-full h-full rounded-[15px] overflow-hidden">
+			<motion.div
+				initial={{ opacity: 0, scale: 0.95 }}
+				animate={{ opacity: 1, scale: 1, transition: { duration: 0.3 } }}
+				className="w-full h-full rounded-[15px] overflow-hidden"
+			>
 				<div className="py-[16px] pl-[54px] bg-eccblue">
 					<p className="text-[24px] font-medium poppinsFont text-white">All Notifications</p>
 				</div>
-				<div className="pt-[39px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-full">
-					{notificationData.map((item: any, index: number) => (
+
+				<div className="pt-[39px] pb-[49px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-280px)] custom-scrollbar">
+					{notificationData?.map((item: any, index: number) => (
 						<div
 							onClick={() => {
-								router.push({ pathname: "/dashboard/notificationDetails", query: { id: item.id } });
+								router.push({ pathname: "/dashboard/notificationDetails", query: { id: item._id } });
 							}}
 						>
 							<NotificationItem
 								type={item.type}
 								key={index}
 								title={item.title}
-								additionalInfo={item.additionalInfo}
+								message={item.message}
 								time={item.time}
 							/>
 						</div>
 					))}
 				</div>
-				{/* <div className="pt-[42px] pb-[15px] bg-white pr-[75px] flex justify-end">
-					<button className="text-[18px] text-white bg-eccblue w-[192px] h-[60px] focus:outline-none rounded-xl">Next</button>
-				</div> */}
-			</div>
+			</motion.div>
 		</NavWrapper>
 	);
 };

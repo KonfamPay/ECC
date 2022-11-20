@@ -5,8 +5,6 @@ import PaginationButton from "./PaginationButton";
 interface PaginationSectionProps {
 	searchResults: any[];
 
-	setSearchResults: Dispatch<SetStateAction<any[]>> | any;
-
 	maxResultsPerPage: number;
 	currentSearchPage: number;
 	setCurrentSearchPage: Dispatch<SetStateAction<number>>;

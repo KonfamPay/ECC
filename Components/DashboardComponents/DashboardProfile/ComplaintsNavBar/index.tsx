@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-
+import { Dispatch, SetStateAction } from "react";
 interface navBarProps {
-	setPage: any;
+	setPage: Dispatch<SetStateAction<string>>;
 	page: string;
-	setPageNumber: any;
+	setPageNumber: Dispatch<SetStateAction<number>>;
 }
 
 const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page, setPageNumber }) => {

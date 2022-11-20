@@ -1,6 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
 interface ButtonProps {
 	pageNumber: number;
-	setPageNumber: any;
+	setPageNumber: Dispatch<SetStateAction<number>>;
 	maxNumber: number;
 	listLength: number;
 }

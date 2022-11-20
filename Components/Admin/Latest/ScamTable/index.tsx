@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
+import { Scammer } from "./../../../../types/complaintTypes.d";
+
+import { Dispatch, SetStateAction } from "react";
+
 interface TableProps {
-	ScamData: any;
+	ScamData: Array<Scammer>;
 	maxNumber: number;
 	pageNumber: number;
-	setSelect: any;
-	selected: any;
-	// setOperation: any;
-	// setOperationType: any;
-	// setScamId: any;
-	// isOperation: boolean;
+	setSelect: Dispatch<SetStateAction<string>>;
+	selected: Array<string>;
 }
 
 const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, selected, setSelect }) => {
@@ -64,9 +64,6 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 									<button
 										className="bg-eccblue p-1 rounded-md text-white "
 										onClick={() => {
-											// setOperation(true);
-											// setOperationType("edit");
-											// setUserId(scam.scamId);
 											router.push({ pathname: "/admin/latest/scam-details", query: { id: scam.scamId } });
 										}}
 									>
@@ -75,13 +72,8 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 								</td>
 								<td>
 									<button
-										// disabled={isOperation}
 										className=""
-										onClick={() => {
-											// setOperation(true);
-											// setOperationType("delete");
-											// setUserId(user.userId);
-										}}
+										onClick={() => {}}
 									>
 										<img
 											src="../icons/admin-icons/delete.svg"

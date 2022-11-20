@@ -1,8 +1,9 @@
 import { useState } from "react";
 import PersonalInfoInputs from "./PersonalInfoInputs";
 import ScamInput from "./ScamInputGroup";
+import { Dispatch, SetStateAction } from "react";
 interface ScamOperationProps {
-	setShowing: any;
+	setShowing: Dispatch<SetStateAction<boolean>>;
 	action: string;
 }
 
@@ -48,16 +49,16 @@ const ScamOperation: React.FC<ScamOperationProps> = ({ setShowing, action }) => 
 
 					<div className={`w-full h-[60%] mt-4 ${section == "Personal Information" ? "block" : "hidden"}`}>
 						<PersonalInfoInputs
-							SocialMediaInputValues={""}
-							SocialMediaInputs={[]}
-							BankDetailsValues={null}
-							BankDetailsInput={[]}
-							PhoneNumberInputValues={""}
+							SocialMediaInputValues={{ input1: "" }}
+							SocialMediaInputs={["input1"]}
+							BankDetailsValues={{ input1: "" }}
+							BankDetailsInput={["input1"]}
+							PhoneNumberInputValues={{ input1: "" }}
 							Name=""
 							Email=""
-							PhoneNumberInputs={[]}
-							WebsiteInputValues={""}
-							WebsiteInputs={[]}
+							PhoneNumberInputs={["input1"]}
+							WebsiteInputValues={{ input1: "" }}
+							WebsiteInputs={["input1"]}
 							setData={setData}
 						/>
 					</div>

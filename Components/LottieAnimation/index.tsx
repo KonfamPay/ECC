@@ -1,4 +1,4 @@
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 
 
 interface LottieAnimationProps {
@@ -18,11 +18,12 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({ animationData, height
 
 	return (
 		<div>
-			<Lottie
+			{/* <Lottie
 				options={defaultOptions}
 				height={height}
 				width={width}
-			/>
+			/> */}
+			Loading...
 		</div>
 	);
 };

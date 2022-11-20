@@ -39,7 +39,7 @@ const fileComplaint: NextPage = () => {
 					setPage={setCurrentPage}
 					currentPage={currentPage}
 				/>
-				{/* <ComplaintLetterSection place="dashboard" /> */}
+
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: isOpaque ? 1 : 0 }}

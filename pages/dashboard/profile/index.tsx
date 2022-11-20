@@ -3,19 +3,15 @@ import ProfileCard from "../../../Components/DashboardComponents/DashboardProfil
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import ComplaintsCardSection from "../../../Sections/ComplaintsCardSection";
 
-const profile: NextPage = (props) => {
+const profile: NextPage = () => {
 	return (
 		<div>
 			<NavWrapper>
 				<div className="">
 					<div className="lg:block hidden">
-						<div className="flex flex-row w-full justify-evenly">
-							<div className="w-[60%]">
-								<ProfileCard />
-							</div>
-							<div className="w-[30%]">
-								<ComplaintsCardSection />
-							</div>
+						<div className="grid grid-cols-[auto_438px] gap-x-[50px] w-full">
+							<ProfileCard />
+							<ComplaintsCardSection />
 						</div>
 					</div>
 

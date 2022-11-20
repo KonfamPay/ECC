@@ -4,7 +4,7 @@ import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import { useState } from "react";
 import ComplaintList from "../../../Components/DashboardComponents/DashboardProfile/ComplaintList";
 
-const mycomplaints: NextPage = (props) => {
+const mycomplaints: NextPage = () => {
 	const [page, setPage] = useState("All");
 	const [pageNumber, setPageNumber] = useState(1);
 	return (

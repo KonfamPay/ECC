@@ -1,8 +1,10 @@
+import { Dispatch, SetStateAction } from "react";
+
 interface InputGroupProps {
 	label: string;
 	errors: string;
 	value: string;
-	setValue: any;
+	setValue: Dispatch<SetStateAction<string>>;
 }
 
 const OperationsInput: React.FC<InputGroupProps> = ({ label, errors, value, setValue }) => {

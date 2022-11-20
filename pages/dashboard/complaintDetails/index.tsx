@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import  { useRouter }  from "next/router";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import Resolution from "../../../Components/ResolutionWanted";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import TransactionDetails from "../../../Components/Complaint/TransactionDetails";
 
-const Mycomplaints: NextPage = (props) => {
+const Mycomplaints: NextPage = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [data, setData] = useState("");
 	const router = useRouter();
@@ -70,7 +70,7 @@ const Mycomplaints: NextPage = (props) => {
 							</div>
 							<div className="mt-[52px]">
 								<p className="text-eccblue text-[19.64px]">Resolution wanted:</p>
-								<div className="lg:grid w-full grid-cols-2 flex flex-col items-center justify-center">{Object.keys(complaint.resolutionWanted).map((resolution: string) => complaint.resolutionWanted[resolution] && <Resolution type={resolution} />)}</div>
+								<div className="lg:grid w-full grid-cols-2 flex flex-col items-center justify-center">{Object.values(complaint.resolutionWanted).map((value, index) => value && <Resolution type={Object.keys(complaint.resolutionWanted)[index]} />)}</div>
 							</div>
 							<div className="my-5">
 								<h5 className="text-eccblue m-auto">Uploaded Documents</h5>

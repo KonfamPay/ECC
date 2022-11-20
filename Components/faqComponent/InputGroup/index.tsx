@@ -1,8 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
 interface InputGroupProps {
 	label: string;
 	placeholder: string;
 	value: string;
-	setValue: any;
+	setValue: Dispatch<SetStateAction<string>>;
 	type: string;
 }
 

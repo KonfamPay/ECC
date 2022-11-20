@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
 import { FaqComponent, Footer, InputGroup, NavBar, SmallFaqComponent } from "../../Components";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+	const [email, setEmail] = useState("");
+	const [fullName, setFullName] = useState("");
 	return (
 		<div>
 			<NavBar />
@@ -131,15 +134,15 @@ const Home: NextPage = () => {
 								<InputGroup
 									label={"Full Name"}
 									placeholder={"Enter Legal Fisrt Name"}
-									value={""}
-									setValue={undefined}
+									value={fullName}
+									setValue={setFullName}
 									type={"text"}
 								/>
 								<InputGroup
 									label={"Email Address"}
 									placeholder={"Enter Email Address"}
-									value={""}
-									setValue={undefined}
+									value={email}
+									setValue={setEmail}
 									type={"text"}
 								/>
 							</div>
