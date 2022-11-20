@@ -22,7 +22,7 @@ const LatestScams: NextPage = () => {
 	const handleSearch = () => {
 		setResultIndicatorShowing(true);
 
-		const result = scamData.filter((item) => item.phoneNumber.includes(searchText) || item.socialMediaHandle.includes(searchText) || item.bankAccountDetails.includes(searchText) || item.website.includes(searchText));
+		const result = scamData.filter((item) => Object.values(item.phoneNumber).includes(searchText) || Object.values(item.socialMediaHandle).includes(searchText) || Object.values(item.bankAccountDetails).includes(searchText) || Object.values(item.website).includes(searchText));
 		if (result.length !== 0 && searchText.length !== 0) {
 			setSearchResults(result);
 			setAreSearchResults(true);
@@ -104,10 +104,10 @@ mt-[110px] "
 											key={index}
 										>
 											<td className="py-[16px]">{searchResults.indexOf(item) + 1}</td>
-											<td className="border-b-[#E6E7E9]">{item.socialMediaHandle}</td>
-											<td>{item.bankAccountDetails}</td>
-											<td>{item.website}</td>
-											<td>{item.phoneNumber}</td>
+											<td className="border-b-[#E6E7E9]">{item.socialMediaHandle.input1}</td>
+											<td>{item.bankAccountDetails.input1}</td>
+											<td>{item.website.input1}</td>
+											<td>{item.phoneNumber.input1}</td>
 										</tr>
 									))}
 								</tbody>

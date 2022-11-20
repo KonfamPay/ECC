@@ -1,8 +1,26 @@
 import { useState } from "react";
 import DeleteReplyButton from "../../Complaints/ComplaintDetails/DeleteReplyButton";
 import DetailsComponent from "./ComplaintDetailsComp/index";
+type Complaint = {
+	grievanceId: string;
+	title: string;
+	description: string;
+	date: string;
+	socialMediaHandle: string;
+	status: string;
+	productCategory: string;
+	resolutionWanted: {
+		refund: boolean;
+		compensation: boolean;
+		apology: boolean;
+		replacement: boolean;
+	};
+	companyName: string;
+	amountLost: string;
+	transactionLocation: string;
+};
 interface ComplaintDetailsProps {
-	complaints: any;
+	complaints: Array<Complaint>;
 	setShowing: any;
 }
 
@@ -12,7 +30,7 @@ const ScamComplaintDetails: React.FC<ComplaintDetailsProps> = ({ complaints, set
 	return (
 		<div className="flex flex-col items-center">
 			<div className="h-[60vh] w-full overflow-y-scroll ">
-				{complaints.map((complaint: any) => (
+				{complaints.map((complaint: Complaint) => (
 					<DetailsComponent
 						key={complaint.id}
 						isEdit={isEdit}
