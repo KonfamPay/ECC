@@ -72,7 +72,7 @@ const index: NextPage = (props) => {
 								/>
 							</div>
 						</div>
-						<div className="mt-[59px] ">
+						<div className="mt-[59px] px-[12px]">
 							<DashboardCard />
 						</div>
 					</div>
