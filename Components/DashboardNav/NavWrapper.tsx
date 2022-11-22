@@ -22,11 +22,11 @@ const NavWrapper: React.FC<NavWrapperProps> = ({ children }) => {
 			<div className="flex flex-col w-full h-full">
 				<TopNav openSide={openSide} />
 				<div className="lg:block hidden">
-					<div className="pl-[295px] pt-[126px] w-full h-screen min-h-screen min-w-screen bg-clearblue">
-						<div className={`px-[35px] pt-[35px] bg-clearblue  w-full min-h-[calc(100vh-126px)]  pb-[43px]`}>{children}</div>
+					<div className="pl-[295px] pt-[115px] w-full h-screen min-h-screen min-w-screen bg-clearblue">
+						<div className={`px-[30px] pt-[55px] bg-clearblue w-full min-h-[calc(100vh-126px)]  pb-[43px]`}>{children}</div>
 					</div>
 				</div>
-				<div className=" lg:hidden mt-[57.3px] min-h-screen w-full h-full bg-clearblue">{children}</div>
+				<div className=" lg:hidden px-3 mt-[37.7px] min-h-screen w-full h-full bg-clearblue">{children}</div>
 			</div>
 		</div>
 	);
