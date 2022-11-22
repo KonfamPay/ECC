@@ -25,7 +25,7 @@ const index: NextPage = () => {
 	const router = useRouter();
 	useEffect(() => {
 		if (!cookie.user) {
-			//router.replace("/login");
+			router.replace("/login");
 		} else {
 			setUser(cookie.user);
 			console.log(cookie.user);
