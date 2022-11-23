@@ -19,7 +19,7 @@ const TopNav = (props) => {
 	const currentDate = moment().format("ddd. Do MMMM, YYYY");
 	const [currentPath, setCurrentPath] = useState(router.pathname);
 	useEffect(() => {
-		if (!cookie.user) router.replace("/login");
+		// if (!cookie.user) router.replace("/login");
 		// console.log(user);
 		// setUser(cookie.user)
 	}, []);
