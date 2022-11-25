@@ -2,6 +2,7 @@ import { useState } from "react";
 import DeleteReplyButton from "../../Complaints/ComplaintDetails/DeleteReplyButton";
 import DetailsComponent from "./ComplaintDetailsComp/index";
 type Complaint = {
+	id: string;
 	grievanceId: string;
 	title: string;
 	description: string;
