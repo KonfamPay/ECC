@@ -20,6 +20,9 @@ module.exports = {
 				"complaint-success-text": "#079A04",
 				"complaint-success-border": "#52FF01",
 			},
+			backgroundImage: {
+				hourglass: "url('/images/hourglass.svg')",
+			},
 		},
 	},
 	variants: {
