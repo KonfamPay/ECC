@@ -40,7 +40,7 @@ a {
 	animation: carouselAnimation 30s linear infinite;
 }
 .testimonialSection {
-	background-image: url("../public/images/hourglass.svg");
+	/* background-image: url("../public/images/hourglass.svg"); */
 }
 @keyframes testimonialCarouselAnimation {
 	0% {
