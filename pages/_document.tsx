@@ -8,7 +8,6 @@ export default function Document() {
 			<body>
 				<Main />
 				<NextScript />
-				<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 				<script
 					src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
 					defer
