@@ -66,7 +66,8 @@ const Latest = () => {
 										setShowing(true);
 										setAction("add");
 									}}
-									className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
+									// className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
+									className={`h-[50px] ${"bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
 								>
 									<img
 										src="../icons/admin-icons/userPlus.svg"
