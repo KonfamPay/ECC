@@ -275,4 +275,3 @@ const StatisticsPage: NextPage = (props) => {
 };
 
 export default StatisticsPage;
-
