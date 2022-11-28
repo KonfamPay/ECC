@@ -44,7 +44,7 @@ const VerificationPage: NextPage = () => {
 			setProgress(0);
 			setSelectedFile(e.target.files[0]);
 			console.log(e.target.files[0].size);
-			let formData = new FormData();
+			const formData = new FormData();
 			formData.append("image", e.target.files[0]);
 			const url = `${process.env.NEXT_PUBLIC_BACKEND_HOST}image`;
 			const options = {
@@ -110,7 +110,7 @@ const VerificationPage: NextPage = () => {
 				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
 				photoIdUrl: "",
 			};
-			let firstError = details[0].path[0];
+			const firstError = details[0].path[0];
 			console.log(firstError);
 			if (firstError != "photoIdUrl") {
 				console.log(firstError);
@@ -159,12 +159,9 @@ const VerificationPage: NextPage = () => {
 					<p className="text-center text-[18px] lg:text-[40px] font-[500]">You will have to verify yourself before you continue </p>
 					<p className="text-center text-[20px] font-[300] mt-[30px]">
 						Already have an account?{" "}
-						<a
-							className="text-[#0B63C5] cursor-pointer"
-							href="/login"
-						>
-							Login
-						</a>
+						<Link href="/login">
+							<span className="text-[#0B63C5] cursor-pointer">Login</span>
+						</Link>
 					</p>
 				</div>
 				<div className="mt-[99px] mx-[12.5px] lg:mx-[109px]">
@@ -219,8 +216,9 @@ const VerificationPage: NextPage = () => {
 								>
 									Enter your Residential State
 								</option>
-								{states.map((state) => (
+								{states.map((state, index) => (
 									<option
+										key={index}
 										className="text-black"
 										value={state.name}
 									>
@@ -256,8 +254,9 @@ const VerificationPage: NextPage = () => {
 								</option>
 								{states
 									.find((item) => item.name == state)
-									?.lgas.map((state) => (
+									?.lgas.map((state, index) => (
 										<option
+											key={index}
 											className="text-black"
 											value={state}
 										>
