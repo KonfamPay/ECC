@@ -53,7 +53,7 @@ const WriteComplaintPage: NextPage = () => {
 								className="w-[18px] lg:w-[24px]"
 								src="./icons/calendar.svg"
 								alt=""
-								srcset=""
+								srcSet=""
 							/>
 						</div>
 						<p className="">, I purchased</p>
