@@ -75,8 +75,9 @@ const Mycomplaints: NextPage = () => {
 							<div className="my-5">
 								<h5 className="text-eccblue m-auto">Uploaded Documents</h5>
 								<div className="sm:flex ">
-									{documents.map((document) => (
+									{documents.map((document, index) => (
 										<img
+											key={index}
 											src={document.src}
 											alt={document.alt}
 											className="m-3"
