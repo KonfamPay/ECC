@@ -8,7 +8,7 @@ import ScamComplaintDetails from "../../../../Components/Admin/Latest/ScamDetail
 import ScamOperation from "../../../../Components/Admin/Latest/ScamOperation";
 import { ComplainDetailType, Scammer } from "./../../../../types/complaintTypes.d";
 
-const scamDetails = () => {
+const ScamDetails = () => {
 	const router = useRouter();
 	const scamId = router.query.id;
 	const [section, setSection] = useState("Personal Information");
@@ -92,4 +92,4 @@ const scamDetails = () => {
 	);
 };
 
-export default scamDetails;
+export default ScamDetails;
