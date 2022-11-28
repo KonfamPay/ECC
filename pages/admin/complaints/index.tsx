@@ -37,8 +37,9 @@ const Complaints = () => {
 					<h1 className="my-6 ml-4 text-[28px] font-semibold text-eccblue">{date == format(new Date(Date.now()), "yyyy-MM-dd") ? "Today" : date}</h1>
 					{ComplaintList.length > 0 &&
 						UserData.length > 0 &&
-						ComplaintList.map((complaint: ComplainDetailType) => (
+						ComplaintList.map((complaint: ComplainDetailType, index: number) => (
 							<ComplaintPill
+								key={index}
 								complaint={complaint}
 								users={UserData}
 							/>
