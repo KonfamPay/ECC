@@ -51,8 +51,6 @@ const LoginPage: NextPage = () => {
 				console.log(err);
 				try {
 					if (err.response.data.message) setBackendError(err.response.data.message);
-					else if (err.stat) {
-					}
 				} catch (err: any) {
 					alert("Something went wrong.");
 				}
