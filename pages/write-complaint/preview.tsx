@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { Footer, NavBar } from "../../Components";
 import { useState } from "react";
 
-const index: NextPage = () => {
+const WriteComplaintPreview: NextPage = () => {
 	const [shouldInclude, setShouldInclude] = useState(false);
 	const [shouldPurchase, setShouldPurchase] = useState(false);
 	const [entitleTo, setEntitleTo] = useState(false);
@@ -87,4 +87,4 @@ const index: NextPage = () => {
 	);
 };
 
-export default index;
+export default WriteComplaintPreview;
