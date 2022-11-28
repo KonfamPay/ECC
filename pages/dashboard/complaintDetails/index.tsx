@@ -64,7 +64,7 @@ const Mycomplaints: NextPage = () => {
 							<TransactionDetails />
 							<div className="mt-[14.13px]">
 								<div className="mt-[30px]">
-									<h6 className="text-[#0B63C5] border-b border-b-[#c5c5c5] text-[16px]  w-[100%] mb-3">Complaint's Description:</h6>
+									<h6 className="text-[#0B63C5] border-b border-b-[#c5c5c5] text-[16px]  w-[100%] mb-3">Complaint&apos;s Description:</h6>
 									<p className="sm:text-[20px] leading-[35px] text-[#474747] font-[300]">{complaint.description}</p>
 								</div>
 							</div>
