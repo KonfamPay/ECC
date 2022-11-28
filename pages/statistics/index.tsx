@@ -8,7 +8,7 @@ import scamStat from "./ChartData/ScamData";
 import genderStat from "./ChartData/genderData";
 import ageStat from "./ChartData/ageData";
 
-const index: NextPage = (props) => {
+const StatisticsPage: NextPage = (props) => {
 	const [showScam, setShowScam] = useState(false);
 	const [year, setYear] = useState(10);
 
@@ -274,4 +274,5 @@ const index: NextPage = (props) => {
 	);
 };
 
-export default index;
+export default StatisticsPage;
+
