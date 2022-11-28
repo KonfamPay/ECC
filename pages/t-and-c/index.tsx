@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Footer, NavBar } from "../../Components";
 import NavWrapper from "../../Components/DashboardNav/NavWrapper";
 
-const index: NextPage = () => {
+const TermsAndConditions: NextPage = () => {
 	const [isActive, setIsActive] = useState(true);
 	return (
 		<div>
@@ -256,4 +256,4 @@ const index: NextPage = () => {
 	);
 };
 
-export default index;
+export default TermsAndConditions;
