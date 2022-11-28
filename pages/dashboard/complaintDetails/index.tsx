@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import  { useRouter }  from "next/router";
+import { useRouter } from "next/router";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import Resolution from "../../../Components/ResolutionWanted";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
