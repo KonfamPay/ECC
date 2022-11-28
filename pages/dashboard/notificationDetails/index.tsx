@@ -1,12 +1,12 @@
 import { getServerSideProps } from "./../../../Components/NotificationItem/notificationData/index";
-import  { useRouter }  from "next/router";
+import { useRouter } from "next/router";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import { useContext } from "react";
 import { NotificationContext } from "../../../Components/Contexts/NotificationContext";
 import { Notification } from "../../../Components/Types";
 import { motion } from "framer-motion";
 
-const notificationDetails = () => {
+const NotificationDetails = () => {
 	const router = useRouter();
 	const notifiactionId = router.query.id;
 	const { notificationData } = useContext(NotificationContext);
@@ -16,7 +16,8 @@ const notificationDetails = () => {
 	return (
 		<NavWrapper>
 			<motion.div
-				initial={{opacity: 0, scale: 0.95}} animate={{opacity: 1, scale: 1, transition: {duration: 0.3}}}
+				initial={{ opacity: 0, scale: 0.95 }}
+				animate={{ opacity: 1, scale: 1, transition: { duration: 0.3 } }}
 				className="w-full h-[calc(100vh-211px)]
 			 bg-white rounded-[15px] lg:pt-[0px]  lg:overflow-hidden"
 			>
@@ -46,4 +47,4 @@ const notificationDetails = () => {
 	);
 };
 
-export default notificationDetails;
+export default NotificationDetails;

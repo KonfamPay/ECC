@@ -5,7 +5,7 @@ import { useState } from "react";
 import UserPersonalInfo from "../../../../Components/Admin/ManageUsers/userPersonalInfo";
 import ComplaintInfo from "./../../../../Components/Admin/ManageUsers/UserComplaintInfo/index";
 
-const userDetails = () => {
+const UserDetails = () => {
 	const router = useRouter();
 	const userId = router.query.id;
 	const [section, setSection] = useState("Personal Information");
@@ -73,4 +73,4 @@ const userDetails = () => {
 	);
 };
 
-export default userDetails;
+export default UserDetails;

@@ -17,7 +17,7 @@ interface User {
 	iat: number;
 }
 
-const index: NextPage = () => {
+const Index: NextPage = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const { fetchNotificationData } = useContext(NotificationContext);
 	const { user, setUser } = useContext(UserContext);
@@ -95,4 +95,4 @@ const index: NextPage = () => {
 	);
 };
 
-export default index;
+export default Index;
