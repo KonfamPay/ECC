@@ -12,7 +12,7 @@ import Page3 from "../../../Components/FileAComplaintComponents/Page3";
 
 import { motion } from "framer-motion";
 
-const fileComplaint: NextPage = () => {
+const FileComplaint: NextPage = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [productCategory, setProductCategory] = useState("");
 	const [titleOfComplaint, setTitleOfComplaint] = useState("");
@@ -105,4 +105,4 @@ const fileComplaint: NextPage = () => {
 	);
 };
 
-export default fileComplaint;
+export default FileComplaint;
