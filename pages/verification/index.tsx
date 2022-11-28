@@ -389,7 +389,7 @@ const VerificationPage: NextPage = () => {
 								src="icons/check.svg"
 								alt=""
 							/>{" "}
-							<p>Voter's Card</p>
+							<p>Voter&apos;s Card</p>
 						</li>
 						<li className="flex flex-row space-x-[37px]">
 							{" "}
