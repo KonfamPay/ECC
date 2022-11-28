@@ -41,14 +41,18 @@ const AdminLogin = () => {
 				setLoading(true);
 				//integration code
 				setOTPSent(true);
-			} catch (error) {}
+			} catch (error) {
+				console.log(error);
+			}
 		}
 	};
 
 	const onOtpSubmit = (e: React.MouseEvent<HTMLElement>) => {
 		try {
 			setOTPLoading(true);
-		} catch (error) {}
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
