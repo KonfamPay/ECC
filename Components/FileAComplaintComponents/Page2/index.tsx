@@ -9,7 +9,7 @@ interface Page2Props {
 }
 
 const Page2: React.FC<Page2Props> = ({ place, setCurrentPage, selectedFiles, setSelectedFiles, setIsOpaque }) => {
-	const filePickerRef = useRef(null);
+	const filePickerRef = useRef<HTMLInputElement>(null);
 	const addDocument = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const files = [...selectedFiles];
 		if (e.target.files) files.push(e.target.files[0]);
@@ -54,7 +54,7 @@ const Page2: React.FC<Page2Props> = ({ place, setCurrentPage, selectedFiles, set
 						src="../icons/paste.svg"
 						alt=""
 						className="mx-auto cursor-pointer w-[41px] lg:w-[150px] h-[41px] lg:h-[150px]"
-						onClick={() => filePickerRef.current.click()}
+						onClick={() => filePickerRef.current!.click()}
 					/>
 					<input
 						type="file"
@@ -69,7 +69,7 @@ const Page2: React.FC<Page2Props> = ({ place, setCurrentPage, selectedFiles, set
 							Click to upload your documents here {""}
 							<span
 								className="text-eccblue cursor-pointer"
-								onClick={() => filePickerRef.current.click()}
+								onClick={() => filePickerRef.current!.click()}
 							>
 								browse files
 							</span>
