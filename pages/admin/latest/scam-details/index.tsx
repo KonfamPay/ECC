@@ -16,7 +16,15 @@ const ScamDetails = () => {
 	const [action, setAction] = useState("add");
 
 	const scammer = ScamData.find((scammer: Scammer) => scammer.scamId == scamId);
-	const [scamData, setScamData] = useState({});
+	const [scamData, setScamData] = useState<Scammer>({
+		scamId: "", 
+		scammer: "", 
+		socialMediaHandle: { input1: "" },  
+		bankAccountDetails: { input1: "" },  
+		website: { input1: "" },  
+		phoneNumber: { input1: "" },  
+		
+	});
 	const [complaints, setComplaints] = useState<ComplainDetailType[]>([]);
 	useEffect(() => {
 		if (scammer) {
@@ -24,7 +32,15 @@ const ScamDetails = () => {
 			const complaints = ComplaintData.filter((complaint: ComplainDetailType) => complaint.companyName == scammer.scammer);
 			setComplaints(complaints);
 		} else {
-			setScamData({});
+			setScamData({
+				scamId: "", 
+				scammer: "", 
+				socialMediaHandle: { input1: "" },  
+				bankAccountDetails: { input1: "" },  
+				website: { input1: "" },  
+				phoneNumber: { input1: "" },  
+				
+			});
 			setComplaints([]);
 		}
 	}, [scammer]);
