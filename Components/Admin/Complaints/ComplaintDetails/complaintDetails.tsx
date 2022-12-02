@@ -18,7 +18,7 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 		//axios call to update the complaint object can go here
 	};
 	const handleDelete = () => {
-		console.log("")
+		console.log("");
 	};
 	const handleReply = () => {
 		setReplyShowing(true);
@@ -170,8 +170,8 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 						filledButtonText="Reply Complaint"
 						clearButtonText="Delete Complaint"
 						clearButtonIcon="../../Icons/admin-icons/trash.svg"
-						onClickDelete={handleDelete}
-						onClickReply={handleReply}
+						onClickDelete={() => {}}
+						onClickReply={() => setReplyShowing(true)}
 						clearBorderColour=""
 					/>
 				) : (
