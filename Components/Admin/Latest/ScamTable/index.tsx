@@ -7,7 +7,7 @@ interface TableProps {
 	ScamData: Array<Scammer>;
 	maxNumber: number;
 	pageNumber: number;
-	setSelect: Dispatch<SetStateAction<string>>;
+	setSelect: (id: string) => void;
 	selected: Array<string>;
 }
 
