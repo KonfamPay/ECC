@@ -16,6 +16,7 @@
 		"react/react-in-jsx-scope": "off",
 		"prettier/prettier": ["error", { "endOfLine": "auto", "useTabs": true }, { "usePrettierrc": true }],
 		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn"
+		"react-hooks/exhaustive-deps": "warn",
+		"react/prop-types": "off"
 	}
 }
