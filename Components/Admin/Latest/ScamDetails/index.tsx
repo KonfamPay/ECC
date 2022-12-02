@@ -1,27 +1,10 @@
 import { useState } from "react";
 import DeleteReplyButton from "../../Complaints/ComplaintDetails/DeleteReplyButton";
 import DetailsComponent from "./ComplaintDetailsComp/index";
-type Complaint = {
-	id: string;
-	grievanceId: string;
-	title: string;
-	description: string;
-	date: string;
-	socialMediaHandle: string;
-	status: string;
-	productCategory: string;
-	resolutionWanted: {
-		refund: boolean;
-		compensation: boolean;
-		apology: boolean;
-		replacement: boolean;
-	};
-	companyName: string;
-	amountLost: string;
-	transactionLocation: string;
-};
+import { ComplainDetailType, Scammer } from "./../../../../types/complaintTypes.d";
+
 interface ComplaintDetailsProps {
-	complaints: Array<Complaint>;
+	complaints: Array<ComplainDetailType>;
 	setShowing: any;
 }
 
@@ -31,7 +14,7 @@ const ScamComplaintDetails: React.FC<ComplaintDetailsProps> = ({ complaints, set
 	return (
 		<div className="flex flex-col items-center">
 			<div className="h-[60vh] w-full overflow-y-scroll ">
-				{complaints.map((complaint: Complaint) => (
+				{complaints.map((complaint: ComplainDetailType) => (
 					<DetailsComponent
 						key={complaint.id}
 						isEdit={isEdit}

@@ -1,6 +1,6 @@
 import Wrapper from "../../../Components/Admin/Navs/navWrapper";
 import ComplaintsNavBar from "../../../Components/DashboardComponents/DashboardProfile/ComplaintsNavBar";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import UserData from "../../../Components/Admin/userData";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import ComplaintPill from "../../../Components/Admin/Complaints/ComplaintPill";
@@ -29,7 +29,7 @@ const Complaints = () => {
 					<div>
 						<DatePicker
 							selected={new Date(date)}
-							onChange={(date: string) => setDate(format(new Date(date), "yyyy-MM-dd"))}
+							onChange={(date: Date, event: SyntheticEvent<any, Event>) => setDate(format(new Date(date), "yyyy-MM-dd"))}
 						/>
 					</div>
 				</div>
