@@ -47,10 +47,7 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 										/>
 									</button>
 								</td>
-								<td
-									onClick={() => {}}
-									className="cursor-pointer flex flex-col"
-								>
+								<td className="cursor-pointer flex flex-col">
 									<p className="font-semibold">{scam.scammer}</p>
 									<p>{scam.website.input1}</p>
 								</td>
@@ -69,10 +66,7 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 									</button>
 								</td>
 								<td>
-									<button
-										className=""
-										onClick={() => {}}
-									>
+									<button className="">
 										<img
 											src="../icons/admin-icons/delete.svg"
 											alt=""
