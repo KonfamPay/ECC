@@ -18,9 +18,9 @@ interface OperationProps {
 	setOperation: Dispatch<SetStateAction<boolean>>;
 	userData: Array<User>;
 
-	addUser: (userObject: UserObject) => {};
-	editUser: (userObject: UserObject, userId: string) => {};
-	deleteUser: (userId: string) => {};
+	addUser: (userObject: any) => void;
+	editUser: (userObject: any, userId: string) => void;
+	deleteUser: (userId: string) => void;
 }
 
 const UserOperation: React.FC<OperationProps> = ({ deleteUser, editUser, addUser, userData, userId, operationType, setOperation }) => {
