@@ -1,7 +1,7 @@
 import { LoginInputGroup } from "../../../Components";
 import { useState } from "react";
 import { AsyncSubmitButton } from "../../../Components";
-import Joi from "joi-browser";
+import Joi from "joi";
 const AdminLogin = () => {
 	const [email, setEmail] = useState("");
 	const [OTPSent, setOTPSent] = useState(false);
@@ -31,8 +31,8 @@ const AdminLogin = () => {
 		const { error } = schema.validate({ email, password }, { abortEarly: false });
 		const errorObject = { ...errors };
 		if (error) {
-			errorObject.email = error.details.find((error: any) => error.path[0] == "email") ? error.details.find((error: any) => error.path[0] == "email").message : "";
-			errorObject.password = error.details.find((error: any) => error.path[0] == "password") ? error.details.find((error: any) => error.path[0] == "password").message : "";
+			errorObject.email = error.details.find((error: any) => error.path[0] == "email") ? error.details?.find((error: any) => error.path[0] == "email")!.message : "";
+			errorObject.password = error.details.find((error: any) => error.path[0] == "password") ? error.details.find((error: any) => error.path[0] == "password")!.message : "";
 			setErrors(errorObject);
 		} else {
 			setErrors({ email: "", password: "" });
