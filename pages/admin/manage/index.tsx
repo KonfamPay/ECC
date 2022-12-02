@@ -58,10 +58,10 @@ const Manage = () => {
 			userPhone: userObject.phone,
 			status: userObject.verify,
 			complaints: [],
-			state: userObject.state, 
-			lga: userObject.lga, 
-			nin: userObject.nin, 
-			userAddress: userObject.userAddress
+			state: userObject.state,
+			lga: userObject.lga,
+			nin: userObject.nin,
+			userAddress: userObject.userAddress,
 		};
 
 		userData1.unshift(UserObject);
