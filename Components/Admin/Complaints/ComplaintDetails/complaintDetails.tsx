@@ -17,7 +17,9 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 		complaint.status = status;
 		//axios call to update the complaint object can go here
 	};
-	const handleDelete = () => {};
+	const handleDelete = () => {
+		console.log("")
+	};
 	const handleReply = () => {
 		setReplyShowing(true);
 	};
