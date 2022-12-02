@@ -58,6 +58,10 @@ const Manage = () => {
 			userPhone: userObject.phone,
 			status: userObject.verify,
 			complaints: [],
+			state: userObject.state,
+			lga: userObject.lga,
+			nin: userObject.nin,
+			userAddress: userObject.userAddress,
 		};
 
 		userData1.unshift(UserObject);
@@ -94,7 +98,7 @@ const Manage = () => {
 						userId={currentUserId}
 						setOperation={setOperation}
 						userData={userData}
-						setUserData={userData}
+						// setUserData={userData}
 						addUser={addUser}
 						editUser={editUser}
 						deleteUser={deleteUser}
