@@ -17,13 +17,12 @@ const ScamDetails = () => {
 
 	const scammer = ScamData.find((scammer: Scammer) => scammer.scamId == scamId);
 	const [scamData, setScamData] = useState<Scammer>({
-		scamId: "", 
-		scammer: "", 
-		socialMediaHandle: { input1: "" },  
-		bankAccountDetails: { input1: "" },  
-		website: { input1: "" },  
-		phoneNumber: { input1: "" },  
-		
+		scamId: "",
+		scammer: "",
+		socialMediaHandle: { input1: "" },
+		bankAccountDetails: { input1: "" },
+		website: { input1: "" },
+		phoneNumber: { input1: "" },
 	});
 	const [complaints, setComplaints] = useState<ComplainDetailType[]>([]);
 	useEffect(() => {
@@ -33,13 +32,12 @@ const ScamDetails = () => {
 			setComplaints(complaints);
 		} else {
 			setScamData({
-				scamId: "", 
-				scammer: "", 
-				socialMediaHandle: { input1: "" },  
-				bankAccountDetails: { input1: "" },  
-				website: { input1: "" },  
-				phoneNumber: { input1: "" },  
-				
+				scamId: "",
+				scammer: "",
+				socialMediaHandle: { input1: "" },
+				bankAccountDetails: { input1: "" },
+				website: { input1: "" },
+				phoneNumber: { input1: "" },
 			});
 			setComplaints([]);
 		}
