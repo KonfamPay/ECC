@@ -12,7 +12,7 @@ interface FileAComplaintRadioProps {
 const index: React.FC<FileAComplaintRadioProps> = ({ iconPath, title, description, value, setValue }) => {
 	return (
 		<div
-			onClick={() => setValue(!value)}
+			onClick={() =>{ if (setValue) setValue(!value)}}
 			style={{ backgroundColor: value ? "#F1F7FE" : "white" }}
 			className="transition-[80ms] cursor-pointer relative border border-eccblue w-[full] rounded-xl"
 		>
@@ -31,7 +31,7 @@ const index: React.FC<FileAComplaintRadioProps> = ({ iconPath, title, descriptio
 				</div>
 			</div>
 			<div
-				onClick={() => setValue(!value)}
+				onClick={() => {if (setValue) setValue(!value)}}
 				style={{ borderColor: value ? "#005cc8" : "#4f4f4f" }}
 				className="transition-[80ms] cursor-pointer w-[20px] lg:w-[25px] h-[20px] lg:h-[25px] absolute right-[25px] bottom-[40%] lg:bottom-[35%] border rounded-full bg-transparent flex items-center justify-center"
 			>
