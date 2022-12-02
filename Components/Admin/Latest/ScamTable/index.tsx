@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { Scammer } from "./../../../../types/complaintTypes.d";
 
-import { Dispatch, SetStateAction } from "react";
-
 interface TableProps {
 	ScamData: Array<Scammer>;
 	maxNumber: number;
@@ -31,10 +29,10 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 						</tr>
 					</thead>
 					<tbody>
-						{ScamData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((scam: any) => (
+						{ScamData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((scam: any, index) => (
 							<tr
-								key={scam.id}
-								className="  border-y border-y-[#e4e4ef] bg-white"
+								key={index}
+								className="border-y border-y-[#e4e4ef] bg-white"
 							>
 								<td>
 									<button
