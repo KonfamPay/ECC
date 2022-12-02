@@ -20,8 +20,11 @@ const ComplaintStats: React.FC<statProps> = ({ stats }) => {
 	};
 	return (
 		<div className="w-full  flex flex-row justify-between    h-[193px]">
-			{stats.map((stat: Stats) => (
-				<div className="flex flex-col justify-around items-center w-[274px] bg-white rounded-md ">
+			{stats.map((stat: Stats, index) => (
+				<div
+					key={index}
+					className="flex flex-col justify-around items-center w-[274px] bg-white rounded-md "
+				>
 					<div className="flex flex-row gap-x-4 items-center">
 						<p className="text-[#8491A5] font-regular text-[16px]"> {stat.stat}</p>
 						<img

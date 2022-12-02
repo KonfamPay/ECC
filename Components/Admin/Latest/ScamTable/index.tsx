@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import { Scammer } from "./../../../../types/complaintTypes.d";
 
-import { Dispatch, SetStateAction } from "react";
-
 interface TableProps {
 	ScamData: Array<Scammer>;
 	maxNumber: number;
@@ -31,10 +29,10 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 						</tr>
 					</thead>
 					<tbody>
-						{ScamData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((scam: any) => (
+						{ScamData.slice(maxNumber * (pageNumber - 1), maxNumber * pageNumber).map((scam: any, index) => (
 							<tr
-								key={scam.id}
-								className="  border-y border-y-[#e4e4ef] bg-white"
+								key={index}
+								className="border-y border-y-[#e4e4ef] bg-white"
 							>
 								<td>
 									<button
@@ -49,10 +47,7 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 										/>
 									</button>
 								</td>
-								<td
-									onClick={() => {}}
-									className="cursor-pointer flex flex-col"
-								>
+								<td className="cursor-pointer flex flex-col">
 									<p className="font-semibold">{scam.scammer}</p>
 									<p>{scam.website.input1}</p>
 								</td>
@@ -71,10 +66,7 @@ const ScamTable: React.FC<TableProps> = ({ ScamData, maxNumber, pageNumber, sele
 									</button>
 								</td>
 								<td>
-									<button
-										className=""
-										onClick={() => {}}
-									>
+									<button className="">
 										<img
 											src="../icons/admin-icons/delete.svg"
 											alt=""
