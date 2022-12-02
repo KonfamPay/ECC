@@ -5,8 +5,8 @@ interface FileAComplaintRadioProps {
 	iconPath: string;
 	title: string;
 	description: string;
-	value: boolean;
-	setValue: Dispatch<SetStateAction<boolean>>;
+	value?: boolean;
+	setValue?: Dispatch<SetStateAction<boolean>>;
 }
 
 const index: React.FC<FileAComplaintRadioProps> = ({ iconPath, title, description, value, setValue }) => {
