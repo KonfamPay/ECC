@@ -18,8 +18,11 @@ const UserStats: React.FC<statProps> = ({ stats }) => {
 	};
 	return (
 		<div className="w-full rounded-md shadow-lg flex flex-row justify-around bg-white h-[193px]">
-			{stats.map((stat: Stats) => (
-				<div className="w-full h-full flex-row flex items-center justify-between ">
+			{stats.map((stat: Stats, index) => (
+				<div
+					key={index}
+					className="w-full h-full flex-row flex items-center justify-between "
+				>
 					<div className="flex flex-col justify-around h-full items-center w-[90%]  ">
 						<div className="flex flex-row gap-x-4 items-center">
 							<img

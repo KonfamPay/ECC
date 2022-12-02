@@ -1,4 +1,5 @@
 export interface ComplainDetailType {
+	id: string;
 	grievanceId: string;
 	title: string;
 	description: string;
@@ -6,7 +7,12 @@ export interface ComplainDetailType {
 	socialMediaHandle: string;
 	status: string;
 	productCategory: string;
-	resolutionWanted: { refund: boolean; compensation: boolean; apology: boolean; replacement: boolean };
+	resolutionWanted: {
+		refund: boolean;
+		compensation: boolean;
+		apology: boolean;
+		replacement: boolean;
+	};
 	companyName: string;
 	amountLost: string;
 	transactionLocation: string;

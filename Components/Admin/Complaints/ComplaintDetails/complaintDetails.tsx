@@ -17,7 +17,9 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 		complaint.status = status;
 		//axios call to update the complaint object can go here
 	};
-	const handleDelete = () => {};
+	const handleDelete = () => {
+		console.log("");
+	};
 	const handleReply = () => {
 		setReplyShowing(true);
 	};
@@ -67,8 +69,9 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 								<div className="flex flex-col fixed mt-8 items-center justify-center gap-y-2 h-auto w-[150px] rounded-md  px-4 py-4 border border-eccblue bg-white z-20">
 									{possibleStatus
 										.filter((status) => status !== complaint.status)
-										.map((status) => (
+										.map((status, index) => (
 											<div
+												key={index}
 												onClick={(e) => {
 													handleStatusChange(e.currentTarget.innerText);
 												}}
@@ -126,14 +129,14 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 			<div className="w-full flex flex-row  mb-[40px] items-center justify-between px-4 ">
 				<div className="flex flex-col w-[370px]  ">
 					<div className="border-b border-b-[#c5c5c5] text-[20px] text-eccblue">
-						<p>Company's/ Brands Name</p>
+						<p>Company&apos;s/ Brands Name</p>
 					</div>
 					<div className="">{complaint.companyName}</div>
 				</div>
 
 				<div className="flex flex-col w-[370px]  ">
 					<div className="border-b border-b-[#c5c5c5] text-[20px] text-eccblue">
-						<p>Company's/ Brands Social Media Handle</p>
+						<p>Company&apos;s/ Brands Social Media Handle</p>
 					</div>
 					<div className="">
 						<p>{complaint.socialMediaHandle}</p>
@@ -167,8 +170,8 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 						filledButtonText="Reply Complaint"
 						clearButtonText="Delete Complaint"
 						clearButtonIcon="../../Icons/admin-icons/trash.svg"
-						onClickDelete={handleDelete}
-						onClickReply={handleReply}
+						onClickDelete={() => {}}
+						onClickReply={() => setReplyShowing(true)}
 						clearBorderColour=""
 					/>
 				) : (
