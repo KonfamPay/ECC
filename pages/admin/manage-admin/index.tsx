@@ -1,18 +1,21 @@
-import ScamTable from "../../../Components/Admin/Latest/ScamTable";
 import Wrapper from "../../../Components/Admin/Navs/navWrapper";
-import ScamData from "../../../Components/LatestScams/ScamData";
-import { useState, useEffect } from "react";
-import PaginationSection from "../../../Components/LatestScams/PaginationSection";
-import SearchBar from "../../../Components/Admin/searchbar";
-import ScamOperation from "../../../Components/Admin/Latest/ScamOperation";
+import { useState, useEffect } from 'react';
+import AdminData from'../../../Components/Admin/adminData'
+import { Admin } from './../../../types/complaintTypes.d';
+import SearchBar from "Components/Admin/searchbar";
+import PaginationSection from "Components/LatestScams/PaginationSection";
+import AdminTable from "Components/Admin/ManageAdmin/AdminTable";
+import AdminOperation from './../../../Components/Admin/ManageAdmin/AdminOperations/index';
 
-const Latest = () => {
-	const [scamData, setScamData] = useState(ScamData);
+
+const ManageAdmin = () => {
+    const [adminData, setAdminData] = useState<Admin[]>(AdminData);
 	const [maxNumber, setMaxNumber] = useState(8);
 	const [pageNumber, setPageNumber] = useState(1);
 	const [isShowing, setShowing] = useState(false);
 	const [action, setAction] = useState("add");
 	const [value, setValue] = useState("");
+    const [adminId,setAdminId]= useState('')
 	const [selected, setSelected] = useState<string[]>([]);
 	const onSelect = (id: string) => {
 		let selectedItems: Array<string> = [];
@@ -27,30 +30,43 @@ const Latest = () => {
 	};
 	useEffect(() => {
 		function filterBySearch() {
-			const filteredData = scamData.filter((scam) => scam.website.input1.toLowerCase().includes(value.toLowerCase()) || scam.scammer.toLowerCase().includes(value.toLowerCase()) || scam.phoneNumber.input1.toLowerCase().includes(value.toLowerCase()));
+			const filteredData = adminData.filter((admin) => admin.email.includes(value)||admin.username.includes(value));
 			if (filteredData.length > 0) {
-				setScamData(filteredData);
-			} else setScamData(ScamData);
+				setAdminData(filteredData);
+			} else setAdminData(AdminData);
 			if (value.length === 0) {
-				setScamData(ScamData);
+				setAdminData(AdminData);
 			}
 			setPageNumber(1);
 		}
 
 		filterBySearch();
 	}, [value]);
+
+    const addAdmin=(adminObject:{ username:string
+        email:string})=>{
+            console.log('hello')
+
+    }
+
+    const deleteAdmin=(adminId: string)=>{
+    console.log('hello')
+    }
 	return (
 		<Wrapper>
 			<div>
 				{isShowing && (
-					<div className="w-full h-full">
-						<ScamOperation
-							setShowing={setShowing}
-							action={action}
+					<div className="w-full bg-transparent flex flex-col items-center h-screen">
+						<AdminOperation
+							setOperation={setShowing}
+							operationType={action}
+                            adminId={adminId}
+                            addUser={addAdmin}
+                            deleteUser={deleteAdmin}
 						/>
 					</div>
 				)}
-				{scamData.length > 0 && (
+				{adminData.length > 0 && (
 					<>
 						<div className="bg-white rounded-[15px]">
 							<div className="w-full h-[100px] flex flext-col items-center justify-between px-4">
@@ -61,13 +77,12 @@ const Latest = () => {
 									/>
 								</div>
 								<button
-									//disabled={isOperation}
+									disabled={isShowing}
 									onClick={() => {
 										setShowing(true);
 										setAction("add");
 									}}
-									// className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
-									className={`h-[50px] ${"bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
+									className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
 								>
 									<img
 										src="../icons/admin-icons/userPlus.svg"
@@ -76,10 +91,13 @@ const Latest = () => {
 									Add Scam
 								</button>
 							</div>
-							<ScamTable
+							<AdminTable
+                               setShowing={setShowing}
+                               setAction={setAction}
+                               setAdminId={setAdminId}
 								selected={selected}
 								setSelect={onSelect}
-								ScamData={scamData}
+								AdminData={adminData}
 								maxNumber={maxNumber}
 								pageNumber={pageNumber}
 							/>
@@ -88,28 +106,28 @@ const Latest = () => {
 									<div className="mb-6">
 										<PaginationSection
 											pageSize={true}
-											searchResults={scamData}
+											searchResults={adminData}
 											maxResultsPerPage={maxNumber}
 											currentSearchPage={pageNumber}
 											setCurrentSearchPage={setPageNumber}
-											numberOfPages={Math.ceil(scamData.length / maxNumber)}
+											numberOfPages={Math.ceil(adminData.length / maxNumber)}
 										/>
 									</div>
 								) : (
 									<div className="mb-6">
 										<PaginationSection
 											pageSize={false}
-											searchResults={scamData}
+											searchResults={adminData}
 											maxResultsPerPage={maxNumber}
 											currentSearchPage={pageNumber}
 											setCurrentSearchPage={setPageNumber}
-											numberOfPages={Math.ceil(scamData.length / maxNumber)}
+											numberOfPages={Math.ceil(adminData.length / maxNumber)}
 										/>
 									</div>
 								)}
 
 								<div>
-									<p>{`Showing ${(pageNumber - 1) * maxNumber + 1} to ${(pageNumber - 1) * maxNumber + 1 + (maxNumber - 1) > scamData.length ? scamData.length : (pageNumber - 1) * maxNumber + 1 + (maxNumber - 1)} of ${scamData.length}`}</p>
+									<p>{`Showing ${(pageNumber - 1) * maxNumber + 1} to ${(pageNumber - 1) * maxNumber + 1 + (maxNumber - 1) > adminData.length ? adminData.length : (pageNumber - 1) * maxNumber + 1 + (maxNumber - 1)} of ${adminData.length}`}</p>
 								</div>
 
 								<div className=" flex flex-row items-center">
@@ -136,4 +154,4 @@ const Latest = () => {
 	);
 };
 
-export default Latest;
+export default ManageAdmin;

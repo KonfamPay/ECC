@@ -40,7 +40,7 @@ const Index: NextPage = () => {
 				animate={{ opacity: 1, scale: 1, transition: { duration: 0.3 } }}
 				className="h-full"
 			>
-				<div className="pb-[50px]">
+				<div className="pt-0">
 					<div className="hidden lg:block">
 						<div className="bg-[#020D1B] w-full max-h-[255px] mt-10 rounded-[20px] flex flex-row justify-between items-center relative">
 							<div className="text-white pl-[23px] xl:pl-[43px] w-full flex flex-col justify-center">

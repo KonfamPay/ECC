@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState,Dispatch,SetStateAction } from "react";
+
 
 interface InputGroupProps {
 	label: string;
 	placeholder: string;
 	value: string;
-	setValue: any;
+	setValue: Dispatch<SetStateAction<string>>;
 	type: string;
 	errorMessage?: string;
 }

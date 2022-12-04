@@ -20,6 +20,8 @@ const getIcon = (iconName, stroke) => {
 			return <Analytics stroke={stroke} />;
 		case "Messages":
 			return <Messages stroke={stroke} />;
+		case "Manage Admin":
+			return <Analytics stroke={stroke} />;
 	}
 };
 
@@ -84,6 +86,13 @@ const SideNav = () => {
 							isActive={router.pathname === "/admin/analytics" ? true : false}
 							onClick={() => {
 								router.push("/admin/analytics");
+							}}
+						/>
+							<NavButton
+							text="Manage Admin"
+							isActive={router.pathname === "/admin/manage-admin" ? true : false}
+							onClick={() => {
+								router.push("/admin/manage-admin");
 							}}
 						/>
 						<NavButton
