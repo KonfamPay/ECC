@@ -8,8 +8,16 @@ import { UserContext } from "../Contexts/UserContext";
 import { motion } from "framer-motion";
 
 const NavTitle = ({ text }) => {
-	return <motion.p initial={{ opacity: 0, scale: 0.92 }} animate={{opacity: 1, scale: 1, transition: {duration: 0.2, ease: "easeIn"}}}  className="font-medium text-[24px] text-eccblue relative">{text}</motion.p>;
-}
+	return (
+		<motion.p
+			initial={{ opacity: 0, scale: 0.92 }}
+			animate={{ opacity: 1, scale: 1, transition: { duration: 0.2, ease: "easeIn" } }}
+			className="font-medium text-[24px] text-eccblue relative"
+		>
+			{text}
+		</motion.p>
+	);
+};
 
 const TopNav = (props) => {
 	const [cookie, setCookie] = useCookies(["user"]);
@@ -24,18 +32,18 @@ const TopNav = (props) => {
 		// setUser(cookie.user)
 	}, []);
 	useEffect(() => {
-		setCurrentPath(router.pathname)
-	}, [router.pathname])
+		setCurrentPath(router.pathname);
+	}, [router.pathname]);
 
 	const getCurrentPage = (currentPath) => {
 		// const currentPath = router.pathname;
-		if (currentPath && currentPath.startsWith("/dashboard/notification")) return <NavTitle text="My Notifications" />
+		if (currentPath && currentPath.startsWith("/dashboard/notification")) return <NavTitle text="My Notifications" />;
 		switch (currentPath) {
 			case "/dashboard":
 				return <NavTitle text="Dashboard" />;
-			case "/dashboard/notifications": 
+			case "/dashboard/notifications":
 				return <NavTitle text="My Notifications" />;
-			case "/dashboard/notificationDetails": 
+			case "/dashboard/notificationDetails":
 				return <NavTitle text="My Notifications" />;
 			case "/dashboard/profile":
 				return <NavTitle text="My Profile" />;

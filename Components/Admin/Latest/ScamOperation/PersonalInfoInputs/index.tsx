@@ -27,17 +27,17 @@ interface ComponentProps {
 	SocialMediaInputValues: { input1: string };
 }
 const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData, Email, BankDetailsInput, BankDetailsValues, WebsiteInputValues, WebsiteInputs, PhoneNumberInputValues, PhoneNumberInputs, SocialMediaInputValues, SocialMediaInputs, Name }) => {
-	const [bankDetailsInputs, setBankDetailsInputs] = useState(["input1"]);
-	const [bankDetailsValues, setBankDetailsValues] = useState({ input1: "" });
-	const [websiteInputs, setWebSitesInputs] = useState(["input1"]);
-	const [websiteInputValues, setWebsiteInputValues] = useState({ input1: "" });
-	const [phoneNumberInputs, setPhoneNumberInputs] = useState(["input1"]);
-	const [phoneNumberInputValues, setPhoneNUmberInputVales] = useState({ input1: "" });
-	const [socialMediaInputs, setSocialMediaInputs] = useState(["input1"]);
-	const [socialMediaInputValues, setSocialMediaInputValues] = useState({ input1: "" });
-	const [name, setName] = useState("");
+	const [bankDetailsInputs, setBankDetailsInputs] = useState(BankDetailsInput);
+	const [bankDetailsValues, setBankDetailsValues] = useState(BankDetailsValues);
+	const [websiteInputs, setWebSitesInputs] = useState(WebsiteInputs);
+	const [websiteInputValues, setWebsiteInputValues] = useState(WebsiteInputValues);
+	const [phoneNumberInputs, setPhoneNumberInputs] = useState(PhoneNumberInputs);
+	const [phoneNumberInputValues, setPhoneNUmberInputVales] = useState(PhoneNumberInputValues);
+	const [socialMediaInputs, setSocialMediaInputs] = useState(SocialMediaInputs);
+	const [socialMediaInputValues, setSocialMediaInputValues] = useState(SocialMediaInputValues);
+	const [name, setName] = useState(Name);
 
-	const [email, setEmail] = useState("");
+	const [email, setEmail] = useState(Email);
 
 	const payload = {
 		bankDetails: bankDetailsValues,
@@ -53,7 +53,7 @@ const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData, Email, BankDeta
 	}, [phoneNumberInputValues, socialMediaInputValues, name, email, bankDetailsValues, websiteInputValues]);
 
 	const addInput = (field: string) => {
-		const addNew = (arrayofInputs: any, setArrayOfInputs: any, inputValues: any, setInputValues: any) => {
+		const addNew = (arrayofInputs: string[], setArrayOfInputs: Dispatch<SetStateAction<string[]>>, inputValues: any, setInputValues: any) => {
 			const arrayofInputsTest = [...arrayofInputs];
 			arrayofInputsTest.push(`input${arrayofInputs.length + 1}`);
 			setArrayOfInputs(arrayofInputsTest);
@@ -77,10 +77,10 @@ const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData, Email, BankDeta
 		}
 	};
 	const setInputValues = (e: any, field: string) => {
-		const handleChange = (inputValues: any, setInputValues: any) => {
+		const handleChange = (inputValues:{input1:string}, setInputValues:Dispatch<SetStateAction<{input1:string}>>) => {
 			const id = e.currentTarget.id;
 			const inputValuesTest = { ...inputValues };
-			inputValuesTest[id] = e.currentTarget.value;
+			Object.values(inputValues)[Object.keys(inputValues).indexOf(id)]= e.currentTarget.value;
 			setInputValues(inputValuesTest);
 		};
 		switch (field) {

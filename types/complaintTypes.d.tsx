@@ -58,3 +58,26 @@ export type NotificationData = {
 	additionalInfo: string;
 	time: string;
 };
+
+export type States ={
+	code:string,
+	name:string,
+	lgas:string[]
+	complaints:number
+	users:number
+
+}
+
+export type UserObject={
+	fullName:string,
+	userId:string,
+	profilePic:string
+	userEmail:string
+}
+
+export type Admin={
+	username:string
+	email:string
+	id:string
+	registered:string
+}

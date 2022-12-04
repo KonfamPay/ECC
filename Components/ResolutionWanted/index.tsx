@@ -3,11 +3,7 @@ import React from "react";
 interface ResolutionProps {
 	type: string;
 }
-// refund: true,
-// 			compensation: true,
-// 			apology: true,
-// 			replacement: true,
-//"../icons/dashboard-icons/compensation.svg"
+
 const Resolution: React.FC<ResolutionProps> = ({ type }) => {
 	const getResolution = () => {
 		switch (type) {
