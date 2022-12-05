@@ -3,6 +3,7 @@ import { Footer, NavBar } from "../../Components";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import { MutableRefObject } from "react";
 
 const WriteComplaintPage: NextPage = () => {
 	const [shouldInclude, setShouldInclude] = useState(false);
@@ -10,7 +11,7 @@ const WriteComplaintPage: NextPage = () => {
 	const [entitleTo, setEntitleTo] = useState(false);
 	const [showDateRange, setShowDateRange] = useState(false);
 	const [dateRange, setDateRange] = useState("");
-	const dateRef = useRef();
+	const dateRef:MutableRefObject<any> = useRef();
 
 	const HandleDateClick = () => dateRef.current.showPicker();
 	return (
