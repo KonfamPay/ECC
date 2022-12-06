@@ -17,7 +17,7 @@ import { useEffect } from "react";
 const Home: NextPage = () => {
 	useEffect(() => {
 		AOS.init();
-	}, [])
+	}, []);
 	return (
 		<div>
 			<Head>
