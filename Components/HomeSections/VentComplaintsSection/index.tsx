@@ -1,7 +1,7 @@
 import React from "react";
 import { VentComplaintsCardsContainer } from "../../../Components";
 
-const VentComplaintsSection: React.FC = (props) => {
+export const VentComplaintsSection: React.FC = (props) => {
 	return (
 		<>
 			<section className="bg-gradient-to-br from-eccblue via-eccblue to-[#0953A4] pb-[90px] pt-[60px] lg:pt-[120px]  gap-[100px]">
@@ -20,5 +20,3 @@ const VentComplaintsSection: React.FC = (props) => {
 		</>
 	);
 };
-
-export default VentComplaintsSection;

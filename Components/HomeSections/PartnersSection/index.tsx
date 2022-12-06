@@ -1,6 +1,7 @@
+import type { NextPage } from "next";
 import { PartnerBox } from "../../../Components";
 
-const PartnersSection: React.FC = (props) => {
+export const PartnersSection: NextPage = () => {
 	return (
 		<div className="lg:pt-[200px] xl:pt-[100px] pb-[100px] md:pb-[174px] overflow-hidden">
 			<h1
@@ -43,5 +44,3 @@ const PartnersSection: React.FC = (props) => {
 		</div>
 	);
 };
-
-export default PartnersSection;

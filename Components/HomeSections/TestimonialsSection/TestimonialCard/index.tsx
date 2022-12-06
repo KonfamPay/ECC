@@ -1,6 +1,7 @@
+import type { NextPage } from "next";
 import { IconContainer } from "../../../../Components";
 
-const TestimonialCard = () => {
+export const TestimonialCard: NextPage = () => {
 	return (
 		<div className="top-5 md:top-9 lg:top-32 xl:top-40 left-10 md:left-36 flex flex-row space-x-10 pt-[15px] md:pt-[20px] lg:pt-[55px]">
 			<div className="">
@@ -26,4 +27,3 @@ const TestimonialCard = () => {
 		</div>
 	);
 };
-export default TestimonialCard;

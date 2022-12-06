@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import ProfileCard from "../../../Components/DashboardComponents/DashboardProfile/ProfileCard";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
-import ComplaintsCardSection from "../../../Sections/ComplaintsCardSection";
+import ComplaintsCardSection from "../../../Components/ComplaintsCardSection";
 
 const Profile: NextPage = () => {
 	return (

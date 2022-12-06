@@ -1,6 +1,6 @@
-import React from "react";
+import type { NextPage } from "next";
 
-const PostaComplaint: React.FC = () => {
+export const PostaComplaint: NextPage = () => {
 	return (
 		<div className="lg:mt-48 bg-white items-center justify-center text-center relative">
 			<img
@@ -24,5 +24,3 @@ const PostaComplaint: React.FC = () => {
 		</div>
 	);
 };
-
-export default PostaComplaint;

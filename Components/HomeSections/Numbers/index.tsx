@@ -1,6 +1,6 @@
-import React from "react";
+import type { NextPage } from "next";
 
-const index: React.FC = () => {
+export const Numbers: NextPage = () => {
 	return (
 		<div className="mt-48 bg-[#010C18] pb-[80px] md:pb-0 pt-10 md:h-[687px] w-full">
 			<p
@@ -42,5 +42,3 @@ const index: React.FC = () => {
 		</div>
 	);
 };
-
-export default index;

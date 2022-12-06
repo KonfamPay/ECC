@@ -1,6 +1,7 @@
-import TestimonialCard from "./TestimonialCard";
+import type { NextPage } from "next";
+import { TestimonialCard } from "..";
 
-const index: React.FC = () => {
+export const Testimonials: NextPage = () => {
 	return (
 		<div className="relative xl:w-full object-cover pb-[80px] xl:pb-0 xl:h-[960px] bg-hourglass overflow-hidden">
 			{/* <img src="./images/hourglass.svg" className="xl:w-full h-full xl:h-[960px] left-0 absolute -z-20"/>  */}
@@ -27,5 +28,3 @@ const index: React.FC = () => {
 		</div>
 	);
 };
-
-export default index;

@@ -1,7 +1,7 @@
-import Image from "next/image";
+import type { NextPage } from "next";
 import { HowItWorksCard } from "../../../Components";
 
-const HowDoesItWork: React.FC = (props) => {
+export const HowDoesItWork: NextPage = (props) => {
 	return (
 		<div className="mt-[119px] mb-[62px]">
 			<div className="flex flex-col space-y-[30px] items-center justify-center mx-auto">
@@ -57,4 +57,3 @@ const HowDoesItWork: React.FC = (props) => {
 		</div>
 	);
 };
-export default HowDoesItWork;

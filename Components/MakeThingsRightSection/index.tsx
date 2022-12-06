@@ -1,4 +1,4 @@
-const MakeThingsRightSection = () => {
+export const MakeThingsRightSection = () => {
 	return (
 		<div className="bg-gradient-to-b from-darkblue to-[#010A13]">
 			<div className="flex flex-col items-center sm:px-[40px] lg:px-0 max-w-[1160px] mx-auto pt-[120px] pb-[181px]">
@@ -10,4 +10,3 @@ const MakeThingsRightSection = () => {
 		</div>
 	);
 };
-export default MakeThingsRightSection;

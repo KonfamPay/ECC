@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import type { NextPage } from "next";
 import { GoalCard } from "../../../Components/";
 
-const OurGoalsSection: React.FC = (props) => {
+export const OurGoalsSection: NextPage = () => {
 	const goalCardInfo = [
 		{
 			title: "Protect our customers",
@@ -40,4 +40,3 @@ const OurGoalsSection: React.FC = (props) => {
 		</div>
 	);
 };
-export default OurGoalsSection;
