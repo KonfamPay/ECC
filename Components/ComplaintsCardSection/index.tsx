@@ -1,4 +1,4 @@
-import { ComplaintsCard } from "../../Components";
+import { ComplaintsCard } from "..";
 import { useState, useEffect } from "react";
 import client from "../../pages/api/Services/AxiosClient";
 import { useCookies } from "react-cookie";

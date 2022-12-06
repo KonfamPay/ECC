@@ -4,7 +4,7 @@ import Details from "../PersonalDetails";
 import { useState, useEffect, useContext } from "react";
 import { format, parse } from "fecha";
 import { motion } from "framer-motion";
-import ComplaintsCardSection from "./../../../../Sections/ComplaintsCardSection/index";
+import ComplaintsCardSection from "../../../ComplaintsCardSection/index";
 import { useCookies } from "react-cookie";
 import { UserContext } from "../../../Contexts/UserContext";
 const Profile: NextPage = () => {

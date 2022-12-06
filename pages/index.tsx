@@ -1,18 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import OurGoalsSection from "../Sections/HomeSections/OurGoalsSection";
-import PartnersSection from "../Sections/HomeSections/PartnersSection";
-import VentComplaintsSection from "../Sections/HomeSections/VentComplaintsSection";
-import HeroSection from "../Sections/HomeSections/HeroSection";
+// import OurGoalsSection from "../Sections/HomeSections/OurGoalsSection";
+// import PartnersSection from "../Sections/HomeSections/PartnersSection";
+// import VentComplaintsSection from "../Sections/HomeSections/VentComplaintsSection";
+// import HeroSection from "../Sections/HomeSections/HeroSection";
 import styles from "../styles/Home.module.css";
 import { Footer, NavBar } from "../Components/";
-import PostaComplaint from "../Sections/HomeSections/PostaComplaint";
+// import PostaComplaint from "../Sections/HomeSections/PostaComplaint";
 import Complaints from "./Complaints";
-import Testimonials from "../Sections/HomeSections/TestimonialsSection";
-import Numbers from "../Sections/HomeSections/Numbers";
-import HowDoesItWork from "../Sections/HomeSections/HowDoesItWork";
+// import Testimonials from "../Sections/HomeSections/TestimonialsSection";
+// import Numbers from "../Sections/HomeSections/Numbers";
+// import HowDoesItWork from "../Sections/HomeSections/HowDoesItWork";
 import AOS from "aos";
 import { useEffect } from "react";
+import HeroSection from "Components/HomeSections/HeroSection";
+import HowDoesItWork from "Components/HomeSections/HowDoesItWork";
+import Numbers from "Components/HomeSections/Numbers";
+import OurGoalsSection from "Components/HomeSections/OurGoalsSection";
+import PartnersSection from "Components/HomeSections/PartnersSection";
+import PostaComplaint from "Components/HomeSections/PostaComplaint";
+import VentComplaintsSection from "Components/HomeSections/VentComplaintsSection";
+import Testimonials from "Components/HomeSections/TestimonialsSection";
 
 const Home: NextPage = () => {
 	useEffect(() => {
