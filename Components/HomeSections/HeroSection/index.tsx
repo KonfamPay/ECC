@@ -1,6 +1,6 @@
-import React from "react";
+import type { NextPage } from "next";
 
-const index: React.FC = () => {
+export const HeroSection: NextPage = () => {
 	return (
 		<div className="pt-48 mx-auto items-center justify-center text-center bg-clearblue">
 			<p className="mx-auto text-[30px] sm:text-4xl font-bold">
@@ -20,5 +20,3 @@ const index: React.FC = () => {
 		</div>
 	);
 };
-
-export default index;
