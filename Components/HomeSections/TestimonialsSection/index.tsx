@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import TestimonialCard from "./TestimonialCard";
+import { TestimonialCard } from "..";
 
 export const TestimonialsSection: NextPage = () => {
 	return (
