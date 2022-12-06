@@ -3,10 +3,8 @@ import { useContext, useState, useEffect } from "react";
 import { NotificationContext } from "../Contexts/NotificationContext";
 import { Notification } from "../Types";
 
-
 const Notifications: React.FC = () => {
 	const { newNotifications } = useContext(NotificationContext);
-
 
 	return (
 		<Link href="/dashboard/notifications">

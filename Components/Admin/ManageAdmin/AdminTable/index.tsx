@@ -52,10 +52,7 @@ const AdminTable: React.FC<TableProps> = ({ setShowing, setAdminId, setAction, A
 										/>
 									</button>
 								</td>
-								<td
-									onClick={() => {}}
-									className="cursor-pointer flex flex-col"
-								>
+								<td className="cursor-pointer flex flex-col">
 									<p className="font-semibold">{admin.username}</p>
 									<p>{admin.email}</p>
 								</td>

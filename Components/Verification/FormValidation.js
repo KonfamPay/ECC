@@ -13,8 +13,7 @@ export const validateVerifyInputs = (payload) => {
 		state: Joi.string().max(30).min(3).required().label("State"),
 		address: Joi.string().max(255).min(10).required().label("Address"),
 		NIN: Joi.string().required().max(11).min(11).label("NIN"),
-		firstName: Joi.string().required().label("First Name"),
-		lastName: Joi.string().required().label("Last Name"),
+
 		middleName: Joi.string().label("Middle Name"),
 	});
 	return schema.validate(payload, { abortEarly: false });

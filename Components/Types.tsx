@@ -9,4 +9,3 @@ export interface Notification {
 	userId: string;
 	status: string;
 }
-

@@ -11,6 +11,7 @@ import { format } from "date-fns";
 import { ComplainDetailType } from "./../../../types/complaintTypes.d";
 
 const Complaints = () => {
+	const [pageNumber, setPageNumber] = useState(1);
 	const [page, setPage] = useState("All");
 	const [date, setDate] = useState(format(new Date(Date.now()), "yyyy-MM-dd"));
 
