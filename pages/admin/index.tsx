@@ -7,7 +7,7 @@ import RecentActivity from "../../Components/Admin/Dashboard/RecentActivity";
 import RecentShares from "./../../Components/Admin/Dashboard/RecentShares/index";
 import Geographics from "../../Components/Admin/Dashboard/Geographics";
 import ComplaintGeographics from "../../Components/Admin/Dashboard/ComplaintGeographics";
-import { states } from "../verification/StatesAndLga";
+import { states } from "../../Components/Data/VerificationData/StatesAndLga";
 
 const Admin = () => {
 	return (

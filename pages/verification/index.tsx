@@ -4,7 +4,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Footer, NavBar } from "../../Components";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { states } from "./StatesAndLga";
+import { states } from "../../Components/Data/VerificationData/StatesAndLga";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { validateVerifyInputs } from "../../Components/Verification/FormValidation";
