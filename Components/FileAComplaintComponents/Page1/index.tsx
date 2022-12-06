@@ -149,10 +149,11 @@ const Page1: React.FC<Page1Props> = ({
 							}}
 						>
 							<p className="text-eccblue inline">here</p>
-						<img 
+							<img
 								src="../icons/chevron-down.svg"
-							className={`w-[22px] h-[22px] lg:w-[30px] lg:h-[30px] ${showing && "rotate-180"}`}
-							alt="" />
+								className={`w-[22px] h-[22px] lg:w-[30px] lg:h-[30px] ${showing && "rotate-180"}`}
+								alt=""
+							/>
 						</div>
 					</div>
 				</div>

@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import React, { ChangeEvent, useState,Dispatch,SetStateAction } from "react";
-
+import React, { ChangeEvent, useState, Dispatch, SetStateAction } from "react";
 
 interface InputGroupProps {
 	label: string;

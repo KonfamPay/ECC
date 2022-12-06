@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const MyProfileIcon = ({ stroke }) => {
 	return (
@@ -22,4 +22,4 @@ const MyProfileIcon = ({ stroke }) => {
 	);
 };
 
-export default MyProfileIcon
+export default MyProfileIcon;
