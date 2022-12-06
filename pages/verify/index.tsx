@@ -58,15 +58,15 @@ const VerificationPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber").message : "",
-				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob").message : "",
-				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state").message : "",
-				NIN: details.find((item: any) => item.path[0] == "NIN") ? details.find((item: any) => item.path[0] == "NIN").message : "",
-				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
-				photoIdUrl: details.find((item: any) => item.path[0] == "photoIdUrl") ? details.find((item: any) => item.path[0] == "photoIdUrl").message : "",
-				firstName: details.find((item: any) => item.path[0] == "firstName") ? details.find((item: any) => item.path[0] == "firstName").message : "",
-				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName").message : "",
-				middleName: details.find((item: any) => item.path[0] == "middleName") ? details.find((item: any) => item.path[0] == "middleName").message : "",
+				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber")!.message : "",
+				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob")!.message : "",
+				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state")!.message : "",
+				NIN: details.find((item: any) => item.path[0] == "NIN") ? details.find((item: any) => item.path[0] == "NIN")!.message : "",
+				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address")!.message : "",
+				photoIdUrl: details.find((item: any) => item.path[0] == "photoIdUrl") ? details.find((item: any) => item.path[0] == "photoIdUrl")!.message : "",
+				firstName: details.find((item: any) => item.path[0] == "firstName") ? details.find((item: any) => item.path[0] == "firstName")!.message : "",
+				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName")!.message : "",
+				middleName: details.find((item: any) => item.path[0] == "middleName") ? details.find((item: any) => item.path[0] == "middleName")!.message : "",
 			};
 			const firstError = details[0].path[0];
 			console.log(firstError);

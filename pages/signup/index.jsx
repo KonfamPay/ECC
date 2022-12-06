@@ -43,9 +43,9 @@ const SignupPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item) => item.path[0] == "email") ? details.find((item) => item.path[0] == "email").message : "",
-				password: details.find((item) => item.path[0] == "password") ? details.find((item) => item.path[0] == "password").message : "",
-				confirmPassword: details.find((item) => item.path[0] == "confirmPassword") ? details.find((item) => item.path[0] == "confirmPassword").message : "",
+				email: details.find((item) => item.path[0] == "email") ? details.find((item) => item.path[0] == "email")!.message : "",
+				password: details.find((item) => item.path[0] == "password") ? details.find((item) => item.path[0] == "password")!.message : "",
+				confirmPassword: details.find((item) => item.path[0] == "confirmPassword") ? details.find((item) => item.path[0] == "confirmPassword")!.message : "",
 			};
 			setErrors(errors);
 		} else if (!passwordsMatch(password, confirmPassword) && confirmPassword != "") {
