@@ -11,8 +11,13 @@ import Complaints from "./Complaints";
 import Testimonials from "../Sections/HomeSections/TestimonialsSection";
 import Numbers from "../Sections/HomeSections/Numbers";
 import HowDoesItWork from "../Sections/HomeSections/HowDoesItWork";
+import AOS from "aos";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+	useEffect(() => {
+		AOS.init();
+	}, [])
 	return (
 		<div>
 			<Head>
