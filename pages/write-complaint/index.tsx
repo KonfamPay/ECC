@@ -11,7 +11,7 @@ const WriteComplaintPage: NextPage = () => {
 	const [entitleTo, setEntitleTo] = useState(false);
 	const [showDateRange, setShowDateRange] = useState(false);
 	const [dateRange, setDateRange] = useState("");
-	const dateRef:MutableRefObject<any> = useRef();
+	const dateRef: MutableRefObject<any> = useRef();
 
 	const HandleDateClick = () => dateRef.current.showPicker();
 	return (

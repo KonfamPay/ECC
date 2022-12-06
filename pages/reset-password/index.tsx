@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
-import Joi from "joi-browser";
+import Joi from "joi";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
@@ -16,7 +16,7 @@ const ResetPassword: NextPage = () => {
 	const [loading, setLoading] = useState(false);
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const [errors, setErrors] = useState({
+	const [errors, setErrors] = useState<{ password: string | undefined; confirmPassword: string | undefined }>({
 		password: "",
 		confirmPassword: "",
 	});
@@ -33,8 +33,8 @@ const ResetPassword: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password").message : "",
-				confirmPassword: details.find((item: any) => item.path[0] == "confirmPassword") ? details.find((item: any) => item.path[0] == "confirmPassword").message : "",
+				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password")?.message : "",
+				confirmPassword: details.find((item: any) => item.path[0] == "confirmPassword") ? details.find((item: any) => item.path[0] == "confirmPassword")?.message : "",
 			};
 			if (!passwordsMatch && confirmPassword != "") errors.confirmPassword = "Confirm Password should be the same as Password";
 			console.log(passwordsMatch);

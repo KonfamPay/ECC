@@ -123,7 +123,7 @@ const Latest = () => {
 											max={9}
 											min={1}
 											value={maxNumber}
-											onChange={(e) =>parseInt(e.currentTarget.value)>0?setMaxNumber(parseInt(e.target.value)):setMaxNumber(8)}
+											onChange={(e) => (parseInt(e.currentTarget.value) > 0 ? setMaxNumber(parseInt(e.target.value)) : setMaxNumber(8))}
 										/>
 									</div>
 								</div>

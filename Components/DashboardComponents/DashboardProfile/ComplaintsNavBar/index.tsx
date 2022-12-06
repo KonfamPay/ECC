@@ -41,9 +41,9 @@ const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page, setPageNumber 
 			<div className="hidden lg:block">
 				<div className="bg-eccblue  rounded-t-[15px] h-[104px] w-full flex justify-center items-center">
 					<div className="mx-auto my-auto text-white py-[23.5px] flex flex-row space-x-[30px]">
-						{complaintsnavbarcontents.map((content,index) => (
+						{complaintsnavbarcontents.map((content, index) => (
 							<div
-							 key={index}
+								key={index}
 								onClick={() => {
 									setPage(content.text);
 									setPageNumber(1);
@@ -59,8 +59,9 @@ const complaintsnavbar: NextPage<navBarProps> = ({ setPage, page, setPageNumber 
 
 			<div className="bg-eccblue lg:hidden w-full flex items-center justify-center  h-[55px]">
 				<div className="flex flex-row items-center justify-around space-x-2">
-					{complaintsnavbarcontents.map((item) => (
+					{complaintsnavbarcontents.map((item, index) => (
 						<div
+							key={index}
 							onClick={() => {
 								setPage(item.text);
 							}}

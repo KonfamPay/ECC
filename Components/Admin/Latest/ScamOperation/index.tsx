@@ -13,7 +13,9 @@ const ScamOperation: React.FC<ScamOperationProps> = ({ setShowing, action }) => 
 	const [Data, setData] = useState({});
 	const [report, setReport] = useState("");
 
-	const fileSelectHandler = (e: any) => {};
+	const fileSelectHandler = (e: any) => {
+		return;
+	};
 	return (
 		<div className="w-[80%] bg-transparent fixed  z-40 h-full flex flex-col  items-center  ">
 			<div className="w-full h-auto pb-[60px]">

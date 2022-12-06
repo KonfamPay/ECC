@@ -22,7 +22,7 @@ const ComplaintList: React.FC<ComplaintProps> = ({ page, pageNumber, setPageNumb
 		<div className="w-full h-full mt-6 pb-6 px-2">
 			{list.length > -1 && list.length > 5 ? (
 				<ul className=" mx-auto">
-					{list.slice((pageNumber - 1) * maxNumber, maxNumber * pageNumber).map((complaint,index) => (
+					{list.slice((pageNumber - 1) * maxNumber, maxNumber * pageNumber).map((complaint, index) => (
 						<div key={index}>
 							<li
 								className="flex flex-col mx-auto ml-4 mb-6 cursor-pointer"
@@ -38,8 +38,9 @@ const ComplaintList: React.FC<ComplaintProps> = ({ page, pageNumber, setPageNumb
 				</ul>
 			) : (
 				<ul className=" mx-auto">
-					{list.map((complaint) => (
+					{list.map((complaint, index) => (
 						<li
+							key={index}
 							className="flex flex-col mx-auto ml-4 mb-6"
 							onClick={() => router.push("/dashboard/complaintDetails/" + complaint.grievanceId)}
 						>

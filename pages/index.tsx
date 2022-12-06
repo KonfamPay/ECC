@@ -7,7 +7,6 @@ import HeroSection from "../Sections/HomeSections/HeroSection";
 import styles from "../styles/Home.module.css";
 import { Footer, NavBar } from "../Components/";
 import PostaComplaint from "../Sections/HomeSections/PostaComplaint";
-import Complaints from "./complaints";
 import Testimonials from "../Sections/HomeSections/TestimonialsSection";
 import Numbers from "../Sections/HomeSections/Numbers";
 import HowDoesItWork from "../Sections/HomeSections/HowDoesItWork";
