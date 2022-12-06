@@ -32,7 +32,7 @@ const RecoverPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email").message : "",
+				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email")!.message : "",
 			};
 
 			setErrors(errors);
