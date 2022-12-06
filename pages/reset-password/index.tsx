@@ -33,8 +33,8 @@ const ResetPassword: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password")?.message : "",
-				confirmPassword: details.find((item: any) => item.path[0] == "confirmPassword") ? details.find((item: any) => item.path[0] == "confirmPassword")?.message : "",
+				password: details.find((item: any) => item.path[0] == "password") ? details.find((item: any) => item.path[0] == "password")!.message : "",
+				confirmPassword: details.find((item: any) => item.path[0] == "confirmPassword") ? details.find((item: any) => item.path[0] == "confirmPassword")!.message : "",
 			};
 			if (!passwordsMatch && confirmPassword != "") errors.confirmPassword = "Confirm Password should be the same as Password";
 			console.log(passwordsMatch);
