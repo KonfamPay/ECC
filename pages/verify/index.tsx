@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { states } from "./StatesAndLga";
+import { states } from "../../Components/Data/VerificationData/StatesAndLga.js";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { validateVerifyInputs } from "../../Components/Verification/FormValidation";
