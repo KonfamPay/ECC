@@ -29,11 +29,11 @@ const TransactionDetails = () => {
 				</div>
 
 				<div>
-					<h6 className="border-b border-b-[#c5c5c5] text-[16px] text-[#0B63C5] mb-3">Company's/Brand's Name:</h6>
+					<h6 className="border-b border-b-[#c5c5c5] text-[16px] text-[#0B63C5] mb-3">{"Company's/Brand's Name:"}</h6>
 					<p className="text-[#474747] mb-4 ">{complaint.companyName}</p>
 				</div>
 				<div>
-					<h6 className="border-b border-b-[#c5c5c5] text-[16px] text-[#0B63C5] mb-3">Company's / Brand's Contact:</h6>
+					<h6 className="border-b border-b-[#c5c5c5] text-[16px] text-[#0B63C5] mb-3">{"Company's / Brand's Contact:"}</h6>
 					<p className="text-[#474747] mb-4 ">{complaint.socialMediaHandle}</p>
 				</div>
 			</div>
