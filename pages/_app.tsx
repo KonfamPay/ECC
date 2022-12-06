@@ -9,7 +9,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import NotificationContextProvider from "../Components/Contexts/NotificationContext";
 import UserContextProvider from "../Components/Contexts/UserContext";
-import "tw-elements";
+// import "tw-elements";
 
 const queryClient = new QueryClient();
 function MyApp({ Component, pageProps, router }: AppProps) {
