@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Footer, NavBar } from "../Components/";
 import AOS from "aos";
 import { useEffect } from "react";
-import { HeroSection, HowDoesItWork, Numbers, OurGoalsSection, PartnersSection, PostaComplaint, VentComplaintsSection } from "../Components/HomeSections/";
+import { HeroSection, HowDoesItWork, Numbers, OurGoalsSection, PartnersSection, PostaComplaint, Testimonials, VentComplaintsSection } from "../Components/HomeSections/";
 
 const Home: NextPage = () => {
 	useEffect(() => {
