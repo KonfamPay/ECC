@@ -14,7 +14,7 @@ const RecoverPage: NextPage = () => {
 	const [email, setEmail] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [backendError, setBackendError] = useState("");
-	const [errors, setErrors] = useState({
+	const [errors, setErrors] = useState<{ email: string | undefined }>({
 		email: "",
 	});
 	const [validEmail, setValidEmail] = useState(true);

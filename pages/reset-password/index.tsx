@@ -16,7 +16,7 @@ const ResetPassword: NextPage = () => {
 	const [loading, setLoading] = useState(false);
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const [errors, setErrors] = useState({
+	const [errors, setErrors] = useState<{ password: string | undefined; confirmPassword: string | undefined }>({
 		password: "",
 		confirmPassword: "",
 	});

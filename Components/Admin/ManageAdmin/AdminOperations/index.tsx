@@ -2,31 +2,23 @@ import * as React from "react";
 import { useState } from "react";
 import OperationsInput from "../../ManageUsers/UserOperations/OperationsInputGroup/index";
 import { Dispatch, SetStateAction } from "react";
-import UserData from "./../../userData";
-import { User } from "./../../../../types/complaintTypes.d";
-import adminData from './../../adminData';
-
-
 
 interface OperationProps {
 	operationType: string;
-    adminId:string
-	
-	setOperation: Dispatch<SetStateAction<boolean>>;
-	
+	adminId: string;
 
-	addUser: (admin:{username:string,email:string})=>void;
-	
-	deleteUser:(id:string)=>void;
+	setOperation: Dispatch<SetStateAction<boolean>>;
+
+	addUser: (admin: { username: string; email: string }) => void;
+
+	deleteUser: (id: string) => void;
 }
 
-const AdminOperation: React.FC<OperationProps> = ({ deleteUser,  addUser,  operationType, setOperation, adminId }) => {
-	
-
+const AdminOperation: React.FC<OperationProps> = ({ deleteUser, addUser, operationType, setOperation, adminId }) => {
 	const [username, setUsername] = useState("");
-	const [email, setEmail] = useState( "");
-	
-	const admin = {username:username, email:email};
+	const [email, setEmail] = useState("");
+
+	const admin = { username: username, email: email };
 
 	return (
 		<div className="w-[40%] h-fit z-10 rounded-[15px] shadow-2xl py-4   bg-white fixed border border-solid  ">
@@ -70,7 +62,6 @@ const AdminOperation: React.FC<OperationProps> = ({ deleteUser,  addUser,  opera
 			) : (
 				<div className="w-full">
 					{operationType == "add" && <h1 className="text-center text-eccblue text-[18px] font-medium mb-4">Add a new Admin</h1>}
-					
 
 					<OperationsInput
 						label="Full Name:"
@@ -84,12 +75,9 @@ const AdminOperation: React.FC<OperationProps> = ({ deleteUser,  addUser,  opera
 						setValue={setEmail}
 						errors={""}
 					/>
-				
-					
-					
 
 					<div className="w-[90%] flex justify-end mt-4 mx-auto">
-						{operationType == "add" &&(
+						{operationType == "add" && (
 							<button
 								onClick={() => {
 									addUser(admin);
@@ -99,8 +87,8 @@ const AdminOperation: React.FC<OperationProps> = ({ deleteUser,  addUser,  opera
 							>
 								Add Admin
 							</button>
-                        )}
-						
+						)}
+
 						<button
 							onClick={() => {
 								setOperation(false);

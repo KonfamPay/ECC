@@ -12,8 +12,6 @@ const UserDetails = () => {
 
 	const user = UserData.filter((currentUser) => currentUser.userId == userId)[0];
 
-	const [userData, setUserData] = useState(user ? user : null);
-
 	return (
 		<Wrapper>
 			<div

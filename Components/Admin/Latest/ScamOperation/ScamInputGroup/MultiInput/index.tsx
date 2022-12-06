@@ -2,7 +2,7 @@ interface InputGroupProps {
 	label: string;
 	errors: string;
 	arrayOfInputs: string[];
-	setInputValues:  (e: any, field: string) => void;
+	setInputValues: (e: any, field: string) => void;
 	inputValues: any;
 	addInput: any;
 	field: string;

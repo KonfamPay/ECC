@@ -77,10 +77,10 @@ const PersonalInfoInputs: React.FC<ComponentProps> = ({ setData, Email, BankDeta
 		}
 	};
 	const setInputValues = (e: any, field: string) => {
-		const handleChange = (inputValues:{input1:string}, setInputValues:Dispatch<SetStateAction<{input1:string}>>) => {
+		const handleChange = (inputValues: { input1: string }, setInputValues: Dispatch<SetStateAction<{ input1: string }>>) => {
 			const id = e.currentTarget.id;
 			const inputValuesTest = { ...inputValues };
-			Object.values(inputValues)[Object.keys(inputValues).indexOf(id)]= e.currentTarget.value;
+			Object.values(inputValues)[Object.keys(inputValues).indexOf(id)] = e.currentTarget.value;
 			setInputValues(inputValuesTest);
 		};
 		switch (field) {

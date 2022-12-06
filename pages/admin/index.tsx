@@ -9,7 +9,6 @@ import Geographics from "../../Components/Admin/Dashboard/Geographics";
 import ComplaintGeographics from "../../Components/Admin/Dashboard/ComplaintGeographics";
 import { states } from "../verification/StatesAndLga";
 
-
 const Admin = () => {
 	return (
 		<Wrapper>
@@ -26,8 +25,8 @@ const Admin = () => {
 					<RecentShares />
 				</div>
 				<div className="w-full flex flex-row justify-between gap-x-6">
-					<Geographics states={states}/>
-					<ComplaintGeographics states={states}/>
+					<Geographics states={states} />
+					<ComplaintGeographics states={states} />
 				</div>
 			</div>
 		</Wrapper>

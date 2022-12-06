@@ -8,15 +8,14 @@ interface TableProps {
 	AdminData: Array<Admin>;
 	maxNumber: number;
 	pageNumber: number;
-	setSelect: (id:string)=>void;
+	setSelect: (id: string) => void;
 	selected: Array<string>;
-    setShowing: Dispatch<SetStateAction<boolean>>;
-    setAdminId: Dispatch<SetStateAction<string>>;
-    setAction: Dispatch<SetStateAction<string>>;
-    
+	setShowing: Dispatch<SetStateAction<boolean>>;
+	setAdminId: Dispatch<SetStateAction<string>>;
+	setAction: Dispatch<SetStateAction<string>>;
 }
 
-const AdminTable: React.FC<TableProps> = ({ setShowing,setAdminId,setAction,AdminData, maxNumber, pageNumber, selected, setSelect }) => {
+const AdminTable: React.FC<TableProps> = ({ setShowing, setAdminId, setAction, AdminData, maxNumber, pageNumber, selected, setSelect }) => {
 	const router = useRouter();
 	return (
 		<>
@@ -29,7 +28,6 @@ const AdminTable: React.FC<TableProps> = ({ setShowing,setAdminId,setAction,Admi
 							</th>
 							<th>Admins</th>
 							<th>Date Registered</th>
-							
 
 							<th></th>
 							<th></th>
@@ -62,8 +60,7 @@ const AdminTable: React.FC<TableProps> = ({ setShowing,setAdminId,setAction,Admi
 									<p>{admin.email}</p>
 								</td>
 
-								<td>{format(new Date(admin.registered),'MMMM dd, yyyy')}</td>
-								
+								<td>{format(new Date(admin.registered), "MMMM dd, yyyy")}</td>
 
 								<td>
 									<button
@@ -79,10 +76,10 @@ const AdminTable: React.FC<TableProps> = ({ setShowing,setAdminId,setAction,Admi
 									<button
 										className=""
 										onClick={() => {
-                                           setShowing(true)
-                                           setAdminId(admin.id)
-                                           setAction('delete')
-                                        }}
+											setShowing(true);
+											setAdminId(admin.id);
+											setAction("delete");
+										}}
 									>
 										<img
 											src="../icons/admin-icons/delete.svg"
