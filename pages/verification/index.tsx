@@ -10,8 +10,8 @@ import axios from "axios";
 import { validateVerifyInputs } from "../../Components/Verification/FormValidation";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
-import Testimonials from "../../Sections/HomeSections/TestimonialsSection";
 import VerificationInputGroup from "../../Components/Verification/VerificationInputGroup";
+import { Testimonials } from "Components/HomeSections";
 
 const VerificationPage: NextPage = () => {
 	const [lastName, setLastName] = useState("");

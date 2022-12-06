@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
+import JoinLawyersSection from "Components/JoinLawyersSection";
+import { MakeThingsRightSection } from "Components/MakeThingsRightSection";
+import { ResolveComplaintsSection } from "Components/ResolveComplaints";
 import { Footer } from "../../Components";
 import { NavBar } from "../../Components";
-import JoinLawyersSection from "../../Sections/JoinLawyersSection";
-import MakeThingsRightSection from "../../Sections/MakeThingsRightSection";
-import ResolveComplaintsSection from "../../Sections/ResolveComplaints";
 
 const LawPracitioners: NextPage = () => {
 	return (
