@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Joi from "joi-browser";
+import Joi from "joi";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
