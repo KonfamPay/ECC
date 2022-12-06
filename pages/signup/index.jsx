@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { GoogleLoginButton, LoginInputGroup } from "../../Components";
-import Joi from "joi-browser";
+import Joi from "joi";
 import { AnimatePresence, motion } from "framer-motion";
 import { AsyncSubmitButton } from "../../Components";
 import axios from "axios";

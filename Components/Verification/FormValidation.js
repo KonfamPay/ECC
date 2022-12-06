@@ -1,4 +1,4 @@
-import Joi from "joi-browser";
+import Joi from "joi";
 
 export const validateVerifyInputs = (payload) => {
 	const schema = Joi.object({
