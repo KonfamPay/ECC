@@ -26,7 +26,7 @@ const ScamOperation: React.FC<ScamOperationProps> = ({ setShowing, action }) => 
 					>
 						<img
 							className="w-[25px] h-[25px]"
-							src="../../Icons/admin-icons/x-close.svg"
+							src="../../icons/admin-icons/x-close.svg"
 							alt=""
 						/>
 					</div>
@@ -84,7 +84,7 @@ const ScamOperation: React.FC<ScamOperationProps> = ({ setShowing, action }) => 
 								<label htmlFor="file-input">
 									<div className="border w-[70px] cursor-pointer hover:scale-110 h-[70px] rounded-md flex justify-center items-center border-dashed border-eccblue">
 										<img
-											src="../Icons/admin-icons/plusButton.svg"
+											src="../icons/admin-icons/plusButton.svg"
 											alt=""
 										/>
 									</div>

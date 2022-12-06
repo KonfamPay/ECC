@@ -27,7 +27,7 @@ const MultiScamInput: React.FC<InputGroupProps> = ({ label, arrayOfInputs, setIn
 						))}
 					</div>
 					<button onClick={() => addInput(field)}>
-						<img src="../../../Icons/admin-icons/addButton.svg" />
+						<img src="../../../icons/admin-icons/addButton.svg" />
 					</button>
 				</div>
 			</div>

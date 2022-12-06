@@ -6,7 +6,7 @@ const TestimonialCard = () => {
 			<div className="">
 				<div className="relative">
 					<img
-						src="./images/man.png"
+						src="/Images/man.png"
 						alt=""
 						className="rounded-[15px] w-[200px] md:w-[250px] lg:w-[300px] xl:w-[467px] h-[300px] md:h-[350px] lg:h-[450px] xl:h-[650px]"
 					/>

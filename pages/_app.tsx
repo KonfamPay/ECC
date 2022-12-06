@@ -2,12 +2,14 @@ import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 
 import { CookiesProvider } from "react-cookie";
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import NotificationContextProvider from "../Components/Contexts/NotificationContext";
 import UserContextProvider from "../Components/Contexts/UserContext";
+import "tw-elements";
 
 const queryClient = new QueryClient();
 function MyApp({ Component, pageProps, router }: AppProps) {

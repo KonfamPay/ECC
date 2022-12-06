@@ -40,7 +40,7 @@ const DetailsComponent: React.FC<ComponentProps> = ({ complaint, isEdit }) => {
 							<label htmlFor="file-input">
 								<div className="border w-[70px] cursor-pointer hover:scale-110 h-[70px] rounded-md flex justify-center items-center border-dashed border-eccblue">
 									<img
-										src="../../Icons/admin-icons/plusButton.svg"
+										src="../../icons/admin-icons/plusButton.svg"
 										alt=""
 									/>
 								</div>

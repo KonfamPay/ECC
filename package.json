@@ -37,6 +37,7 @@
 		"react-leaflet": "^4.2.0",
 		"react-query": "^3.39.2",
 		"recharts": "^2.1.15",
+		"tw-elements": "^1.0.0-alpha13",
 		"victory": "^36.6.8"
 	},
 	"devDependencies": {

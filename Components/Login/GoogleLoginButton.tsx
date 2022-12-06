@@ -61,7 +61,7 @@ export const GoogleLoginButton = () => {
 			}}
 			className="cursor-pointer active:scale-[0.95] transition-[200ms] hover:scale-105 rounded-[10px] border-2 py-[17px] pl-[15px] pr-[28px] flex gap-x-[15px] items-center justify-center"
 		>
-			<img src="/Icons/googleIcon.svg" />
+			<img src="/icons/googleIcon.svg" />
 			<span className="text-[18px] opacity-[0.63]">Login with Google</span>
 		</div>
 	);

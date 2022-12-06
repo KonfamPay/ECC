@@ -164,12 +164,12 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 			<div className="w-full flex items-center justify-center pt-[40px]">
 				{!replyShowing ? (
 					<DeleteReplyButton
-						filledButtonTextIcon="../../Icons/admin-icons/undo.svg"
+						filledButtonTextIcon="../../icons/admin-icons/undo.svg"
 						clearButtonBgColour="bg-[#FFBDBD]"
 						clearButtonTextColour="text-[#ef2e2e]"
 						filledButtonText="Reply Complaint"
 						clearButtonText="Delete Complaint"
-						clearButtonIcon="../../Icons/admin-icons/trash.svg"
+						clearButtonIcon="../../icons/admin-icons/trash.svg"
 						onClickDelete={() => {
 							return;
 						}}
