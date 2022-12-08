@@ -4,7 +4,7 @@ import PartnersSection from "../Sections/HomeSections/PartnersSection";
 import VentComplaintsSection from "../Sections/HomeSections/VentComplaintsSection";
 import HeroSection from "../Sections/HomeSections/HeroSection";
 import styles from "../styles/Home.module.css";
-import { Footer, NavBar } from "../Components/";
+import { Footer, GoalCard, NavBar } from "../Components/";
 import PostaComplaint from "../Sections/HomeSections/PostaComplaint";
 import Complaints from "./Complaints";
 import Testimonials from "../Sections/HomeSections/TestimonialsSection";
@@ -41,7 +41,7 @@ const OurGoalsSection: React.FC = (props) => {
 			</h1>
 			<div className="mt-[50px] flex flex-col lg:flex-row justify-center items-center px-[30px] lg:px-0 gap-[20px] mb-[114px]">
 				{goalCardInfo.map((card, index) => (
-					<GoalCar
+					<GoalCard
 						title={card.title}
 						description={card.description}
 						iconPath={card.iconPath}
