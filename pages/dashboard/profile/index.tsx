@@ -9,12 +9,13 @@ const profile: NextPage = () => {
 			<NavWrapper>
 				<div className="">
 					<div className="lg:block hidden">
-						<div className="grid grid-cols-[auto_438px] gap-x-[50px] w-full">
+						<div className="grid xl:gap-x-[48px] xl:grid-cols-[auto_400px] w-full">
 							<ProfileCard />
-							<ComplaintsCardSection />
+							<div className="lg:hidden xl:block">
+								<ComplaintsCardSection />
+							</div>
 						</div>
 					</div>
-
 					<div className="lg:hidden">
 						<ProfileCard />
 					</div>
