@@ -47,7 +47,7 @@ const Home: NextPage = () => {
 					after you make payment for Instagram?
 				</p>
 				<img
-					src="./images/man-freaked-out.png"
+					src="/Images/man-freaked-out.png"
 					alt=""
 					className="mx-auto"
 				/>
