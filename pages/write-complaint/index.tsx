@@ -3,14 +3,15 @@ import { Footer, NavBar } from "../../Components";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import { MutableRefObject } from "react";
 
-const index: NextPage = () => {
+const WriteComplaintPage: NextPage = () => {
 	const [shouldInclude, setShouldInclude] = useState(false);
 	const [shouldPurchase, setShouldPurchase] = useState(false);
 	const [entitleTo, setEntitleTo] = useState(false);
 	const [showDateRange, setShowDateRange] = useState(false);
 	const [dateRange, setDateRange] = useState("");
-	const dateRef = useRef();
+	const dateRef:MutableRefObject<any> = useRef();
 
 	const HandleDateClick = () => dateRef.current.showPicker();
 	return (
@@ -53,7 +54,7 @@ const index: NextPage = () => {
 								className="w-[18px] lg:w-[24px]"
 								src="./icons/calendar.svg"
 								alt=""
-								srcset=""
+								srcSet=""
 							/>
 						</div>
 						<p className="">, I purchased</p>
@@ -279,4 +280,4 @@ const index: NextPage = () => {
 	);
 };
 
-export default index;
+export default WriteComplaintPage;

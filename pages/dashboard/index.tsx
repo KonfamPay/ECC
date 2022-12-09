@@ -17,20 +17,20 @@ interface User {
 	iat: number;
 }
 
-const index: NextPage = () => {
+const Index: NextPage = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const { fetchNotificationData } = useContext(NotificationContext);
 	const { user, setUser } = useContext(UserContext);
 
 	const router = useRouter();
 	useEffect(() => {
-		// if (!cookie.user) {
-		// 	router.replace("/login");
-		// } else {
-		// 	setUser(cookie.user);
-		// 	console.log(cookie.user);
-		// 	setInterval(() => fetchNotificationData(), 30000);
-		// }
+		if (!cookie.user) {
+			router.replace("/login");
+		} else {
+			setUser(cookie.user);
+			console.log(cookie.user);
+			setInterval(() => fetchNotificationData(), 30000);
+		}
 	}, []);
 
 	return (
@@ -95,4 +95,4 @@ const index: NextPage = () => {
 	);
 };
 
-export default index;
+export default Index;

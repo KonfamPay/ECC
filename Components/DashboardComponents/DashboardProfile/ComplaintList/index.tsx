@@ -22,8 +22,8 @@ const ComplaintList: React.FC<ComplaintProps> = ({ page, pageNumber, setPageNumb
 		<div className="w-full h-full mt-6 pb-6 px-2">
 			{list.length > -1 && list.length > 5 ? (
 				<ul className=" mx-auto">
-					{list.slice((pageNumber - 1) * maxNumber, maxNumber * pageNumber).map((complaint) => (
-						<>
+					{list.slice((pageNumber - 1) * maxNumber, maxNumber * pageNumber).map((complaint,index) => (
+						<div key={index}>
 							<li
 								className="flex flex-col mx-auto ml-4 mb-6 cursor-pointer"
 								onClick={() => {
@@ -33,7 +33,7 @@ const ComplaintList: React.FC<ComplaintProps> = ({ page, pageNumber, setPageNumb
 								<p className=" mt-2 text-[12px] lg:text-[16px] text-gray-500">{`${complaint.description.split(" ").splice(0, 12).join(" ")}...`}</p>
 								<div className={`mt-4 text-white text-[12px] w-[75px] flex items-center justify-center rounded-md h-[35px] p-2 ${complaint.status === "Open" && " bg-[#EF2E2E]"} ${complaint.status === "Resolved" && " bg-success"} ${complaint.status === "Closed" && " bg-[#666666]"} ${complaint.status === "Pending" && " bg-[#FFB330]"}`}>{complaint.status}</div>
 							</li>
-						</>
+						</div>
 					))}
 				</ul>
 			) : (

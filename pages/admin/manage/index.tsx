@@ -8,7 +8,7 @@ import UserData from "./../../../Components/Admin/userData";
 import SearchBar from "../../../Components/Admin/searchbar";
 import PaginationSection from "../../../Components/LatestScams/PaginationSection";
 import { format } from "date-fns";
-import { ComplainDetailType, User } from "./../../../types/complaintTypes.d";
+import { ComplainDetailType, User,UserObject } from "./../../../types/complaintTypes.d";
 
 const Manage = () => {
 	const [userData, setData] = useState(UserData);
@@ -47,7 +47,7 @@ const Manage = () => {
 		setSelected(selectedItems);
 	};
 	const addUser = (userObject: any) => {
-		const date: object = new Date();
+		
 		const userData1 = [...userData];
 		const UserObject = {
 			userId: (userData1.length + 1).toString(),
@@ -58,6 +58,10 @@ const Manage = () => {
 			userPhone: userObject.phone,
 			status: userObject.verify,
 			complaints: [],
+			state: userObject.state,
+			lga: userObject.lga,
+			nin: userObject.nin,
+			userAddress: userObject.userAddress,
 		};
 
 		userData1.unshift(UserObject);
@@ -87,18 +91,20 @@ const Manage = () => {
 	};
 	return (
 		<Wrapper>
-			<div className="w-full bg-[#f0f0f0] flex flex-col items-center h-screen">
+			<div className=''>
 				{isOperation && (
+					<div className="w-full bg-[#f0f0f0] flex flex-col items-center h-screen">
 					<UserOperation
 						operationType={operationType}
 						userId={currentUserId}
 						setOperation={setOperation}
 						userData={userData}
-						setUserData={userData}
+						// setUserData={userData}
 						addUser={addUser}
 						editUser={editUser}
 						deleteUser={deleteUser}
 					/>
+					</div>
 				)}
 
 				<div className="w-[90%] mx-auto h-full ">
@@ -181,7 +187,7 @@ const Manage = () => {
 												max={9}
 												min={1}
 												value={maxNumber}
-												onChange={(e) => setMaxNumber(parseInt(e.target.value))}
+												onChange={(e) =>parseInt(e.currentTarget.value)>0?setMaxNumber(parseInt(e.target.value)):setMaxNumber(8)}
 											/>
 										</div>
 									</div>

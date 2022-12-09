@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import  { useRouter }  from "next/router";
+import { useRouter } from "next/router";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import Resolution from "../../../Components/ResolutionWanted";
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
@@ -64,7 +64,7 @@ const Mycomplaints: NextPage = () => {
 							<TransactionDetails />
 							<div className="mt-[14.13px]">
 								<div className="mt-[30px]">
-									<h6 className="text-[#0B63C5] border-b border-b-[#c5c5c5] text-[16px]  w-[100%] mb-3">Complaint's Description:</h6>
+									<h6 className="text-[#0B63C5] border-b border-b-[#c5c5c5] text-[16px]  w-[100%] mb-3">Complaint&apos;s Description:</h6>
 									<p className="sm:text-[20px] leading-[35px] text-[#474747] font-[300]">{complaint.description}</p>
 								</div>
 							</div>
@@ -75,8 +75,9 @@ const Mycomplaints: NextPage = () => {
 							<div className="my-5">
 								<h5 className="text-eccblue m-auto">Uploaded Documents</h5>
 								<div className="sm:flex ">
-									{documents.map((document) => (
+									{documents.map((document, index) => (
 										<img
+											key={index}
 											src={document.src}
 											alt={document.alt}
 											className="m-3"

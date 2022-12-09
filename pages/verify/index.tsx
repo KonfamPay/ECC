@@ -68,7 +68,7 @@ const VerificationPage: NextPage = () => {
 				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName").message : "",
 				middleName: details.find((item: any) => item.path[0] == "middleName") ? details.find((item: any) => item.path[0] == "middleName").message : "",
 			};
-			let firstError = details[0].path[0];
+			const firstError = details[0].path[0];
 			console.log(firstError);
 			if (firstError != "photoIdUrl") {
 				console.log(firstError);
@@ -195,8 +195,9 @@ const VerificationPage: NextPage = () => {
 									>
 										Choose State
 									</option>
-									{states.map((state) => (
+									{states.map((state, index) => (
 										<option
+											key={index}
 											className="text-black"
 											value={state.name}
 										>

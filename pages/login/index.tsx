@@ -103,7 +103,7 @@ const LoginPage: NextPage = () => {
 					>
 						<p className="text-[36px] xl:text-[40px] text-center">Login to your account</p>
 						<p className="text-center mt-[20px] mb-[38px]">
-							Don't have an account?{" "}
+							Don&apos;t have an account?{" "}
 							<Link href="/signup">
 								<span className="text-eccblue cursor-pointer">Sign Up</span>
 							</Link>

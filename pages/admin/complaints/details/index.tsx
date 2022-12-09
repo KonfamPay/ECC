@@ -8,7 +8,7 @@ import ComplaintInfo from "./../../../../Components/Admin/ManageUsers/UserCompla
 import ComplaintDetails from "./../../../../Components/Admin/Complaints/ComplaintDetails/complaintDetails";
 import { ComplainDetailType, User } from "./../../../../types/complaintTypes.d";
 
-const userDetails = () => {
+const UserDetails = () => {
 	const router = useRouter();
 	const grievanceId = router.query.id;
 	const [complaint, setComplaint] = useState({});
@@ -59,4 +59,4 @@ const userDetails = () => {
 	);
 };
 
-export default userDetails;
+export default UserDetails;

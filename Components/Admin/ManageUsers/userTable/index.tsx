@@ -6,7 +6,7 @@ interface TableProps {
 	userData: User[];
 	maxNumber: number;
 	pageNumber: number;
-	select: (id: string) => {};
+	select: (id: string) => void;
 	selected: Array<string>;
 	setOperation: Dispatch<SetStateAction<boolean>>;
 	setOperationType: Dispatch<SetStateAction<string>>;

@@ -178,7 +178,7 @@ const RecoverPage: NextPage = () => {
 							</AnimatePresence>
 
 							<div
-								onClick={resendButtonDisabled ? () => {} : resendCode}
+								onClick={resendButtonDisabled ? () => null : resendCode}
 								style={{ opacity: resendButtonDisabled ? 0.6 : 1 }}
 								className="text-eccblue mt-[30px] mb-[40px] cursor-pointer focus:outline-0 max-w-[150px] text-left transition-all"
 							>

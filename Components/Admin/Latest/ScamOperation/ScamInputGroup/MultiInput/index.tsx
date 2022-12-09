@@ -1,8 +1,8 @@
 interface InputGroupProps {
 	label: string;
 	errors: string;
-	arrayOfInputs: any;
-	setInputValues: any;
+	arrayOfInputs: string[];
+	setInputValues:  (e: any, field: string) => void;
 	inputValues: any;
 	addInput: any;
 	field: string;
@@ -15,8 +15,9 @@ const MultiScamInput: React.FC<InputGroupProps> = ({ label, arrayOfInputs, setIn
 				<label className="font-regular text-eccblue text-[18px] ">{label}</label>
 				<div className="flex flex-row gap-x-3 items-start">
 					<div className="flex flex-col gap-y-1 t">
-						{arrayOfInputs.map((input: string) => (
+						{arrayOfInputs.map((input: string, index) => (
 							<input
+								key={index}
 								className="w-[250px] rounded-md border p-2 border-[#bdbcdb] h-[30px] focus:outline-none focus:border-eccblue"
 								id={input}
 								type="text"

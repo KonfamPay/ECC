@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Joi from "joi-browser";
+import Joi from "joi";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { AsyncSubmitButton, EmailModal, LoginInputGroup } from "../../Components/";
@@ -32,7 +32,7 @@ const LoginPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email").message : "",
+				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email")!.message : "",
 			};
 
 			setErrors(errors);
@@ -51,8 +51,6 @@ const LoginPage: NextPage = () => {
 				console.log(err);
 				try {
 					if (err.response.data.message) setBackendError(err.response.data.message);
-					else if (err.stat) {
-					}
 				} catch (err: any) {
 					alert("Something went wrong.");
 				}

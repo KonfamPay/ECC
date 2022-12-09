@@ -16,7 +16,7 @@ const TopNav = () => {
 				/>
 			</div>
 			<div className="flex flex-row gap-x-6  items-center">
-				<Notifications newNotifications={false} />
+				<Notifications />
 				<div className="flex flex-row items-center gap-x-4">
 					<div className="w-[30px] h-[30px] rounded-full overflow-hidden">
 						<img

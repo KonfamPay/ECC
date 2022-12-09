@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useState } from "react";
-import { GoogleLoginButton, LoginInputGroup } from "../../Components/";
+import { GoogleLoginButton, LoginInputGroup } from "../../Components";
 import Joi from "joi-browser";
 import { AnimatePresence, motion } from "framer-motion";
-import { AsyncSubmitButton } from "../../Components/";
+import { AsyncSubmitButton } from "../../Components";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useRouter } from "next/router";
-import client from "../api/Services/AxiosClient"
+import client from "../api/Services/AxiosClient";
 import { useQuery } from "react-query";
 import jwtDecode from "jwt-decode";
 
@@ -49,23 +49,21 @@ const SignupPage = () => {
 			};
 			setErrors(errors);
 		} else if (!passwordsMatch(password, confirmPassword) && confirmPassword != "") {
-			setErrors({...errors, confirmPassword : "Confirm Password should be the same as Password"})
-			console.log(passwordsMatch(password, confirmPassword));	
-		}		
-		else {
+			setErrors({ ...errors, confirmPassword: "Confirm Password should be the same as Password" });
+			console.log(passwordsMatch(password, confirmPassword));
+		} else {
 			setErrors({ email: "", password: "", confirmPassword: "" });
 			try {
 				setLoading(true);
 				const payload = { email, password };
 				const response = await client.post("/users", payload);
-				console.log(token)
+				console.log(token);
 				if (response.data.token) {
-					const user = jwtDecode(response.data.token)
-					setCookie("user", user)
-					router.push("/verify_email")
+					const user = jwtDecode(response.data.token);
+					setCookie("user", user);
+					router.push("/verify_email");
 				}
-				
-			} catch (err) { 
+			} catch (err) {
 				if (err.response.status == 500) alert("Something went wrong. Please check your internet connection");
 				else {
 					if (!err.response.data) alert("Something went wrong. Please check your internet connection");
@@ -74,7 +72,6 @@ const SignupPage = () => {
 			} finally {
 				setLoading(false);
 			}
-
 		}
 	};
 	return (
@@ -145,16 +142,16 @@ const SignupPage = () => {
 								/>
 							</div>
 							<AnimatePresence>
-							{backendError && (
-								<motion.p
-									initial={{ opacity: 0 }}
-									animate={{ opacity: 1 }}
-									exit={{opacity: 0}}
-									className="text-center my-[20px] text-[#ed4956]"
-								>
-									{backendError}
-								</motion.p>
-							)}
+								{backendError && (
+									<motion.p
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										className="text-center my-[20px] text-[#ed4956]"
+									>
+										{backendError}
+									</motion.p>
+								)}
 							</AnimatePresence>
 							<div className="mt-[43px]">
 								<AsyncSubmitButton
@@ -163,14 +160,14 @@ const SignupPage = () => {
 									loading={loading}
 								/>
 								<div className="flex items-center gap-x-[22px] mt-[40px] mb-[50px]">
-								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
-								<p className="text-[24px]">Or</p>
-								<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
-							</div>
-															<div className="grid grid-cols-2 gap-x-[45px]">
-								<GoogleLoginButton />
-								<GoogleLoginButton />
-							</div>
+									<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+									<p className="text-[24px]">Or</p>
+									<div className="w-full bg-[#9E9E9E] h-[2px]"></div>
+								</div>
+								<div className="grid grid-cols-2 gap-x-[45px]">
+									<GoogleLoginButton />
+									<GoogleLoginButton />
+								</div>
 							</div>
 						</form>
 					</motion.div>

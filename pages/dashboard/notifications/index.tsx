@@ -36,6 +36,7 @@ const NotificationsPage: NextPage<NotificationsPageProps> = () => {
 				<div className="pt-[39px] pb-[49px] bg-white flex flex-col gap-y-[40px] overflow-y-scroll h-[calc(100vh-280px)] custom-scrollbar">
 					{notificationData?.map((item: any, index: number) => (
 						<div
+							key={index}
 							onClick={() => {
 								router.push({ pathname: "/dashboard/notificationDetails", query: { id: item._id } });
 							}}

@@ -66,7 +66,8 @@ const Latest = () => {
 										setShowing(true);
 										setAction("add");
 									}}
-									className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
+									// className={`h-[50px] ${false ? "bg-[#838181]" : "bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
+									className={`h-[50px] ${"bg-eccblue"}  flex flex-row items-center gap-x-4 rounded-md text-white w-auto px-2`}
 								>
 									<img
 										src="../icons/admin-icons/userPlus.svg"
@@ -122,7 +123,7 @@ const Latest = () => {
 											max={9}
 											min={1}
 											value={maxNumber}
-											onChange={(e) => setMaxNumber(parseInt(e.target.value))}
+											onChange={(e) =>parseInt(e.currentTarget.value)>0?setMaxNumber(parseInt(e.target.value)):setMaxNumber(8)}
 										/>
 									</div>
 								</div>
