@@ -1,12 +1,11 @@
 import Wrapper from "../../../Components/Admin/Navs/navWrapper";
 import ComplaintsNavBar from "../../../Components/DashboardComponents/DashboardProfile/ComplaintsNavBar";
-import {  useState} from "react";
+import { useState } from "react";
 import UserData from "../../../Components/Admin/userData";
 import ComplaintData from "../../../Components/Complaint/ComplaintData";
 import ComplaintPill from "../../../Components/Admin/Complaints/ComplaintPill";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
 
 import { format } from "date-fns";
 import { ComplainDetailType } from "./../../../types/complaintTypes.d";
@@ -21,7 +20,6 @@ const Complaints = () => {
 	return (
 		<Wrapper>
 			<div>
-
 				<ComplaintsNavBar
 					setPage={setPage}
 					page={page}
@@ -30,11 +28,9 @@ const Complaints = () => {
 				<div className="w-full flex flex-row justify-end">
 					<div>
 						<DatePicker
-						   
 							selected={new Date(date)}
 							onChange={(date: Date) => setDate(format(new Date(date), "yyyy-MM-dd"))}
 						/>
-						
 					</div>
 				</div>
 				<div>

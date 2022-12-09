@@ -56,34 +56,34 @@ const Page3: React.FC<Page3Props> = ({ place, setCurrentPage, setIsOpaque, wants
 				<p className="text-[14px] lg:text-[24px] leading-[21px] lg:leading-[37px] font-[400]">Kindly let us know what you want the end of this process.</p>
 			</div>
 			<form action="">
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[36px] gap-y-[16px] lg:gap-y-[38px] mt-[19px] lg:mt-[40px]">
-						<div className="relative">
-							<FileAComplaintRadio
-								iconPath={"refund"}
-								title={"A Refund"}
-								description={"All expenses incurred will be returned to you"}
-								value={wantsRefund}
-								setValue={setWantsRefund}
-							/>
-						</div>
-						<div className="relative">
-							<FileAComplaintRadio
-								iconPath={"compensation"}
-								title={"A Compensation"}
-								description={"You will be compensated by the company"}
-								value={wantsCompensation}
-								setValue={setWantsCompensation}
-							/>
-						</div>
-						<div className="relative">
-							<FileAComplaintRadio
-								iconPath={"apology"}
-								title={"An Apology"}
-								description={"You will recieve a formal apology"}
-								value={wantsApology}
-								setValue={setWantsApology}
-							/>
-						</div>
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[36px] gap-y-[16px] lg:gap-y-[38px] mt-[19px] lg:mt-[40px]">
+					<div className="relative">
+						<FileAComplaintRadio
+							iconPath={"refund"}
+							title={"A Refund"}
+							description={"All expenses incurred will be returned to you"}
+							value={wantsRefund}
+							setValue={setWantsRefund}
+						/>
+					</div>
+					<div className="relative">
+						<FileAComplaintRadio
+							iconPath={"compensation"}
+							title={"A Compensation"}
+							description={"You will be compensated by the company"}
+							value={wantsCompensation}
+							setValue={setWantsCompensation}
+						/>
+					</div>
+					<div className="relative">
+						<FileAComplaintRadio
+							iconPath={"apology"}
+							title={"An Apology"}
+							description={"You will recieve a formal apology"}
+							value={wantsApology}
+							setValue={setWantsApology}
+						/>
+					</div>
 					<div className="relative">
 						<FileAComplaintRadio
 							iconPath={"replacement"}

@@ -11,7 +11,9 @@ const DetailsComponent: React.FC<ComponentProps> = ({ complaint, isEdit }) => {
 	const [report, setReport] = useState(complaint.description);
 	const [selectedFile, setSelectedFile] = useState({});
 
-	const fileSelectHandler = (e: any) => {};
+	const fileSelectHandler = (e: any) => {
+		return;
+	};
 	return (
 		<div className="h-full w-full flex flex-col items-center mb-6">
 			<div className="w-[70%] ">

@@ -4,9 +4,9 @@ import { Footer, KonfamPayCallout } from "../../Components";
 import { NavBar } from "../../Components";
 import Head from "next/head";
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryPie, VictoryTheme } from "victory";
-import scamStat from "./ChartData/ScamData";
-import genderStat from "./ChartData/genderData";
-import ageStat from "./ChartData/ageData";
+import scamStat from "../../Components/Data/ChartData/ScamData";
+import genderStat from "../../Components/Data/ChartData/genderData";
+import ageStat from "../../Components/Data/ChartData/ageData";
 
 const StatisticsPage: NextPage = (props) => {
 	const [showScam, setShowScam] = useState(false);

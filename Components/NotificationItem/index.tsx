@@ -7,7 +7,6 @@ interface NotificationItemProps {
 export const NotificationItem: React.FC<NotificationItemProps> = ({ title, message, time, type }) => {
 	const getType = (types: string) => {
 		if (types === "account") return "../icons/documentation.svg";
-		else if (types === "account") return "../icons/verification.svg";
 		else if (types === "open") return "../icons/fileRed.svg";
 		else if (types === "closed") return "../icons/fileGray.svg";
 		else if (types === "pending") return "../icons/fileOrange.svg";

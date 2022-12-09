@@ -88,7 +88,7 @@ const SideNav = () => {
 								router.push("/admin/analytics");
 							}}
 						/>
-							<NavButton
+						<NavButton
 							text="Manage Admin"
 							isActive={router.pathname === "/admin/manage-admin" ? true : false}
 							onClick={() => {

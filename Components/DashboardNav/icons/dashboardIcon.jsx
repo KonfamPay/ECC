@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const DashboardIcon = ({ stroke }) => {
 	return (
@@ -17,4 +17,4 @@ const DashboardIcon = ({ stroke }) => {
 	);
 };
 
-export default DashboardIcon
+export default DashboardIcon;

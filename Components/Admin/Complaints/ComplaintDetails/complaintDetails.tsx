@@ -170,7 +170,9 @@ const ComplaintDetails: React.FC<ComplaintProps> = ({ user, complaint }) => {
 						filledButtonText="Reply Complaint"
 						clearButtonText="Delete Complaint"
 						clearButtonIcon="../../Icons/admin-icons/trash.svg"
-						onClickDelete={() => {}}
+						onClickDelete={() => {
+							return;
+						}}
 						onClickReply={() => setReplyShowing(true)}
 						clearBorderColour=""
 					/>

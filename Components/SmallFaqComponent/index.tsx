@@ -6,7 +6,7 @@ interface faqComponentProps {
 	id: string;
 }
 
- export const SmallFaqComponent: React.FC<faqComponentProps> = ({ title, text, id }) => {
+export const SmallFaqComponent: React.FC<faqComponentProps> = ({ title, text, id }) => {
 	return (
 		<div className="relative border-b-[0.5px] border-b-[#cccccc] pt-[16px] first:pt-0 last:border-b-0">
 			<input

@@ -3,7 +3,7 @@ import ProfileCard from "../../../Components/DashboardComponents/DashboardProfil
 import NavWrapper from "../../../Components/DashboardNav/NavWrapper";
 import ComplaintsCardSection from "../../../Sections/ComplaintsCardSection";
 
-const profile: NextPage = () => {
+const Profile: NextPage = () => {
 	return (
 		<div>
 			<NavWrapper>
@@ -25,4 +25,4 @@ const profile: NextPage = () => {
 	);
 };
 
-export default profile;
+export default Profile;

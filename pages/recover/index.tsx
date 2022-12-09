@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Joi from "joi-browser";
+import Joi from "joi";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { AsyncSubmitButton, LoginInputGroup } from "../../Components/";
@@ -14,7 +14,7 @@ const RecoverPage: NextPage = () => {
 	const [email, setEmail] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [backendError, setBackendError] = useState("");
-	const [errors, setErrors] = useState({
+	const [errors, setErrors] = useState<{ email: string | undefined }>({
 		email: "",
 	});
 	const [validEmail, setValidEmail] = useState(true);
@@ -32,7 +32,7 @@ const RecoverPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email").message : "",
+				email: details.find((item: any) => item.path[0] == "email") ? details.find((item: any) => item.path[0] == "email")!.message : "",
 			};
 
 			setErrors(errors);

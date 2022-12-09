@@ -1,18 +1,62 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import OurGoalsSection from "../Sections/HomeSections/OurGoalsSection";
 import PartnersSection from "../Sections/HomeSections/PartnersSection";
 import VentComplaintsSection from "../Sections/HomeSections/VentComplaintsSection";
 import HeroSection from "../Sections/HomeSections/HeroSection";
 import styles from "../styles/Home.module.css";
-import { Footer, NavBar } from "../Components/";
+import { Footer, GoalCard, NavBar } from "../Components/";
 import PostaComplaint from "../Sections/HomeSections/PostaComplaint";
-import Complaints from "./complaints";
+import Complaints from "./Complaints";
 import Testimonials from "../Sections/HomeSections/TestimonialsSection";
 import Numbers from "../Sections/HomeSections/Numbers";
 import HowDoesItWork from "../Sections/HomeSections/HowDoesItWork";
+import AOS from "aos";
+import { useEffect } from "react";
+
+const OurGoalsSection: React.FC = (props) => {
+	const goalCardInfo = [
+		{
+			title: "Protect our customers",
+			description: "Safety & security tips, scam watch, guidelines to protect users from fraud and put an end to inustice.",
+			iconPath: "/images/shield.svg",
+		},
+		{
+			title: "Help our customers",
+			description: "Reach decision maker, send email, get attention from brand via social campaigns.",
+			iconPath: "/images/question.svg",
+		},
+		{
+			title: "Fight for our customers",
+			description: "Take legal action and approach Consumer forum with experienced lawyers.",
+			iconPath: "/images/sword.svg",
+		},
+	];
+	return (
+		<div>
+			<h1
+				data-aos="fade-up"
+				className=" text-[22px] px-[30px] md:text-[32px] font-semibold lg:font-medium poppinsFont max-w-[800px] text-center mx-auto mt-[72px] mb-[90px]"
+			>
+				We are solely bent on redefining customer-buyer relationships in Nigeria.
+			</h1>
+			<div className="mt-[50px] flex flex-col lg:flex-row justify-center items-center px-[30px] lg:px-0 gap-[20px] mb-[114px]">
+				{goalCardInfo.map((card, index) => (
+					<GoalCard
+						title={card.title}
+						description={card.description}
+						iconPath={card.iconPath}
+						key={index}
+					/>
+				))}
+			</div>
+		</div>
+	);
+};
 
 const Home: NextPage = () => {
+	useEffect(() => {
+		AOS.init();
+	}, []);
 	return (
 		<div>
 			<Head>
@@ -31,7 +75,22 @@ const Home: NextPage = () => {
 				></link>
 			</Head>
 			<NavBar searchIconIsPresent={true} />
-			<HeroSection />
+			<div className="pt-48 mx-auto items-center justify-center text-center bg-clearblue">
+				<p className="mx-auto text-[30px] sm:text-4xl font-bold">
+					Make & <span className="text-eccblue">resolve</span>
+					<br />
+					complaints easily
+				</p>
+				<p className="mt-4 font-medium sm:text-[14px] px-[15px] sm:px-[0]">
+					Hair vendor don block you <br />
+					after you make payment for Instagram?
+				</p>
+				<img
+					src="/Images/man-freaked-out.png"
+					alt=""
+					className="mx-auto"
+				/>
+			</div>
 			<OurGoalsSection />
 			<Numbers />
 			<VentComplaintsSection />

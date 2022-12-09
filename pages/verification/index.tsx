@@ -4,7 +4,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { Footer, NavBar } from "../../Components";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { states } from "./StatesAndLga";
+import { states } from "../../Components/Data/VerificationData/StatesAndLga";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import { validateVerifyInputs } from "../../Components/Verification/FormValidation";
@@ -101,13 +101,13 @@ const VerificationPage: NextPage = () => {
 		if (error) {
 			const { details } = error;
 			const errors = {
-				firstName: details.find((item: any) => item.path[0] == "firstName") ? details.find((item: any) => item.path[0] == "firstName").message : "",
-				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName").message : "",
-				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber").message : "",
-				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob").message : "",
-				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state").message : "",
-				lga: details.find((item: any) => item.path[0] == "lga") ? details.find((item: any) => item.path[0] == "lga").message : "",
-				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address").message : "",
+				firstName: details.find((item: any) => item.path[0] == "firstName") ? details.find((item: any) => item.path[0] == "firstName")!.message : "",
+				lastName: details.find((item: any) => item.path[0] == "lastName") ? details.find((item: any) => item.path[0] == "lastName")!.message : "",
+				phoneNumber: details.find((item: any) => item.path[0] == "phoneNumber") ? details.find((item: any) => item.path[0] == "phoneNumber")!.message : "",
+				dob: details.find((item: any) => item.path[0] == "dob") ? details.find((item: any) => item.path[0] == "dob")!.message : "",
+				state: details.find((item: any) => item.path[0] == "state") ? details.find((item: any) => item.path[0] == "state")!.message : "",
+				lga: details.find((item: any) => item.path[0] == "lga") ? details.find((item: any) => item.path[0] == "lga")!.message : "",
+				address: details.find((item: any) => item.path[0] == "address") ? details.find((item: any) => item.path[0] == "address")!.message : "",
 				photoIdUrl: "",
 			};
 			const firstError = details[0].path[0];

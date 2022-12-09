@@ -1,6 +1,5 @@
 const ComplaintData = [
 	{
-		
 		id: "12iveynv89yf9n9vnwin21nn",
 		grievanceId: "12iveynv89yf9n9vnwin21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -20,7 +19,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioinvrv9nhnwv821nn",
 		grievanceId: "12ioinvrv9nhnwv821nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -40,7 +38,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioiirwenj98vr9wnw81nn",
 		grievanceId: "12ioiirwenj98vr9wnw81nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -60,7 +57,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioiirwen9wr8u9rnv1nn",
 		grievanceId: "12ioiirwen9wr8u9rnv1nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -80,7 +76,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioiruewny8nrwe8y8n8wr1nn",
 		grievanceId: "12ioiruewny8nrwe8y8n8wr1nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -100,7 +95,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12io9re8un98vr9n8ryw21nn",
 		grievanceId: "12io9re8un98vr9n8ryw21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -120,7 +114,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioire8nu9wrnrn9821nn",
 		grievanceId: "12ioire8nu9wrnrn9821nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -140,7 +133,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1r98un9u8wn9hrn91nn",
 		grievanceId: "12ioi1r98un9u8wn9hrn91nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -160,7 +152,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12i9rmu8nwr99rvn21nn",
 		grievanceId: "12i9rmu8nwr99rvn21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -180,7 +171,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1rue8reonvnr98n",
 		grievanceId: "12ioi1rue8reonvnr98n",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -200,7 +190,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi12iywrhy7rwuywurnn",
 		grievanceId: "12ioi12iywrhy7rwuywurnn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -220,7 +209,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi98wrun8fu98wwvrrev1nn",
 		grievanceId: "12ioi98wrun8fu98wwvrrev1nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -240,7 +228,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12i98ewnry89yf9rn8n21nn",
 		grievanceId: "12i98ewnry89yf9rn8n21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -260,7 +247,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12iofwrn98fnrh9ynh9n21nn",
 		grievanceId: "12iofwrn98fnrh9ynh9n21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -280,7 +266,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioure89nu9frnh9wn91nn",
 		grievanceId: "12ioure89nu9frnh9wn91nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -300,7 +285,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12iowifrnhuifwhifwhfn8rhw21nn",
 		grievanceId: "12iowifrnhuifwhifwhfn8rhw21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -320,7 +304,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1iuwhrfnyw8wy21nn",
 		grievanceId: "12ioi1iuwhrfnyw8wy21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -340,7 +323,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1wrmf9rnu8wnfh21nn",
 		grievanceId: "12ioi1wrmf9rnu8wnfh21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -360,7 +342,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12iowhfnwnf8f1n2in21nn",
 		grievanceId: "12iowhfnwnf8f1n2in21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -380,7 +361,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1frhwnhwnfn21nn",
 		grievanceId: "12ioi1frhwnhwnfn21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -400,7 +380,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12iowerwofonyeru2in21nn",
 		grievanceId: "12iowerwofonyeru2in21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -420,7 +399,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12iofqfwy98wfin21nn",
 		grievanceId: "12iofqfwy98wfin21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -440,7 +418,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12iof3ih3498f9h9n21nn",
 		grievanceId: "12iof3ih3498f9h9n21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -460,7 +437,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1f3iy398y49fh39u21nn",
 		grievanceId: "12ioi1f3iy398y49fh39u21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -480,7 +456,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1f4hf8fuu4f8921nn",
 		grievanceId: "12ioi1f4hf8fuu4f8921nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -500,7 +475,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi134ifuh3498yf983yf1nn",
 		grievanceId: "12ioi134ifuh3498yf983yf1nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -520,7 +494,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1f4ih43fhy4f3n21nn",
 		grievanceId: "12ioi1f4ih43fhy4f3n21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -540,7 +513,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi12i34hg8f9jf39nn",
 		grievanceId: "12ioi12i34hg8f9jf39nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -560,7 +532,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi12894893u934tnn",
 		grievanceId: "12ioi12894893u934tnn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -580,7 +551,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi12io1n2eojwe099uwe90few",
 		grievanceId: "12ioi12io1n2eojwe099uwe90few",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -600,7 +570,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi1weiiewjojew09n21nn",
 		grievanceId: "12ioi1weiiewjojew09n21nn",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",
@@ -620,7 +589,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi12io1newwelwepfwe",
 		grievanceId: "12ioi12io1newwelwepfwe",
 		title: "whine joy",
@@ -640,7 +608,6 @@ const ComplaintData = [
 		transactionLocation: "Instagram",
 	},
 	{
-		
 		id: "12ioi12io1ewfknewono",
 		grievanceId: "12ioi12io1ewfknewono",
 		title: "An online vendor with insta handle @greggry.stores scammed me of #250,000 for intended for a weavon i never got",

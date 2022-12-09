@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import ComplaintsCardSection from "./../../../../Sections/ComplaintsCardSection/index";
 import { useCookies } from "react-cookie";
 import { UserContext } from "../../../Contexts/UserContext";
-const profile: NextPage = () => {
+const Profile: NextPage = () => {
 	const [cookie, setCookie] = useCookies(["user"]);
 	const { user, setUser } = useContext(UserContext);
 	useEffect(() => {
@@ -200,4 +200,4 @@ const profile: NextPage = () => {
 	);
 };
 
-export default profile;
+export default Profile;
