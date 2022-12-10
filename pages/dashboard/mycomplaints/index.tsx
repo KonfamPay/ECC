@@ -9,7 +9,7 @@ const Mycomplaints: NextPage = () => {
 	const [pageNumber, setPageNumber] = useState(1);
 	return (
 		<NavWrapper>
-			<div className="bg-white h-full pb-10">
+			<div className="bg-white h-full">
 				<ComplaintsNavBar
 					page={page}
 					setPage={setPage}

@@ -2,7 +2,7 @@ import React from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import leftArrow from "@icons/dashboard-icons/arrow-narrow-left.svg";
+import leftArrow from "@/icons/dashboard-icons/arrow-narrow-left.svg";
 
 const LandingPageCard: NextPage = () => {
 	const router = useRouter();
