@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import manFreakedOut from "@images/man-freaked-out-2.png";
+import manFreakedOut from "@/images/man-freaked-out-2.png";
 import { useState, useEffect, useContext } from "react";
 import DashboardCard from "../../Components/DashboardComponents/DashboardCard";
 import NavWrapper from "../../Components/DashboardNav/NavWrapper";
@@ -23,15 +23,15 @@ const Index: NextPage = () => {
 	const { user, setUser } = useContext(UserContext);
 
 	const router = useRouter();
-	useEffect(() => {
-		if (!cookie.user) {
-			router.replace("/login");
-		} else {
-			setUser(cookie.user);
-			console.log(cookie.user);
-			setInterval(() => fetchNotificationData(), 30000);
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!cookie.user) {
+	// 		router.replace("/login");
+	// 	} else {
+	// 		setUser(cookie.user);
+	// 		console.log(cookie.user);
+	// 		setInterval(() => fetchNotificationData(), 30000);
+	// 	}
+	// }, []);
 
 	return (
 		<NavWrapper>
@@ -40,7 +40,7 @@ const Index: NextPage = () => {
 				animate={{ opacity: 1, scale: 1, transition: { duration: 0.3 } }}
 				className="h-full"
 			>
-				<div className="pt-0">
+				<div className="pb-[50px]">
 					<div className="hidden lg:block">
 						<div className="bg-[#020D1B] w-full max-h-[255px] mt-10 rounded-[20px] flex flex-row justify-between items-center relative">
 							<div className="text-white pl-[23px] xl:pl-[43px] w-full flex flex-col justify-center">
@@ -62,7 +62,7 @@ const Index: NextPage = () => {
 							<DashboardCard />
 						</div>
 					</div>
-					<div className="lg:hidden block">
+					<div className="lg:hidden block px-3">
 						<div className="flex flex-row justify-center">
 							<div className="flex flex-col items-center w-full">
 								<div className="bg-[#020D1B] mt-12 rounded-[10px] h-fit flex flex-row justify-between items-center w-full">

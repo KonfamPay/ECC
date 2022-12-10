@@ -11,7 +11,7 @@ const ComplaintsCardSection = () => {
 		resolved: "",
 		closed: "",
 	});
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const fetchComplaintNumbers = async () => {
 		try {
 			setLoading(true);
@@ -26,7 +26,7 @@ const ComplaintsCardSection = () => {
 		fetchComplaintNumbers();
 	}, []);
 	return (
-		<div className="flex flex-col gap-y-[39px]">
+		<div className="flex flex-col gap-y-[16px] lg:gap-y-[20px] xl:gap-y-[25px]">
 			<ComplaintsCard
 				icon="/Images/pendingIcon.svg"
 				number={complaintNumbers.pending}
